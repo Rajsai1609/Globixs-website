@@ -1,0 +1,12 @@
+# Firebase App Hosting (Next.js)
+# Set DATABASE_URL, email, and admin credentials in the Firebase Console:
+# App Hosting → your backend → Settings → Environment variables
+# Console values override entries here. See:
+# https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  minInstances: 0
+  maxInstances: 20
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 1024

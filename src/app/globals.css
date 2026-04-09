@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand + neutrals tuned to Globixs logo (red + charcoal) */
+  --background: #f5f6f8;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --muted: #64748b;
+  --border: #dbe1ea;
+
+  --brand: #b01212;
+  --brand-dark: #861212;
+  --brand-soft: #feecec;
+
+  --hero: #0a1018;
+  --hero-2: #131c28;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-hero: var(--hero);
+  --color-brand: var(--brand);
+  --color-brandDark: var(--brand-dark);
+  --color-brandSoft: var(--brand-soft);
+  --color-hero2: var(--hero-2);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at 20% -5%, rgba(176, 18, 18, 0.04), transparent 26%),
+    radial-gradient(circle at 85% 15%, rgba(15, 23, 42, 0.05), transparent 22%);
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_22px_rgba(176,18,18,0.28)] transition duration-300 hover:-translate-y-0.5 hover:bg-brandDark hover:shadow-[0_14px_28px_rgba(134,18,18,0.34)];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-lg border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground transition duration-300 hover:-translate-y-0.5 hover:border-brand/20 hover:bg-brandSoft;
+}
+
+.section-pad {
+  @apply py-18 sm:py-22;
+}
+
+.alert-success {
+  @apply text-green-700;
+}
+
+.alert-error {
+  @apply text-brand;
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(1200px 500px at 85% -5%, rgba(176, 18, 18, 0.28), transparent 55%),
+    radial-gradient(900px 420px at 10% 100%, rgba(176, 18, 18, 0.16), transparent 60%),
+    linear-gradient(120deg, var(--hero), var(--hero-2));
+}
+
+.premium-card {
+  @apply rounded-2xl border border-border bg-surface shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(15,23,42,0.1)];
+}
+
+.media-card {
+  @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/5;
+}
+
+.media-card img {
+  @apply h-full w-full object-cover transition duration-700;
+}
+
+.media-card:hover img {
+  transform: scale(1.05);
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  animation: marquee-scroll 26s linear infinite;
+}
+
+.enterprise-panel {
+  @apply rounded-3xl border border-border bg-white shadow-[0_12px_32px_rgba(15,23,42,0.07)];
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }

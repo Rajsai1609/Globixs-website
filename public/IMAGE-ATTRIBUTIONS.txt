@@ -1,0 +1,24 @@
+Imagery in /services/, /tracks/, and /academy/ was downloaded from Unsplash
+(https://unsplash.com) under the Unsplash License (https://unsplash.com/license).
+
+You may use these photos without permission; crediting photographers is appreciated.
+To credit: open unsplash.com, search by image topic, or use Unsplash’s “Say thanks” on each photo page.
+
+Files and source photo timestamps (Unsplash CDN):
+  services/staff-augmentation.jpg    photo-1522071820081-009f0129c71c
+  services/it-consulting.jpg         photo-1542744173-8e7e53415bb0
+  services/managed-services.jpg      photo-1558494949-ef010cbdcc31
+  services/data-analytics.jpg        photo-1551288049-bebda4e38f71
+  services/release-engineering.jpg   photo-1618401471353-b98afee0b2eb
+  services/enterprise-reach.jpg      photo-1451187580459-43490279c0fa
+  tracks/restaurant.jpg              photo-1517248135467-4c7edcad34c4
+  tracks/healthcare.jpg              photo-1576091160399-112ba8d25d1d
+  tracks/home-services.jpg           photo-1621905252507-b35492cc74b4
+  tracks/real-estate.jpg             photo-1560518883-ce09059eeffa
+
+  academy/job-marketing.jpg         photo-1486312338219-ce68d2c6f44d
+  academy/interview-prep.jpg        photo-1573496359142-b8d87734a5a2
+  academy/hands-on-product.jpg      photo-1498050108023-c5249f4df085
+  academy/who-for.jpg               photo-1522202176988-66273c2fd55f
+
+Downloaded: 2026-04-08 for the Globixs corporate site.

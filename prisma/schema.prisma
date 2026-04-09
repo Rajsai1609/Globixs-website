@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  title       String
+  shortDesc   String
+  longDesc    String
+  category    String
+  icon        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Industry {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  name      String
+  summary   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum JobStatus {
+  DRAFT
+  OPEN
+  CLOSED
+  ARCHIVED
+}
+
+enum ApplicationStatus {
+  NEW
+  SCREENING
+  INTERVIEW
+  OFFER
+  REJECTED
+}
+
+model Job {
+  id          Int        @id @default(autoincrement())
+  slug        String     @unique
+  title       String
+  location    String
+  employmentType String
+  summary     String
+  description String
+  requirements String
+  status      JobStatus  @default(DRAFT)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  applications JobApplication[]
+}
+
+model JobApplication {
+  id           Int               @id @default(autoincrement())
+  jobId        Int?
+  job          Job?              @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  fullName     String
+  email        String
+  phone        String?
+  resumeUrl    String
+  message      String?
+  status       ApplicationStatus @default(NEW)
+  reviewNotes  String?
+  reviewedAt   DateTime?
+  createdAt    DateTime          @default(now())
+}
+
+model ResumeSubmission {
+  id         Int      @id @default(autoincrement())
+  fullName   String
+  email      String
+  phone      String?
+  resumeUrl  String
+  message    String?
+  createdAt  DateTime @default(now())
+}
+
+model ContactSubmission {
+  id           Int      @id @default(autoincrement())
+  fullName     String
+  company      String?
+  email        String
+  phone        String?
+  serviceInterest String?
+  message      String
+  createdAt    DateTime @default(now())
+}

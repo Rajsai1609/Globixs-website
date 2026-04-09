@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Globixs Technology Solutions Website
 
-## Getting Started
+A modern, responsive corporate website for a technology consulting and staffing company, built with:
 
-First, run the development server:
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- PostgreSQL + Prisma ORM
+- API route based form handling (contact, job application, general resume)
+- File upload support for resumes
+- Email notifications via SMTP
+
+## Features
+
+- Marketing pages: Home, About, Services, Industries, Staffing/Talent Solutions, Careers, Contact, Privacy Policy, Terms and Conditions
+- Dynamic routes:
+  - `services/[slug]`
+  - `careers/[slug]`
+- Careers supports:
+  - Empty state when no active jobs
+  - Active job listing cards when jobs are open
+  - General resume submission form always available
+  - Job application form on open role pages
+- Database-backed content and submissions:
+  - `Service`
+  - `Industry`
+  - `Job` with status (`DRAFT`, `OPEN`, `CLOSED`, `ARCHIVED`)
+  - `JobApplication`
+  - `ResumeSubmission`
+  - `ContactSubmission`
+- SEO:
+  - Metadata on all key pages
+  - Open Graph metadata
+  - `sitemap.xml` generation
+  - `robots.txt` generation
+
+## Project Structure
+
+- `src/app` - App Router pages and API routes
+- `src/components` - Reusable layout, section, and form components
+- `src/lib` - Data access, Prisma client, validation, spam protection, email, file storage
+- `prisma/schema.prisma` - Database schema
+- `prisma/seed.ts` - Seed script with sample services, industries, and jobs
+
+## Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create environment file:
+
+```bash
+cp .env.example .env
+```
+
+3. Start PostgreSQL with Docker Compose:
+
+```bash
+npm run db:up
+```
+
+4. Set your PostgreSQL connection in `.env`:
+
+```env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/corp_site?schema=public"
+```
+
+5. Generate Prisma client and push schema:
+
+```bash
+npm run db:generate
+npm run db:push
+```
+
+6. Seed sample data:
+
+```bash
+npm run db:seed
+```
+
+7. Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+8. (Optional) Stop database when done:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run db:down
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Form Handling & Uploads
 
-## Learn More
+- Contact form posts to `POST /api/contact`.
+- General resume form posts to `POST /api/resume-submissions`.
+- Job application form posts to `POST /api/job-applications`.
+- Resume files are stored under `public/uploads`.
+- Basic spam mitigation includes:
+  - honeypot field (`website`)
+  - submission timing check (`startedAt`)
 
-To learn more about Next.js, take a look at the following resources:
+## Admin-Friendly Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Jobs and service content are data-driven via database models.
+- Publishing/unpublishing jobs is controlled by `Job.status`.
+- Lightweight admin UI is available at:
+  - `/admin/jobs` for job status management
+  - `/admin/applications` for candidate review workflow
+- Admin access is protected by HTTP Basic auth using:
+  - `ADMIN_USERNAME`
+  - `ADMIN_PASSWORD`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Vercel Deployment Notes
 
-## Deploy on Vercel
+1. Create a PostgreSQL instance (Neon, Supabase, RDS, etc.).
+2. Add required environment variables in Vercel project settings:
+   - `DATABASE_URL`
+   - `EMAIL_FROM`
+   - `EMAIL_TO_CONTACT`
+   - `EMAIL_TO_CAREERS`
+   - `SMTP_HOST`
+   - `SMTP_PORT`
+   - `SMTP_USER`
+   - `SMTP_PASS`
+   - `ADMIN_USERNAME`
+   - `ADMIN_PASSWORD`
+3. On first deploy, run database setup:
+   - `npm run db:generate`
+   - `npm run db:push`
+   - `npm run db:seed` (optional)
+4. For production resume storage, switch from local disk to object storage (S3/R2/GCS) because serverless file systems are ephemeral.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Enhancements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Build a secure admin UI for services/jobs/content
+- Add CMS integration (Sanity/Contentful/Strapi)
+- Add ATS integration pipeline
+- Add CAPTCHA and rate limiting for stronger spam prevention
