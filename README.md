@@ -1,141 +1,158 @@
-# Globixs Technology Solutions Website
+# Globixs Corporate Site
 
-A modern, responsive corporate website for a technology consulting and staffing company, built with:
+Production-ready Next.js app for Globixs marketing pages, careers pipeline, and lightweight admin operations.
 
-- Next.js (App Router) + TypeScript
+## Tech Stack
+
+- Next.js App Router + TypeScript
 - Tailwind CSS
 - PostgreSQL + Prisma ORM
-- API route based form handling (contact, job application, general resume)
-- File upload support for resumes
-- Email notifications via SMTP
+- Nodemailer (SMTP)
+- GitHub Actions CI/CD + Vercel deployment workflow
 
-## Features
+## What Is Implemented
 
-- Marketing pages: Home, About, Services, Industries, Staffing/Talent Solutions, Careers, Contact, Privacy Policy, Terms and Conditions
-- Dynamic routes:
+### Marketing site
+
+- Pages: Home, About, Services, Industries, Staffing, Products, Academy, Careers, Contact, Privacy Policy, Terms
+- Dynamic pages:
   - `services/[slug]`
   - `careers/[slug]`
-- Careers supports:
-  - Empty state when no active jobs
-  - Active job listing cards when jobs are open
-  - General resume submission form always available
-  - Job application form on open role pages
-- Database-backed content and submissions:
-  - `Service`
-  - `Industry`
-  - `Job` with status (`DRAFT`, `OPEN`, `CLOSED`, `ARCHIVED`)
-  - `JobApplication`
-  - `ResumeSubmission`
-  - `ContactSubmission`
-- SEO:
-  - Metadata on all key pages
-  - Open Graph metadata
-  - `sitemap.xml` generation
-  - `robots.txt` generation
+- SEO support:
+  - route metadata + Open Graph
+  - `sitemap.xml`
+  - `robots.txt`
+
+### Careers + applications
+
+- Open jobs listing from database
+- Job detail pages for active roles
+- Application form with validation and success state
+- Candidate submissions stored in database
+- Internal review is handled in admin UI (no application email dependency for request success)
+
+### Admin operations
+
+- `/admin/jobs`:
+  - create/edit jobs
+  - manage status (`DRAFT`, `OPEN`, `CLOSED`, `ARCHIVED`)
+- `/admin/applications`:
+  - search/filter/paginate submissions
+  - update pipeline stage
+  - update internal notes
+- `/admin` is protected via HTTP Basic Auth using:
+  - `ADMIN_USERNAME`
+  - `ADMIN_PASSWORD`
+
+### Visual system
+
+- Service-aligned image sets for home/services sections
+- Academy-specific image set for step cards and audience block
+- Tab icon wired to `public/logo.png`
 
 ## Project Structure
 
-- `src/app` - App Router pages and API routes
-- `src/components` - Reusable layout, section, and form components
-- `src/lib` - Data access, Prisma client, validation, spam protection, email, file storage
-- `prisma/schema.prisma` - Database schema
-- `prisma/seed.ts` - Seed script with sample services, industries, and jobs
+- `src/app` - routes, layouts, API handlers
+- `src/components` - UI sections, forms, shared components
+- `src/lib` - data access, validation, email, utilities, visual mappings
+- `prisma/schema.prisma` - DB schema
+- `prisma/seed.ts` - initial sample records
+- `public/` - static assets (logos, photos, icons)
+- `docs/DEPLOYMENT.md` - CI/CD and deployment playbook
 
-## Setup
+## Local Setup
 
-1. Install dependencies:
+1. Install deps
 
 ```bash
 npm install
 ```
 
-2. Create environment file:
+2. Create env file
 
 ```bash
 cp .env.example .env
 ```
 
-3. Start PostgreSQL with Docker Compose:
+3. Start Postgres (Docker)
 
 ```bash
 npm run db:up
 ```
 
-4. Set your PostgreSQL connection in `.env`:
-
-```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/corp_site?schema=public"
-```
-
-5. Generate Prisma client and push schema:
+4. Generate Prisma client + apply schema
 
 ```bash
 npm run db:generate
 npm run db:push
 ```
 
-6. Seed sample data:
+5. Seed sample data (optional but recommended for first run)
 
 ```bash
 npm run db:seed
 ```
 
-7. Run development server:
+6. Start app
 
 ```bash
 npm run dev
 ```
 
-8. (Optional) Stop database when done:
+7. Stop DB when done (optional)
 
 ```bash
 npm run db:down
 ```
 
-## Form Handling & Uploads
+## Scripts
 
-- Contact form posts to `POST /api/contact`.
-- General resume form posts to `POST /api/resume-submissions`.
-- Job application form posts to `POST /api/job-applications`.
-- Resume files are stored under `public/uploads`.
-- Basic spam mitigation includes:
-  - honeypot field (`website`)
-  - submission timing check (`startedAt`)
+- `npm run dev` - start local dev server
+- `npm run build` - production build
+- `npm run start` - run built app
+- `npm run lint` - ESLint
+- `npm run typecheck` - TypeScript check (`tsc --noEmit`)
+- `npm run db:up` / `db:down` - Docker Postgres lifecycle
+- `npm run db:generate` - Prisma client generation
+- `npm run db:push` - apply schema to DB
+- `npm run db:seed` - seed initial data
 
-## Admin-Friendly Architecture
+## Environment Variables
 
-- Jobs and service content are data-driven via database models.
-- Publishing/unpublishing jobs is controlled by `Job.status`.
-- Lightweight admin UI is available at:
-  - `/admin/jobs` for job status management
-  - `/admin/applications` for candidate review workflow
-- Admin access is protected by HTTP Basic auth using:
-  - `ADMIN_USERNAME`
-  - `ADMIN_PASSWORD`
+Minimum local/production values:
 
-## Vercel Deployment Notes
+- `DATABASE_URL`
+- `ADMIN_USERNAME`
+- `ADMIN_PASSWORD`
+- `EMAIL_FROM`
+- `EMAIL_TO_CONTACT`
+- `EMAIL_TO_CAREERS`
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
 
-1. Create a PostgreSQL instance (Neon, Supabase, RDS, etc.).
-2. Add required environment variables in Vercel project settings:
-   - `DATABASE_URL`
-   - `EMAIL_FROM`
-   - `EMAIL_TO_CONTACT`
-   - `EMAIL_TO_CAREERS`
-   - `SMTP_HOST`
-   - `SMTP_PORT`
-   - `SMTP_USER`
-   - `SMTP_PASS`
-   - `ADMIN_USERNAME`
-   - `ADMIN_PASSWORD`
-3. On first deploy, run database setup:
-   - `npm run db:generate`
-   - `npm run db:push`
-   - `npm run db:seed` (optional)
-4. For production resume storage, switch from local disk to object storage (S3/R2/GCS) because serverless file systems are ephemeral.
+Recommended additional value:
 
-## Future Enhancements
+- `NEXT_PUBLIC_SITE_URL` (used for canonical sitemap/base URL)
 
-- Build a secure admin UI for services/jobs/content
-- Add CMS integration (Sanity/Contentful/Strapi)
-- Add ATS integration pipeline
-- Add CAPTCHA and rate limiting for stronger spam prevention
+## File Upload Note
+
+Resume uploads currently write to local disk (`public/uploads`).
+For serverless production, move files to object storage (S3, GCS, R2, or Vercel Blob).
+
+## CI/CD
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) is configured for:
+
+- quality gates: Prisma validate, lint, typecheck, build
+- preview deployment for PRs (Vercel)
+- production deployment on `main` after quality passes
+
+Setup steps and secrets are documented in:
+
+- `docs/DEPLOYMENT.md`
+
+## License
+
+Internal project for Globixs. Add/adjust license policy as needed.
