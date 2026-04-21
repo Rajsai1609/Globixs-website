@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
-  description: "Terms and conditions for NexaBridge Consulting website usage.",
+  description: "Terms and Conditions for Globixs Technology Solutions.",
 };
 
 export default function TermsPage() {

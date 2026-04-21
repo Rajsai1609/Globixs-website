@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for NexaBridge Consulting website.",
+  description: "Privacy Policy for Globixs Technology Solutions.",
 };
 
 export default function PrivacyPolicyPage() {

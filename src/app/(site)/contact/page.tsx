@@ -5,7 +5,8 @@ import { company } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Book a free AI automation consultation with MCTechnology LLC.",
+  description:
+    "Get in touch with Globixs Technology Solutions. AI-powered IT staffing and consultancy services in Seattle, WA.",
 };
 
 export default function ContactPage() {
