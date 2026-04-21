@@ -14,32 +14,60 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://theteammc.com"),
-  icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }],
-    apple: "/logo.png",
-  },
+  metadataBase: new URL("https://globixstech.com"),
   title: {
-    default: "MCTechnology LLC | AI Automation Agency · IT Staffing & Consultancy",
-    template: "%s | MCTechnology LLC",
+    default: "Globixs Technology Solutions | AI-Powered IT Staffing & Consultancy",
+    template: "%s | Globixs Technology Solutions",
   },
   description:
-    "MCTechnology LLC builds multi-agent AI systems and AI-augmented IT staffing workflows for faster operations and growth.",
+    "Globixs helps teams hire and deliver faster through AI-augmented staffing, consulting, and automation. Based in Seattle, WA. We also power MCT PathAI for student career automation.",
   keywords: [
     "IT staffing Seattle",
-    "AI automation agency Seattle",
-    "H1B OPT job placement Seattle",
-    "AI job search tool",
-    "IT consulting Seattle WA",
+    "AI staffing agency",
+    "IT consultancy",
+    "F-1 OPT jobs",
+    "H-1B staffing",
+    "MCT PathAI",
+    "Globixs Technology Solutions",
+    "technology consulting Seattle",
   ],
+  authors: [{ name: "Globixs Technology Solutions" }],
+  creator: "Globixs Technology Solutions",
+  publisher: "Globixs Technology Solutions",
   openGraph: {
-    title: "MCTechnology LLC",
-    description:
-      "AI automation agency and IT staffing consultancy based in Seattle, WA.",
-    url: "https://theteammc.com",
-    siteName: "MCTechnology LLC",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: "https://globixstech.com",
+    siteName: "Globixs Technology Solutions",
+    title: "Globixs Technology Solutions | AI-Powered IT Staffing & Consultancy",
+    description: "AI-Powered IT Staffing & Consultancy for Faster Hiring. Seattle, WA.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Globixs Technology Solutions — AI-Powered IT Staffing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Globixs Technology Solutions",
+    description: "AI-Powered IT Staffing & Consultancy for Faster Hiring.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
 };
 

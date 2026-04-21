@@ -3,8 +3,9 @@ import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "About MCTechnology LLC, our framework, and product leadership background.",
+  title: "About Us",
+  description:
+    "Learn about Globixs Technology Solutions — AI-powered IT staffing and consultancy based in Seattle, WA, helping teams hire and deliver faster.",
 };
 
 const productLeadHighlights = [
@@ -21,9 +22,9 @@ export default function AboutPage() {
       <div className="container-shell space-y-12">
         <Reveal>
           <SectionTitle
-            eyebrow="About MCTechnology LLC"
+            eyebrow="About Globixs Technology Solutions"
             title="Built by Engineers. Powered by AI."
-            description="MCTechnology LLC is an AI automation agency based in Seattle, WA. We build multi-agent AI systems that automate high-friction operations across staffing, restaurant, real estate, healthcare, and sales workflows."
+            description="Globixs Technology Solutions is an AI-powered IT staffing and consultancy based in Seattle, WA. We build multi-agent AI systems that automate high-friction operations across staffing, restaurant, real estate, healthcare, and sales workflows."
           />
         </Reveal>
 

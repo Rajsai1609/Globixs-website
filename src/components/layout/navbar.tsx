@@ -9,7 +9,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="MCTechnology LLC"
+            alt="Globixs Technology Solutions"
             width={140}
             height={32}
             priority
