@@ -61,8 +61,19 @@ type Props = {
     job?: string;
     status?: string;
     page?: string;
+    error?: string;
   }>;
 };
+
+type JobFilterOption = {
+  id: number;
+  title: string;
+  status: ApplicationStatus | string;
+};
+
+type ApplicationWithJob = Prisma.JobApplicationGetPayload<{
+  include: { job: true };
+}>;
 
 export default async function AdminApplicationsPage({ searchParams }: Props) {
   const sp = await searchParams;
@@ -92,20 +103,30 @@ export default async function AdminApplicationsPage({ searchParams }: Props) {
     ];
   }
 
-  const [jobs, applications, total] = await Promise.all([
-    prisma.job.findMany({
-      orderBy: [{ status: "asc" }, { title: "asc" }],
-      select: { id: true, title: true, status: true },
-    }),
-    prisma.jobApplication.findMany({
-      where,
-      include: { job: true },
-      orderBy: [{ createdAt: "desc" }],
-      skip,
-      take: PAGE_SIZE,
-    }),
-    prisma.jobApplication.count({ where }),
-  ]);
+  let jobs: JobFilterOption[] = [];
+  let applications: ApplicationWithJob[] = [];
+  let total = 0;
+  let dbUnavailable = false;
+
+  try {
+    [jobs, applications, total] = await Promise.all([
+      prisma.job.findMany({
+        orderBy: [{ status: "asc" }, { title: "asc" }],
+        select: { id: true, title: true, status: true },
+      }),
+      prisma.jobApplication.findMany({
+        where,
+        include: { job: true },
+        orderBy: [{ createdAt: "desc" }],
+        skip,
+        take: PAGE_SIZE,
+      }),
+      prisma.jobApplication.count({ where }),
+    ]);
+  } catch (error) {
+    dbUnavailable = true;
+    console.error("Admin applications DB fetch failed:", error);
+  }
 
   const queryBase: Record<string, string | undefined> = {};
   if (q) queryBase.q = q;
@@ -125,6 +146,16 @@ export default async function AdminApplicationsPage({ searchParams }: Props) {
           demand.
         </p>
       </div>
+      {dbUnavailable ? (
+        <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          Database is currently unavailable. Application data and updates are temporarily paused.
+        </p>
+      ) : null}
+      {sp.error === "update_failed" ? (
+        <p className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          Could not save the update. Please retry once the database connection is restored.
+        </p>
+      ) : null}
 
       <form
         method="get"

@@ -25,13 +25,23 @@ export async function getIndustries() {
 }
 
 export async function getOpenJobs() {
-  return prisma.job.findMany({
-    where: { status: JobStatus.OPEN },
-    orderBy: { createdAt: "desc" },
-  });
+  try {
+    return await prisma.job.findMany({
+      where: { status: JobStatus.OPEN },
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Failed to fetch open jobs:", error);
+    return [];
+  }
 }
 
 export async function getJobBySlug(slug: string) {
-  return prisma.job.findUnique({ where: { slug } });
+  try {
+    return await prisma.job.findUnique({ where: { slug } });
+  } catch (error) {
+    console.error(`Failed to fetch job by slug (${slug}):`, error);
+    return null;
+  }
 }
 

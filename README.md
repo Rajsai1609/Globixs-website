@@ -87,6 +87,12 @@ npm run db:generate
 npm run db:push
 ```
 
+If you are preparing production migrations, use:
+
+```bash
+npm run db:migrate
+```
+
 5. Seed sample data (optional but recommended for first run)
 
 ```bash
@@ -115,6 +121,8 @@ npm run db:down
 - `npm run db:up` / `db:down` - Docker Postgres lifecycle
 - `npm run db:generate` - Prisma client generation
 - `npm run db:push` - apply schema to DB
+- `npm run db:migrate` - create/apply migration in development
+- `npm run db:migrate:deploy` - apply committed migrations (production/CI)
 - `npm run db:seed` - seed initial data
 
 ## Environment Variables
@@ -122,6 +130,7 @@ npm run db:down
 Minimum local/production values:
 
 - `DATABASE_URL`
+- `DIRECT_URL`
 - `ADMIN_USERNAME`
 - `ADMIN_PASSWORD`
 - `EMAIL_FROM`

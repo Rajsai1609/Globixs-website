@@ -37,7 +37,7 @@ export function HeroImageRotator() {
         ))}
       </div>
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/35 to-transparent p-4 pt-16 sm:p-5 sm:pt-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-red-100/90">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-100/90">
           {current.headline}
         </p>
         <p className="mt-1 text-sm font-medium leading-snug text-white/95">

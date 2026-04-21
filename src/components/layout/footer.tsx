@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-white">{company.name}</h3>
           <p className="mt-3 text-sm text-slate-300">
-            IT staffing, AI-powered product development, and academy-driven talent acceleration from Bothell, WA.
+            AI-powered IT staffing and consultancy with MCT PathAI for student career automation, plus business vertical automation products.
           </p>
         </div>
         <div>
@@ -16,10 +16,10 @@ export function Footer() {
             Quick Links
           </h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link className="transition hover:text-white" href="/services">IT Staffing</Link></li>
-            <li><Link className="transition hover:text-white" href="/products">Products</Link></li>
-            <li><Link className="transition hover:text-white" href="/academy">Academy</Link></li>
-            <li><Link className="transition hover:text-white" href="/careers">Careers</Link></li>
+            <li><Link className="transition hover:text-white" href="/services">AI IT Staffing & Consultancy</Link></li>
+            <li><Link className="transition hover:text-white" href="/academy">MCT PathAI (Students)</Link></li>
+            <li><Link className="transition hover:text-white" href="/products">Business Verticals</Link></li>
+            <li><Link className="transition hover:text-white" href="/contact">Book Consultation</Link></li>
           </ul>
         </div>
         <div>
@@ -44,4 +44,3 @@ export function Footer() {
     </footer>
   );
 }
-

@@ -32,13 +32,18 @@ export async function updateJobStatus(formData: FormData) {
   const status = parseJobStatus(String(formData.get("status") || ""));
   if (!Number.isFinite(jobId)) return;
 
-  await prisma.job.update({
-    where: { id: jobId },
-    data: { status },
-  });
+  try {
+    await prisma.job.update({
+      where: { id: jobId },
+      data: { status },
+    });
 
-  revalidatePath("/admin/jobs");
-  revalidatePath("/careers");
+    revalidatePath("/admin/jobs");
+    revalidatePath("/careers");
+  } catch (error) {
+    console.error("updateJobStatus failed:", error);
+    redirect("/admin/jobs?error=db");
+  }
 }
 
 export async function createJob(formData: FormData) {
@@ -55,25 +60,30 @@ export async function createJob(formData: FormData) {
     redirect("/admin/jobs/new?error=missing");
   }
 
-  const baseSlug = slugify(slugInput || title);
-  const slug = await uniqueJobSlug(baseSlug);
+  try {
+    const baseSlug = slugify(slugInput || title);
+    const slug = await uniqueJobSlug(baseSlug);
 
-  await prisma.job.create({
-    data: {
-      slug,
-      title,
-      location,
-      employmentType,
-      summary,
-      description,
-      requirements,
-      status,
-    },
-  });
+    await prisma.job.create({
+      data: {
+        slug,
+        title,
+        location,
+        employmentType,
+        summary,
+        description,
+        requirements,
+        status,
+      },
+    });
 
-  revalidatePath("/admin/jobs");
-  revalidatePath("/careers");
-  redirect("/admin/jobs");
+    revalidatePath("/admin/jobs");
+    revalidatePath("/careers");
+    redirect("/admin/jobs");
+  } catch (error) {
+    console.error("createJob failed:", error);
+    redirect("/admin/jobs/new?error=db");
+  }
 }
 
 export async function updateJob(formData: FormData) {
@@ -95,48 +105,58 @@ export async function updateJob(formData: FormData) {
     redirect(`/admin/jobs/${jobId}/edit?error=missing`);
   }
 
-  const existing = await prisma.job.findUnique({ where: { id: jobId } });
-  if (!existing) {
-    redirect("/admin/jobs?error=notfound");
+  try {
+    const existing = await prisma.job.findUnique({ where: { id: jobId } });
+    if (!existing) {
+      redirect("/admin/jobs?error=notfound");
+    }
+
+    const baseSlug = slugify(slugInput || title);
+    const slug = await uniqueJobSlug(baseSlug, jobId);
+
+    await prisma.job.update({
+      where: { id: jobId },
+      data: {
+        slug,
+        title,
+        location,
+        employmentType,
+        summary,
+        description,
+        requirements,
+        status,
+      },
+    });
+
+    revalidatePath("/admin/jobs");
+    revalidatePath("/careers");
+    revalidatePath(`/careers/${existing.slug}`);
+    revalidatePath(`/careers/${slug}`);
+    redirect("/admin/jobs");
+  } catch (error) {
+    console.error("updateJob failed:", error);
+    redirect(`/admin/jobs/${jobId}/edit?error=db`);
   }
-
-  const baseSlug = slugify(slugInput || title);
-  const slug = await uniqueJobSlug(baseSlug, jobId);
-
-  await prisma.job.update({
-    where: { id: jobId },
-    data: {
-      slug,
-      title,
-      location,
-      employmentType,
-      summary,
-      description,
-      requirements,
-      status,
-    },
-  });
-
-  revalidatePath("/admin/jobs");
-  revalidatePath("/careers");
-  revalidatePath(`/careers/${existing.slug}`);
-  revalidatePath(`/careers/${slug}`);
-  redirect("/admin/jobs");
 }
 
 export async function deleteJob(formData: FormData) {
   const jobId = Number(formData.get("jobId"));
   if (!Number.isFinite(jobId)) return;
 
-  const existing = await prisma.job.findUnique({ where: { id: jobId } });
-  if (!existing) return;
+  try {
+    const existing = await prisma.job.findUnique({ where: { id: jobId } });
+    if (!existing) return;
 
-  await prisma.job.delete({ where: { id: jobId } });
+    await prisma.job.delete({ where: { id: jobId } });
 
-  revalidatePath("/admin/jobs");
-  revalidatePath("/careers");
-  revalidatePath(`/careers/${existing.slug}`);
-  redirect("/admin/jobs");
+    revalidatePath("/admin/jobs");
+    revalidatePath("/careers");
+    revalidatePath(`/careers/${existing.slug}`);
+    redirect("/admin/jobs");
+  } catch (error) {
+    console.error("deleteJob failed:", error);
+    redirect("/admin/jobs?error=db");
+  }
 }
 
 /** Pipeline stage only — job stays the one they applied to. */
@@ -145,28 +165,33 @@ export async function updateApplication(formData: FormData) {
   const applicationId = Number(formData.get("applicationId"));
   if (!Number.isFinite(applicationId)) return;
 
-  const existing = await prisma.jobApplication.findUnique({ where: { id: applicationId } });
-  if (!existing) return;
+  try {
+    const existing = await prisma.jobApplication.findUnique({ where: { id: applicationId } });
+    if (!existing) return;
 
-  if (mode === "notes") {
-    const reviewNotes = String(formData.get("reviewNotes") || "").trim() || null;
+    if (mode === "notes") {
+      const reviewNotes = String(formData.get("reviewNotes") || "").trim() || null;
+      await prisma.jobApplication.update({
+        where: { id: applicationId },
+        data: { reviewNotes, reviewedAt: new Date() },
+      });
+      revalidatePath("/admin/applications");
+      return;
+    }
+
+    const status = parseApplicationStatus(String(formData.get("status") || ""));
+
     await prisma.jobApplication.update({
       where: { id: applicationId },
-      data: { reviewNotes, reviewedAt: new Date() },
+      data: {
+        status,
+        reviewedAt: new Date(),
+      },
     });
+
     revalidatePath("/admin/applications");
-    return;
+  } catch (error) {
+    console.error("updateApplication failed:", error);
+    redirect("/admin/applications?error=update_failed");
   }
-
-  const status = parseApplicationStatus(String(formData.get("status") || ""));
-
-  await prisma.jobApplication.update({
-    where: { id: applicationId },
-    data: {
-      status,
-      reviewedAt: new Date(),
-    },
-  });
-
-  revalidatePath("/admin/applications");
 }

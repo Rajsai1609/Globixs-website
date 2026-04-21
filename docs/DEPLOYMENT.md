@@ -32,7 +32,10 @@ and `paths:` filters on `push` / `pull_request` so only app changes trigger work
 ## Vercel project setup
 
 1. Create a project at [vercel.com](https://vercel.com) and import this GitHub repo (root = folder with `package.json`).
-2. **Environment variables** (Production + Preview): `DATABASE_URL`, `NEXT_PUBLIC_SITE_URL` (canonical URL for sitemap/metadata), `ADMIN_USERNAME`, `ADMIN_PASSWORD`, email vars as needed.
+2. **Environment variables** (Production + Preview): `DATABASE_URL`, `DIRECT_URL`, `NEXT_PUBLIC_SITE_URL` (canonical URL for sitemap/metadata), `ADMIN_USERNAME`, `ADMIN_PASSWORD`, email vars as needed.
+   - Supabase + Prisma recommended:
+     - `DATABASE_URL`: transaction pooler (`:6543`) with `?pgbouncer=true&connection_limit=1`
+     - `DIRECT_URL`: session pooler (`:5432`) for Prisma schema/migration operations
 3. **Build** (recommended when using Prisma migrations):
 
    ```bash
@@ -73,7 +76,7 @@ Preview deploys are skipped on forks (no secrets).
 
 ## Production checklist
 
-- [ ] Managed Postgres; `DATABASE_URL` with SSL if required  
+- [ ] Managed Postgres; `DATABASE_URL` + `DIRECT_URL` configured correctly  
 - [ ] `prisma migrate deploy` in production build (after you have migration files)  
 - [ ] Resumes: move off local disk to object storage (S3 / GCS / Vercel Blob) for serverless  
 - [ ] Strong admin credentials; consider SSO later  

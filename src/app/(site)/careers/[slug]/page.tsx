@@ -29,10 +29,10 @@ export default async function CareerDetailPage({ params }: Props) {
         <section className="premium-card p-8">
           <p className="text-sm font-semibold uppercase tracking-wide text-brand">Open Role</p>
           <h1 className="mt-2 text-3xl font-bold text-slate-900">{job.title}</h1>
-          <p className="mt-3 text-sm text-slate-600">
+          <p className="mt-3 text-sm text-slate-500">
             {job.location} • {job.employmentType}
           </p>
-          <p className="mt-6 text-slate-700">{job.summary}</p>
+          <p className="mt-6 text-slate-900">{job.summary}</p>
 
           <div className="mt-8 border-t border-border pt-8">
             <h2 className="text-xl font-semibold text-slate-900">Job description</h2>

@@ -8,10 +8,22 @@ export const dynamic = "force-dynamic";
 
 const statuses: JobStatus[] = ["DRAFT", "OPEN", "CLOSED", "ARCHIVED"];
 
-export default async function AdminJobsPage() {
-  const jobs = await prisma.job.findMany({
-    orderBy: [{ updatedAt: "desc" }],
-  });
+type Props = {
+  searchParams: Promise<{ error?: string }>;
+};
+
+export default async function AdminJobsPage({ searchParams }: Props) {
+  const { error } = await searchParams;
+  let jobs: Awaited<ReturnType<typeof prisma.job.findMany>> = [];
+  let dbUnavailable = false;
+  try {
+    jobs = await prisma.job.findMany({
+      orderBy: [{ updatedAt: "desc" }],
+    });
+  } catch (error) {
+    dbUnavailable = true;
+    console.error("Admin jobs DB fetch failed:", error);
+  }
 
   return (
     <div className="space-y-6">
@@ -24,6 +36,16 @@ export default async function AdminJobsPage() {
           + New role
         </Link>
       </div>
+      {dbUnavailable ? (
+        <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          Database is currently unavailable. Role management actions are temporarily disabled.
+        </p>
+      ) : null}
+      {error === "db" ? (
+        <p className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          Could not complete the last role action due to a database issue. Please retry.
+        </p>
+      ) : null}
 
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="overflow-x-auto">

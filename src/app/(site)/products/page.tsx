@@ -71,8 +71,8 @@ export default function ProductsPage() {
             <Reveal key={track.title} delay={index * 80}>
               <article className="premium-card relative overflow-hidden p-6">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand/70 via-brand to-brand/60" />
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">{track.badge}</p>
-                <h2 className="mt-2 text-xl font-semibold text-slate-900">{track.title}</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{track.badge}</p>
+                <h2 className="mt-2 text-xl font-semibold text-heading">{track.title}</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{track.description}</p>
                 <ul className="mt-4 list-disc space-y-1.5 pl-5 text-sm text-slate-700">
                   {track.features.map((feature) => (
@@ -84,12 +84,12 @@ export default function ProductsPage() {
           ))}
         </div>
         <Reveal delay={120} className="enterprise-panel p-8">
-          <h3 className="text-2xl font-semibold text-slate-900">How we build products</h3>
+          <h3 className="text-2xl font-semibold text-heading">How we build products</h3>
           <div className="mt-5 grid gap-3 text-sm text-slate-700 sm:grid-cols-2 lg:grid-cols-4">
-            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-slate-900">01</span> Discovery and problem framing</p>
-            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-slate-900">02</span> Rapid MVP and workflow validation</p>
-            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-slate-900">03</span> Iteration through usage signals</p>
-            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-slate-900">04</span> Continuous expansion and support</p>
+            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-heading">01</span> Discovery and problem framing</p>
+            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-heading">02</span> Rapid MVP and workflow validation</p>
+            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-heading">03</span> Iteration through usage signals</p>
+            <p className="rounded-xl border border-border bg-slate-50 p-3"><span className="font-semibold text-heading">04</span> Continuous expansion and support</p>
           </div>
         </Reveal>
       </div>

@@ -9,24 +9,34 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="Globixs Technology Solutions"
+            alt="MCTechnology LLC"
             width={140}
             height={32}
             priority
+            className="h-8 w-auto"
           />
         </Link>
         <nav aria-label="Primary navigation" className="hidden gap-6 md:flex">
           {navLinks.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-medium text-slate-700 transition hover:text-brand">
+            <Link key={item.href} href={item.href} className="text-sm font-medium text-foreground transition hover:text-accent">
               {item.label}
             </Link>
           ))}
         </nav>
         <Link href="/contact" className="btn-primary hidden md:inline-flex">
-          Talk to Us
+          Get a Free AI Audit
         </Link>
       </div>
+      <nav
+        aria-label="Mobile navigation"
+        className="container-shell flex gap-4 overflow-x-auto pb-3 text-sm font-medium text-foreground md:hidden"
+      >
+        {navLinks.map((item) => (
+          <Link key={`mobile-${item.href}`} href={item.href} className="whitespace-nowrap hover:text-accent">
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }
-

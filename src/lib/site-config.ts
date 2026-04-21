@@ -1,18 +1,18 @@
 export const company = {
   name: "Globixs Technology Solutions",
-  phone: "+1 (425) 434-5253",
+  phone: "+1 206-552-8424",
   hours: "Mon - Friday: 9.00am to 5.00pm",
-  email: "hr@globixs.com",
-  careersEmail: "hr@globixs.com",
-  address: "1729 208th ST SE\nBothell, WA 98012",
+  email: "connect@theteammc.com",
+  careersEmail: "connect@theteammc.com",
+  address: "Seattle, WA (Seattle metro area)",
 };
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "IT Staffing" },
-  { href: "/products", label: "Products" },
-  { href: "/academy", label: "Academy" },
+  { href: "/services", label: "AI IT Staffing" },
+  { href: "/products", label: "Business Verticals" },
+  { href: "/academy", label: "MCT PathAI" },
   { href: "/careers", label: "Careers" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
-

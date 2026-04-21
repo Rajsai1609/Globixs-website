@@ -89,20 +89,20 @@ export default async function IndustriesPage() {
                 />
                 <div className="p-6">
                   <div className="flex items-center justify-between">
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-brandSoft text-xs font-bold tracking-wide text-brand">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-brandSoft text-xs font-bold tracking-wide text-heading">
                       {industryMeta[industry.slug]?.shortLabel ?? "IN"}
                     </div>
                     <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
                       Industry Focus
                     </span>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-900">{industry.name}</h3>
+                  <h3 className="mt-4 text-xl font-semibold text-heading">{industry.name}</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-600">
                     {industryMeta[industry.slug]?.outcome ?? industry.summary}
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-5 inline-block text-sm font-semibold text-brand hover:text-brandDark"
+                    className="mt-5 inline-block text-sm font-semibold text-accent hover:text-brandDark"
                   >
                     Explore Solutions →
                   </Link>

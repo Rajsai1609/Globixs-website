@@ -6,25 +6,38 @@ import { SectionTitle } from "@/components/sections/section-title";
 import { academyStepVisuals, academyWhoForImage } from "@/lib/academy-visuals";
 
 export const metadata: Metadata = {
-  title: "Academy",
-  description: "Career acceleration through AI job marketing, interview support, and real product practice.",
+  title: "MCT PathAI",
+  description: "MCT PathAI: student career automation powered by AI job intelligence.",
 };
+
+const jobSeekerPoints = [
+  "Scrapes 1,000+ jobs daily from leading AI and tech companies",
+  "Scores jobs against your profile using semantic AI matching",
+  "Grades opportunities A+ to F across 10 dimensions",
+  "Generates tailored resumes for top-fit roles",
+  "Filters H1B and OPT-friendly opportunities",
+];
+
+const staffingPoints = [
+  "Auto-screen candidates against open roles",
+  "AI match scoring and profile analysis",
+  "Personalized outreach generation for every match",
+  "Real-time placement pipeline dashboard",
+  "Reduce time-to-placement by up to 60%",
+];
 
 const steps = [
   {
-    title: "AI Job Marketing",
-    description:
-      "High-volume, targeted application workflows designed to increase qualified interview opportunities.",
+    title: "Student Career Automation",
+    description: "Daily AI-driven job discovery, fit scoring, and tailored resume generation.",
   },
   {
-    title: "Interview Acceleration",
-    description:
-      "Resume and profile optimization with focused preparation for technical and behavioral rounds.",
+    title: "Staffing Intelligence",
+    description: "A shared intelligence layer recruiters can use for better matching and outreach.",
   },
   {
-    title: "Upskill on Real Products",
-    description:
-      "Hands-on contribution to live product tracks to build verifiable portfolio outcomes and practical confidence.",
+    title: "Live Product Demo",
+    description: "See MCT PathAI analyze and grade opportunities in real time.",
   },
 ];
 
@@ -34,9 +47,9 @@ export default function AcademyPage() {
       <div className="container-shell space-y-10">
         <Reveal>
           <SectionTitle
-            eyebrow="Globixs Academy"
-            title="From student to hired with practical execution support"
-            description="Academy helps learners and job-seekers become market-ready through guided application workflows, interview preparation, and portfolio-backed experience."
+            eyebrow="MCT PathAI by Globixs"
+            title="AI-Powered Student Career Automation"
+            description="MCT PathAI is the student-focused product inside the Globixs ecosystem, designed to automate job search, fit scoring, and application readiness."
           />
         </Reveal>
 
@@ -56,8 +69,7 @@ export default function AcademyPage() {
                     />
                   </div>
                   <div className="p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">Step {index + 1}</p>
-                    <h2 className="mt-2 text-xl font-semibold text-slate-900">{step.title}</h2>
+                    <h2 className="text-xl font-semibold text-heading">{step.title}</h2>
                     <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
                   </div>
                 </article>
@@ -66,17 +78,26 @@ export default function AcademyPage() {
           })}
         </div>
 
+        <Reveal className="enterprise-panel p-7">
+          <h3 className="text-2xl font-semibold text-heading">For Students and IT Job Seekers</h3>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700">
+            {jobSeekerPoints.map((point) => <li key={point}>{point}</li>)}
+          </ul>
+        </Reveal>
+
         <Reveal className="enterprise-panel overflow-hidden p-0">
           <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="p-8">
-              <h3 className="text-2xl font-semibold text-slate-900">Who this is for</h3>
-              <p className="mt-3 text-slate-600">
-                CS/IT students, recent graduates, career switchers, and professionals re-entering the market who need a structured path to interviews and employment.
-              </p>
-              <p className="mt-3 text-sm text-slate-600">
-                Typical outcomes include stronger resumes, better interview conversion, and live project experience that improves hiring confidence.
-              </p>
-              <Link href="/contact" className="btn-primary mt-6">Apply to Academy</Link>
+              <h3 className="text-2xl font-semibold text-heading">For Globixs Staffing Teams</h3>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700">
+                {staffingPoints.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="https://www.mctpathai.com/" target="_blank" className="btn-primary">
+                  Open Live Demo
+                </Link>
+                <Link href="/services" className="btn-secondary">See IT Staffing Services</Link>
+              </div>
             </div>
             <div className="flex flex-col border-t border-border lg:border-l lg:border-t-0">
               <div className="relative aspect-[4/3] min-h-[200px] w-full lg:aspect-auto lg:min-h-[220px] lg:flex-1">
@@ -88,12 +109,6 @@ export default function AcademyPage() {
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
               </div>
-              <ul className="space-y-3 border-t border-border bg-slate-50 p-8 text-sm text-slate-700">
-                <li>Personalized resume and profile guidance</li>
-                <li>Structured interview preparation plans</li>
-                <li>Live portfolio project contribution support</li>
-                <li>Job-market rhythm and accountability coaching</li>
-              </ul>
             </div>
           </div>
         </Reveal>

@@ -25,6 +25,11 @@ export default async function AdminNewJobPage({ searchParams }: Props) {
           Please fill in all required fields.
         </p>
       ) : null}
+      {error === "db" ? (
+        <p className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          Database is currently unavailable. Please try again in a moment.
+        </p>
+      ) : null}
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <JobFormFields action={createJob} submitLabel="Create role" />
       </div>

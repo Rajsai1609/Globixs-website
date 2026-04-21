@@ -1,91 +1,134 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
-import { getServices } from "@/lib/data";
-import { getStaffingCardVisual } from "@/lib/home-visuals";
 
 export const metadata: Metadata = {
-  title: "IT Staffing",
-  description: "Staff augmentation, IT consulting, managed services, data analytics, and release engineering.",
+  title: "AI-Powered IT Staffing & Consultancy",
+  description: "Globixs AI-augmented IT staffing and consultancy services for faster placements and stronger matching.",
 };
-export const dynamic = "force-dynamic";
 
-export default async function ServicesPage() {
-  const services = await getServices();
+const staffingServices = [
+  {
+    title: "Contract Staffing",
+    points: [
+      "Short-term and long-term IT placements",
+      "Cloud Engineers, Data Scientists, AI Engineers",
+      "Full Stack Developers, DevOps, and ML Engineers",
+      "Candidates pre-vetted with AI skills assessment",
+    ],
+  },
+  {
+    title: "Permanent Placement",
+    points: [
+      "Direct hire for full-time IT positions",
+      "Deep technical screening with AI-assisted evaluation",
+      "Culture fit assessment",
+      "90-day placement guarantee",
+    ],
+  },
+  {
+    title: "Contract-to-Hire",
+    points: [
+      "Try before you hire with reduced risk",
+      "Smooth transition process to full-time",
+      "Flexible engagement models",
+    ],
+  },
+  {
+    title: "OPT / H1B Staffing",
+    points: [
+      "Specialized in international IT talent placement",
+      "Visa sponsorship support and compliance",
+      "Documentation and immigration coordination",
+      "Active network of 500+ OPT/H1B candidates",
+    ],
+  },
+];
 
+const compareRows = [
+  ["Resume review", "Manual", "AI pre-screening in minutes"],
+  ["Placement timeline", "3-4 weeks", "7-10 days"],
+  ["Matching", "Generic job matching", "10-dimension AI scoring"],
+  ["Tracking", "Paper-based tracking", "Real-time live dashboard"],
+  ["Team model", "One recruiter per client", "AI + human team combined"],
+  ["Pricing", "High placement cost", "Performance-based pricing"],
+];
+
+const industries = [
+  "Cloud & Infrastructure",
+  "Data Engineering & Analytics",
+  "Artificial Intelligence & Machine Learning",
+  "Software Development",
+  "Cybersecurity",
+  "Healthcare IT",
+  "FinTech",
+  "E-commerce Technology",
+];
+
+export default function ServicesPage() {
   return (
     <div className="section-pad">
       <div className="container-shell space-y-10">
         <Reveal>
           <SectionTitle
-            eyebrow="IT Staffing"
-            title="Trusted staffing and consulting for enterprise technology teams"
-            description="We help organizations scale delivery with flexible IT staffing models and outcome-focused consulting support."
+            eyebrow="Globixs Core Offering"
+            title="AI-Powered IT Staffing & Consultancy"
+            description="Globixs combines human recruiting expertise with AI automation to source, screen, and place the right IT talent faster."
           />
-        </Reveal>
-        <Reveal className="enterprise-panel p-6 sm:p-8">
-          <div className="grid gap-6 md:grid-cols-3">
-            <div>
-              <p className="text-3xl font-bold text-slate-900">48h</p>
-              <p className="mt-1 text-sm text-slate-600">Typical shortlist turnaround</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-slate-900">Flexible</p>
-              <p className="mt-1 text-sm text-slate-600">Contract, C2H, and managed teams</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-slate-900">End-to-End</p>
-              <p className="mt-1 text-sm text-slate-600">Sourcing, onboarding, and delivery support</p>
-            </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/contact" className="btn-primary">Talk to Our Team</Link>
+            <Link href="/academy" className="btn-secondary">Explore MCT PathAI</Link>
           </div>
         </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => {
-            const visual = getStaffingCardVisual(service.slug);
-            return (
-              <Reveal key={service.id} delay={index * 70}>
-                <article className="premium-card overflow-hidden p-0">
-                  <div className="relative aspect-[16/9] w-full sm:aspect-[2/1]">
-                    <Image
-                      src={visual.src}
-                      alt={visual.alt}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">Capability</p>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">{service.title}</h3>
-                    <p className="mt-3 text-sm text-slate-600">{service.shortDesc}</p>
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="mt-4 inline-block text-sm font-semibold text-brand hover:text-brandDark"
-                    >
-                      Learn More →
-                    </Link>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-        <Reveal delay={90} className="enterprise-panel p-7">
-          <h2 className="text-xl font-semibold text-slate-900">Technologies we commonly support</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Cloud and infrastructure, full-stack engineering, quality automation, security, BI/analytics, and application support teams.
-          </p>
-          <ul className="mt-4 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
-            <li>AWS, Azure, and GCP engineering roles</li>
-            <li>Frontend, backend, and full-stack developers</li>
-            <li>Data analysts, BI developers, and data engineers</li>
-            <li>DevOps, release engineering, and QA automation</li>
+
+        <section className="grid gap-6 md:grid-cols-2">
+          {staffingServices.map((service, index) => (
+            <Reveal key={service.title} delay={index * 70}>
+              <article className="premium-card p-6">
+                <h3 className="text-xl font-semibold text-heading">{service.title}</h3>
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
+                  {service.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </section>
+
+        <Reveal className="enterprise-panel overflow-hidden p-0">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead className="bg-slate-50 text-slate-700">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Category</th>
+                  <th className="px-4 py-3 font-semibold">Traditional Staffing</th>
+                  <th className="px-4 py-3 font-semibold">Globixs AI Model</th>
+                </tr>
+              </thead>
+              <tbody>
+                {compareRows.map(([category, legacy, modern]) => (
+                  <tr key={category} className="border-t border-border">
+                    <td className="px-4 py-3 font-medium text-foreground">{category}</td>
+                    <td className="px-4 py-3 text-muted">{legacy}</td>
+                    <td className="px-4 py-3 text-foreground">{modern}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Reveal>
+
+        <Reveal className="enterprise-panel p-7">
+          <h2 className="text-xl font-semibold text-heading">Business Verticals We Support</h2>
+          <ul className="mt-4 grid gap-2 text-sm text-muted sm:grid-cols-2">
+            {industries.map((item) => (
+              <li key={item}>- {item}</li>
+            ))}
           </ul>
         </Reveal>
       </div>
     </div>
   );
 }
-

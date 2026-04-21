@@ -25,7 +25,7 @@ export function ResumeSubmissionForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
       <input type="hidden" name="website" />
-      <h3 className="text-xl font-semibold text-slate-900">Submit Your Resume</h3>
+      <h3 className="text-xl font-semibold text-heading">Submit Your Resume</h3>
       <p className="text-sm text-slate-600">
         Even when there are no active roles, share your profile for future opportunities.
       </p>

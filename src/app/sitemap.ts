@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { getServices, getOpenJobs } from "@/lib/data";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://globixs.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://theteammc.com";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -34,4 +34,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [...staticRoutes, ...serviceRoutes, ...jobRoutes];
 }
-
