@@ -17,6 +17,26 @@ export function JobApplicationForm({ jobId }: Props) {
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+
+    // Client-side file validation — mirrors server limits so errors surface instantly
+    const fileInput = form.elements.namedItem("resume") as HTMLInputElement;
+    const resumeFile = fileInput?.files?.[0];
+    if (resumeFile) {
+      const MAX_MB = 10;
+      if (resumeFile.size > MAX_MB * 1024 * 1024) {
+        const actual = (resumeFile.size / (1024 * 1024)).toFixed(1);
+        setErrorMessage(`File is ${actual} MB. Maximum allowed is ${MAX_MB} MB.`);
+        setStatus("error");
+        return;
+      }
+      const ext = resumeFile.name.split(".").pop()?.toLowerCase() ?? "";
+      if (!["pdf", "doc", "docx"].includes(ext)) {
+        setErrorMessage("Only PDF, DOC, and DOCX files are accepted.");
+        setStatus("error");
+        return;
+      }
+    }
+
     const formData = new FormData(form);
     setPending(true);
     setStatus("idle");
@@ -167,7 +187,7 @@ export function JobApplicationForm({ jobId }: Props) {
               {resumeName ? "Change Resume" : "Upload Resume"}
             </button>
             <p className="text-xs text-slate-500">
-              {resumeName ? `Selected: ${resumeName}` : "Accepted formats: PDF, DOC, DOCX (max 5MB)."}
+              {resumeName ? `Selected: ${resumeName}` : "Accepted formats: PDF, DOC, DOCX (max 10 MB)."}
             </p>
           </div>
 
