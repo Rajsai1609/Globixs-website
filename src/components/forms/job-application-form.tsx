@@ -114,7 +114,14 @@ export function JobApplicationForm({ jobId }: Props) {
             </label>
             <label className="block text-sm font-medium text-slate-700">
               <span className="mb-1 inline-flex items-center gap-2">LinkedIn URL</span>
-              <input required type="url" name="linkedinUrl" placeholder="https://linkedin.com/in/..." className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input
+                required
+                type="text"
+                inputMode="url"
+                name="linkedinUrl"
+                placeholder="linkedin.com/in/your-profile"
+                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              />
             </label>
             <label className="block text-sm font-medium text-slate-700">
               <span className="mb-1 inline-flex items-center gap-2">Work Authorization</span>

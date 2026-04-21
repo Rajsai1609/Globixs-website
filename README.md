@@ -140,6 +140,9 @@ Minimum local/production values:
 - `SMTP_PORT`
 - `SMTP_USER`
 - `SMTP_PASS`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `SUPABASE_STORAGE_BUCKET` (optional, defaults to `resumes`)
 
 Recommended additional value:
 
@@ -147,8 +150,9 @@ Recommended additional value:
 
 ## File Upload Note
 
-Resume uploads currently write to local disk (`public/uploads`).
-For serverless production, move files to object storage (S3, GCS, R2, or Vercel Blob).
+Resume uploads use a private Supabase Storage bucket in production (bucket from `SUPABASE_STORAGE_BUCKET`, default `resumes`).
+The app stores internal object paths and generates short-lived signed links in admin.
+Local development falls back to disk (`public/uploads`) when Supabase storage credentials are not set.
 
 ## CI/CD
 

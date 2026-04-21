@@ -36,6 +36,10 @@ and `paths:` filters on `push` / `pull_request` so only app changes trigger work
    - Supabase + Prisma recommended:
      - `DATABASE_URL`: transaction pooler (`:6543`) with `?pgbouncer=true&connection_limit=1`
      - `DIRECT_URL`: session pooler (`:5432`) for Prisma schema/migration operations
+   - Supabase Storage for resumes (private bucket):
+     - `SUPABASE_URL`
+     - `SUPABASE_SERVICE_ROLE_KEY`
+     - `SUPABASE_STORAGE_BUCKET` (optional, defaults to `resumes`)
 3. **Build** (recommended when using Prisma migrations):
 
    ```bash
@@ -78,6 +82,6 @@ Preview deploys are skipped on forks (no secrets).
 
 - [ ] Managed Postgres; `DATABASE_URL` + `DIRECT_URL` configured correctly  
 - [ ] `prisma migrate deploy` in production build (after you have migration files)  
-- [ ] Resumes: move off local disk to object storage (S3 / GCS / Vercel Blob) for serverless  
+- [ ] Resumes: Supabase Storage private bucket exists and service-role access is configured  
 - [ ] Strong admin credentials; consider SSO later  
 - [ ] `metadataBase` / sitemap domain matches your real site URL  

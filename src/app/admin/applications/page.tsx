@@ -3,6 +3,7 @@ import type { ApplicationStatus } from "@prisma/client";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { updateApplication } from "@/app/admin/actions";
+import { getResumeAccessUrl } from "@/lib/storage";
 
 export const dynamic = "force-dynamic";
 
@@ -107,6 +108,7 @@ export default async function AdminApplicationsPage({ searchParams }: Props) {
   let applications: ApplicationWithJob[] = [];
   let total = 0;
   let dbUnavailable = false;
+  const resumeLinks = new Map<number, string | null>();
 
   try {
     [jobs, applications, total] = await Promise.all([
@@ -132,6 +134,15 @@ export default async function AdminApplicationsPage({ searchParams }: Props) {
   if (q) queryBase.q = q;
   if (jobFilter !== "all") queryBase.job = jobFilter;
   if (statusFilter !== "all") queryBase.status = statusFilter;
+
+  if (!dbUnavailable && applications.length > 0) {
+    const linkEntries = await Promise.all(
+      applications.map(async (app) => [app.id, await getResumeAccessUrl(app.resumeUrl)] as const),
+    );
+    for (const [id, url] of linkEntries) {
+      resumeLinks.set(id, url);
+    }
+  }
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const showingFrom = total === 0 ? 0 : skip + 1;
@@ -310,14 +321,18 @@ export default async function AdminApplicationsPage({ searchParams }: Props) {
                   </div>
                 </div>
 
-                <a
-                  href={app.resumeUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="shrink-0 text-xs font-semibold text-brand hover:text-brandDark"
-                >
-                  Resume
-                </a>
+                {resumeLinks.get(app.id) ? (
+                  <a
+                    href={resumeLinks.get(app.id) || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="shrink-0 text-xs font-semibold text-brand hover:text-brandDark"
+                  >
+                    Resume
+                  </a>
+                ) : (
+                  <span className="shrink-0 text-xs font-semibold text-slate-400">Resume unavailable</span>
+                )}
 
                 <form action={updateApplication} className="flex shrink-0 items-center gap-1.5">
                   <input type="hidden" name="_mode" value="pipeline" />
