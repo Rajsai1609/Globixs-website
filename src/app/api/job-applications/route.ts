@@ -3,7 +3,7 @@ import { JobStatus } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { isLikelySpam } from "@/lib/spam";
 import { jobApplicationSchema } from "@/lib/validators";
-import { saveResumeFile } from "@/lib/storage";
+import { saveResumeFile, FileValidationError, StorageConfigError } from "@/lib/storage";
 
 export async function POST(request: Request) {
   try {
@@ -55,8 +55,16 @@ export async function POST(request: Request) {
     try {
       resumeUrl = await saveResumeFile(file);
     } catch (e) {
-      const msg = e instanceof Error ? e.message : "Invalid resume file.";
-      return NextResponse.json({ error: msg }, { status: 400 });
+      if (e instanceof FileValidationError) {
+        return NextResponse.json({ error: e.message }, { status: 400 });
+      }
+      if (e instanceof StorageConfigError) {
+        console.error("[job-applications] storage error:", e.message);
+        return NextResponse.json({ error: e.message }, { status: 500 });
+      }
+      const msg = e instanceof Error ? e.message : "Resume upload failed.";
+      console.error("[job-applications] unexpected upload error:", e);
+      return NextResponse.json({ error: msg }, { status: 500 });
     }
 
     const fullName = `${parsed.data.firstName} ${parsed.data.lastName}`.trim();
