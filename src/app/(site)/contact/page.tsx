@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { Reveal } from "@/components/animations/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 import { company } from "@/lib/site-config";
@@ -32,7 +33,9 @@ export default function ContactPage() {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <ContactForm />
+          <Suspense fallback={null}>
+            <ContactForm />
+          </Suspense>
         </Reveal>
       </div>
     </div>

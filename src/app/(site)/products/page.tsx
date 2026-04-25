@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 
@@ -7,7 +8,15 @@ export const metadata: Metadata = {
   description: "Vertical product development in restaurant, healthcare, home services, and real estate.",
 };
 
-const tracks = [
+type Track = {
+  title: string;
+  badge: string;
+  description: string;
+  features: string[];
+  cta?: { label: string; href: string };
+};
+
+const tracks: Track[] = [
   {
     title: "Resto - Restaurant Growth Automation",
     badge: "Live Product",
@@ -18,6 +27,21 @@ const tracks = [
       "AI-generated campaign content and promo assets",
       "Customer re-engagement flows and reminders",
     ],
+  },
+  {
+    title: "SignalFeed — Seattle Hiring Intelligence",
+    badge: "In Development",
+    description:
+      "A weekly intelligence digest delivering the 50 highest-intent hiring accounts in the Seattle market, ranked, enriched, and personalized. Built for our own placement team and now opening to a small group of founding subscribers from peer staffing firms. Austin and Boston editions in development.",
+    features: [
+      "Weekly Monday digest of 50 ranked Seattle accounts with verified hiring-manager contacts",
+      "Trigger context, H1B sponsorship flags, and personalized AI-generated openers per account",
+      "Built and battle-tested by an active Seattle staffing firm — not a generic intent-data vendor",
+    ],
+    cta: {
+      label: "Join Founding Subscriber Waitlist →",
+      href: "/contact?subject=SignalFeed-Waitlist",
+    },
   },
   {
     title: "Health - Clinic Automation",
@@ -79,6 +103,14 @@ export default function ProductsPage() {
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
+                {track.cta ? (
+                  <Link
+                    href={track.cta.href}
+                    className="mt-5 inline-block text-sm font-medium text-accent underline-offset-2 hover:text-brandDark hover:underline transition-colors"
+                  >
+                    {track.cta.label}
+                  </Link>
+                ) : null}
               </article>
             </Reveal>
           ))}

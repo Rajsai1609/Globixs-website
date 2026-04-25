@@ -1,10 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [pending, setPending] = useState(false);
+  const [serviceInterest, setServiceInterest] = useState("");
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("subject") === "SignalFeed-Waitlist") {
+      setServiceInterest("SignalFeed Waitlist");
+    }
+  }, [searchParams]);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -38,6 +47,7 @@ export function ContactForm() {
 
     if (res.ok) {
       form.reset();
+      setServiceInterest("");
       setStatus("success");
       return;
     }
@@ -74,13 +84,19 @@ export function ContactForm() {
 
       <label className="block text-sm font-medium text-foreground">
         What do you want to automate?
-        <select name="serviceInterest" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15">
+        <select
+          name="serviceInterest"
+          value={serviceInterest}
+          onChange={(e) => setServiceInterest(e.target.value)}
+          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15"
+        >
           <option value="">Select an area</option>
           <option>Hiring / Staffing</option>
           <option>Restaurant Operations</option>
           <option>Real Estate</option>
           <option>Healthcare</option>
           <option>Sales</option>
+          <option value="SignalFeed Waitlist">SignalFeed Waitlist</option>
           <option>Other</option>
         </select>
       </label>
