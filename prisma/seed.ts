@@ -8,7 +8,7 @@ async function main() {
     {
       slug: 'staff-augmentation',
       title: 'Staff Augmentation',
-      shortDesc: 'Embed pre-vetted engineers and analysts into your team quickly.',
+      shortDesc: 'Embed pre-vetted IT engineers, cloud architects, and data analysts alongside your team — sourced and matched through our AI screening pipeline.',
       longDesc:
         'Globixs places skilled professionals across full-stack development, cloud engineering, data analytics, QA, and platform operations to help enterprise teams deliver faster.',
       category: 'IT Staffing',

@@ -2,26 +2,28 @@
 
 import { useState } from "react";
 
+const field =
+  "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
+
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [pending, setPending] = useState(false);
+  const [startedAt] = useState(() => Date.now());
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const employeeCount = String(formData.get("employeeCount") || "");
-    const startedAt = Date.now();
+    const fd = new FormData(form);
+    const companySize = String(fd.get("companySize") ?? "");
 
     const payload = {
-      fullName: String(formData.get("fullName") || ""),
-      company: String(formData.get("company") || ""),
-      email: String(formData.get("email") || ""),
-      phone: "",
-      serviceInterest: String(formData.get("serviceInterest") || ""),
-      message: `${String(formData.get("message") || "")}\n\nTeam size: ${employeeCount || "-"}`,
-      website: String(formData.get("website") || ""),
+      fullName:       String(fd.get("fullName") ?? ""),
+      company:        String(fd.get("company") ?? ""),
+      email:          String(fd.get("email") ?? ""),
+      phone:          String(fd.get("phone") ?? ""),
+      serviceInterest: String(fd.get("serviceInterest") ?? ""),
+      message: `${String(fd.get("message") ?? "")}\n\nCompany size: ${companySize || "-"}`,
+      website:        String(fd.get("website") ?? ""),
       startedAt,
     };
 
@@ -45,56 +47,99 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="enterprise-panel space-y-4 p-6 sm:p-8">
+    <form onSubmit={onSubmit} className="enterprise-panel space-y-5 p-6 sm:p-8">
+      {/* Honeypot */}
       <input type="hidden" name="website" />
 
       <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Book Free Consultation</p>
-        <h2 className="mt-2 text-2xl font-semibold text-heading">Tell us what you want to automate</h2>
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+          Book a Consultation
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold text-heading">Tell us how we can help.</h2>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="text-sm font-medium text-foreground">
-          Full Name
-          <input required name="fullName" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
+        <label className="block text-sm font-medium text-foreground">
+          Full Name <span className="text-red-500" aria-hidden="true">*</span>
+          <input
+            required
+            name="fullName"
+            autoComplete="name"
+            className={field}
+          />
         </label>
-        <label className="text-sm font-medium text-foreground">
-          Email Address
-          <input required type="email" name="email" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
+        <label className="block text-sm font-medium text-foreground">
+          Email Address <span className="text-red-500" aria-hidden="true">*</span>
+          <input
+            required
+            type="email"
+            name="email"
+            autoComplete="email"
+            className={field}
+          />
         </label>
-        <label className="text-sm font-medium text-foreground">
+        <label className="block text-sm font-medium text-foreground">
           Company Name
-          <input name="company" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
+          <input name="company" autoComplete="organization" className={field} />
         </label>
-        <label className="text-sm font-medium text-foreground">
-          Number of employees
-          <input name="employeeCount" placeholder="e.g. 25" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
+        <label className="block text-sm font-medium text-foreground">
+          Phone
+          <input type="tel" name="phone" autoComplete="tel" className={field} />
         </label>
       </div>
 
       <label className="block text-sm font-medium text-foreground">
-        What do you want to automate?
-        <select name="serviceInterest" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15">
-          <option value="">Select an area</option>
-          <option>Hiring / Staffing</option>
-          <option>Restaurant Operations</option>
-          <option>Real Estate</option>
-          <option>Healthcare</option>
-          <option>Sales</option>
-          <option>Other</option>
+        What can we help with? <span className="text-red-500" aria-hidden="true">*</span>
+        <select required name="serviceInterest" defaultValue="" className={field}>
+          <option value="" disabled>Select an option</option>
+          <option>Hire IT talent (recruiting / staffing)</option>
+          <option>AI consulting / automation project</option>
+          <option>Both — hiring and an AI project</option>
+          <option>I&apos;m a candidate looking for a job</option>
+          <option>Something else</option>
         </select>
       </label>
 
       <label className="block text-sm font-medium text-foreground">
-        Message / Additional details
-        <textarea required name="message" rows={5} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
+        Tell us a bit more about your needs <span className="text-red-500" aria-hidden="true">*</span>
+        <textarea
+          required
+          name="message"
+          rows={5}
+          placeholder="e.g., 'Need 3 senior cloud engineers in 30 days' or 'Want to automate our customer support workflow'"
+          className={field}
+        />
       </label>
 
-      <button disabled={pending} className="btn-primary w-full sm:w-auto">
-        {pending ? "Sending..." : "Book Free Consultation"}
-      </button>
-      {status === "success" ? <p className="text-sm alert-success">Thank you. We will reach out shortly.</p> : null}
-      {status === "error" ? <p className="text-sm alert-error">Something went wrong. Please try again.</p> : null}
+      <label className="block text-sm font-medium text-foreground">
+        Company size
+        <select name="companySize" defaultValue="" className={field}>
+          <option value="">Select size (optional)</option>
+          <option>1–10 employees</option>
+          <option>11–50 employees</option>
+          <option>51–200 employees</option>
+          <option>201–1,000 employees</option>
+          <option>1,000+ employees</option>
+        </select>
+      </label>
+
+      <div className="space-y-3">
+        <button disabled={pending} className="btn-primary w-full sm:w-auto">
+          {pending ? "Sending..." : "Send Message"}
+        </button>
+        {status === "success" && (
+          <p className="text-sm alert-success">
+            Thank you. We&apos;ll respond within one business day.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-sm alert-error">Something went wrong. Please try again.</p>
+        )}
+        <p className="text-xs text-muted">
+          We respond within one business day. By submitting, you agree to be contacted by Globixs
+          about your inquiry. We never share your information without permission.
+        </p>
+      </div>
     </form>
   );
 }
