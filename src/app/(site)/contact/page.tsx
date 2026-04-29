@@ -33,6 +33,7 @@ export default function ContactPage() {
             <p className="mt-2 text-sm text-slate-600">{company.phone}</p>
             <p className="mt-2 text-sm text-slate-600">{company.hours}</p>
             <p className="mt-2 text-sm text-slate-600">{company.email}</p>
+            <p className="mt-3 text-xs text-slate-400">{company.locationTagline}</p>
           </div>
         </Reveal>
 

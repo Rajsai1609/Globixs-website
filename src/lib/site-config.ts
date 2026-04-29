@@ -1,10 +1,10 @@
 export const company = {
   name: "Globixs Technology Solutions",
-  phone: "+1 206-552-8424",
+  phone: "+1 (425) 666-8998",
   hours: "Mon - Friday: 9.00am to 5.00pm",
-  email: "connect@theteammc.com",
-  careersEmail: "connect@theteammc.com",
+  email: "connect@globixs.com",
   address: "Seattle, WA (Seattle metro area)",
+  locationTagline: "Pacific Northwest company serving global customers",
 };
 
 export const navLinks = [

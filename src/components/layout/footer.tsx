@@ -10,6 +10,7 @@ export function Footer() {
           <p className="mt-3 text-sm text-slate-300">
             Globixs is an AI-native staffing and consulting firm based in Seattle. We help companies hire IT talent faster and ship AI systems sooner — through senior consultants and pre-vetted engineers working alongside production-grade AI agents.
           </p>
+          <p className="mt-2 text-xs text-slate-400">{company.locationTagline}</p>
         </div>
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
@@ -41,7 +42,7 @@ export function Footer() {
           <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com/in/rajsainaredla09"
+              href="https://www.linkedin.com/company/globixs"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
