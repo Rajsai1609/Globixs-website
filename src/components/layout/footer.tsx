@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-white">{company.name}</h3>
           <p className="mt-3 text-sm text-slate-300">
-            AI-powered IT staffing and consultancy with MCT PathAI for student career automation, plus business vertical automation products.
+            Globixs is an AI-native staffing and consulting firm based in Seattle. We help companies hire IT talent faster and ship AI systems sooner — through senior consultants and pre-vetted engineers working alongside production-grade AI agents.
           </p>
         </div>
         <div>
@@ -16,10 +16,14 @@ export function Footer() {
             Quick Links
           </h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link className="transition hover:text-white" href="/services">AI IT Staffing & Consultancy</Link></li>
-            <li><Link className="transition hover:text-white" href="/academy">MCT PathAI (Students)</Link></li>
-            <li><Link className="transition hover:text-white" href="/products">Business Verticals</Link></li>
-            <li><Link className="transition hover:text-white" href="/contact">Book Consultation</Link></li>
+            <li><Link className="transition hover:text-white" href="/">Home</Link></li>
+            <li><Link className="transition hover:text-white" href="/services">For Employers</Link></li>
+            <li><Link className="transition hover:text-white" href="/get-hired">For Candidates</Link></li>
+            <li><Link className="transition hover:text-white" href="/consulting">Consulting</Link></li>
+            <li><Link className="transition hover:text-white" href="/products">Industries</Link></li>
+            <li><Link className="transition hover:text-white" href="/about">About</Link></li>
+            <li><Link className="transition hover:text-white" href="/careers">Careers</Link></li>
+            <li><Link className="transition hover:text-white" href="/contact">Contact</Link></li>
           </ul>
         </div>
         <div>
@@ -35,7 +39,18 @@ export function Footer() {
       <div className="border-t border-slate-800 py-4">
         <div className="container-shell flex flex-wrap justify-between gap-3 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
+            <a
+              href="https://linkedin.com/in/rajsainaredla09"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="transition hover:text-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/terms-and-conditions">Terms & Conditions</Link>
           </div>

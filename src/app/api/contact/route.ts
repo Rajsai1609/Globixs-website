@@ -17,16 +17,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  await prisma.contactSubmission.create({
-    data: {
-      fullName: payload.fullName,
-      company: payload.company,
-      email: payload.email,
-      phone: payload.phone,
-      serviceInterest: payload.serviceInterest,
-      message: payload.message,
-    },
-  });
+  try {
+    await prisma.contactSubmission.create({
+      data: {
+        fullName: payload.fullName,
+        company: payload.company,
+        email: payload.email,
+        phone: payload.phone,
+        serviceInterest: payload.serviceInterest,
+        message: payload.message,
+      },
+    });
+  } catch (err) {
+    console.error("[contact] DB insert failed:", err);
+    return NextResponse.json({ error: "Failed to save submission." }, { status: 500 });
+  }
 
   await sendNotificationEmail(
     `New contact submission from ${payload.fullName}`,

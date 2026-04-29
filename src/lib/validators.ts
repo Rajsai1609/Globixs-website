@@ -27,6 +27,20 @@ function normalizeHttpUrl(value: string): string {
   return `https://${t}`;
 }
 
+export const getHiredSchema = z.object({
+  fullName:          z.string().min(2),
+  email:             z.string().email(),
+  phone:             z.string().optional(),
+  linkedinUrl:       z.string().optional(),
+  visaStatus:        z.string().min(1),
+  yearsOfExperience: z.string().min(1),
+  targetRoles:       z.string().min(2),
+  resumeUrl:         z.string().min(1),
+  message:           z.string().optional(),
+  website:           z.string().optional(),
+  startedAt:         z.coerce.number().optional(),
+});
+
 export const jobApplicationSchema = z.object({
   jobId: z.coerce.number().int().positive(),
   firstName: z.string().min(2).max(80),

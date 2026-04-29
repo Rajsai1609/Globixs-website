@@ -90,6 +90,20 @@ model ResumeSubmission {
   createdAt  DateTime @default(now())
 }
 
+model GetHiredSubmission {
+  id                Int      @id @default(autoincrement())
+  fullName          String
+  email             String
+  phone             String?
+  linkedinUrl       String?
+  visaStatus        String
+  yearsOfExperience String
+  targetRoles       String
+  resumeUrl         String
+  message           String?
+  createdAt         DateTime @default(now())
+}
+
 model ContactSubmission {
   id           Int      @id @default(autoincrement())
   fullName     String

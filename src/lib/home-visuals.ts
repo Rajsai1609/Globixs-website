@@ -15,7 +15,7 @@ export const staffingHeroSlides: HeroSlide[] = [
     src: "/services/staff-augmentation.jpg",
     alt: "Software team collaborating at a shared table with laptops and code on screen",
     headline: "Staff Augmentation",
-    subline: "Embed pre-vetted engineers and analysts alongside your team.",
+    subline: "Embed pre-vetted IT engineers, cloud architects, and data analysts alongside your team — sourced and matched through our AI screening pipeline.",
   },
   {
     src: "/services/it-consulting.jpg",
@@ -45,7 +45,7 @@ export const staffingHeroSlides: HeroSlide[] = [
     src: "/services/enterprise-reach.jpg",
     alt: "Earth from orbit illustrating global connectivity and scale",
     headline: "Enterprise Reach",
-    subline: "Staffing, products, and academy programs aligned to how you operate.",
+    subline: "Staffing and consulting aligned to how you operate.",
   },
 ];
 

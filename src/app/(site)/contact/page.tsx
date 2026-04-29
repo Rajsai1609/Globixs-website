@@ -1,39 +1,57 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 import { company } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact | Globixs Technology Solutions",
   description:
-    "Get in touch with Globixs Technology Solutions. AI-powered IT staffing and consultancy services in Seattle, WA.",
+    "Get in touch with Globixs. Free 30-minute consultation for IT staffing, AI consulting, or both. We respond within one business day.",
 };
 
 export default function ContactPage() {
   return (
     <div className="section-pad">
-      <div className="container-shell grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="container-shell grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+
+        {/* ── Left column ── */}
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Get Started</p>
-          <h1 className="mt-3 text-4xl font-bold text-heading sm:text-5xl">Ready to Automate Your Business?</h1>
-          <p className="mt-4 text-slate-600">
-            Let&apos;s talk about what AI can do for you. Free 30-minute consultation. No commitment.
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            Get In Touch
           </p>
+          <h1 className="mt-3 text-4xl font-bold text-heading sm:text-5xl">Let&apos;s talk.</h1>
+          <p className="mt-5 text-lg leading-7 text-slate-600">
+            Whether you&apos;re hiring IT talent, scoping an AI project, or just exploring what
+            Globixs can do — we&apos;ll respond within one business day. Free 30-minute discovery
+            call. No pitch deck, no commitment.
+          </p>
+
           <div className="enterprise-panel mt-8 p-6">
-            <h2 className="text-lg font-semibold text-heading">Contact Information</h2>
+            <h2 className="text-base font-semibold text-heading">Contact Information</h2>
             <p className="mt-3 whitespace-pre-line text-sm text-slate-600">{company.address}</p>
             <p className="mt-2 text-sm text-slate-600">{company.phone}</p>
             <p className="mt-2 text-sm text-slate-600">{company.hours}</p>
             <p className="mt-2 text-sm text-slate-600">{company.email}</p>
           </div>
-          <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-sm text-slate-600">
-            Live demo: <a className="font-medium text-accent underline-offset-2 hover:text-brandDark hover:underline" href="https://www.mctpathai.com/" target="_blank">www.mctpathai.com</a><br />
-            LinkedIn: <a className="font-medium text-accent underline-offset-2 hover:text-brandDark hover:underline" href="https://www.linkedin.com/company/mctpathai" target="_blank">linkedin.com/company/mctpathai</a>
+        </Reveal>
+
+        {/* ── Right column ── */}
+        <Reveal delay={80}>
+          <ContactForm />
+
+          {/* Candidate redirect */}
+          <div className="mt-6 border-t border-border pt-5">
+            <p className="text-sm text-muted">
+              Looking for a job?{" "}
+              <Link href="/get-hired" className="font-semibold text-accent hover:underline">
+                Visit our For Candidates page
+              </Link>{" "}
+              for our recruiter intake form, FAQ, and process.
+            </p>
           </div>
         </Reveal>
-        <Reveal delay={100}>
-          <ContactForm />
-        </Reveal>
+
       </div>
     </div>
   );

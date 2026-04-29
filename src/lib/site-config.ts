@@ -9,10 +9,10 @@ export const company = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "AI IT Staffing" },
-  { href: "/products", label: "Business Verticals" },
-  { href: "/academy", label: "MCT PathAI" },
-  { href: "/careers", label: "Careers" },
+  { href: "/services", label: "For Employers" },
+  { href: "/get-hired", label: "For Candidates" },
+  { href: "/consulting", label: "Consulting" },
+  { href: "/products", label: "Industries" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

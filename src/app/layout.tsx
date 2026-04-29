@@ -16,20 +16,18 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://globixstech.com"),
   title: {
-    default: "Globixs Technology Solutions | AI-Powered IT Staffing & Consultancy",
+    default: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Globixs helps teams hire and deliver faster through AI-augmented staffing, consulting, and automation. Based in Seattle, WA. We also power MCT PathAI for student career automation.",
+    "Seattle-based AI-powered technology staffing and business consulting. Pre-vetted IT talent and production-grade AI agents working side by side to deliver measurable outcomes.",
   keywords: [
     "IT staffing Seattle",
-    "AI staffing agency",
-    "IT consultancy",
-    "F-1 OPT jobs",
-    "H-1B staffing",
-    "MCT PathAI",
-    "Globixs Technology Solutions",
-    "technology consulting Seattle",
+    "technology staffing Seattle",
+    "business consulting Seattle WA",
+    "H1B OPT job placement Seattle",
+    "AI screening pipeline",
+    "IT consulting Seattle WA",
   ],
   authors: [{ name: "Globixs Technology Solutions" }],
   creator: "Globixs Technology Solutions",
@@ -39,8 +37,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://globixstech.com",
     siteName: "Globixs Technology Solutions",
-    title: "Globixs Technology Solutions | AI-Powered IT Staffing & Consultancy",
-    description: "AI-Powered IT Staffing & Consultancy for Faster Hiring. Seattle, WA.",
+    title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    description:
+      "Seattle-based AI-powered technology staffing and business consulting. Pre-vetted IT talent and production-grade AI agents working side by side to deliver measurable outcomes.",
     images: [
       {
         url: "/og-image.png",
@@ -52,8 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Globixs Technology Solutions",
-    description: "AI-Powered IT Staffing & Consultancy for Faster Hiring.",
+    title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    description:
+      "Seattle-based AI-powered technology staffing and business consulting. Pre-vetted IT talent and production-grade AI agents working side by side to deliver measurable outcomes.",
     images: ["/og-image.png"],
   },
   icons: {
