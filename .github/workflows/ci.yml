@@ -22,6 +22,7 @@ defaults:
 
 env:
   DATABASE_URL: postgresql://ci:ci@127.0.0.1:5432/ci?schema=public
+  DIRECT_URL: postgresql://ci:ci@127.0.0.1:5432/ci?schema=public
 
 jobs:
   quality:
