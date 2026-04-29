@@ -4,6 +4,7 @@ export const company = {
   hours: "Mon - Friday: 9.00am to 5.00pm",
   email: "connect@globixs.com",
   address: "Seattle, WA (Seattle metro area)",
+  locationTagline: "Pacific Northwest company serving global customers",
 };
 
 export const navLinks = [
