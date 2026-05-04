@@ -20,8 +20,7 @@ export function Footer() {
             <li><Link className="transition hover:text-white" href="/">Home</Link></li>
             <li><Link className="transition hover:text-white" href="/services">For Employers</Link></li>
             <li><Link className="transition hover:text-white" href="/get-hired">For Candidates</Link></li>
-            <li><Link className="transition hover:text-white" href="/consulting">Consulting</Link></li>
-            <li><Link className="transition hover:text-white" href="/products">Industries</Link></li>
+            <li><Link className="transition hover:text-white" href="/products">AI Products</Link></li>
             <li><Link className="transition hover:text-white" href="/about">About</Link></li>
             <li><Link className="transition hover:text-white" href="/careers">Careers</Link></li>
             <li><Link className="transition hover:text-white" href="/contact">Contact</Link></li>

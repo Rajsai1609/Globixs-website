@@ -10,8 +10,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "For Employers" },
   { href: "/get-hired", label: "For Candidates" },
-  { href: "/consulting", label: "Consulting" },
-  { href: "/products", label: "Industries" },
+  { href: "/products", label: "AI Products" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
