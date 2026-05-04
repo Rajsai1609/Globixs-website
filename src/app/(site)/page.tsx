@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Users, Lightbulb, Clock, Filter, Layers, UserX, type LucideIcon } from "lucide-react";
+import { Users, Lightbulb, Clock, Filter, Layers, UserX, Cpu, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 import { WelcomeSection } from "@/components/home/WelcomeSection";
@@ -17,6 +17,16 @@ type HeroPillar = {
 };
 
 const heroPillars: HeroPillar[] = [
+  {
+    Icon: Cpu,
+    title: "AI Products",
+    description:
+      "Production AI systems Globixs builds to solve real bottlenecks. Our first product in beta: SignalFeed — a sales intelligence agent that turns job-posting data into ranked BD pipeline for staffing firms.",
+    subLinks: [
+      { label: "Explore AI Products →", href: "/products" },
+      { label: "Request a Demo →", href: "/contact" },
+    ],
+  },
   {
     Icon: Users,
     title: "IT Staffing & Recruiting",
@@ -158,10 +168,10 @@ export default function Home() {
           <Reveal>
             <SectionTitle
               eyebrow="What We Do"
-              title="Two services. One operating philosophy."
+              title="Three pillars. One operating philosophy."
             />
           </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {heroPillars.map((pillar, idx) => (
               <Reveal key={pillar.title} delay={idx * 80}>
                 <article className="premium-card p-6">
