@@ -6,23 +6,21 @@ import { SectionTitle } from "@/components/sections/section-title";
 export const metadata: Metadata = {
   title: "AI Products | Globixs Technology Solutions",
   description:
-    "Globixs AI products are built from the staffing trenches. Our first product, SignalFeed, is a sales intelligence agent for staffing firms — now in beta.",
+    "Vertical AI products built by Globixs and deployed for real customers. Restaurant ops, real estate, career intelligence, and more — each one ships with monitoring, KPIs, and human-in-the-loop oversight.",
   openGraph: {
     title: "AI Products | Globixs Technology Solutions",
     description:
-      "Globixs AI products are built from the staffing trenches. Our first product, SignalFeed, is a sales intelligence agent for staffing firms — now in beta.",
+      "Vertical AI products built by Globixs and deployed for real customers. Restaurant ops, real estate, career intelligence, and more.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Globixs AI Products — SignalFeed and more",
+        alt: "Globixs AI Products",
       },
     ],
   },
 };
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const deliverySteps = [
   {
@@ -87,9 +85,7 @@ const signalFeedWhyProps = [
   "Improves with use. Every BD outcome you log refines the scoring model. Signal weights adjust monthly based on what actually closes.",
 ];
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
-
-export default function ProductsPage() {
+export default function AIProductsPage() {
   return (
     <div>
       {/* ══════════ HERO ══════════ */}
@@ -158,8 +154,6 @@ export default function ProductsPage() {
           <Reveal delay={80}>
             <article className="enterprise-panel mt-10 overflow-hidden">
               <div className="p-8 lg:p-12">
-
-                {/* Status badge + product name */}
                 <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent ring-1 ring-accent/20">
                   Coming Soon · Beta
                 </span>
@@ -168,7 +162,6 @@ export default function ProductsPage() {
                   Sales intelligence agent for staffing firms
                 </p>
 
-                {/* Lead paragraph */}
                 <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600">
                   SignalFeed scrapes job postings across the web, identifies which companies are
                   actively struggling to hire, and hands your BD team a ranked list of high-intent
@@ -178,7 +171,6 @@ export default function ProductsPage() {
                   battle-tested inside Globixs before being offered to other staffing firms.
                 </p>
 
-                {/* Who benefits */}
                 <div className="mt-10">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                     Who benefits from SignalFeed
@@ -193,7 +185,6 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* How it's useful */}
                 <div className="mt-12">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                     How it&apos;s useful
@@ -209,7 +200,6 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* Why SignalFeed */}
                 <div className="mt-12">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                     Why SignalFeed
@@ -223,7 +213,6 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* SignalFeed Beta CTA */}
                 <div className="mt-12 rounded-2xl bg-black/[0.03] px-8 py-8 lg:py-10">
                   <h3 className="text-xl font-bold text-heading sm:text-2xl">
                     Want SignalFeed pointed at your market?
@@ -241,7 +230,6 @@ export default function ProductsPage() {
                     </Link>
                   </div>
                 </div>
-
               </div>
             </article>
           </Reveal>
