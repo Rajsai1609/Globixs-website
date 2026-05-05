@@ -28,7 +28,7 @@ export const navLinks: NavLink[] = [
     dropdown: true,
     children: [
       { href: "/for-employees", label: "For Employees" },
-      { href: "https://mctpathai.com", label: "MCT PathAI", external: true },
+      { href: "https://mctpathai.com", label: "PathAI", external: true },
     ],
   },
   { href: "/ai-products", label: "AI Products" },

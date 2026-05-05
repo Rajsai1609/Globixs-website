@@ -41,50 +41,6 @@ const deliverySteps = [
   },
 ];
 
-const signalFeedBeneficiaries = [
-  {
-    title: "IT Staffing Agencies",
-    body: "Surface mid-market companies in active hiring pain in your geography. Stop wasting BD hours on companies that aren't actually hiring.",
-  },
-  {
-    title: "Recruiting Teams & RPOs",
-    body: "Cut prospecting time so senior recruiters spend hours on conversations, not lead lists. Every Monday, a ranked list lands in your inbox.",
-  },
-  {
-    title: "BD Leaders at Consulting Firms",
-    body: "Replace random outbound with signal-driven outreach. The model improves every week as you log outcomes — pipeline that compounds.",
-  },
-];
-
-const signalFeedHowSteps = [
-  {
-    num: "01",
-    title: "Scrape",
-    desc: "Daily ingestion of job postings across multiple ATS platforms and public job boards.",
-  },
-  {
-    num: "02",
-    title: "Score",
-    desc: "Each company gets a hiring distress score (0–100) based on six signals: posting velocity, repeat reposts, multi-platform spread, role mix shifts, geographic expansion, and wage anomalies.",
-  },
-  {
-    num: "03",
-    title: "Enrich",
-    desc: "Top-scoring companies are enriched with verified decision-maker contacts (VPs of HR, Operations, Recruiting).",
-  },
-  {
-    num: "04",
-    title: "Deliver",
-    desc: "Every Monday morning, BD reps receive a ranked list of 20 high-intent leads with AI-drafted outreach ready to send.",
-  },
-];
-
-const signalFeedWhyProps = [
-  "Built by an operator. Globixs uses SignalFeed to source its own client pipeline. You get a tool calibrated against real revenue outcomes, not a beta experiment.",
-  "Six signals, not just job count. Anyone can scrape postings. SignalFeed identifies which companies are in genuine hiring distress — the ones most likely to take a meeting.",
-  "Improves with use. Every BD outcome you log refines the scoring model. Signal weights adjust monthly based on what actually closes.",
-];
-
 export default function AIProductsPage() {
   return (
     <div>
@@ -115,28 +71,139 @@ export default function AIProductsPage() {
         </div>
       </section>
 
-      {/* ══════════ AVAILABLE NOW ══════════ */}
+      {/* ══════════ SHIPPED & LIVE ══════════ */}
       <section className="section-pad bg-black/[0.03]">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
-              title="Available Now"
-              description="Products currently deployed and serving clients."
+              eyebrow="SHIPPED & LIVE"
+              title="Products running in production today"
+              description="Built by Globixs, deployed for real customers."
             />
           </Reveal>
-          <Reveal delay={80}>
-            <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-surface px-8 py-10 text-center">
-              <p className="text-sm leading-7 text-slate-600">
-                We&apos;re shipping our first publicly available AI product later this quarter.
-                Until then, every Globixs AI product runs internally — sharpened against real
-                staffing operations before we offer it externally. Want early access when our first
-                product goes live?
-              </p>
-              <Link href="/contact" className="btn-secondary mt-6 inline-flex">
-                Join the Early Access List
-              </Link>
-            </div>
-          </Reveal>
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+
+            {/* PathAI */}
+            <Reveal delay={0}>
+              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                  CAREER INTELLIGENCE
+                </p>
+                <h3 className="mt-2 text-3xl font-bold text-blue-900">PathAI</h3>
+                <p className="mt-2 text-lg text-gray-600">
+                  AI job matching for F-1, OPT, and STEM-OPT students
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-gray-700">
+                  10-dimensional AI matching engine. H1B sponsorship verification. Daily
+                  personalized dashboards. 49+ active beta users across the US.
+                </p>
+                <div className="mt-6 flex gap-6">
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">49+</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Active Users</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">10</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Match Dimensions</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">Daily</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Pipeline Updates</p>
+                  </div>
+                </div>
+                <div className="mt-auto pt-6">
+                  <a
+                    href="https://mctpathai.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+                  >
+                    Visit PathAI →
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+
+            {/* Resto */}
+            <Reveal delay={80}>
+              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                  RESTAURANT OPERATIONS
+                </p>
+                <h3 className="mt-2 text-3xl font-bold text-blue-900">Resto</h3>
+                <p className="mt-2 text-lg text-gray-600">
+                  AI-powered ops automation for independent restaurants
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-gray-700">
+                  End-to-end automation for catering intake, customer communication, CRM, and
+                  back-office workflows. Multi-agent orchestration handles scale across multiple
+                  locations.
+                </p>
+                <div className="mt-6 flex gap-6">
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">4</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Live Clients</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">3</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">AI Agents</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">100%</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Operational Uptime</p>
+                  </div>
+                </div>
+                <div className="mt-auto pt-6">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+                  >
+                    View case studies →
+                  </Link>
+                </div>
+              </article>
+            </Reveal>
+
+            {/* Realty */}
+            <Reveal delay={160}>
+              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                  REAL ESTATE INTELLIGENCE
+                </p>
+                <h3 className="mt-2 text-3xl font-bold text-blue-900">Realty</h3>
+                <p className="mt-2 text-lg text-gray-600">
+                  6-module AI backend for real estate agents
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-gray-700">
+                  Lead generation, qualification, follow-up, booking, CRM, and reporting in one
+                  integrated AI system. Includes a deployed AVM model with R²=0.95 accuracy.
+                </p>
+                <div className="mt-6 flex gap-6">
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">6</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Integrated Modules</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">0.95</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">AVM R² Score</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-900">$750</p>
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Setup + $1,200/mo</p>
+                  </div>
+                </div>
+                <div className="mt-auto pt-6">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+                  >
+                    See how it works →
+                  </Link>
+                </div>
+              </article>
+            </Reveal>
+
+          </div>
         </div>
       </section>
 
@@ -145,91 +212,57 @@ export default function AIProductsPage() {
         <div className="container-shell">
           <Reveal>
             <SectionTitle
-              title="In Development"
+              eyebrow="IN DEVELOPMENT"
+              title="Coming soon"
               description="Products we're actively building. Beta partners welcome."
             />
           </Reveal>
 
           {/* ─── SignalFeed card ─── */}
           <Reveal delay={80}>
-            <article className="enterprise-panel mt-10 overflow-hidden">
-              <div className="p-8 lg:p-12">
-                <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent ring-1 ring-accent/20">
-                  Coming Soon · Beta
-                </span>
-                <h2 className="mt-5 text-4xl font-bold text-heading sm:text-5xl">SignalFeed</h2>
-                <p className="mt-2 text-lg font-medium text-muted">
-                  Sales intelligence agent for staffing firms
+            <article className="relative mt-10 flex flex-col rounded-2xl border border-gray-200 bg-gray-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <span className="absolute right-6 top-6 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+                IN DEVELOPMENT
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                SALES INTELLIGENCE
+              </p>
+              <h3 className="mt-2 text-3xl font-bold text-blue-900">SignalFeed</h3>
+              <p className="mt-2 text-lg text-gray-600">
+                AI sales intelligence agent for staffing firms
+              </p>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-700">
+                SignalFeed scrapes job postings across the web, scores companies on six proprietary
+                hiring distress signals, enriches them with verified decision-maker contacts, and
+                drafts personalized outreach. Currently being battle-tested inside Globixs&apos;s
+                own BD pipeline before external launch.
+              </p>
+              <div className="mt-6">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Who it&apos;s for
                 </p>
-
-                <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600">
-                  SignalFeed scrapes job postings across the web, identifies which companies are
-                  actively struggling to hire, and hands your BD team a ranked list of high-intent
-                  sales leads every Monday morning. It scores companies on six proprietary hiring
-                  distress signals, enriches them with verified decision-maker contacts, and drafts
-                  personalized outreach — turning hiring noise into pipeline. Built and
-                  battle-tested inside Globixs before being offered to other staffing firms.
-                </p>
-
-                <div className="mt-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                    Who benefits from SignalFeed
-                  </p>
-                  <div className="mt-5 grid gap-5 sm:grid-cols-3">
-                    {signalFeedBeneficiaries.map((item) => (
-                      <div key={item.title} className="premium-card p-5">
-                        <h3 className="text-sm font-semibold text-heading">{item.title}</h3>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                    How it&apos;s useful
-                  </p>
-                  <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                    {signalFeedHowSteps.map((step) => (
-                      <div key={step.num} className="enterprise-panel p-5">
-                        <p className="text-3xl font-bold text-accent/20">{step.num}</p>
-                        <h3 className="mt-2 text-sm font-semibold text-heading">{step.title}</h3>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{step.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                    Why SignalFeed
-                  </p>
-                  <div className="mt-5 grid gap-5 md:grid-cols-3">
-                    {signalFeedWhyProps.map((text, idx) => (
-                      <div key={idx} className="premium-card p-5">
-                        <p className="text-sm leading-6 text-slate-600">{text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-12 rounded-2xl bg-black/[0.03] px-8 py-8 lg:py-10">
-                  <h3 className="text-xl font-bold text-heading sm:text-2xl">
-                    Want SignalFeed pointed at your market?
-                  </h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-                    We&apos;re onboarding a small group of beta partners. Tell us your ICP and your
-                    geography, and we&apos;ll show you what your weekly lead list could look like.
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Link href="/contact" className="btn-primary">
-                      Request Beta Access
-                    </Link>
-                    <Link href="/contact" className="btn-secondary">
-                      Book a 15-min Walkthrough
-                    </Link>
-                  </div>
-                </div>
+                <ul className="mt-2 space-y-1.5">
+                  <li className="flex items-center gap-2 text-sm text-gray-700">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" aria-hidden="true" />
+                    IT Staffing Agencies
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-gray-700">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" aria-hidden="true" />
+                    Recruiting Teams &amp; RPOs
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-gray-700">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" aria-hidden="true" />
+                    BD Leaders at Consulting Firms
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-auto pt-6">
+                <Link
+                  href="/contact?product=signalfeed"
+                  className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+                >
+                  Join the early access list →
+                </Link>
               </div>
             </article>
           </Reveal>
