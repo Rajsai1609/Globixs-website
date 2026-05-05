@@ -1,0 +1,101 @@
+import Link from "next/link";
+import { Signal, Truck, Landmark, Cpu, Activity, type LucideIcon } from "lucide-react";
+import { Reveal } from "@/components/animations/reveal";
+import { SectionTitle } from "@/components/sections/section-title";
+
+type Industry = {
+  Icon: LucideIcon;
+  title: string;
+  tagline: string;
+  description: string;
+  href: string;
+};
+
+const industries: Industry[] = [
+  {
+    Icon: Signal,
+    title: "TELECOMMUNICATIONS",
+    tagline: "Scale. Network. Ship.",
+    description: "Engineers and AI for carriers, infra teams, and 5G builds.",
+    href: "/contact",
+  },
+  {
+    Icon: Truck,
+    title: "LOGISTICS & SUPPLY CHAIN",
+    tagline: "Move. Track. Optimize.",
+    description: "Real-time logistics intelligence and supply chain automation.",
+    href: "/contact",
+  },
+  {
+    Icon: Landmark,
+    title: "FINANCIAL SERVICES",
+    tagline: "Secure. Compliant. Fast.",
+    description: "Engineers cleared for FINRA/SOC 2 environments. AI for risk and ops.",
+    href: "/contact",
+  },
+  {
+    Icon: Cpu,
+    title: "TECHNOLOGY",
+    tagline: "Build. Ship. Scale.",
+    description: "SaaS, cloud, and platform engineers placed in days, not months.",
+    href: "/contact",
+  },
+  {
+    Icon: Activity,
+    title: "HEALTHCARE",
+    tagline: "Compliant. Patient. Outcome.",
+    description: "HIPAA-ready engineers and AI workflows for clinical teams.",
+    href: "/contact",
+  },
+];
+
+export function IndustryGrid() {
+  return (
+    <section className="section-pad bg-surface">
+      <div className="container-shell">
+        <Reveal>
+          <SectionTitle
+            eyebrow="ENTERPRISE VERTICALS"
+            title="Industries we serve"
+            description="Globixs places engineers and ships AI for the verticals where reliability, compliance, and scale aren't optional."
+          />
+        </Reveal>
+
+        {/*
+          5 cards: xl:grid-cols-5 (all in one row), lg:grid-cols-4 (5th card on second row,
+          centered via col-start-2), sm:grid-cols-2, default 1-col.
+        */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+          {industries.map((industry, idx) => (
+            <Reveal
+              key={industry.title}
+              delay={idx * 70}
+              className={
+                idx === 4
+                  ? "sm:col-span-2 sm:max-w-sm sm:mx-auto lg:col-span-1 lg:col-start-2 lg:max-w-none lg:mx-0 xl:col-start-auto"
+                  : ""
+              }
+            >
+              <article className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <industry.Icon size={32} className="text-red-600" aria-hidden="true" />
+                <h3 className="mt-4 text-lg font-bold uppercase tracking-wide text-heading">
+                  {industry.title}
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-brand">{industry.tagline}</p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
+                  {industry.description}
+                </p>
+                <Link
+                  href={industry.href}
+                  className="mt-4 text-sm font-semibold text-accent transition hover:underline"
+                >
+                  Learn more →
+                </Link>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based AI-powered technology staffing and business consulting. Pre-vetted IT talent and production-grade AI agents working side by side to deliver measurable outcomes.",
+    "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
   keywords: [
     "IT staffing Seattle",
     "technology staffing Seattle",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Globixs Technology Solutions",
     title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
     description:
-      "Seattle-based AI-powered technology staffing and business consulting. Pre-vetted IT talent and production-grade AI agents working side by side to deliver measurable outcomes.",
+      "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
     images: [
       {
         url: "/og-image.png",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
     description:
-      "Seattle-based AI-powered technology staffing and business consulting. Pre-vetted IT talent and production-grade AI agents working side by side to deliver measurable outcomes.",
+      "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
     images: ["/og-image.png"],
   },
   icons: {
