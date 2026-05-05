@@ -102,7 +102,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="transition hover:text-white"
                 >
-                  MCT PathAI ↗
+                  PathAI ↗
                 </a>
               </li>
               <li><Link href="/privacy-policy"        className="transition hover:text-white">Privacy Policy</Link></li>
