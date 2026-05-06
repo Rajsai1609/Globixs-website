@@ -11,30 +11,31 @@ export function Hero() {
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-              • ENTERPRISE IT STAFFING
+              FOR GROWING BUSINESSES
             </p>
             <h1
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              AI-Powered IT Staffing &amp; Business Consulting Services
+              AI staffing and software for small business growth
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              Globixs places pre-vetted IT engineers and ships production AI systems for US tech
-              companies. Senior recruiters and consultants do the work. AI agents handle the scale.
+              Globixs helps growing businesses hire engineers, ship AI tools, and automate the work
+              that&apos;s slowing them down. No enterprise contracts. No 6-month implementations.
+              Just senior people and working software.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/services"
+                href="/contact"
                 className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Hire IT Talent
+                Get Started
               </Link>
               <Link
-                href="/contact"
+                href="/ai-products"
                 className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
               >
-                Book a Consultation
+                See How It Works
               </Link>
             </div>
           </Reveal>
@@ -43,7 +44,7 @@ export function Hero() {
           <Reveal delay={120} className="hidden lg:col-span-2 lg:block">
             <Image
               src="/services/staff-augmentation.jpg"
-              alt="IT professionals collaborating on enterprise technology projects"
+              alt="Small business team collaborating on technology projects"
               width={700}
               height={525}
               priority

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Signal, Truck, Landmark, Cpu, Activity, type LucideIcon } from "lucide-react";
+import { UtensilsCrossed, Home, Briefcase, Users, Code, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 
@@ -13,38 +13,43 @@ type Industry = {
 
 const industries: Industry[] = [
   {
-    Icon: Signal,
-    title: "TELECOMMUNICATIONS",
-    tagline: "Scale. Network. Ship.",
-    description: "Engineers and AI for carriers, infra teams, and 5G builds.",
+    Icon: UtensilsCrossed,
+    title: "RESTAURANTS",
+    tagline: "Order. Serve. Grow.",
+    description:
+      "Catering automation, online ordering ops, and customer communication for independent restaurants.",
     href: "/contact",
   },
   {
-    Icon: Truck,
-    title: "LOGISTICS & SUPPLY CHAIN",
-    tagline: "Move. Track. Optimize.",
-    description: "Real-time logistics intelligence and supply chain automation.",
+    Icon: Home,
+    title: "REAL ESTATE",
+    tagline: "List. Qualify. Close.",
+    description:
+      "Lead generation, qualification, and follow-up automation for real estate agents and brokerages.",
     href: "/contact",
   },
   {
-    Icon: Landmark,
-    title: "FINANCIAL SERVICES",
-    tagline: "Secure. Compliant. Fast.",
-    description: "Engineers cleared for FINRA/SOC 2 environments. AI for risk and ops.",
+    Icon: Briefcase,
+    title: "PROFESSIONAL SERVICES",
+    tagline: "Intake. Deliver. Bill.",
+    description:
+      "AI workflows for law firms, accounting practices, and consultancies — from client intake to project delivery.",
     href: "/contact",
   },
   {
-    Icon: Cpu,
-    title: "TECHNOLOGY",
+    Icon: Users,
+    title: "STAFFING & RECRUITING",
+    tagline: "Source. Vet. Place.",
+    description:
+      "Sales intelligence and candidate matching tools for boutique staffing firms and recruiting agencies.",
+    href: "/contact",
+  },
+  {
+    Icon: Code,
+    title: "SMALL TECH TEAMS",
     tagline: "Build. Ship. Scale.",
-    description: "SaaS, cloud, and platform engineers placed in days, not months.",
-    href: "/contact",
-  },
-  {
-    Icon: Activity,
-    title: "HEALTHCARE",
-    tagline: "Compliant. Patient. Outcome.",
-    description: "HIPAA-ready engineers and AI workflows for clinical teams.",
+    description:
+      "Engineering augmentation and AI tooling for product teams at growing startups.",
     href: "/contact",
   },
 ];
@@ -55,9 +60,9 @@ export function IndustryGrid() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="ENTERPRISE VERTICALS"
-            title="Industries we serve"
-            description="Globixs places engineers and ships AI for the verticals where reliability, compliance, and scale aren't optional."
+            eyebrow="INDUSTRIES WE SERVE"
+            title="Built for the businesses we work with every day"
+            description="We don't claim to serve every industry. These are the ones where we've shipped real products and placed real engineers."
           />
         </Reveal>
 

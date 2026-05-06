@@ -49,15 +49,14 @@ export default function AIProductsPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-              Globixs AI Products
+              AI PRODUCTS FOR GROWING BUSINESSES
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              AI products built from the staffing trenches
+              Software your team will actually use
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              We don&apos;t sell theory. Globixs AI products are built to solve problems we hit
-              running our own staffing work — then sharpened by real client deployments. Each one
-              ships with monitoring, KPIs, and human-in-the-loop oversight.
+              AI tools built for the day-to-day of small and medium businesses. Setup in days.
+              Pricing that fits your budget. Real customers using them right now.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/contact" className="btn-primary">
@@ -87,15 +86,15 @@ export default function AIProductsPage() {
             <Reveal delay={0}>
               <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
-                  CAREER INTELLIGENCE
+                  FOR JOB SEEKERS
                 </p>
                 <h3 className="mt-2 text-3xl font-bold text-blue-900">PathAI</h3>
                 <p className="mt-2 text-lg text-gray-600">
-                  AI job matching for F-1, OPT, and STEM-OPT students
+                  AI job matching for international students
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-gray-700">
-                  10-dimensional AI matching engine. H1B sponsorship verification. Daily
-                  personalized dashboards. 49+ active beta users across the US.
+                  Helps F-1, OPT, and STEM-OPT students find jobs that sponsor visas. Personalized
+                  matches, daily updates, real placements.
                 </p>
                 <div className="mt-6 flex gap-6">
                   <div>
@@ -128,16 +127,15 @@ export default function AIProductsPage() {
             <Reveal delay={80}>
               <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
-                  RESTAURANT OPERATIONS
+                  FOR RESTAURANTS
                 </p>
                 <h3 className="mt-2 text-3xl font-bold text-blue-900">Resto</h3>
                 <p className="mt-2 text-lg text-gray-600">
-                  AI-powered ops automation for independent restaurants
+                  Run your restaurant on autopilot
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-gray-700">
-                  End-to-end automation for catering intake, customer communication, CRM, and
-                  back-office workflows. Multi-agent orchestration handles scale across multiple
-                  locations.
+                  Catering inquiries, customer messages, online orders — handled. Your team focuses
+                  on the food and the guests. Live at 4 independent restaurants.
                 </p>
                 <div className="mt-6 flex gap-6">
                   <div>
@@ -168,15 +166,15 @@ export default function AIProductsPage() {
             <Reveal delay={160}>
               <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
-                  REAL ESTATE INTELLIGENCE
+                  FOR REAL ESTATE AGENTS
                 </p>
                 <h3 className="mt-2 text-3xl font-bold text-blue-900">Realty</h3>
                 <p className="mt-2 text-lg text-gray-600">
-                  6-module AI backend for real estate agents
+                  Six AI agents working your pipeline
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-gray-700">
-                  Lead generation, qualification, follow-up, booking, CRM, and reporting in one
-                  integrated AI system. Includes a deployed AVM model with R²=0.95 accuracy.
+                  Lead capture, qualification, follow-up, booking, CRM, reporting — all running
+                  24/7. Includes a property valuation model with 95% accuracy.
                 </p>
                 <div className="mt-6 flex gap-6">
                   <div>

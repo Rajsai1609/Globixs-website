@@ -18,8 +18,8 @@ export function Footer() {
               className="h-7 w-auto brightness-0 invert"
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              AI-powered IT staffing and consulting for US enterprises. Senior recruiters do the
-              work. AI agents handle the scale.
+              AI staffing and software for growing businesses. Practical tools, senior people, no
+              enterprise overhead.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
@@ -117,7 +117,7 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-shell flex flex-col items-center justify-between gap-3 py-6 text-xs text-gray-500 sm:flex-row">
           <p>© 2026 Globixs Technology Solutions. All rights reserved.</p>
-          <p>Seattle, WA · Built with care</p>
+          <p>Bothell, WA · Built with care</p>
         </div>
       </div>
     </footer>

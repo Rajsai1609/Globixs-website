@@ -18,37 +18,37 @@ const cards: ServiceCard[] = [
   {
     num: "(01)",
     title: "IT Staffing",
-    tagline: "Senior engineers, placed in 14 days",
-    desc: "Pre-vetted IT engineers across cloud, data, and AI. Senior recruiters handle sourcing. AI agents handle the scale. 90-day placement guarantee.",
+    tagline: "Engineers for growing teams",
+    desc: "Need to hire a developer but don't have time to screen 50 resumes? We send you pre-vetted engineers who fit your stack and your budget. Contract, contract-to-hire, or full-time. No 12-month minimums.",
     subLinks: [
-      { label: "Cloud Engineers (AWS/GCP/Azure)", href: "/services" },
-      { label: "Data Engineers",                  href: "/services" },
-      { label: "AI/ML Engineers",                 href: "/services" },
-      { label: "DevOps & SRE",                    href: "/services" },
-      { label: "Full-Stack Developers",            href: "/services" },
+      { label: "Full-Stack Developers", href: "/services" },
+      { label: "Frontend Engineers",    href: "/services" },
+      { label: "Backend Engineers",     href: "/services" },
+      { label: "DevOps & Cloud",        href: "/services" },
+      { label: "AI/ML Engineers",       href: "/services" },
     ],
-    ctaLabel: "See staffing details →",
+    ctaLabel: "See how staffing works →",
     ctaHref: "/services",
   },
   {
     num: "(02)",
     title: "AI Consulting",
-    tagline: "Strategy, architecture, and implementation",
-    desc: "We help enterprises identify AI opportunities, architect multi-agent systems, and ship production-grade workflows. Sense → Reason → Orchestrate → Optimize.",
+    tagline: "AI that actually fits your business",
+    desc: "Most AI advice is built for Fortune 500 problems. We work with growing businesses to find the one or two AI use cases that will actually save you time and money — then we build them. No lengthy assessments. No 100-page strategy decks.",
     subLinks: [
-      { label: "AI Readiness Assessment",   href: "/consulting" },
-      { label: "Multi-Agent Architecture",  href: "/consulting" },
-      { label: "LLM Integration",           href: "/consulting" },
-      { label: "Workflow Automation",       href: "/consulting" },
+      { label: "AI Opportunity Audit",        href: "/consulting" },
+      { label: "Workflow Automation",         href: "/consulting" },
+      { label: "Customer-Facing AI Tools",    href: "/consulting" },
+      { label: "Internal Productivity AI",    href: "/consulting" },
     ],
-    ctaLabel: "Explore consulting →",
+    ctaLabel: "Explore AI consulting →",
     ctaHref: "/consulting",
   },
   {
     num: "(03)",
     title: "AI Products",
-    tagline: "Built. Shipped. Live in production.",
-    desc: "Vertical AI products built by Globixs and deployed for real customers. Restaurant ops, real estate, career intelligence, and sales intelligence.",
+    tagline: "AI tools built for your industry",
+    desc: "Off-the-shelf software made for industries we know. Used every day by independent restaurants, real estate agents, students, and staffing teams. Setup in days, not months.",
     subLinks: [
       { label: "PathAI (Career Intelligence)",    href: "https://mctpathai.com", external: true },
       { label: "Resto (Restaurant Ops)",          href: "/ai-products" },
@@ -61,15 +61,15 @@ const cards: ServiceCard[] = [
   {
     num: "(04)",
     title: "Custom AI Builds",
-    tagline: "Your problem, our agents",
-    desc: "When off-the-shelf doesn't fit. We design and ship custom multi-agent systems for enterprise workflows — from intake to fulfillment to reporting.",
+    tagline: "Custom AI for your specific workflow",
+    desc: "When your business has a process that off-the-shelf software can't handle, we build it. Lead intake, customer onboarding, reporting, inventory — whatever's eating your team's time. Fixed-price scoping, then we ship.",
     subLinks: [
-      { label: "Discovery & Scoping",       href: "/contact" },
-      { label: "Architecture Design",       href: "/contact" },
-      { label: "Production Deployment",     href: "/contact" },
-      { label: "Ongoing Optimization",      href: "/contact" },
+      { label: "Discovery Call",       href: "/contact" },
+      { label: "Fixed-Price Scoping",  href: "/contact" },
+      { label: "Build & Ship",         href: "/contact" },
+      { label: "Ongoing Support",      href: "/contact" },
     ],
-    ctaLabel: "Start a custom build →",
+    ctaLabel: "Start with a discovery call →",
     ctaHref: "/contact",
   },
 ];
@@ -81,8 +81,8 @@ export function ServiceCards() {
         <Reveal>
           <SectionTitle
             eyebrow="WHAT WE DO"
-            title="Four ways Globixs helps you ship"
-            description="From senior engineers placed in 14 days to custom AI systems shipped to production — pick the engagement that fits your stage."
+            title="Four ways Globixs helps you grow"
+            description="From pre-vetted engineers to custom AI tools — pick the engagement that fits where your business is right now."
           />
         </Reveal>
 

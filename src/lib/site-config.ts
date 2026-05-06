@@ -3,7 +3,7 @@ export const company = {
   phone: "+1 (425) 666-8998",
   email: "connect@globixs.com",
   address: "295 Durham Ave Suite D\nBothell, WA", // TODO: Confirm address with team before deploying
-  locationTagline: "Seattle, WA · AI staffing and consulting for US enterprises",
+  locationTagline: "Bothell, WA · AI staffing and software for growing businesses",
 };
 
 export type NavChild = {
