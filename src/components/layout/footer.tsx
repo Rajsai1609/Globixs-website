@@ -13,9 +13,9 @@ export function Footer() {
             <Image
               src="/logo.png"
               alt="Globixs Technology Solutions"
-              width={130}
-              height={30}
-              className="h-7 w-auto brightness-0 invert"
+              width={140}
+              height={32}
+              className="h-8 w-auto"
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               AI staffing and software for growing businesses. Practical tools, senior people, no
@@ -23,7 +23,7 @@ export function Footer() {
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
-              <p className="whitespace-pre-line text-xs text-gray-500">{company.address}</p>
+              <p className="text-xs text-gray-500">Seattle, WA</p>
             </div>
             <div className="mt-5 flex items-center gap-3">
               <a
@@ -117,7 +117,7 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-shell flex flex-col items-center justify-between gap-3 py-6 text-xs text-gray-500 sm:flex-row">
           <p>© 2026 Globixs Technology Solutions. All rights reserved.</p>
-          <p>Bothell, WA · Built with care</p>
+          <p>Seattle, WA · Built with care</p>
         </div>
       </div>
     </footer>
