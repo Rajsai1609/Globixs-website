@@ -44,8 +44,8 @@ export default function ContactPage() {
           <div className="mt-6 border-t border-border pt-5">
             <p className="text-sm text-muted">
               Looking for a job?{" "}
-              <Link href="/get-hired" className="font-semibold text-accent hover:underline">
-                Visit our For Candidates page
+              <Link href="/for-employees" className="font-semibold text-accent hover:underline">
+                Visit our For Employees page
               </Link>{" "}
               for our recruiter intake form, FAQ, and process.
             </p>

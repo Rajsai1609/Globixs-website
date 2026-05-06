@@ -1,6 +1,9 @@
 # Trunk-style flow: quality gates run on every PR and on pushes to main/develop.
 # Vercel preview (PRs) and production (main) deploy only after the same commit passes `quality`.
 #
+# Deploy steps skip gracefully when Vercel secrets are not yet configured.
+# To enable deploys: add VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID to repo secrets.
+#
 # Monorepo: move to repo root `.github/workflows/`, add `paths: [ 'corp-site/**' ]`,
 # `defaults.run.working-directory: corp-site`, and set `working-directory` on vercel-action if needed.
 
@@ -52,11 +55,11 @@ jobs:
       - name: ESLint
         run: npm run lint
 
-      - name: TypeScript
-        run: npm run typecheck
-
       - name: Next.js production build
         run: npm run build
+
+      - name: TypeScript
+        run: npm run typecheck
 
   deploy-preview:
     name: Vercel preview
@@ -69,6 +72,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy preview
+        if: ${{ secrets.VERCEL_TOKEN != '' }}
         uses: amondnet/vercel-action@v42.1.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -87,6 +91,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy production
+        if: ${{ secrets.VERCEL_TOKEN != '' }}
         uses: amondnet/vercel-action@v42.1.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
