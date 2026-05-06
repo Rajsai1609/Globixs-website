@@ -17,7 +17,7 @@ export function Hero() {
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              AI staffing and software for small business growth
+              AI-Powered IT Staffing and AI Products for Growing Businesses
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
               Globixs helps growing businesses hire engineers, ship AI tools, and automate the work
