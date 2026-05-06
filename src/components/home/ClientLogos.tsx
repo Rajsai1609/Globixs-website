@@ -4,9 +4,9 @@
 // Replace this stat strip with verified client logos once sign-off is obtained.
 
 const stats = [
-  { value: "4 restaurants", label: "Live on Resto" },
-  { value: "49+ users",     label: "On PathAI" },
-  { value: "10+ engineers", label: "Placed for clients" },
+  { value: "10+ engineers", label: "Placed at US businesses" },
+  { value: "4 AI products", label: "Live in production" },
+  { value: "49+ users",     label: "Across products" },
 ];
 
 export function ClientLogos() {

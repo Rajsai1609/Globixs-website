@@ -26,8 +26,8 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-border/90 bg-white/88 shadow-[0_10px_34px_rgba(15,23,42,0.08)] backdrop-blur-xl">
       <div className="container-shell flex h-18 items-center justify-between">
 
-        {/* Logo + Seattle tagline */}
-        <Link href="/" className="flex flex-col items-start gap-0.5">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Globixs Technology Solutions"
@@ -36,9 +36,6 @@ export function Navbar() {
             priority
             className="h-8 w-auto"
           />
-          <span className="pl-0.5 text-[11px] font-normal leading-none tracking-wide text-gray-400">
-            Seattle, WA
-          </span>
         </Link>
 
         {/* Desktop nav */}

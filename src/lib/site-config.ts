@@ -2,7 +2,7 @@ export const company = {
   name: "Globixs Technology Solutions",
   phone: "+1 (425) 666-8998",
   email: "connect@globixs.com",
-  address: "295 Durham Ave Suite D\nBothell, WA", // TODO: Confirm address with team before deploying
+  address: "295 Durham Ave Suite D\nBothell, WA · Seattle area", // TODO: Confirm address with team before deploying
   locationTagline: "Bothell, WA · AI staffing and software for growing businesses",
 };
 

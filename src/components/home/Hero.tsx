@@ -6,23 +6,19 @@ export function Hero() {
   return (
     <section className="hero-mesh py-20 text-white lg:py-28">
       <div className="container-shell">
-        <div className="grid items-center gap-12 lg:grid-cols-5">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
 
-          {/* Left column — 3/5 width on desktop */}
-          <Reveal className="lg:col-span-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-              FOR GROWING BUSINESSES
-            </p>
+          {/* Left column */}
+          <Reveal>
             <h1
-              className="mt-4 font-extrabold leading-[1.05] text-white"
+              className="font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              AI staffing and software for small business growth
+              We place IT engineers and ship AI products for businesses
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              Globixs helps growing businesses hire engineers, ship AI tools, and automate the work
-              that&apos;s slowing them down. No enterprise contracts. No 6-month implementations.
-              Just senior people and working software.
+              Globixs offers four services: IT staffing, AI consulting, AI products, and custom AI
+              builds. Senior engineers handle the work. AI agents handle the scale.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -40,15 +36,16 @@ export function Hero() {
             </div>
           </Reveal>
 
-          {/* Right column — 2/5 width, hidden on mobile */}
-          <Reveal delay={120} className="hidden lg:col-span-2 lg:block">
+          {/* Right column — hidden on mobile */}
+          <Reveal delay={120} className="hidden lg:block">
             <Image
               src="/services/staff-augmentation.jpg"
               alt="Small business team collaborating on technology projects"
               width={700}
               height={525}
               priority
-              className="w-full rounded-2xl object-cover shadow-[0_12px_32px_rgba(15,23,42,0.20)]"
+              className="w-full rounded-2xl object-cover shadow-2xl"
+              style={{ maxHeight: "600px" }}
             />
           </Reveal>
 
