@@ -14,7 +14,7 @@ export function ClientLogos() {
     <section className="border-y border-gray-200 bg-white py-12">
       <div className="container-shell">
         <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-          TRUSTED BY GROWING BUSINESSES
+          TRUSTED ACROSS STAFFING & AI DELIVERY
         </p>
         <div className="flex flex-wrap items-center justify-center gap-12 lg:gap-20">
           {stats.map((stat) => (
