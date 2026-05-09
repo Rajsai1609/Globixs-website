@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UtensilsCrossed, Home, Briefcase, Users, Code, type LucideIcon } from "lucide-react";
+import { Phone, Landmark, Truck, HeartPulse, ShoppingBag, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 
@@ -13,43 +13,38 @@ type Industry = {
 
 const industries: Industry[] = [
   {
-    Icon: UtensilsCrossed,
-    title: "RESTAURANTS",
-    tagline: "Order. Serve. Grow.",
-    description:
-      "Catering automation, online ordering ops, and customer communication for independent restaurants.",
+    Icon: Phone,
+    title: "TELECOM",
+    tagline: "Scale. Modernize. Automate.",
+    description: "AI-powered staffing and AI service delivery for telecom carriers and infrastructure teams.",
     href: "/contact",
   },
   {
-    Icon: Home,
-    title: "REAL ESTATE",
-    tagline: "List. Qualify. Close.",
-    description:
-      "Lead generation, qualification, and follow-up automation for real estate agents and brokerages.",
+    Icon: Landmark,
+    title: "FINANCIAL SERVICES",
+    tagline: "Compliance. Speed. Trust.",
+    description: "Senior engineering talent and AI systems for banks, fintechs, and capital markets — built for regulated environments.",
     href: "/contact",
   },
   {
-    Icon: Briefcase,
-    title: "PROFESSIONAL SERVICES",
-    tagline: "Intake. Deliver. Bill.",
-    description:
-      "AI workflows for law firms, accounting practices, and consultancies — from client intake to project delivery.",
+    Icon: Truck,
+    title: "LOGISTICS & SUPPLY CHAIN",
+    tagline: "Track. Predict. Optimize.",
+    description: "Pre-vetted engineers and AI automation for logistics, freight, and supply-chain operations.",
     href: "/contact",
   },
   {
-    Icon: Users,
-    title: "STAFFING & RECRUITING",
-    tagline: "Source. Vet. Place.",
-    description:
-      "Sales intelligence and candidate matching tools for boutique staffing firms and recruiting agencies.",
+    Icon: HeartPulse,
+    title: "HEALTHCARE & LIFE SCIENCES",
+    tagline: "Patient. Provider. Payer.",
+    description: "Engineering teams and AI systems for healthcare networks, payers, and digital health platforms.",
     href: "/contact",
   },
   {
-    Icon: Code,
-    title: "SMALL TECH TEAMS",
-    tagline: "Build. Ship. Scale.",
-    description:
-      "Engineering augmentation and AI tooling for product teams at growing startups.",
+    Icon: ShoppingBag,
+    title: "RETAIL & CPG",
+    tagline: "Demand. Channels. Margins.",
+    description: "Talent and AI automation for retail tech teams, e-commerce, and consumer brands at scale.",
     href: "/contact",
   },
 ];
@@ -61,8 +56,8 @@ export function IndustryGrid() {
         <Reveal>
           <SectionTitle
             eyebrow="INDUSTRIES WE SERVE"
-            title="Built for the businesses we work with every day"
-            description="We don't claim to serve every industry. These are the ones where we've shipped real products and placed real engineers."
+            title="Built for enterprise teams in the industries we know best."
+            description="We don't claim to serve every industry. These are the verticals where our staffing pipeline and AI services run deepest."
           />
         </Reveal>
 
