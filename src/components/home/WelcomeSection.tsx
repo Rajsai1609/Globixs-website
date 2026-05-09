@@ -30,12 +30,12 @@ export function WelcomeSection() {
               Welcome to Globixs
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
-              We&apos;re an AI-native staffing and consulting firm based in Seattle, built for one
-              thing: helping companies hire and ship faster than legacy firms allow. We pre-vet IT
-              engineers through a 10-dimension AI screening pipeline, so first submissions land in
-              7–10 days — not 4 weeks. We design and ship AI automation systems in 2-to-8-week
-              sprints — not 12-month retainers. Senior consultants and engineers do the work; AI
-              agents handle the scale. No body shops, no junior staff, no PowerPoint deliverables.
+              We&apos;re an AI-native staffing and AI services firm based in Seattle, built for
+              enterprise teams that need to move faster than legacy firms allow. Our staffing
+              pipeline pre-vets IT engineers through a 10-dimension AI screening pipeline, so first
+              submissions land in 7–10 days — not 4 weeks. Our services team designs and ships AI
+              automation systems in 2-to-8-week sprints — not 12-month retainers. Senior
+              consultants and engineers do the work; AI agents handle the scale.
             </p>
             <p className="mt-7 text-base font-semibold text-heading">
               The two things we promise:
