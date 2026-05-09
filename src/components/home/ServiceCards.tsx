@@ -17,60 +17,34 @@ type ServiceCard = {
 const cards: ServiceCard[] = [
   {
     num: "(01)",
-    title: "IT Staffing",
-    tagline: "Engineers for growing teams",
-    desc: "Need to hire a developer but don't have time to screen 50 resumes? We send you pre-vetted engineers who fit your stack and your budget. Contract, contract-to-hire, or full-time. No 12-month minimums.",
+    title: "AI-Powered IT Staffing",
+    tagline: "Staffing at AI speed. Talent matched by intelligence, not inboxes.",
+    desc: "Staffing, but the matching, sourcing, screening, and placement pipeline is run by AI agents. Faster time-to-submit, higher quality matches, lower cost-per-hire.",
     subLinks: [
-      { label: "Full-Stack Developers", href: "/services" },
-      { label: "Frontend Engineers",    href: "/services" },
-      { label: "Backend Engineers",     href: "/services" },
-      { label: "DevOps & Cloud",        href: "/services" },
-      { label: "AI/ML Engineers",       href: "/services" },
+      { label: "AI-driven candidate sourcing",   href: "/services" },
+      { label: "Resume-to-JD semantic matching", href: "/services" },
+      { label: "Automated screening agents",     href: "/services" },
+      { label: "H1B / visa intelligence",        href: "/services" },
+      { label: "Predictive fit scoring",         href: "/services" },
+      { label: "VMS submission automation",      href: "/services" },
     ],
-    ctaLabel: "See how staffing works →",
+    ctaLabel: "How AI-powered staffing works →",
     ctaHref: "/services",
   },
   {
     num: "(02)",
-    title: "AI Consulting",
-    tagline: "AI that actually fits your business",
-    desc: "Most AI advice is built for Fortune 500 problems. We work with growing businesses to find the one or two AI use cases that will actually save you time and money — then we build them. No lengthy assessments. No 100-page strategy decks.",
+    title: "AI-Focused Services",
+    tagline: "We don't just staff AI engineers — we build the AI.",
+    desc: "Production AI systems for enterprise. Senior consultants and engineers do the work; AI agents handle the scale. 2-to-8-week sprints, monitoring built in, KPIs tied to outcomes.",
     subLinks: [
-      { label: "AI Opportunity Audit",        href: "/consulting" },
-      { label: "Workflow Automation",         href: "/consulting" },
-      { label: "Customer-Facing AI Tools",    href: "/consulting" },
-      { label: "Internal Productivity AI",    href: "/consulting" },
+      { label: "AI Agents & Automation",     href: "/consulting" },
+      { label: "LLM Integration",            href: "/consulting" },
+      { label: "Custom AI Applications",     href: "/consulting" },
+      { label: "AI Strategy & Architecture", href: "/consulting" },
+      { label: "Managed AI Operations",      href: "/consulting" },
     ],
-    ctaLabel: "Explore AI consulting →",
+    ctaLabel: "Explore AI services →",
     ctaHref: "/consulting",
-  },
-  {
-    num: "(03)",
-    title: "AI Products",
-    tagline: "AI tools built for your industry",
-    desc: "Off-the-shelf software made for industries we know. Used every day by independent restaurants, real estate agents, students, and staffing teams. Setup in days, not months.",
-    subLinks: [
-      { label: "PathAI (Career Intelligence)",    href: "https://mctpathai.com", external: true },
-      { label: "Resto (Restaurant Ops)",          href: "/ai-products" },
-      { label: "Realty (Real Estate)",            href: "/ai-products" },
-      { label: "SignalFeed (Sales Intelligence)", href: "/ai-products" },
-    ],
-    ctaLabel: "View AI products →",
-    ctaHref: "/ai-products",
-  },
-  {
-    num: "(04)",
-    title: "Custom AI Builds",
-    tagline: "Custom AI for your specific workflow",
-    desc: "When your business has a process that off-the-shelf software can't handle, we build it. Lead intake, customer onboarding, reporting, inventory — whatever's eating your team's time. Fixed-price scoping, then we ship.",
-    subLinks: [
-      { label: "Discovery Call",       href: "/contact" },
-      { label: "Fixed-Price Scoping",  href: "/contact" },
-      { label: "Build & Ship",         href: "/contact" },
-      { label: "Ongoing Support",      href: "/contact" },
-    ],
-    ctaLabel: "Start with a discovery call →",
-    ctaHref: "/contact",
   },
 ];
 
@@ -80,9 +54,9 @@ export function ServiceCards() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="WHAT WE DO"
-            title="Four ways Globixs helps you grow"
-            description="From pre-vetted engineers to custom AI tools — pick the engagement that fits where your business is right now."
+            eyebrow="TWO OFFERINGS. ONE AI-NATIVE PARTNER."
+            title="Staffing at AI speed. Services that ship."
+            description="Whether you need AI-matched talent in 7–10 days or a production AI system in an 8-week sprint, we're built for one thing: outcomes you can measure."
           />
         </Reveal>
 
