@@ -16,11 +16,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://globixstech.com"),
   title: {
-    default: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    default: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
+    "Seattle-based AI-native firm. Two offerings: AI-Powered IT Staffing and AI-Focused Services. We staff your teams with AI-matched talent and build the AI systems that transform how your enterprise runs.",
   keywords: [
     "IT staffing Seattle",
     "technology staffing Seattle",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://globixstech.com",
     siteName: "Globixs Technology Solutions",
-    title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    title: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     description:
-      "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
+      "Seattle-based AI-native firm. Two offerings: AI-Powered IT Staffing and AI-Focused Services. We staff your teams with AI-matched talent and build the AI systems that transform how your enterprise runs.",
     images: [
       {
         url: "/og-image.png",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    title: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     description:
-      "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
+      "Seattle-based AI-native firm. Two offerings: AI-Powered IT Staffing and AI-Focused Services. We staff your teams with AI-matched talent and build the AI systems that transform how your enterprise runs.",
     images: ["/og-image.png"],
   },
   icons: {

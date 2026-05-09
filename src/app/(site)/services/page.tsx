@@ -9,9 +9,9 @@ import { Pricing }          from "@/components/services/Pricing";
 import { ClosingCta }       from "@/components/services/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "For Employers | Globixs IT Staffing & Recruiting",
+  title: "AI-Powered IT Staffing | Globixs",
   description:
-    "Hire senior IT engineers in 7–10 days. AI-powered sourcing, 10-dimension screening, 90-day placement guarantee. Cloud, data, ML, full-stack, DevOps, security.",
+    "Staffing at AI speed. Pre-vetted engineers in 7–10 days. AI-driven sourcing, semantic matching, automated screening, predictive fit scoring, and VMS submission automation.",
 };
 
 export default function ServicesPage() {
