@@ -20,7 +20,7 @@ const tabs: Tab[] = [
   {
     id: "vision",
     label: "Our Vision",
-    text: "To be the most creative, insightful, and agile AI-native talent and consulting company — democratizing AI automation for SMBs and mid-market teams while building enterprise-grade systems that scale.",
+    text: "To be the most creative, insightful, and agile AI-native talent and services company — building enterprise-grade AI staffing pipelines and AI systems that deliver measurable outcomes at speed and scale.",
   },
   {
     id: "values",

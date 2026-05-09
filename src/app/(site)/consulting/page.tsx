@@ -10,7 +10,7 @@ import { ClosingCta } from "@/components/consulting/ClosingCta";
 export const metadata: Metadata = {
   title: "Business Consulting Services | Globixs",
   description:
-    "AI strategy, automation advisory, and technology consulting for SMB and mid-market teams. Senior consultants. 2-to-8-week sprints. Outcomes tied to KPIs.",
+    "AI strategy, automation advisory, and technology consulting for enterprise and growth-stage teams. Senior consultants. 2-to-8-week sprints. Outcomes tied to KPIs.",
 };
 
 export default function ConsultingPage() {

@@ -49,7 +49,7 @@ export default function AIProductsPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-              AI PRODUCTS FOR GROWING BUSINESSES
+              AI-POWERED PRODUCTS
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               Software your team will actually use

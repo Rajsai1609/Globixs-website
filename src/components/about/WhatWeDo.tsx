@@ -13,7 +13,7 @@ const services = [
     Icon: Lightbulb,
     title: "Business Consulting Services",
     description:
-      "AI strategy, automation advisory, and technology consulting for SMB and mid-market teams — delivered in 2-to-8-week sprints with KPIs tracked from day one.",
+      "AI strategy, automation advisory, and technology consulting for enterprise and growth-stage teams — delivered in 2-to-8-week sprints with KPIs tracked from day one.",
   },
 ];
 

@@ -44,7 +44,7 @@ export function Hero() {
           <Reveal delay={120} className="hidden lg:col-span-2 lg:block">
             <Image
               src="/services/staff-augmentation.jpg"
-              alt="Small business team collaborating on technology projects"
+              alt="Enterprise team collaborating on AI technology projects"
               width={700}
               height={525}
               priority

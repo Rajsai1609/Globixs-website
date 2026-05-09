@@ -18,8 +18,8 @@ export function Footer() {
               className="h-8 w-auto"
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              AI staffing and software for growing businesses. Practical tools, senior people, no
-              enterprise overhead.
+              AI-native staffing and AI services for enterprise teams. Senior people, AI-powered
+              pipelines, outcomes you can measure.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
