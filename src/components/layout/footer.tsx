@@ -68,8 +68,8 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services"     className="transition hover:text-white">IT Staffing</Link></li>
-              <li><Link href="/consulting"   className="transition hover:text-white">AI Consulting</Link></li>
+              <li><Link href="/services"     className="transition hover:text-white">AI-Powered Staffing</Link></li>
+              <li><Link href="/consulting"   className="transition hover:text-white">AI Services</Link></li>
               <li><Link href="/ai-products"  className="transition hover:text-white">AI Products</Link></li>
               <li><Link href="/contact"      className="transition hover:text-white">Custom Builds</Link></li>
             </ul>
