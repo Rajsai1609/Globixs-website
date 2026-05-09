@@ -11,31 +11,31 @@ export function Hero() {
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-              FOR GROWING BUSINESSES
+              AI-NATIVE STAFFING &amp; AI SERVICES
             </p>
             <h1
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              AI-Powered IT Staffing and AI Products for Growing Businesses
+              Smarter Teams. Smarter Business. Powered by AI.
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              Globixs helps growing businesses hire engineers, ship AI tools, and automate the work
-              that&apos;s slowing them down. No enterprise contracts. No 6-month implementations.
-              Just senior people and working software.
+              We help enterprises move faster in two ways: by staffing your teams with AI-matched
+              talent, and by building the AI systems that transform how your business runs. Two
+              offerings. One AI-native partner.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/services"
                 className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Get Started
+                AI-Powered Staffing →
               </Link>
               <Link
-                href="/ai-products"
+                href="/consulting"
                 className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
               >
-                See How It Works
+                AI Services →
               </Link>
             </div>
           </Reveal>
