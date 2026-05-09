@@ -17,9 +17,23 @@ type ServiceCard = {
 const cards: ServiceCard[] = [
   {
     num: "(01)",
-    title: "AI-Powered IT Staffing",
-    tagline: "Staffing at AI speed. Talent matched by intelligence, not inboxes.",
-    desc: "Staffing, but the matching, sourcing, screening, and placement pipeline is run by AI agents. Faster time-to-submit, higher quality matches, lower cost-per-hire.",
+    title: "Train",
+    tagline: "Globixs Academy — turn graduates into AI engineers.",
+    desc: "We train US-based graduates in production AI engineering: agents, LLM integration, deployment, and the discipline to ship. Consultation-first admissions — we talk to every applicant before tuition, so we only train people we're confident we can place.",
+    subLinks: [
+      { label: "Production AI engineering curriculum", href: "/contact" },
+      { label: "1:1 admissions consultation",          href: "/contact" },
+      { label: "Mentored project portfolio",           href: "/contact" },
+      { label: "Placement-track program",              href: "/contact" },
+    ],
+    ctaLabel: "Talk to admissions →",
+    ctaHref: "/contact",
+  },
+  {
+    num: "(02)",
+    title: "Place",
+    tagline: "AI-Powered IT Staffing. Talent matched by intelligence, not inboxes.",
+    desc: "Pre-vetted AI and full-stack engineers placed with enterprise and mid-market teams that need AI systems but can't justify hiring a full in-house bench. Sourcing, screening, and matching is run by AI agents — first submissions in 7–10 days, not 4 weeks.",
     subLinks: [
       { label: "AI-driven candidate sourcing",   href: "/services" },
       { label: "Resume-to-JD semantic matching", href: "/services" },
@@ -32,19 +46,18 @@ const cards: ServiceCard[] = [
     ctaHref: "/services",
   },
   {
-    num: "(02)",
-    title: "AI-Focused Services",
-    tagline: "We don't just staff AI engineers — we build the AI.",
-    desc: "Production AI systems for enterprise. Senior consultants and engineers do the work; AI agents handle the scale. 2-to-8-week sprints, monitoring built in, KPIs tied to outcomes.",
+    num: "(03)",
+    title: "Build",
+    tagline: "B2B AI products built by the engineers we train and place.",
+    desc: "PathAI, Resto, Aigent, and SignalFeed are vertical AI products we ship to real customers — built and battle-tested by Globixs engineers between client engagements. The flywheel: every placement sharpens our products, every product proves what our talent can do.",
     subLinks: [
-      { label: "AI Agents & Automation",     href: "/consulting" },
-      { label: "LLM Integration",            href: "/consulting" },
-      { label: "Custom AI Applications",     href: "/consulting" },
-      { label: "AI Strategy & Architecture", href: "/consulting" },
-      { label: "Managed AI Operations",      href: "/consulting" },
+      { label: "PathAI (Career Intelligence)",    href: "https://mctpathai.com", external: true },
+      { label: "Resto (Restaurant Ops)",          href: "/ai-products" },
+      { label: "Aigent (Real Estate)",            href: "/ai-products" },
+      { label: "SignalFeed (Sales Intelligence)", href: "/ai-products" },
     ],
-    ctaLabel: "Explore AI services →",
-    ctaHref: "/consulting",
+    ctaLabel: "See the products →",
+    ctaHref: "/ai-products",
   },
 ];
 
@@ -54,13 +67,13 @@ export function ServiceCards() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="TWO OFFERINGS. ONE AI-NATIVE PARTNER."
-            title="Staffing at AI speed. Services that ship."
-            description="Whether you need AI-matched talent in 7–10 days or a production AI system in an 8-week sprint, we're built for one thing: outcomes you can measure."
+            eyebrow="THREE PILLARS. ONE FLYWHEEL."
+            title="How Globixs delivers."
+            description="Train graduates into production-ready AI engineers. Place them where they're needed. Build the AI products that prove the work. Each pillar makes the next one stronger."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {cards.map((card, idx) => (
             <Reveal key={card.title} delay={idx * 80}>
               <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg lg:p-10">
