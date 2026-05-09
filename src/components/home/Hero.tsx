@@ -11,31 +11,29 @@ export function Hero() {
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-              AI-NATIVE STAFFING &amp; AI SERVICES
+              TRAIN. PLACE. BUILD.
             </p>
             <h1
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              Smarter Teams. Smarter Business. Powered by AI.
+              AI talent and AI systems for companies that can&apos;t afford to wait.
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              We help enterprises move faster in two ways: by staffing your teams with AI-matched
-              talent, and by building the AI systems that transform how your business runs. Two
-              offerings. One AI-native partner.
+              Globixs trains US graduates in AI engineering, places them with enterprise and mid-market teams who need AI systems but can&apos;t justify a full in-house bench, and channels their production experience into the AI products we sell. One flywheel. Three ways we deliver.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/services"
                 className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
-                AI-Powered Staffing →
+                Hire AI Talent →
               </Link>
               <Link
-                href="/consulting"
+                href="/contact"
                 className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
               >
-                AI Services →
+                Train With Us →
               </Link>
             </div>
           </Reveal>
