@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based AI-native firm. Two offerings: AI-Powered IT Staffing and AI-Focused Services. We staff your teams with AI-matched talent and build the AI systems that transform how your enterprise runs.",
+    "Seattle-based AI firm with three pillars: Train (Globixs Academy), Place (AI-powered IT staffing), and Build (B2B AI products). We develop engineers, place them with enterprise and mid-market teams, and ship the AI products they build.",
   keywords: [
     "IT staffing Seattle",
     "technology staffing Seattle",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Globixs Technology Solutions",
     title: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     description:
-      "Seattle-based AI-native firm. Two offerings: AI-Powered IT Staffing and AI-Focused Services. We staff your teams with AI-matched talent and build the AI systems that transform how your enterprise runs.",
+      "Seattle-based AI firm with three pillars: Train (Globixs Academy), Place (AI-powered IT staffing), and Build (B2B AI products). We develop engineers, place them with enterprise and mid-market teams, and ship the AI products they build.",
     images: [
       {
         url: "/og-image.png",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     description:
-      "Seattle-based AI-native firm. Two offerings: AI-Powered IT Staffing and AI-Focused Services. We staff your teams with AI-matched talent and build the AI systems that transform how your enterprise runs.",
+      "Seattle-based AI firm with three pillars: Train (Globixs Academy), Place (AI-powered IT staffing), and Build (B2B AI products). We develop engineers, place them with enterprise and mid-market teams, and ship the AI products they build.",
     images: ["/og-image.png"],
   },
   icons: {
