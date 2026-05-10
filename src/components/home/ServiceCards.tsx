@@ -21,13 +21,13 @@ const cards: ServiceCard[] = [
     tagline: "Globixs Academy — turn graduates into AI engineers.",
     desc: "We train US-based graduates in production AI engineering: agents, LLM integration, deployment, and the discipline to ship. Consultation-first admissions — we talk to every applicant before tuition, so we only train people we're confident we can place.",
     subLinks: [
-      { label: "Production AI engineering curriculum", href: "/contact" },
-      { label: "1:1 admissions consultation",          href: "/contact" },
-      { label: "Mentored project portfolio",           href: "/contact" },
-      { label: "Placement-track program",              href: "/contact" },
+      { label: "Production AI engineering curriculum", href: "/academy" },
+      { label: "1:1 admissions consultation",          href: "/academy" },
+      { label: "Mentored project portfolio",           href: "/academy" },
+      { label: "Placement-track program",              href: "/academy" },
     ],
     ctaLabel: "Talk to admissions →",
-    ctaHref: "/contact",
+    ctaHref: "/academy",
   },
   {
     num: "(02)",

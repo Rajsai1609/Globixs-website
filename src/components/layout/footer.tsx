@@ -67,7 +67,7 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/contact"      className="transition hover:text-white">Train (Globixs Academy)</Link></li>
+              <li><Link href="/academy"      className="transition hover:text-white">Train (Globixs Academy)</Link></li>
               <li><Link href="/services"     className="transition hover:text-white">Place (AI Staffing)</Link></li>
               <li><Link href="/ai-products"  className="transition hover:text-white">Build (AI Products)</Link></li>
               <li><Link href="/contact"      className="transition hover:text-white">Talk to Us</Link></li>
