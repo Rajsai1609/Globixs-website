@@ -21,8 +21,9 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "AI-Powered Staffing" },
-  { href: "/consulting", label: "AI Services" },
+  { href: "/contact", label: "Train" },
+  { href: "/services", label: "Place" },
+  { href: "/ai-products", label: "Build" },
   {
     href: "/for-employees",
     label: "For Employees",
@@ -32,7 +33,6 @@ export const navLinks: NavLink[] = [
       { href: "https://mctpathai.com", label: "PathAI", external: true },
     ],
   },
-  { href: "/ai-products", label: "AI Products" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

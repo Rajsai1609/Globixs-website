@@ -2,13 +2,12 @@
 
 ## URL/Label mismatch — TODO
 
-The nav currently uses mismatched URLs and labels for the two core offerings:
+The nav uses pillar labels that don't yet match dedicated routes:
 
-- `/services` renders as **"AI-Powered Staffing"** (staffing page)
-- `/consulting` renders as **"AI Services"** (AI services page)
+- `Train` → `/contact` (no /academy page yet — consultation funnel placeholder)
+- `Place` → `/services` (existing staffing page, label is "Place" not "Services")
+- `Build` → `/ai-products` (existing AI products page, label is "Build" not "AI Products")
 
-In a future cleanup PR, rename the routes to match their labels:
-- `/services` → `/staffing`
-- `/consulting` → `/services`
-
-Update all internal `<Link href>` references, redirects, and any metadata when doing so.
+In a future cleanup PR:
+- Create `/academy` page for Globixs Academy
+- Consider renaming `/services` → `/place` and `/ai-products` → `/build` for URL/label parity (or keep current URLs for SEO continuity)
