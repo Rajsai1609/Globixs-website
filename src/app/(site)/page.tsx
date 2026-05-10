@@ -3,7 +3,7 @@ import { ClientLogos }            from "@/components/home/ClientLogos";
 import { ServiceCards }           from "@/components/home/ServiceCards";
 import { IndustryGrid }           from "@/components/home/IndustryGrid";
 import { WelcomeSection }         from "@/components/home/WelcomeSection";
-import { StrategicAdvantages }    from "@/components/home/StrategicAdvantages";
+import { Flywheel }               from "@/components/home/Flywheel";
 import { ValuesSection }          from "@/components/home/ValuesSection";
 import { CTABanner }              from "@/components/home/CTABanner";
 
@@ -16,7 +16,7 @@ export default function Home() {
       <IndustryGrid />
       {/* Keep existing trust / values / CTA sections */}
       <WelcomeSection />
-      <StrategicAdvantages />
+      <Flywheel />
       <ValuesSection />
       <CTABanner />
     </div>
