@@ -10,8 +10,6 @@ const nextConfig: NextConfig = {
       { source: "/products",       destination: "/ai-products",    permanent: true },
       { source: "/for-candidates", destination: "/for-employees",  permanent: true },
       { source: "/get-hired",      destination: "/for-employees",  permanent: true },
-      // Legacy academy redirect
-      { source: "/academy",        destination: "https://www.mctpathai.com", permanent: true },
     ];
   },
 };
