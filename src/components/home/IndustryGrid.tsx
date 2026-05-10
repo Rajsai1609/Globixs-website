@@ -56,8 +56,8 @@ export function IndustryGrid() {
         <Reveal>
           <SectionTitle
             eyebrow="INDUSTRIES WE SERVE"
-            title="Built for enterprise teams in the industries we know best."
-            description="We don't claim to serve every industry. These are the verticals where our staffing pipeline and AI services run deepest."
+            title="Built for enterprise and mid-market teams in the industries we know best."
+            description="We don't claim to serve every industry. These are the verticals where our placed engineers and AI products run deepest — for enterprises with mature stacks and mid-market teams that can't afford a full in-house technical bench."
           />
         </Reveal>
 
