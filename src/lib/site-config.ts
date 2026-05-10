@@ -3,7 +3,7 @@ export const company = {
   phone: "+1 (425) 666-8998",
   email: "connect@globixs.com",
   address: "Seattle, WA",
-  locationTagline: "Seattle, WA · AI staffing and software for growing businesses",
+  locationTagline: "Seattle, WA · AI-native staffing and AI services for enterprise",
 };
 
 export type NavChild = {
@@ -21,7 +21,9 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "For Employers" },
+  { href: "/contact", label: "Train" },
+  { href: "/services", label: "Place" },
+  { href: "/ai-products", label: "Build" },
   {
     href: "/for-employees",
     label: "For Employees",
@@ -31,7 +33,6 @@ export const navLinks: NavLink[] = [
       { href: "https://mctpathai.com", label: "PathAI", external: true },
     ],
   },
-  { href: "/ai-products", label: "AI Products" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

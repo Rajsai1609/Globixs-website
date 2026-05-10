@@ -16,11 +16,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://globixstech.com"),
   title: {
-    default: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    default: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
+    "Seattle-based AI firm with three pillars: Train (Globixs Academy), Place (AI-powered IT staffing), and Build (B2B AI products). We develop engineers, place them with enterprise and mid-market teams, and ship the AI products they build.",
   keywords: [
     "IT staffing Seattle",
     "technology staffing Seattle",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://globixstech.com",
     siteName: "Globixs Technology Solutions",
-    title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    title: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     description:
-      "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
+      "Seattle-based AI firm with three pillars: Train (Globixs Academy), Place (AI-powered IT staffing), and Build (B2B AI products). We develop engineers, place them with enterprise and mid-market teams, and ship the AI products they build.",
     images: [
       {
         url: "/og-image.png",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Globixs Technology Solutions | AI-Powered Technology Staffing & Business Consulting",
+    title: "Globixs Technology Solutions | AI-Powered IT Staffing & AI Services for Enterprise",
     description:
-      "Seattle-based AI-powered staffing and AI products. We place pre-vetted IT engineers and ship production AI systems — including SignalFeed for staffing firms.",
+      "Seattle-based AI firm with three pillars: Train (Globixs Academy), Place (AI-powered IT staffing), and Build (B2B AI products). We develop engineers, place them with enterprise and mid-market teams, and ship the AI products they build.",
     images: ["/og-image.png"],
   },
   icons: {

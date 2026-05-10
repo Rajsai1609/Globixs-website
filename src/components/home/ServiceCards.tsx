@@ -17,60 +17,47 @@ type ServiceCard = {
 const cards: ServiceCard[] = [
   {
     num: "(01)",
-    title: "IT Staffing",
-    tagline: "Engineers for growing teams",
-    desc: "Need to hire a developer but don't have time to screen 50 resumes? We send you pre-vetted engineers who fit your stack and your budget. Contract, contract-to-hire, or full-time. No 12-month minimums.",
+    title: "Train",
+    tagline: "Globixs Academy — turn graduates into AI engineers.",
+    desc: "We train US-based graduates in production AI engineering: agents, LLM integration, deployment, and the discipline to ship. Consultation-first admissions — we talk to every applicant before tuition, so we only train people we're confident we can place.",
     subLinks: [
-      { label: "Full-Stack Developers", href: "/services" },
-      { label: "Frontend Engineers",    href: "/services" },
-      { label: "Backend Engineers",     href: "/services" },
-      { label: "DevOps & Cloud",        href: "/services" },
-      { label: "AI/ML Engineers",       href: "/services" },
+      { label: "Production AI engineering curriculum", href: "/contact" },
+      { label: "1:1 admissions consultation",          href: "/contact" },
+      { label: "Mentored project portfolio",           href: "/contact" },
+      { label: "Placement-track program",              href: "/contact" },
     ],
-    ctaLabel: "See how staffing works →",
-    ctaHref: "/services",
+    ctaLabel: "Talk to admissions →",
+    ctaHref: "/contact",
   },
   {
     num: "(02)",
-    title: "AI Consulting",
-    tagline: "AI that actually fits your business",
-    desc: "Most AI advice is built for Fortune 500 problems. We work with growing businesses to find the one or two AI use cases that will actually save you time and money — then we build them. No lengthy assessments. No 100-page strategy decks.",
+    title: "Place",
+    tagline: "AI-Powered IT Staffing. Talent matched by intelligence, not inboxes.",
+    desc: "Pre-vetted AI and full-stack engineers placed with enterprise and mid-market teams that need AI systems but can't justify hiring a full in-house bench. Sourcing, screening, and matching is run by AI agents — first submissions in 7–10 days, not 4 weeks.",
     subLinks: [
-      { label: "AI Opportunity Audit",        href: "/consulting" },
-      { label: "Workflow Automation",         href: "/consulting" },
-      { label: "Customer-Facing AI Tools",    href: "/consulting" },
-      { label: "Internal Productivity AI",    href: "/consulting" },
+      { label: "AI-driven candidate sourcing",   href: "/services" },
+      { label: "Resume-to-JD semantic matching", href: "/services" },
+      { label: "Automated screening agents",     href: "/services" },
+      { label: "H1B / visa intelligence",        href: "/services" },
+      { label: "Predictive fit scoring",         href: "/services" },
+      { label: "VMS submission automation",      href: "/services" },
     ],
-    ctaLabel: "Explore AI consulting →",
-    ctaHref: "/consulting",
+    ctaLabel: "How AI-powered staffing works →",
+    ctaHref: "/services",
   },
   {
     num: "(03)",
-    title: "AI Products",
-    tagline: "AI tools built for your industry",
-    desc: "Off-the-shelf software made for industries we know. Used every day by independent restaurants, real estate agents, students, and staffing teams. Setup in days, not months.",
+    title: "Build",
+    tagline: "B2B AI products built by the engineers we train and place.",
+    desc: "PathAI, Resto, Aigent, and SignalFeed are vertical AI products we ship to real customers — built and battle-tested by Globixs engineers between client engagements. The flywheel: every placement sharpens our products, every product proves what our talent can do.",
     subLinks: [
       { label: "PathAI (Career Intelligence)",    href: "https://mctpathai.com", external: true },
       { label: "Resto (Restaurant Ops)",          href: "/ai-products" },
-      { label: "Realty (Real Estate)",            href: "/ai-products" },
+      { label: "Aigent (Real Estate)",            href: "/ai-products" },
       { label: "SignalFeed (Sales Intelligence)", href: "/ai-products" },
     ],
-    ctaLabel: "View AI products →",
+    ctaLabel: "See the products →",
     ctaHref: "/ai-products",
-  },
-  {
-    num: "(04)",
-    title: "Custom AI Builds",
-    tagline: "Custom AI for your specific workflow",
-    desc: "When your business has a process that off-the-shelf software can't handle, we build it. Lead intake, customer onboarding, reporting, inventory — whatever's eating your team's time. Fixed-price scoping, then we ship.",
-    subLinks: [
-      { label: "Discovery Call",       href: "/contact" },
-      { label: "Fixed-Price Scoping",  href: "/contact" },
-      { label: "Build & Ship",         href: "/contact" },
-      { label: "Ongoing Support",      href: "/contact" },
-    ],
-    ctaLabel: "Start with a discovery call →",
-    ctaHref: "/contact",
   },
 ];
 
@@ -80,13 +67,13 @@ export function ServiceCards() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="WHAT WE DO"
-            title="Four ways Globixs helps you grow"
-            description="From pre-vetted engineers to custom AI tools — pick the engagement that fits where your business is right now."
+            eyebrow="THREE PILLARS. ONE FLYWHEEL."
+            title="How Globixs delivers."
+            description="Train graduates into production-ready AI engineers. Place them where they're needed. Build the AI products that prove the work. Each pillar makes the next one stronger."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {cards.map((card, idx) => (
             <Reveal key={card.title} delay={idx * 80}>
               <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg lg:p-10">

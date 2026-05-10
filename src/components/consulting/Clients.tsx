@@ -19,9 +19,9 @@ const clients: ClientCard[] = [
   },
   {
     Icon: Users,
-    title: "Founder-Led SMBs",
+    title: "Enterprise IT Teams",
     description:
-      "Owner-operators in restaurants, real estate, healthcare, and professional services who want practical AI automation without hiring a full engineering team.",
+      "IT and engineering leaders at large enterprises who need AI systems built fast — without spinning up a new vendor relationship for every workstream.",
   },
 ];
 
@@ -32,8 +32,8 @@ export function Clients() {
         <Reveal>
           <SectionTitle
             eyebrow="Our Clients"
-            title="Built for SMB and mid-market — not Fortune 500 retainers."
-            description="We work best with operators who want speed, specificity, and skin-in-the-game pricing — not 12-month engagements that disappear into PowerPoint."
+            title="Built for enterprise teams moving at startup speed."
+            description="We work best with teams who want speed, specificity, and outcomes tied to KPIs — not 12-month engagements that disappear into PowerPoint."
           />
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">

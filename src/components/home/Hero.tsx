@@ -11,31 +11,29 @@ export function Hero() {
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-              FOR GROWING BUSINESSES
+              TRAIN. PLACE. BUILD.
             </p>
             <h1
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              AI-Powered IT Staffing and AI Products for Growing Businesses
+              AI talent and AI systems for companies that can&apos;t afford to wait.
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              Globixs helps growing businesses hire engineers, ship AI tools, and automate the work
-              that&apos;s slowing them down. No enterprise contracts. No 6-month implementations.
-              Just senior people and working software.
+              Globixs trains US graduates in AI engineering, places them with enterprise and mid-market teams who need AI systems but can&apos;t justify a full in-house bench, and channels their production experience into the AI products we sell. One flywheel. Three ways we deliver.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/services"
                 className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Get Started
+                Hire AI Talent →
               </Link>
               <Link
-                href="/ai-products"
+                href="/contact"
                 className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
               >
-                See How It Works
+                Train With Us →
               </Link>
             </div>
           </Reveal>
@@ -44,7 +42,7 @@ export function Hero() {
           <Reveal delay={120} className="hidden lg:col-span-2 lg:block">
             <Image
               src="/services/staff-augmentation.jpg"
-              alt="Small business team collaborating on technology projects"
+              alt="Enterprise team collaborating on AI technology projects"
               width={700}
               height={525}
               priority

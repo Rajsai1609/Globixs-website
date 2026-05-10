@@ -18,8 +18,7 @@ export function Footer() {
               className="h-8 w-auto"
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              AI staffing and software for growing businesses. Practical tools, senior people, no
-              enterprise overhead.
+              Train. Place. Build. Globixs trains US graduates in AI engineering, places them with enterprise and mid-market teams, and ships the B2B AI products built by the same engineers.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
@@ -68,10 +67,10 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services"     className="transition hover:text-white">IT Staffing</Link></li>
-              <li><Link href="/consulting"   className="transition hover:text-white">AI Consulting</Link></li>
-              <li><Link href="/ai-products"  className="transition hover:text-white">AI Products</Link></li>
-              <li><Link href="/contact"      className="transition hover:text-white">Custom Builds</Link></li>
+              <li><Link href="/contact"      className="transition hover:text-white">Train (Globixs Academy)</Link></li>
+              <li><Link href="/services"     className="transition hover:text-white">Place (AI Staffing)</Link></li>
+              <li><Link href="/ai-products"  className="transition hover:text-white">Build (AI Products)</Link></li>
+              <li><Link href="/contact"      className="transition hover:text-white">Talk to Us</Link></li>
             </ul>
           </div>
 

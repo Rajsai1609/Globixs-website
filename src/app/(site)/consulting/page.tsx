@@ -8,9 +8,9 @@ import { NotFor }     from "@/components/consulting/NotFor";
 import { ClosingCta } from "@/components/consulting/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "Business Consulting Services | Globixs",
+  title: "AI-Focused Services | Globixs",
   description:
-    "AI strategy, automation advisory, and technology consulting for SMB and mid-market teams. Senior consultants. 2-to-8-week sprints. Outcomes tied to KPIs.",
+    "Production AI for enterprise. AI agents, LLM integration, custom AI applications, AI strategy and architecture, and managed AI operations. 2-to-8-week sprints with KPIs tied to outcomes.",
 };
 
 export default function ConsultingPage() {

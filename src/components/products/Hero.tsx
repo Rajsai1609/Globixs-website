@@ -7,16 +7,13 @@ export function Hero() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-            Globixs Projects
+            BUILD — THE THIRD PILLAR
           </p>
           <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Vertical AI systems we build in-house.
+            AI products built by the engineers we trained and placed.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Globixs ships production AI systems across high-impact verticals — using our placed
-            engineers and senior consultants. Each project is real proof of how we deliver: senior
-            humans, multi-agent architecture, measurable outcomes. Some are live with paying
-            customers. Others are in active development.
+            PathAI, Resto, Aigent, and SignalFeed are vertical AI products we ship to real customers. They&apos;re built between client engagements by Globixs engineers — the same talent we train through Globixs Academy and place with enterprise and mid-market teams. Three pillars, one operating system.
           </p>
           <div className="mt-8">
             <Link href="/consulting" className="btn-primary">
