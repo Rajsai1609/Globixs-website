@@ -1,19 +1,25 @@
 import Image from "next/image";
-import { Zap, Rocket } from "lucide-react";
+import { GraduationCap, Zap, Rocket } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 
 const pillars = [
   {
-    Icon: Zap,
-    title: "Faster Placements",
+    Icon: GraduationCap,
+    title: "Train",
     description:
-      "First pre-vetted IT candidates submitted in 7–10 days, with a 90-day placement guarantee. Most agencies take 3–4 weeks just to find the first qualified person.",
+      "Production AI engineering curriculum for US grads. Consultation-first admissions, mentored projects, placement-track.",
+  },
+  {
+    Icon: Zap,
+    title: "Place",
+    description:
+      "Pre-vetted AI engineers in 7–10 days. AI-driven sourcing, semantic matching, predictive fit scoring.",
   },
   {
     Icon: Rocket,
-    title: "Faster AI Delivery",
+    title: "Build",
     description:
-      "Production AI systems shipped in 2-to-8-week sprints with monitoring, KPI dashboards, and a 90-day post-launch tuning period. Most consulting firms hand off slide decks and disappear.",
+      "B2B AI products shipped to real customers — proof of what our trained-and-placed engineers deliver.",
   },
 ];
 
@@ -30,17 +36,12 @@ export function WelcomeSection() {
               Welcome to Globixs
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
-              We&apos;re an AI-native staffing and AI services firm based in Seattle, built for
-              enterprise teams that need to move faster than legacy firms allow. Our staffing
-              pipeline pre-vets IT engineers through a 10-dimension AI screening pipeline, so first
-              submissions land in 7–10 days — not 4 weeks. Our services team designs and ships AI
-              automation systems in 2-to-8-week sprints — not 12-month retainers. Senior
-              consultants and engineers do the work; AI agents handle the scale.
+              We&apos;re a Seattle-based firm with three coordinated pillars: Globixs Academy trains US graduates in production AI engineering, our staffing arm places them with enterprise and mid-market teams that need AI systems without the cost of a full in-house bench, and our products group ships B2B AI software built by the same engineers between client engagements. Senior consultants and mentors run the work; AI agents handle the scale.
             </p>
             <p className="mt-7 text-base font-semibold text-heading">
-              The two things we promise:
+              The three pillars we run:
             </p>
-            <div className="mt-4 grid gap-5 sm:grid-cols-2">
+            <div className="mt-4 grid gap-5 sm:grid-cols-3">
               {pillars.map((pillar) => (
                 <article key={pillar.title} className="premium-card p-5">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
