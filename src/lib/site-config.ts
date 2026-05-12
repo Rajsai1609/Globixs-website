@@ -24,15 +24,7 @@ export const navLinks: NavLink[] = [
   { href: "/academy", label: "Train" },
   { href: "/services", label: "Place" },
   { href: "/ai-products", label: "Build" },
-  {
-    href: "/for-employees",
-    label: "For Employees",
-    dropdown: true,
-    children: [
-      { href: "/for-employees", label: "For Employees" },
-      { href: "https://mctpathai.com", label: "PathAI", external: true },
-    ],
-  },
+  { href: "/for-employees", label: "Employees" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
