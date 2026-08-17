@@ -9,19 +9,19 @@ const clients: Client[] = [
     Icon: Rocket,
     title: "Growth-Stage Startups",
     description:
-      "Series A–C companies hiring their first senior engineers, scaling AI/ML teams, or building out cloud infrastructure ahead of their next funding round.",
+      "Series A–C teams hiring their first senior engineers or scaling AI/ML and cloud infrastructure before the next round. You get senior-agency depth without senior-agency invoices.",
   },
   {
     Icon: Building2,
-    title: "Mid-Market Tech Companies",
+    title: "Mid-Market Companies",
     description:
-      "$10M–$200M revenue companies in SaaS, fintech, healthtech, and proptech who need senior IT talent without the overhead of an internal recruiting team.",
+      "SaaS, fintech, healthtech, and proptech companies that need senior IT talent on demand — without standing up an internal recruiting team to get it.",
   },
   {
     Icon: Layers,
     title: "AI-First Operators",
     description:
-      "Companies adopting AI as a core capability — building ML platforms, deploying agentic systems, or modernizing data infrastructure for the AI era.",
+      "Teams building ML platforms, deploying agentic systems, or modernizing data infrastructure. We speak the stack because we build on it ourselves.",
   },
 ];
 
@@ -31,9 +31,9 @@ export function Clients() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="Our Clients"
-            title="Built for tech-forward companies, not procurement bureaucracy."
-            description="We work best with hiring teams who care about technical fit and speed — not headcount checkboxes."
+            eyebrow="WHO WE WORK WITH"
+            title="Built for teams that hire on technical fit, not paperwork."
+            description="We work best with hiring managers who know exactly what good looks like — and don't want to wait a month to see it."
           />
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">

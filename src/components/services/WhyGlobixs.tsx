@@ -7,21 +7,21 @@ type Reason = { Icon: LucideIcon; title: string; description: string };
 const reasons: Reason[] = [
   {
     Icon: Zap,
-    title: "Speed legacy firms can't match",
+    title: "Speed that doesn't cut corners",
     description:
-      "First pre-vetted candidates in 7–10 days. AI-augmented sourcing finds and scores talent in hours, not weeks. Senior recruiters validate every shortlist before it reaches you.",
+      "First pre-vetted candidates in 7–10 days. Our AI sourcing engines find and score talent in hours; senior recruiters validate every shortlist before it reaches your inbox. Fast and vetted — not fast or vetted.",
   },
   {
     Icon: Brain,
-    title: "Real technical screening",
+    title: "Screening that tests real work",
     description:
-      "10-dimension AI scoring plus senior recruiter vetting catches what keyword-matching agencies miss. We ship engineers who can actually build what you're hiring them to build.",
+      "Every candidate is scored across 10 dimensions — technical depth, project relevance, seniority signals — then validated in a live technical conversation. Keyword-matching agencies pass resumes; we pass engineers who can build what you're hiring for.",
   },
   {
     Icon: BadgeCheck,
-    title: "Senior team, AI scale",
+    title: "Our own AI stack, not a reseller's",
     description:
-      "No junior gatekeepers or churn-and-burn account managers. Every Globixs engagement is run by senior recruiters with AI agents handling the heavy lifting — same depth, fraction of the cost.",
+      "The sourcing, matching, and screening systems behind every search are engineered in-house. That's why we deliver senior-agency quality at a fraction of legacy pricing — the heavy lifting runs on software we built.",
   },
 ];
 
@@ -31,9 +31,8 @@ export function WhyGlobixs() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="Why Globixs"
-            title="What you get with Globixs."
-            description="Three things legacy IT staffing firms can't offer at our price."
+            eyebrow="WHY GLOBIXS"
+            title="Three things legacy staffing firms can't offer at our price."
           />
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">

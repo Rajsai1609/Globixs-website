@@ -7,12 +7,12 @@ export function ClosingCta() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Ready to fill your next IT role in 7–10 days?
+            Your next IT role, filled in 7–10 days.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
-            Tell us what you&apos;re hiring for. We&apos;ll send 3–5 pre-vetted candidates within a
-            week — with full technical write-ups and match scores. Free first engagement, no
-            commitment.
+            Tell us what you&apos;re hiring for. Within a week you&apos;ll have 3–5 pre-vetted
+            candidates with full technical write-ups, match scores, and visa status — first
+            engagement free, no commitment.
           </p>
           <div className="mt-8">
             <Link href="/contact" className="btn-primary">
