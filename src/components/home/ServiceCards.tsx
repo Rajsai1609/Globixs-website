@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
+import { Eyebrow } from "@/components/brochure";
 
 type SubLink = { label: string; href: string; external?: boolean };
 
@@ -80,7 +81,7 @@ export function ServiceCards() {
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {cards.map((card, idx) => (
             <Reveal key={card.title} delay={idx * 80}>
-              <article className="flex h-full flex-col rounded-2xl border border-border bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg lg:p-10">
+              <article className="brochure-card flex h-full flex-col p-8 lg:p-10">
                 <p className="font-mono text-sm tracking-[0.1em] text-brand">{card.num}</p>
                 <h3 className="mt-3 text-2xl font-bold text-heading lg:text-3xl">{card.title}</h3>
                 <p className="mt-1 text-lg text-muted">{card.tagline}</p>
@@ -132,11 +133,9 @@ export function ServiceCards() {
         </div>
 
         <Reveal delay={240}>
-          <div className="mt-10 flex flex-col gap-6 rounded-2xl border border-border bg-surface p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
+          <div className="tint-panel mt-10 flex flex-col gap-6 p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                FULL-TIME JOB MARKETING
-              </p>
+              <Eyebrow>FULL-TIME JOB MARKETING</Eyebrow>
               <p className="mt-3 text-base leading-relaxed text-foreground">
                 New: Unsaturated Roles track — Networks, Datacenters, IT Support, Embedded,
                 Robotics. Faster interviews, less competition.

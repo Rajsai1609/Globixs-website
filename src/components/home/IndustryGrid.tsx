@@ -76,7 +76,7 @@ export function IndustryGrid() {
                   : ""
               }
             >
-              <article className="flex h-full flex-col rounded-xl border border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+              <article className="brochure-card flex h-full flex-col p-6">
                 <industry.Icon size={32} className="text-brand" aria-hidden="true" />
                 <h3 className="mt-4 text-lg font-bold uppercase tracking-wide text-heading">
                   {industry.title}
