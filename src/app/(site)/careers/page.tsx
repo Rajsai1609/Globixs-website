@@ -35,7 +35,7 @@ export default async function CareersPage() {
               {jobs.map((job, index) => (
                 <Reveal key={job.id} delay={index * 70}>
                   <article className="rounded-lg border border-slate-200 p-4">
-                  <h3 className="text-lg font-semibold text-slate-900">{job.title}</h3>
+                  <h3 className="text-lg font-semibold text-heading">{job.title}</h3>
                   <p className="mt-1 text-sm text-foreground">
                     {job.location} • {job.employmentType}
                   </p>

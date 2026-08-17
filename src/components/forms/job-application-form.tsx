@@ -67,7 +67,7 @@ export function JobApplicationForm({ jobId }: Props) {
             <FiCheckCircle className="h-8 w-8" aria-hidden />
           </div>
           <div>
-            <h3 className="text-2xl font-semibold text-slate-900">Application submitted</h3>
+            <h3 className="text-2xl font-semibold text-heading">Application submitted</h3>
             <p className="mt-2 text-sm leading-6 text-foreground">
               Thank you for applying. We have received your information and resume. If your profile is a strong match,
               a member of our team will contact you—typically within a few business days.
@@ -87,7 +87,7 @@ export function JobApplicationForm({ jobId }: Props) {
         </div>
       ) : !showForm ? (
         <div className="space-y-4">
-          <h3 className="text-2xl font-semibold text-slate-900">Apply for this role</h3>
+          <h3 className="text-2xl font-semibold text-heading">Apply for this role</h3>
           <p className="text-sm text-foreground">
             Submit a streamlined application. Standard completion time is under 5 minutes.
           </p>
@@ -105,7 +105,7 @@ export function JobApplicationForm({ jobId }: Props) {
           <input type="hidden" name="jobId" value={jobId} />
           <input type="hidden" name="website" />
           <div>
-            <h3 className="text-2xl font-semibold text-slate-900">Application Form</h3>
+            <h3 className="text-2xl font-semibold text-heading">Application Form</h3>
             <p className="mt-1 text-sm text-foreground">
               Provide the required details below. Our recruiting team typically reviews applications within 2–3 business days.
             </p>
@@ -186,7 +186,7 @@ export function JobApplicationForm({ jobId }: Props) {
               <FiUploadCloud className="text-brand" aria-hidden />
               {resumeName ? "Change Resume" : "Upload Resume"}
             </button>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted">
               {resumeName ? `Selected: ${resumeName}` : "Accepted formats: PDF, DOC, DOCX (max 10 MB)."}
             </p>
           </div>

@@ -114,7 +114,7 @@ export default async function IndustriesPage() {
 
         <Reveal delay={80}>
           <section className="rounded-2xl border border-border bg-surface px-4 py-5 sm:px-6">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted">
               Technology Ecosystems We Work With
             </p>
             <div className="marquee-mask mt-4 overflow-hidden">
