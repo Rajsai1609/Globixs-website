@@ -51,7 +51,7 @@ export function Process() {
             <Reveal key={step.title} delay={idx * 60}>
               <article className="enterprise-panel p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
+                  <span className="step-badge h-8 w-8 text-sm">
                     {step.num}
                   </span>
                   <step.Icon size={18} className="text-accent" aria-hidden="true" />

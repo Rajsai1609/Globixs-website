@@ -180,7 +180,7 @@ export default function ForEmployeesPage() {
             {pipelineSteps.map((step, idx) => (
               <Reveal key={step.num} delay={idx * 70}>
                 <article className="premium-card flex h-full gap-5 p-8">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
+                  <span className="step-badge">
                     {step.num}
                   </span>
                   <div>
@@ -194,7 +194,7 @@ export default function ForEmployeesPage() {
             {/* Step 5 — light red-tinted panel */}
             <Reveal delay={280}>
               <article className="flex h-full gap-5 rounded-2xl border border-brand/15 bg-surface p-8">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
+                <span className="step-badge">
                   5
                 </span>
                 <div className="min-w-0">
@@ -218,7 +218,7 @@ export default function ForEmployeesPage() {
             {/* Step 6 — dark slate panel */}
             <Reveal delay={350}>
               <article className="flex h-full gap-5 rounded-2xl bg-dark p-8 text-white">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
+                <span className="step-badge">
                   6
                 </span>
                 <div className="min-w-0">
@@ -371,7 +371,7 @@ export default function ForEmployeesPage() {
               {audience.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-heading"
+                  className="pill-tint"
                 >
                   {item}
                 </span>

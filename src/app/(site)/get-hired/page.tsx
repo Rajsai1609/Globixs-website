@@ -246,7 +246,7 @@ export default function GetHiredPage() {
                 <div className="flex gap-6 pb-10 last:pb-0">
                   {/* Circle + connector line */}
                   <div className="flex flex-col items-center">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
+                    <div className="step-badge h-10 w-10 text-sm">
                       {idx + 1}
                     </div>
                     {idx < howItWorks.length - 1 && (

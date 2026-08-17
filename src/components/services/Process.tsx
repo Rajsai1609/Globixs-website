@@ -69,7 +69,7 @@ export function Process() {
             <Reveal key={step.title} delay={idx * 60}>
               <article className="enterprise-panel p-5">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-white">
+                  <span className="step-badge h-8 w-8 text-sm">
                     {step.num}
                   </span>
                   <span className="text-xs font-semibold text-muted">{step.day}</span>

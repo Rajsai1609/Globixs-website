@@ -89,7 +89,7 @@ export function WhyChooseUs() {
                 {active.list.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span
-                      className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent"
+                      className="brochure-bullet"
                       aria-hidden="true"
                     />
                     <span className="text-base leading-7 text-foreground">
