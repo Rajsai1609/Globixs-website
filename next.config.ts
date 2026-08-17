@@ -17,9 +17,10 @@ const nextConfig: NextConfig = {
 
   async rewrites() {
     return [
-      // Clean URL for the standalone Unsaturated Roles registration page
-      // (static file at public/register.html — no App Router route exists for /register)
-      { source: "/register", destination: "/register.html" },
+      // Clean URLs for the standalone registration pages (static files in
+      // public/ — no App Router routes exist for /register or /join)
+      { source: "/register", destination: "/register.html" },  // Unsaturated Roles
+      { source: "/join",     destination: "/join.html" },      // Core Tech Tracks
     ];
   },
 };

@@ -203,10 +203,10 @@ export default function ForEmployeesPage() {
               holders, and US citizens. Our recruiters are paid by the companies hiring you, so you
               pay nothing, ever. No upfront fees, no hidden charges, no bootcamp scams.
             </p>
-            {/* Both CTAs target /register (static public/register.html) — plain
-                anchors, not next/link. No /join page exists. */}
+            {/* Static pages in public/ (join.html, register.html) — plain
+                anchors, not next/link. */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a href="/register" className="btn-primary">
+              <a href="/join" className="btn-primary">
                 Register — Core Tech Tracks
               </a>
               <a href="/register" className="btn-secondary">
@@ -445,10 +445,10 @@ export default function ForEmployeesPage() {
               within 48 hours with an honest assessment — even if it&apos;s &ldquo;we&apos;re not the
               right fit right now.&rdquo;
             </p>
-            {/* Both CTAs target /register (static public/register.html) — plain
-                anchors, not next/link. No /join page exists. */}
+            {/* Static pages in public/ (join.html, register.html) — plain
+                anchors, not next/link. */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a href="/register" className="btn-primary">
+              <a href="/join" className="btn-primary">
                 Register — Core Tech Tracks
               </a>
               <a href="/register" className="btn-secondary">
