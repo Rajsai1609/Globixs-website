@@ -12,6 +12,9 @@ type ServiceCard = {
   subLinks: SubLink[];
   ctaLabel: string;
   ctaHref: string;
+  /* Set for targets outside the App Router (e.g. /register rewrites to the
+     static public/register.html) — renders a plain anchor instead of next/link. */
+  ctaStatic?: boolean;
 };
 
 const cards: ServiceCard[] = [
@@ -41,7 +44,8 @@ const cards: ServiceCard[] = [
       { label: "Core + unsaturated role tracks",   href: "/for-employees" },
     ],
     ctaLabel: "See how job marketing works →",
-    ctaHref: "/for-employees",
+    ctaHref: "/register",
+    ctaStatic: true,
   },
   {
     num: "(03)",
@@ -106,12 +110,21 @@ export function ServiceCards() {
                 </ul>
 
                 <div className="mt-auto pt-6">
-                  <Link
-                    href={card.ctaHref}
-                    className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
-                  >
-                    {card.ctaLabel}
-                  </Link>
+                  {card.ctaStatic ? (
+                    <a
+                      href={card.ctaHref}
+                      className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+                    >
+                      {card.ctaLabel}
+                    </a>
+                  ) : (
+                    <Link
+                      href={card.ctaHref}
+                      className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+                    >
+                      {card.ctaLabel}
+                    </Link>
+                  )}
                 </div>
               </article>
             </Reveal>
