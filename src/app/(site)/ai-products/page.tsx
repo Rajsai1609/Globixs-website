@@ -120,12 +120,16 @@ export default function AIServicesPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-              AI SERVICES FOR BUSINESSES
+              (03) For Businesses
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              AI services that grow your business.
+              AI Services for Businesses
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              AI receptionists, lead generation, automation, websites, and more — we build it and
+              run it.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-400">
               We build and run the systems that answer your calls, fill your pipeline, and win you
               customers — so you can focus on the work.
             </p>

@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       { source: "/products",       destination: "/ai-products",    permanent: true },
       { source: "/for-candidates", destination: "/for-employees",  permanent: true },
       { source: "/get-hired",      destination: "/for-employees",  permanent: true },
+      // Train/Academy pillar retired — keep old indexed links out of a 404.
+      { source: "/academy",        destination: "/",               permanent: true },
     ];
   },
 

@@ -9,7 +9,8 @@ retired). Nav labels and their routes:
 - `Job Marketing` → `/for-employees` — full-time job marketing for candidates
 - `AI Services` → `/ai-products` — AI services for businesses (receptionists,
   chatbots, lead gen, automation, reviews, websites + local SEO, dashboards, design)
-- `Train` → `/academy` — Globixs Academy, kept as a secondary offering
+
+The Train/Academy pillar was removed entirely; `/academy` 301s to `/`.
 
 ### URL/Label mismatch — TODO
 

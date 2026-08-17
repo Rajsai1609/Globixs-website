@@ -8,12 +8,15 @@ export function Hero() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-            For Employers
+            (01) For Businesses
           </p>
           <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Hire the IT engineers your team actually needs — in 7–10 days.
+            IT Staffing for Businesses
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            Contract and full-time technical hires, pre-vetted and delivered in days.
+          </p>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-400">
             Globixs places senior IT talent — cloud engineers, data engineers, ML/AI engineers,
             full-stack developers, and DevOps specialists — at US tech companies. AI-powered
             sourcing, 10-dimension screening, senior recruiters reviewing every shortlist. No

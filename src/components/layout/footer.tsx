@@ -70,7 +70,6 @@ export function Footer() {
               <li><Link href="/services"       className="transition hover:text-white">IT Staffing for Businesses</Link></li>
               <li><Link href="/for-employees"  className="transition hover:text-white">Job Marketing for Candidates</Link></li>
               <li><Link href="/ai-products"    className="transition hover:text-white">AI Services for Businesses</Link></li>
-              <li><Link href="/academy"        className="transition hover:text-white">Globixs Academy</Link></li>
               <li><Link href="/contact"        className="transition hover:text-white">Talk to Us</Link></li>
             </ul>
           </div>

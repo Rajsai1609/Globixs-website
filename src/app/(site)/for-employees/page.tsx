@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   DollarSign,
   Users,
@@ -12,6 +11,7 @@ import {
   Wand2,
   Target,
   CheckCircle,
+  Layers,
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
@@ -20,12 +20,41 @@ import { GetHiredFAQ } from "@/components/get-hired/faq-accordion";
 import { GetHiredForm } from "@/components/forms/get-hired-form";
 
 export const metadata: Metadata = {
-  title: "For Employees | Land Your Next US Tech Role",
+  title: "Job Marketing for Candidates",
   description:
-    "Free recruiter-led placement for engineers, data scientists, and IT professionals across the US. F-1, OPT, STEM OPT, H1B, green card, and US citizens — $0 cost to candidates, always.",
+    "A dedicated recruiter delivering 25–35 tailored applications a day. Resume rewritten per application, core technology tracks plus an unsaturated roles track. Free recruiter-led placement for engineers, data scientists, and IT professionals across the US — F-1, OPT, STEM OPT, H1B, green card, and US citizens.",
 };
 
 type Card = { Icon: LucideIcon; title: string; description: string };
+
+/* The service, in the order it's sold: who runs it, what they send,
+   how much, and across which tracks. Mirrors the homepage card. */
+const whatYouGet: Card[] = [
+  {
+    Icon: Users,
+    title: "A dedicated recruiter",
+    description:
+      "One named recruiter owns your search end to end — not a rotating queue. They learn your background, target roles, and visa situation, then work your pipeline daily and stay reachable throughout.",
+  },
+  {
+    Icon: Wand2,
+    title: "A resume tailored per application",
+    description:
+      "Every submission gets its own version of your resume, rewritten against that specific job description for ATS keywords and relevance. No single generic PDF sprayed at hundreds of postings.",
+  },
+  {
+    Icon: Target,
+    title: "25–35 applications a day",
+    description:
+      "We submit at a volume no individual job seeker can match by hand, every working day — so your profile is in front of hiring teams while roles are still open, not three weeks after they post.",
+  },
+  {
+    Icon: Layers,
+    title: "Core tracks + unsaturated roles",
+    description:
+      "Core technology tracks cover software, data, cloud, and AI/ML. The unsaturated roles track targets Networks, Datacenters, IT Support, Embedded, and Robotics — faster interviews, less competition.",
+  },
+];
 
 const whoWeHelp: Card[] = [
   {
@@ -160,21 +189,29 @@ export default function ForEmployeesPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-              Free for Candidates · Employers Pay Us
+              (02) For Candidates
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Land your next US tech role — without paying a dollar.
+              Job Marketing for Candidates
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              A dedicated recruiter delivering 25–35 tailored applications a day.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-400">
               Globixs has placed 50+ engineers, analysts, and data scientists into full-time and
               contract roles across the US — F-1 students, OPT/STEM OPT, H1B holders, green card
               holders, and US citizens. Our recruiters are paid by the companies hiring you, so you
               pay nothing, ever. No upfront fees, no hidden charges, no bootcamp scams.
             </p>
-            <div className="mt-8">
-              <Link href="#talk-to-recruiter" className="btn-primary">
-                Submit Your Resume
-              </Link>
+            {/* Both CTAs target /register (static public/register.html) — plain
+                anchors, not next/link. No /join page exists. */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a href="/register" className="btn-primary">
+                Register — Core Tech Tracks
+              </a>
+              <a href="/register" className="btn-secondary">
+                Register — Unsaturated Roles
+              </a>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-slate-300">
@@ -194,6 +231,32 @@ export default function ForEmployeesPage() {
               </span>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════════════════════ WHAT YOU GET ══════════════════════════ */}
+      <section className="section-pad bg-black/[0.03]">
+        <div className="container-shell">
+          <Reveal>
+            <SectionTitle
+              eyebrow="What The Service Is"
+              title="A recruiter marketing you into your next role."
+              description="Job marketing is not a job board and not a course. We run your search for you — here's exactly what that means."
+            />
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {whatYouGet.map((card, idx) => (
+              <Reveal key={card.title} delay={idx * 70}>
+                <article className="premium-card flex h-full flex-col p-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
+                    <card.Icon size={22} className="text-accent" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-heading">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -382,6 +445,16 @@ export default function ForEmployeesPage() {
               within 48 hours with an honest assessment — even if it&apos;s &ldquo;we&apos;re not the
               right fit right now.&rdquo;
             </p>
+            {/* Both CTAs target /register (static public/register.html) — plain
+                anchors, not next/link. No /join page exists. */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a href="/register" className="btn-primary">
+                Register — Core Tech Tracks
+              </a>
+              <a href="/register" className="btn-secondary">
+                Register — Unsaturated Roles
+              </a>
+            </div>
           </Reveal>
           <Reveal delay={80} className="mx-auto mt-10 max-w-2xl">
             <GetHiredForm />

@@ -35,12 +35,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: job.updatedAt,
   }));
 
-  const academyRoute = {
-    url: `${baseUrl}/academy`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-  };
-
-  return [academyRoute, ...staticRoutes, ...serviceRoutes, ...jobRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...jobRoutes];
 }

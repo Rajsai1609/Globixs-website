@@ -148,19 +148,6 @@ export function ServiceCards() {
             </a>
           </div>
         </Reveal>
-
-        {/* Academy is a secondary offering — kept as a one-line mention so it
-            doesn't compete with the three service lines above. */}
-        <Reveal delay={280}>
-          <p className="mt-6 text-sm leading-relaxed text-muted">
-            Also from Globixs:{" "}
-            <Link href="/academy" className="font-semibold text-accent hover:underline">
-              Globixs Academy
-            </Link>{" "}
-            — production AI engineering training for US graduates, with consultation-first
-            admissions.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
