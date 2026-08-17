@@ -22,7 +22,7 @@ export function Navbar() {
   }, [closeDropdown]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/90 bg-white/88 shadow-[0_10px_34px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur-xl">
       <div className="container-shell flex h-20 items-center justify-between md:h-24">
 
         {/* Logo — intrinsic width/height are the SVG's own 1860×498 so the
