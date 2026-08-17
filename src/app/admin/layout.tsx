@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -24,13 +23,13 @@ export default function AdminLayout({
         <div className="border-b border-slate-800 px-4 py-4">
           <Link href="/admin" className="block">
             <span className="inline-flex rounded-lg bg-white px-3 py-2 ring-1 ring-white/10">
-              <Image
-                src="/logo.png"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/globixs-logo.svg"
                 alt="Globixs Technology Solutions"
-                width={130}
-                height={30}
-                className="h-8 w-auto"
-                priority
+                width={1860}
+                height={498}
+                className="h-auto w-[150px]"
               />
             </span>
             <span className="mt-2 block text-xs font-medium text-slate-500">Admin console</span>
@@ -60,7 +59,14 @@ export default function AdminLayout({
       <div className="flex min-h-screen min-w-0 flex-1 flex-col">
         <header className="flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-3 py-2 shadow-sm md:hidden">
           <Link href="/admin" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Globixs" width={100} height={24} className="h-6 w-auto" priority />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/globixs-logo.svg"
+              alt="Globixs Technology Solutions"
+              width={1860}
+              height={498}
+              className="h-auto w-[120px]"
+            />
           </Link>
           <nav className="flex flex-wrap justify-end gap-2 text-xs font-medium">
             {nav.map((item) => (
@@ -75,7 +81,14 @@ export default function AdminLayout({
         </header>
         <header className="hidden items-center gap-4 border-b border-slate-200 bg-white px-8 py-3 shadow-sm md:flex">
           <Link href="/admin" className="shrink-0 opacity-90 hover:opacity-100">
-            <Image src="/logo.png" alt="Globixs" width={120} height={28} className="h-7 w-auto" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/globixs-logo.svg"
+              alt="Globixs Technology Solutions"
+              width={1860}
+              height={498}
+              className="h-auto w-[140px]"
+            />
           </Link>
           <div className="min-w-0 border-l border-slate-200 pl-4">
             <h1 className="text-sm font-semibold text-slate-900">Console</h1>

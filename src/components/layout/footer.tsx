@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { company } from "@/lib/site-config";
 
 export function Footer() {
@@ -10,12 +9,13 @@ export function Footer() {
 
           {/* Column 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Image
-              src="/logo.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/globixs-logo.svg"
               alt="Globixs Technology Solutions"
-              width={140}
-              height={32}
-              className="h-8 w-auto"
+              width={1860}
+              height={498}
+              className="h-auto w-40 md:w-[180px]"
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               Staffing, job marketing, and AI services — one technology partner. We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.

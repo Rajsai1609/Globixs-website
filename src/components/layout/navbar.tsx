@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { navLinks } from "@/lib/site-config";
@@ -24,17 +23,22 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/90 bg-white/88 shadow-[0_10px_34px_rgba(15,23,42,0.08)] backdrop-blur-xl">
-      <div className="container-shell flex h-18 items-center justify-between">
+      <div className="container-shell flex h-20 items-center justify-between md:h-24">
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
+        {/* Logo — intrinsic width/height are the SVG's own 1860×498 so the
+            browser reserves the exact aspect ratio and nothing shifts on load. */}
+        <Link href="/" className="flex shrink-0 items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/globixs-logo.svg"
             alt="Globixs Technology Solutions"
-            width={140}
-            height={32}
-            priority
-            className="h-8 w-auto"
+            width={1860}
+            height={498}
+            /* Stepped so the logo is never squeezed by the nav. The md range
+               (768–1023px) is already tight — the full nav + CTA need ~643px of
+               a 705px bar — so the logo holds at its previous 140px there and
+               only grows where there is real room (lg/xl). */
+            className="h-auto w-40 shrink-0 md:w-[140px] lg:w-[190px] xl:w-[210px]"
           />
         </Link>
 
