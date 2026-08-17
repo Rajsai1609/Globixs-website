@@ -67,7 +67,7 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services"       className="transition hover:text-white">IT Staffing for Businesses</Link></li>
+              <li><Link href="/services"       className="transition hover:text-white">IT Staffing for Companies</Link></li>
               <li><Link href="/for-employees"  className="transition hover:text-white">Job Marketing for Candidates</Link></li>
               <li><Link href="/ai-products"    className="transition hover:text-white">AI Services for Businesses</Link></li>
               <li><Link href="/contact"        className="transition hover:text-white">Talk to Us</Link></li>

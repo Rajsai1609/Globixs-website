@@ -6,16 +6,15 @@ export function Hero() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-            About Globixs
+            ABOUT GLOBIXS
           </p>
           <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            An AI-native staffing and consulting firm built for speed.
+            One technology partner. Three ways we deliver.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Globixs Technology Solutions is a Seattle-based firm that helps US companies hire IT
-            talent faster and ship AI systems sooner. We combine senior recruiters and consultants
-            with production-grade AI agents to deliver measurable outcomes — not slide decks, not
-            month-long delays.
+            Globixs Technology Solutions is a Seattle-based technology services company. We place
+            pre-vetted engineers with businesses, run managed job searches for candidates, and build
+            AI systems that grow small and mid-size companies.
           </p>
         </Reveal>
       </div>

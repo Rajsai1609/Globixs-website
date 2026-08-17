@@ -5,7 +5,7 @@
 The site leads with three service lines (the Train/Place/Build pillar framing was
 retired). Nav labels and their routes:
 
-- `Staffing` → `/services` — IT staffing for businesses (contract + full-time hires)
+- `Staffing` → `/services` — IT staffing for companies (contract + full-time hires)
 - `Job Marketing` → `/for-employees` — full-time job marketing for candidates
 - `AI Services` → `/ai-products` — AI services for businesses (receptionists,
   chatbots, lead gen, automation, reviews, websites + local SEO, dashboards, design)

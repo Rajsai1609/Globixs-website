@@ -20,7 +20,7 @@ type ServiceCard = {
 const cards: ServiceCard[] = [
   {
     num: "(01)",
-    title: "IT Staffing for Businesses",
+    title: "IT Staffing for Companies",
     tagline: "Contract and full-time technical hires, pre-vetted and delivered in days.",
     desc: "Pre-vetted engineers across cloud, data, AI/ML, cybersecurity, and software — placed with enterprise and mid-market teams on contract, contract-to-hire, or full-time terms. Sourcing, screening, and matching run on our own AI stack, so first submissions land in 7–10 days, not 4 weeks.",
     subLinks: [

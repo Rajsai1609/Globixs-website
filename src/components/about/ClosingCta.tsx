@@ -1,22 +1,34 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 
+const actions = [
+  { label: "Hire talent", href: "/contact", primary: true },
+  { label: "Start your job search", href: "/for-employees", primary: false },
+  { label: "Book an AI services consult", href: "/contact", primary: false },
+];
+
 export function ClosingCta() {
   return (
     <section className="hero-mesh py-16 text-white md:py-24">
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Ready to work with us?
+            Work with us.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Whether you&apos;re hiring IT talent or scoping an AI project, we&apos;ll give you an
-            honest assessment in a 30-minute call. No pitch deck, no commitment.
-          </p>
-          <div className="mt-8">
-            <Link href="/contact" className="btn-primary">
-              Book a Free Consultation
-            </Link>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            {actions.map((action) => (
+              <Link
+                key={action.label}
+                href={action.href}
+                className={
+                  action.primary
+                    ? "rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                    : "rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
+                }
+              >
+                {action.label}
+              </Link>
+            ))}
           </div>
         </Reveal>
       </div>

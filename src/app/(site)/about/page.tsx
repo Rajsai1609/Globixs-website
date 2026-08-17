@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Hero }        from "@/components/about/Hero";
 import { WhatWeDo }    from "@/components/about/WhatWeDo";
-import { HowWeWork }   from "@/components/about/HowWeWork";
 import { Principles }  from "@/components/about/Principles";
+import { WhoWeServe }  from "@/components/about/WhoWeServe";
 import { WhereWeWork } from "@/components/about/WhereWeWork";
 import { ClosingCta }  from "@/components/about/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "About | Globixs Technology Solutions",
+  // `absolute` so the root layout's "%s | Globixs Technology Solutions"
+  // template doesn't append a second brand suffix.
+  title: { absolute: "About | Globixs Technology Solutions" },
   description:
-    "An AI-native staffing and consulting firm based in Seattle. We help US companies hire IT talent faster and ship AI systems sooner.",
+    "Seattle-based technology services company: IT staffing for companies, managed job marketing for candidates, and AI growth systems for small and mid-size companies.",
 };
 
 export default function AboutPage() {
@@ -17,8 +19,8 @@ export default function AboutPage() {
     <div>
       <Hero />
       <WhatWeDo />
-      <HowWeWork />
       <Principles />
+      <WhoWeServe />
       <WhereWeWork />
       <ClosingCta />
     </div>

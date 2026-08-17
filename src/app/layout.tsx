@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based technology partner running three service lines: IT staffing for businesses (contract and full-time engineers across cloud, data, AI/ML, cybersecurity, and software), full-time job marketing for candidates, and AI services for businesses — AI receptionists, chatbots, lead generation, automation, review management, websites, and dashboards.",
+    "Seattle-based technology partner running three service lines: IT staffing for companies (contract and full-time engineers across cloud, data, AI/ML, cybersecurity, and software), full-time job marketing for candidates, and AI services for businesses — AI receptionists, chatbots, lead generation, automation, review management, websites, and dashboards.",
   keywords: [
     "IT staffing Seattle",
     "technology staffing Seattle",

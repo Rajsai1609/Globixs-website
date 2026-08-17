@@ -11,7 +11,7 @@ export function Hero() {
             (01) For Businesses
           </p>
           <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            IT Staffing for Businesses
+            IT Staffing for Companies
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Contract and full-time technical hires, pre-vetted and delivered in days.
