@@ -3,7 +3,7 @@ import { SectionTitle } from "@/components/sections/section-title";
 
 export function WhereWeWork() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle

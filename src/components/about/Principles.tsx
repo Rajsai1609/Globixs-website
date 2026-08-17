@@ -27,7 +27,7 @@ const principles: Principle[] = [
 
 export function Principles() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle eyebrow="WHY GLOBIXS" title="How we're different" />
@@ -40,7 +40,7 @@ export function Principles() {
                   <p.Icon size={22} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-heading">{p.title}</h3>
-                <p className="mt-2 text-base leading-7 text-slate-600">{p.description}</p>
+                <p className="mt-2 text-base leading-7 text-foreground">{p.description}</p>
               </article>
             </Reveal>
           ))}

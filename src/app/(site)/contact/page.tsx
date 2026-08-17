@@ -17,11 +17,11 @@ export default function ContactPage() {
 
         {/* ── Left column ── */}
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+          <p className="eyebrow">
             Get In Touch
           </p>
           <h1 className="mt-3 text-4xl font-bold text-heading sm:text-5xl">Let&apos;s talk.</h1>
-          <p className="mt-5 text-lg leading-7 text-slate-600">
+          <p className="mt-5 text-lg leading-7 text-foreground">
             Whether you&apos;re hiring IT talent, scoping an AI project, or just exploring what
             Globixs can do — we&apos;ll respond within one business day. Free 30-minute discovery
             call. No pitch deck, no commitment.
@@ -29,10 +29,10 @@ export default function ContactPage() {
 
           <div className="enterprise-panel mt-8 p-6">
             <h2 className="text-base font-semibold text-heading">Contact Information</h2>
-            <p className="mt-3 whitespace-pre-line text-sm text-slate-600">{company.address}</p>
-            <p className="mt-2 text-sm text-slate-600">{company.phone}</p>
-            <p className="mt-2 text-sm text-slate-600">{company.email}</p>
-            <p className="mt-3 text-xs text-slate-400">{company.locationTagline}</p>
+            <p className="mt-3 whitespace-pre-line text-sm text-foreground">{company.address}</p>
+            <p className="mt-2 text-sm text-foreground">{company.phone}</p>
+            <p className="mt-2 text-sm text-foreground">{company.email}</p>
+            <p className="mt-3 text-xs text-white/60">{company.locationTagline}</p>
           </div>
         </Reveal>
 

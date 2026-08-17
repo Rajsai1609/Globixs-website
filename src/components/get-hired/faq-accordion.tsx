@@ -52,7 +52,7 @@ export function GetHiredFAQ() {
             />
           </button>
           {openIdx === idx && (
-            <p className="px-6 pb-5 text-sm leading-7 text-slate-600">{faq.a}</p>
+            <p className="px-6 pb-5 text-sm leading-7 text-foreground">{faq.a}</p>
           )}
         </div>
       ))}

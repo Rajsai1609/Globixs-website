@@ -22,8 +22,8 @@ export function NotFor() {
         <Reveal delay={80} className="mt-10 max-w-2xl space-y-4">
           {items.map((item) => (
             <div key={item} className="flex items-start gap-3">
-              <XCircle size={20} className="mt-0.5 shrink-0 text-slate-400" aria-hidden="true" />
-              <p className="text-base leading-7 text-slate-600">{item}</p>
+              <XCircle size={20} className="mt-0.5 shrink-0 text-white/60" aria-hidden="true" />
+              <p className="text-base leading-7 text-foreground">{item}</p>
             </div>
           ))}
         </Reveal>

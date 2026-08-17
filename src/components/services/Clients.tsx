@@ -27,7 +27,7 @@ const clients: Client[] = [
 
 export function Clients() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -44,7 +44,7 @@ export function Clients() {
                   <card.Icon size={22} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-heading">{card.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
+                <p className="mt-2 text-sm leading-6 text-foreground">{card.description}</p>
               </article>
             </Reveal>
           ))}

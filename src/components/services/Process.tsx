@@ -55,7 +55,7 @@ const steps: Step[] = [
 
 export function Process() {
   return (
-    <section id="process" className="section-pad bg-black/[0.03]">
+    <section id="process" className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -69,14 +69,14 @@ export function Process() {
             <Reveal key={step.title} delay={idx * 60}>
               <article className="enterprise-panel p-5">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-white">
+                  <span className="step-badge h-8 w-8 text-sm">
                     {step.num}
                   </span>
                   <span className="text-xs font-semibold text-muted">{step.day}</span>
                 </div>
                 <step.Icon size={18} className="mt-3 text-accent" aria-hidden="true" />
                 <h3 className="mt-2 text-sm font-bold text-heading">{step.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-600">{step.description}</p>
+                <p className="mt-2 text-xs leading-5 text-foreground">{step.description}</p>
               </article>
             </Reveal>
           ))}

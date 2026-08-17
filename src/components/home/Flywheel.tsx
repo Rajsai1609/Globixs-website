@@ -33,7 +33,7 @@ const cards: FlywheelCard[] = [
 
 export function Flywheel() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -52,7 +52,7 @@ export function Flywheel() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-heading">{card.title}</h3>
-                  <p className="mt-2 text-base leading-7 text-slate-600">{card.desc}</p>
+                  <p className="mt-2 text-base leading-7 text-foreground">{card.desc}</p>
                 </div>
               </article>
             </Reveal>

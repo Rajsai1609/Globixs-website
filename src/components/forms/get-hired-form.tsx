@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const field =
-  "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
+  "mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
 
 export function GetHiredForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -47,12 +47,12 @@ export function GetHiredForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm font-medium text-foreground">
-          Full Name <span className="text-red-500" aria-hidden="true">*</span>
+          Full Name <span className="text-brand" aria-hidden="true">*</span>
           <input required name="fullName" autoComplete="name" className={field} />
         </label>
 
         <label className="block text-sm font-medium text-foreground">
-          Email Address <span className="text-red-500" aria-hidden="true">*</span>
+          Email Address <span className="text-brand" aria-hidden="true">*</span>
           <input required type="email" name="email" autoComplete="email" className={field} />
         </label>
 
@@ -72,7 +72,7 @@ export function GetHiredForm() {
         </label>
 
         <label className="block text-sm font-medium text-foreground">
-          Current Visa Status <span className="text-red-500" aria-hidden="true">*</span>
+          Current Visa Status <span className="text-brand" aria-hidden="true">*</span>
           <select required name="visaStatus" defaultValue="" className={field}>
             <option value="" disabled>Select status</option>
             <option>F-1</option>
@@ -86,7 +86,7 @@ export function GetHiredForm() {
         </label>
 
         <label className="block text-sm font-medium text-foreground">
-          Years of Experience <span className="text-red-500" aria-hidden="true">*</span>
+          Years of Experience <span className="text-brand" aria-hidden="true">*</span>
           <select required name="yearsOfExperience" defaultValue="" className={field}>
             <option value="" disabled>Select range</option>
             <option>0–2</option>
@@ -98,7 +98,7 @@ export function GetHiredForm() {
       </div>
 
       <label className="block text-sm font-medium text-foreground">
-        Target Role(s) <span className="text-red-500" aria-hidden="true">*</span>
+        Target Role(s) <span className="text-brand" aria-hidden="true">*</span>
         <input
           required
           name="targetRoles"
@@ -108,13 +108,13 @@ export function GetHiredForm() {
       </label>
 
       <label className="block text-sm font-medium text-foreground">
-        Resume <span className="text-red-500" aria-hidden="true">*</span>
+        Resume <span className="text-brand" aria-hidden="true">*</span>
         <input
           required
           type="file"
           name="resume"
           accept=".pdf,.doc,.docx"
-          className="mt-1 w-full cursor-pointer text-sm text-slate-600 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-brand file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white transition hover:file:bg-brandDark"
+          className="mt-1 w-full cursor-pointer text-sm text-foreground file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-brand file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white transition hover:file:bg-brandDark"
         />
         <span className="mt-1 block text-xs text-muted">PDF, DOC, or DOCX — max 10 MB</span>
       </label>

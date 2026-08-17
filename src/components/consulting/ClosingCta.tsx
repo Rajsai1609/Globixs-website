@@ -9,7 +9,7 @@ export function ClosingCta() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Ready to see where AI moves your numbers?
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
             Book a free 30-minute discovery call. We&apos;ll review your top 3 operational
             bottlenecks and show you which ones AI can actually solve — with realistic timelines
             and pricing. No pitch deck, no commitment.

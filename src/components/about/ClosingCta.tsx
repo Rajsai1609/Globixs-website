@@ -22,8 +22,8 @@ export function ClosingCta() {
                 href={action.href}
                 className={
                   action.primary
-                    ? "rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                    : "rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
+                    ? "btn-primary"
+                    : "btn-on-dark"
                 }
               >
                 {action.label}

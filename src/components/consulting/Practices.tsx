@@ -64,12 +64,12 @@ export function Practices() {
                   <p.Icon size={22} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-heading">{p.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{p.description}</p>
+                <p className="mt-2 text-sm leading-6 text-foreground">{p.description}</p>
                 <ul className="mt-4 space-y-2">
                   {p.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2 text-xs text-slate-600">
+                    <li key={bullet} className="flex items-start gap-2 text-xs text-foreground">
                       <span
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                        className="brochure-bullet h-1.5 w-1.5"
                         aria-hidden="true"
                       />
                       {bullet}

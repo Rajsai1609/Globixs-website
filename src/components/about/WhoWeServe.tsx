@@ -26,7 +26,7 @@ export function WhoWeServe() {
             <Reveal key={group.title} delay={idx * 80}>
               <article className="premium-card h-full p-8">
                 <h3 className="text-lg font-bold text-heading">{group.title}</h3>
-                <p className="mt-3 text-base leading-7 text-slate-600">{group.description}</p>
+                <p className="mt-3 text-base leading-7 text-foreground">{group.description}</p>
               </article>
             </Reveal>
           ))}

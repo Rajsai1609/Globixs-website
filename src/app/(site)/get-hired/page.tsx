@@ -146,7 +146,7 @@ function TableCell({ good, text }: Cell) {
   return (
     <span className="flex items-start gap-1.5">
       <span
-        className={`mt-px shrink-0 font-bold ${good ? "text-emerald-500" : "text-slate-300"}`}
+        className={`mt-px shrink-0 font-bold ${good ? "text-emerald-500" : "text-white/70"}`}
         aria-hidden="true"
       >
         {good ? "✓" : "✗"}
@@ -165,13 +165,13 @@ export default function GetHiredPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
+            <p className="eyebrow-on-dark">
               Free for Candidates · Employers Pay Us
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               Land your next US tech role — without paying a dollar.
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
               Globixs has placed 50+ engineers, analysts, and data scientists into full-time and
               contract roles across the US — F-1 students, OPT/STEM OPT, H1B holders, green card
               holders, and US citizens. Our recruiters are paid by the companies hiring you, so you
@@ -184,19 +184,19 @@ export default function GetHiredPage() {
             </div>
 
             {/* Trust strip */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-slate-300">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/70">
               <span className="flex items-center gap-2">
-                <DollarSign size={15} className="text-sky-300" aria-hidden="true" />
+                <DollarSign size={15} className="text-brand" aria-hidden="true" />
                 $0 candidate fees, ever
               </span>
               <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden="true" />
               <span className="flex items-center gap-2">
-                <Users size={15} className="text-sky-300" aria-hidden="true" />
+                <Users size={15} className="text-brand" aria-hidden="true" />
                 50+ placements across the US
               </span>
               <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden="true" />
               <span className="flex items-center gap-2">
-                <Globe size={15} className="text-sky-300" aria-hidden="true" />
+                <Globe size={15} className="text-brand" aria-hidden="true" />
                 All visa statuses welcome
               </span>
             </div>
@@ -222,7 +222,7 @@ export default function GetHiredPage() {
                     <card.Icon size={22} className="text-accent" aria-hidden="true" />
                   </div>
                   <h3 className="mt-4 text-base font-semibold text-heading">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground">{card.description}</p>
                 </article>
               </Reveal>
             ))}
@@ -231,7 +231,7 @@ export default function GetHiredPage() {
       </section>
 
       {/* ══════════════════════════ HOW IT WORKS ══════════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -246,7 +246,7 @@ export default function GetHiredPage() {
                 <div className="flex gap-6 pb-10 last:pb-0">
                   {/* Circle + connector line */}
                   <div className="flex flex-col items-center">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
+                    <div className="step-badge h-10 w-10 text-sm">
                       {idx + 1}
                     </div>
                     {idx < howItWorks.length - 1 && (
@@ -259,7 +259,7 @@ export default function GetHiredPage() {
                       <step.Icon size={18} className="shrink-0 text-accent" aria-hidden="true" />
                       <h3 className="text-base font-semibold text-heading">{step.title}</h3>
                     </div>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{step.description}</p>
+                    <p className="mt-2 text-sm leading-7 text-foreground">{step.description}</p>
                   </div>
                 </div>
               </Reveal>
@@ -310,13 +310,13 @@ export default function GetHiredPage() {
                       <td className="px-5 py-4 text-xs font-semibold uppercase tracking-wide text-muted">
                         {row.category}
                       </td>
-                      <td className="px-5 py-4 text-slate-600">
+                      <td className="px-5 py-4 text-foreground">
                         <TableCell {...row.jobBoards} />
                       </td>
-                      <td className="px-5 py-4 text-slate-600">
+                      <td className="px-5 py-4 text-foreground">
                         <TableCell {...row.paidServices} />
                       </td>
-                      <td className="border-l-2 border-accent bg-accent/5 px-5 py-4 font-medium text-slate-700">
+                      <td className="border-l-2 border-accent bg-accent/5 px-5 py-4 font-medium text-foreground">
                         <TableCell {...row.globixs} />
                       </td>
                     </tr>
@@ -329,7 +329,7 @@ export default function GetHiredPage() {
       </section>
 
       {/* ══════════════════════════ WHAT WE'VE PLACED ══════════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -349,7 +349,7 @@ export default function GetHiredPage() {
             ))}
           </div>
           <Reveal delay={100}>
-            <p className="mt-8 max-w-3xl text-base leading-7 text-slate-600">
+            <p className="mt-8 max-w-3xl text-base leading-7 text-foreground">
               Our placements span cloud engineering, data engineering, AI/ML, full-stack development,
               DevOps, and cybersecurity roles — at startups, mid-market companies, and Fortune 500
               enterprises across the US. We don&apos;t share specific candidate or company names
@@ -377,10 +377,10 @@ export default function GetHiredPage() {
       </section>
 
       {/* ══════════════════════════ CONTACT FORM ══════════════════════════ */}
-      <section id="talk-to-recruiter" className="section-pad bg-brandSoft">
+      <section id="talk-to-recruiter" className="section-pad section-alt">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="eyebrow">
               Ready to Start?
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl">

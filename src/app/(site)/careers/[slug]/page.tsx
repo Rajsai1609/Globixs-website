@@ -28,20 +28,20 @@ export default async function CareerDetailPage({ params }: Props) {
       <div className="container-shell grid gap-10 lg:grid-cols-[1.3fr_0.7fr]">
         <section className="premium-card p-8">
           <p className="text-sm font-semibold uppercase tracking-wide text-brand">Open Role</p>
-          <h1 className="mt-2 text-3xl font-bold text-slate-900">{job.title}</h1>
-          <p className="mt-3 text-sm text-slate-500">
+          <h1 className="mt-2 text-3xl font-bold text-heading">{job.title}</h1>
+          <p className="mt-3 text-sm text-muted">
             {job.location} • {job.employmentType}
           </p>
-          <p className="mt-6 text-slate-900">{job.summary}</p>
+          <p className="mt-6 text-heading">{job.summary}</p>
 
           <div className="mt-8 border-t border-border pt-8">
-            <h2 className="text-xl font-semibold text-slate-900">Job description</h2>
-            <p className="mt-3 leading-7 text-slate-700">{job.description}</p>
+            <h2 className="text-xl font-semibold text-heading">Job description</h2>
+            <p className="mt-3 leading-7 text-foreground">{job.description}</p>
           </div>
 
           <div className="mt-8 border-t border-border pt-8">
-            <h2 className="text-xl font-semibold text-slate-900">Minimum qualifications</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+            <h2 className="text-xl font-semibold text-heading">Minimum qualifications</h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
               {requirementItems.map((req) => (
                 <li key={req}>{req}</li>
               ))}
@@ -49,8 +49,8 @@ export default async function CareerDetailPage({ params }: Props) {
           </div>
 
           <div className="mt-8 border-t border-border pt-8">
-            <h2 className="text-xl font-semibold text-slate-900">Preferred qualifications</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+            <h2 className="text-xl font-semibold text-heading">Preferred qualifications</h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
               <li>Client-facing delivery and cross-functional collaboration experience.</li>
               <li>Strong communication and stakeholder management skills.</li>
               <li>Experience owning end-to-end delivery outcomes.</li>
@@ -60,19 +60,19 @@ export default async function CareerDetailPage({ params }: Props) {
 
         <section className="space-y-6 lg:sticky lg:top-24 lg:h-fit">
           <div className="premium-card p-6">
-            <h2 className="text-lg font-semibold text-slate-900">Job Snapshot</h2>
+            <h2 className="text-lg font-semibold text-heading">Job Snapshot</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex justify-between gap-4">
-                <dt className="text-slate-500">Role</dt>
-                <dd className="font-medium text-slate-900">{job.title}</dd>
+                <dt className="text-muted">Role</dt>
+                <dd className="font-medium text-heading">{job.title}</dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-slate-500">Location</dt>
-                <dd className="font-medium text-slate-900">{job.location}</dd>
+                <dt className="text-muted">Location</dt>
+                <dd className="font-medium text-heading">{job.location}</dd>
               </div>
               <div className="flex justify-between gap-4">
-                <dt className="text-slate-500">Employment Type</dt>
-                <dd className="font-medium text-slate-900">{job.employmentType}</dd>
+                <dt className="text-muted">Employment Type</dt>
+                <dd className="font-medium text-heading">{job.employmentType}</dd>
               </div>
             </dl>
           </div>

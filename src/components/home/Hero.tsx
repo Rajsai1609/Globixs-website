@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/animations/reveal";
+import { Eyebrow } from "@/components/brochure";
 
 export function Hero() {
   return (
@@ -10,9 +11,7 @@ export function Hero() {
 
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
-              STAFFING. JOB MARKETING. AI SERVICES.
-            </p>
+            <Eyebrow onDark>STAFFING. JOB MARKETING. AI SERVICES.</Eyebrow>
             <h1
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
@@ -23,16 +22,10 @@ export function Hero() {
               We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/services"
-                className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-              >
+              <Link href="/services" className="btn-primary">
                 Hire Engineers →
               </Link>
-              <Link
-                href="/ai-products"
-                className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
-              >
+              <Link href="/ai-products" className="btn-on-dark">
                 Explore AI Services →
               </Link>
             </div>

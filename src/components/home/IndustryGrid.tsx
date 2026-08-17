@@ -51,7 +51,7 @@ const industries: Industry[] = [
 
 export function IndustryGrid() {
   return (
-    <section className="section-pad bg-surface">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -76,13 +76,13 @@ export function IndustryGrid() {
                   : ""
               }
             >
-              <article className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                <industry.Icon size={32} className="text-red-600" aria-hidden="true" />
+              <article className="brochure-card flex h-full flex-col p-6">
+                <industry.Icon size={32} className="text-brand" aria-hidden="true" />
                 <h3 className="mt-4 text-lg font-bold uppercase tracking-wide text-heading">
                   {industry.title}
                 </h3>
                 <p className="mt-1 text-sm font-semibold text-brand">{industry.tagline}</p>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                   {industry.description}
                 </p>
                 <Link

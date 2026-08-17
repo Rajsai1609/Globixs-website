@@ -22,8 +22,8 @@ export default async function ServiceDetailPage({ params }: Props) {
       <div className="container-shell max-w-4xl">
         <p className="text-sm font-semibold uppercase tracking-wide text-accent">Service Detail</p>
         <h1 className="mt-2 text-4xl font-bold text-heading">{service.title}</h1>
-        <p className="mt-4 text-lg text-slate-600">{service.shortDesc}</p>
-        <article className="mt-8 rounded-xl border border-slate-200 bg-white p-8 text-slate-700">
+        <p className="mt-4 text-lg text-foreground">{service.shortDesc}</p>
+        <article className="mt-8 rounded-xl border border-slate-200 bg-white p-8 text-foreground">
           <p>{service.longDesc}</p>
         </article>
       </div>

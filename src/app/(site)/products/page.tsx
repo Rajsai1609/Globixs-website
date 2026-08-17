@@ -96,13 +96,13 @@ export default function ProductsPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
+            <p className="eyebrow-on-dark">
               Globixs AI Products
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               AI products built from the staffing trenches
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
               We don&apos;t sell theory. Globixs AI products are built to solve problems we hit
               running our own staffing work — then sharpened by real client deployments. Each one
               ships with monitoring, KPIs, and human-in-the-loop oversight.
@@ -120,7 +120,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ══════════ AVAILABLE NOW ══════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -130,7 +130,7 @@ export default function ProductsPage() {
           </Reveal>
           <Reveal delay={80}>
             <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-surface px-8 py-10 text-center">
-              <p className="text-sm leading-7 text-slate-600">
+              <p className="text-sm leading-7 text-foreground">
                 We&apos;re shipping our first publicly available AI product later this quarter.
                 Until then, every Globixs AI product runs internally — sharpened against real
                 staffing operations before we offer it externally. Want early access when our first
@@ -169,7 +169,7 @@ export default function ProductsPage() {
                 </p>
 
                 {/* Lead paragraph */}
-                <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600">
+                <p className="mt-6 max-w-3xl text-base leading-7 text-foreground">
                   SignalFeed scrapes job postings across the web, identifies which companies are
                   actively struggling to hire, and hands your BD team a ranked list of high-intent
                   sales leads every Monday morning. It scores companies on six proprietary hiring
@@ -180,14 +180,14 @@ export default function ProductsPage() {
 
                 {/* Who benefits */}
                 <div className="mt-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="eyebrow">
                     Who benefits from SignalFeed
                   </p>
                   <div className="mt-5 grid gap-5 sm:grid-cols-3">
                     {signalFeedBeneficiaries.map((item) => (
                       <div key={item.title} className="premium-card p-5">
                         <h3 className="text-sm font-semibold text-heading">{item.title}</h3>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+                        <p className="mt-2 text-sm leading-6 text-foreground">{item.body}</p>
                       </div>
                     ))}
                   </div>
@@ -195,7 +195,7 @@ export default function ProductsPage() {
 
                 {/* How it's useful */}
                 <div className="mt-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="eyebrow">
                     How it&apos;s useful
                   </p>
                   <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -203,7 +203,7 @@ export default function ProductsPage() {
                       <div key={step.num} className="enterprise-panel p-5">
                         <p className="text-3xl font-bold text-accent/20">{step.num}</p>
                         <h3 className="mt-2 text-sm font-semibold text-heading">{step.title}</h3>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{step.desc}</p>
+                        <p className="mt-2 text-sm leading-6 text-foreground">{step.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -211,24 +211,24 @@ export default function ProductsPage() {
 
                 {/* Why SignalFeed */}
                 <div className="mt-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="eyebrow">
                     Why SignalFeed
                   </p>
                   <div className="mt-5 grid gap-5 md:grid-cols-3">
                     {signalFeedWhyProps.map((text, idx) => (
                       <div key={idx} className="premium-card p-5">
-                        <p className="text-sm leading-6 text-slate-600">{text}</p>
+                        <p className="text-sm leading-6 text-foreground">{text}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* SignalFeed Beta CTA */}
-                <div className="mt-12 rounded-2xl bg-black/[0.03] px-8 py-8 lg:py-10">
+                <div className="mt-12 rounded-2xl bg-surface px-8 py-8 lg:py-10">
                   <h3 className="text-xl font-bold text-heading sm:text-2xl">
                     Want SignalFeed pointed at your market?
                   </h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-foreground">
                     We&apos;re onboarding a small group of beta partners. Tell us your ICP and your
                     geography, and we&apos;ll show you what your weekly lead list could look like.
                   </p>
@@ -249,7 +249,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ══════════ HOW WE BUILD ══════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -262,7 +262,7 @@ export default function ProductsPage() {
               <Reveal key={step.title} delay={idx * 60}>
                 <article className="enterprise-panel p-5">
                   <h3 className="text-base font-semibold text-heading">{step.title}</h3>
-                  <p className="mt-3 text-sm text-slate-600">{step.desc}</p>
+                  <p className="mt-3 text-sm text-foreground">{step.desc}</p>
                 </article>
               </Reveal>
             ))}
@@ -277,7 +277,7 @@ export default function ProductsPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Have a workflow that&apos;s bleeding time?
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
               Half our products start as one-off builds for clients. If you have a hiring, sales,
               or operations workflow that&apos;s leaking hours, talk to us — we&apos;ll tell you
               whether it fits our agent stack or needs a custom build.

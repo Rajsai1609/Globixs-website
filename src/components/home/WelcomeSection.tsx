@@ -29,13 +29,13 @@ export function WelcomeSection() {
       <div className="container-shell">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="eyebrow">
               Who We Are
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl">
               Welcome to Globixs
             </h2>
-            <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-foreground sm:text-lg">
               We&apos;re a Seattle-based technology firm running three service lines. Businesses hire us to staff their technical teams with pre-vetted contract and full-time engineers, or to build and run the AI systems that answer their calls, fill their pipeline, and automate the busywork. Job seekers hire us to market them into their next role. Senior consultants and recruiters run the work; AI agents handle the scale.
             </p>
             <p className="mt-7 text-base font-semibold text-heading">
@@ -48,7 +48,7 @@ export function WelcomeSection() {
                     <line.Icon size={20} className="text-accent" aria-hidden="true" />
                   </div>
                   <h3 className="mt-3 text-base font-semibold text-heading">{line.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{line.description}</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground">{line.description}</p>
                 </article>
               ))}
             </div>

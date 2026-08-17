@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const field =
-  "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
+  "mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -60,7 +60,7 @@ export function ContactForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="block text-sm font-medium text-foreground">
-          Full Name <span className="text-red-500" aria-hidden="true">*</span>
+          Full Name <span className="text-brand" aria-hidden="true">*</span>
           <input
             required
             name="fullName"
@@ -69,7 +69,7 @@ export function ContactForm() {
           />
         </label>
         <label className="block text-sm font-medium text-foreground">
-          Email Address <span className="text-red-500" aria-hidden="true">*</span>
+          Email Address <span className="text-brand" aria-hidden="true">*</span>
           <input
             required
             type="email"
@@ -89,7 +89,7 @@ export function ContactForm() {
       </div>
 
       <label className="block text-sm font-medium text-foreground">
-        What can we help with? <span className="text-red-500" aria-hidden="true">*</span>
+        What can we help with? <span className="text-brand" aria-hidden="true">*</span>
         <select required name="serviceInterest" defaultValue="" className={field}>
           <option value="" disabled>Select an option</option>
           <option>Hire IT talent (recruiting / staffing)</option>
@@ -101,7 +101,7 @@ export function ContactForm() {
       </label>
 
       <label className="block text-sm font-medium text-foreground">
-        Tell us a bit more about your needs <span className="text-red-500" aria-hidden="true">*</span>
+        Tell us a bit more about your needs <span className="text-brand" aria-hidden="true">*</span>
         <textarea
           required
           name="message"

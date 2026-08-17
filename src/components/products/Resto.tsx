@@ -33,7 +33,7 @@ export function Resto() {
                 <p className="mt-2 text-sm font-medium text-muted">
                   Order intake, catering, and CRM workflows automated end-to-end.
                 </p>
-                <p className="mt-5 text-base leading-7 text-slate-600">
+                <p className="mt-5 text-base leading-7 text-foreground">
                   Resto is the most mature project in the Globixs portfolio — a multi-agent
                   automation system for independent restaurants and catering operators. Live in
                   production with 4 active restaurant clients, handling order intake, customer
@@ -47,7 +47,7 @@ export function Resto() {
                         className="mt-0.5 shrink-0 text-accent"
                         aria-hidden="true"
                       />
-                      <span className="text-sm leading-6 text-slate-600">{b}</span>
+                      <span className="text-sm leading-6 text-foreground">{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -82,7 +82,7 @@ export function Resto() {
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                       Architecture
                     </p>
-                    <div className="mt-2 space-y-1 font-mono text-xs text-slate-600">
+                    <div className="mt-2 space-y-1 font-mono text-xs text-foreground">
                       <p>Forms → Sheets → Make.com</p>
                       <p>Gmail · Twilio SMS / Voice</p>
                       <p>Multi-agent orchestration</p>
