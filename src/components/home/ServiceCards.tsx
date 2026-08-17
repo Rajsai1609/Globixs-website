@@ -45,8 +45,7 @@ const cards: ServiceCard[] = [
       { label: "Core + unsaturated role tracks",   href: "/for-employees" },
     ],
     ctaLabel: "See how job marketing works →",
-    ctaHref: "/register",
-    ctaStatic: true,
+    ctaHref: "/for-employees",
   },
   {
     num: "(03)",
