@@ -31,15 +31,15 @@ export function ResumeSubmissionForm() {
       </p>
       <label className="block text-sm font-medium text-foreground">
         Full Name
-        <input required name="fullName" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+        <input required name="fullName" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
       </label>
       <label className="block text-sm font-medium text-foreground">
         Email
-        <input required type="email" name="email" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+        <input required type="email" name="email" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
       </label>
       <label className="block text-sm font-medium text-foreground">
         Phone
-        <input name="phone" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+        <input name="phone" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
       </label>
       <label className="block text-sm font-medium text-foreground">
         Resume
@@ -47,7 +47,7 @@ export function ResumeSubmissionForm() {
       </label>
       <label className="block text-sm font-medium text-foreground">
         Note (Optional)
-        <textarea name="message" rows={4} className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+        <textarea name="message" rows={4} className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
       </label>
       <button disabled={pending} className="btn-primary w-full sm:w-auto">
         {pending ? "Submitting..." : "Submit Resume"}

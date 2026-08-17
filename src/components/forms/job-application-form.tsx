@@ -55,7 +55,7 @@ export function JobApplicationForm({ jobId }: Props) {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
+    <div className="brochure-card p-6 sm:p-8">
       {status === "success" ? (
         <div
           className="space-y-4 text-center sm:text-left"
@@ -114,23 +114,23 @@ export function JobApplicationForm({ jobId }: Props) {
           <div className="grid gap-4 md:grid-cols-2">
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">First Name</span>
-              <input required minLength={2} name="firstName" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input required minLength={2} name="firstName" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Last Name</span>
-              <input required minLength={2} name="lastName" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input required minLength={2} name="lastName" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Email</span>
-              <input required type="email" name="email" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input required type="email" name="email" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Phone</span>
-              <input required name="phone" pattern="^[0-9+()\\-\\s]{7,20}$" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input required name="phone" pattern="^[0-9+()\\-\\s]{7,20}$" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Current Location</span>
-              <input required name="currentLocation" placeholder="City, State" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input required name="currentLocation" placeholder="City, State" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">LinkedIn URL</span>
@@ -140,12 +140,12 @@ export function JobApplicationForm({ jobId }: Props) {
                 inputMode="url"
                 name="linkedinUrl"
                 placeholder="linkedin.com/in/your-profile"
-                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+                className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15"
               />
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Work Authorization</span>
-              <select required name="workAuthorization" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2">
+              <select required name="workAuthorization" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15">
                 <option value="">Select one</option>
                 <option value="Citizen">Citizen</option>
                 <option value="Permanent Resident">Permanent Resident</option>
@@ -155,13 +155,13 @@ export function JobApplicationForm({ jobId }: Props) {
             </label>
             <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Availability</span>
-              <input required name="availability" placeholder="e.g. Immediate / 2 weeks" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+              <input required name="availability" placeholder="e.g. Immediate / 2 weeks" className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
             </label>
           </div>
 
           <label className="block text-sm font-medium text-foreground">
             <span className="mb-1 inline-flex items-center gap-2">Core Skills (Optional)</span>
-            <input name="coreSkills" placeholder="React, Node.js, AWS, Terraform..." className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+            <input name="coreSkills" placeholder="React, Node.js, AWS, Terraform..." className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
           </label>
 
           <div className="space-y-2">
@@ -193,7 +193,7 @@ export function JobApplicationForm({ jobId }: Props) {
 
           <label className="block text-sm font-medium text-foreground">
             <span className="mb-1 inline-flex items-center gap-2">Additional Notes (Optional)</span>
-            <textarea name="message" rows={4} maxLength={2000} className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+            <textarea name="message" rows={4} maxLength={2000} className="mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15" />
           </label>
 
           <button disabled={pending} className="btn-primary w-full sm:w-auto">

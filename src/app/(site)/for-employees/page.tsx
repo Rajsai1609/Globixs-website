@@ -119,7 +119,7 @@ function RegisterButtons({ onDark = false }: { onDark?: boolean }) {
         href="/join"
         className={
           onDark
-            ? "rounded-lg bg-white px-8 py-4 text-sm font-semibold text-heading shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            ? "btn-primary"
             : "btn-primary"
         }
       >
@@ -129,7 +129,7 @@ function RegisterButtons({ onDark = false }: { onDark?: boolean }) {
         href="/register"
         className={
           onDark
-            ? "rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-heading"
+            ? "btn-on-dark"
             : "btn-secondary"
         }
       >

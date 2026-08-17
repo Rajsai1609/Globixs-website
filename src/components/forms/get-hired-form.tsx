@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const field =
-  "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
+  "mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
 
 export function GetHiredForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
