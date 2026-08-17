@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
-import { Eyebrow } from "@/components/brochure";
 
 type SubLink = { label: string; href: string; external?: boolean };
 
@@ -130,22 +129,6 @@ export function ServiceCards() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={240}>
-          <div className="tint-panel mt-10 flex flex-col gap-6 p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
-            <div className="max-w-3xl">
-              <Eyebrow>FULL-TIME JOB MARKETING</Eyebrow>
-              <p className="mt-3 text-base leading-relaxed text-foreground">
-                New: Unsaturated Roles track — Networks, Datacenters, IT Support, Embedded,
-                Robotics. Faster interviews, less competition.
-              </p>
-            </div>
-            {/* Static page (public/register.html) — plain anchor, not next/link */}
-            <a href="/register" className="btn-primary shrink-0 whitespace-nowrap">
-              Register Your Interest
-            </a>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
