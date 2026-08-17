@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       { source: "/get-hired",      destination: "/for-employees",  permanent: true },
     ];
   },
+
+  async rewrites() {
+    return [
+      // Clean URL for the standalone Unsaturated Roles registration page
+      // (static file at public/register.html — no App Router route exists for /register)
+      { source: "/register", destination: "/register.html" },
+    ];
+  },
 };
 
 export default nextConfig;

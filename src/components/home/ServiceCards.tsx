@@ -117,6 +117,24 @@ export function ServiceCards() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={240}>
+          <div className="mt-10 flex flex-col gap-6 rounded-2xl border border-border bg-surface p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                FULL-TIME JOB MARKETING
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-gray-700">
+                New: Unsaturated Roles track — Networks, Datacenters, IT Support, Embedded,
+                Robotics. Faster interviews, less competition.
+              </p>
+            </div>
+            {/* Static page (public/register.html) — plain anchor, not next/link */}
+            <a href="/register" className="btn-primary shrink-0 whitespace-nowrap">
+              Register Your Interest
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

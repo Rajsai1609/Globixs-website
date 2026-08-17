@@ -120,9 +120,21 @@ export function Navbar() {
           })}
         </nav>
 
-        <Link href="/contact" className="btn-primary hidden md:inline-flex">
-          Get a Free AI Audit
-        </Link>
+        <div className="flex items-center gap-3">
+          {/* Static page (public/register.html) — plain anchor, not next/link.
+              The header only has room for a second CTA from lg up; below that
+              the mobile nav row carries it (see below). Visibility sits on the
+              wrapper because .btn-secondary sets `display` outside Tailwind's
+              utilities layer and would win over `hidden`. */}
+          <div className="hidden lg:block">
+            <a href="/register" className="btn-secondary whitespace-nowrap">
+              Register Your Interest
+            </a>
+          </div>
+          <Link href="/contact" className="btn-primary hidden md:inline-flex">
+            Get a Free AI Audit
+          </Link>
+        </div>
       </div>
 
       {/* Mobile nav — scrollable row */}
@@ -130,6 +142,10 @@ export function Navbar() {
         aria-label="Mobile navigation"
         className="container-shell flex gap-4 overflow-x-auto pb-3 text-sm font-medium text-foreground md:hidden"
       >
+        {/* Static page (public/register.html) — plain anchor, not next/link */}
+        <a href="/register" className="shrink-0 whitespace-nowrap font-semibold text-accent">
+          Register Your Interest
+        </a>
         {navLinks.map((item) =>
           item.dropdown ? (
             <div key={item.href} className="flex shrink-0 items-center gap-4">
