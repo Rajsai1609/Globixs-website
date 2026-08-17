@@ -17,7 +17,7 @@ export default function ContactPage() {
 
         {/* ── Left column ── */}
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+          <p className="eyebrow">
             Get In Touch
           </p>
           <h1 className="mt-3 text-4xl font-bold text-heading sm:text-5xl">Let&apos;s talk.</h1>

@@ -148,7 +148,7 @@ export default function ForEmployeesPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+            <p className="eyebrow-on-dark">
               (02) For Candidates · FULL-TIME JOB MARKETING — HOW IT WORKS
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -222,7 +222,7 @@ export default function ForEmployeesPage() {
                   6
                 </span>
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+                  <p className="eyebrow-on-dark">
                     HUMAN IN THE LOOP — NOT AUTOMATION
                   </p>
                   <h3 className="mt-2 text-lg font-bold text-white">Your Recruiter Applies</h3>
@@ -364,7 +364,7 @@ export default function ForEmployeesPage() {
       <section className="section-pad">
         <div className="container-shell">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="eyebrow">
               WHO THIS IS FOR
             </p>
             <div className="mt-6 flex flex-wrap gap-3">

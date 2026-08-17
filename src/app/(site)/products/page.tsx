@@ -96,7 +96,7 @@ export default function ProductsPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+            <p className="eyebrow-on-dark">
               Globixs AI Products
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -180,7 +180,7 @@ export default function ProductsPage() {
 
                 {/* Who benefits */}
                 <div className="mt-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="eyebrow">
                     Who benefits from SignalFeed
                   </p>
                   <div className="mt-5 grid gap-5 sm:grid-cols-3">
@@ -195,7 +195,7 @@ export default function ProductsPage() {
 
                 {/* How it's useful */}
                 <div className="mt-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="eyebrow">
                     How it&apos;s useful
                   </p>
                   <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -211,7 +211,7 @@ export default function ProductsPage() {
 
                 {/* Why SignalFeed */}
                 <div className="mt-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="eyebrow">
                     Why SignalFeed
                   </p>
                   <div className="mt-5 grid gap-5 md:grid-cols-3">

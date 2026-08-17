@@ -29,7 +29,7 @@ export function WelcomeSection() {
       <div className="container-shell">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="eyebrow">
               Who We Are
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl">

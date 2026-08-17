@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
+import { StepBadge } from "@/components/brochure";
 
 export const metadata: Metadata = {
   // Root layout applies the `%s | Globixs Technology Solutions` template — no suffix here.
@@ -119,7 +120,7 @@ export default function AIServicesPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+            <p className="eyebrow-on-dark">
               (03) For Businesses
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -186,8 +187,8 @@ export default function AIServicesPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {howItWorks.map((item, idx) => (
               <Reveal key={item.step} delay={idx * 80}>
-                <article className="enterprise-panel flex h-full flex-col p-8">
-                  <p className="font-mono text-sm tracking-[0.1em] text-brand">({item.step})</p>
+                <article className="brochure-card flex h-full flex-col p-8">
+                  <StepBadge n={item.step} />
                   <h3 className="mt-3 text-lg font-bold text-heading">{item.title}</h3>
                   <p className="mt-2 text-base leading-7 text-foreground">{item.desc}</p>
                 </article>
@@ -213,7 +214,7 @@ export default function AIServicesPage() {
             {/* Resto */}
             <Reveal delay={0}>
               <article className="premium-card flex h-full flex-col p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                <p className="eyebrow">
                   FOR RESTAURANTS
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-heading">Resto</h3>
@@ -227,7 +228,7 @@ export default function AIServicesPage() {
             {/* PathAI */}
             <Reveal delay={60}>
               <article className="premium-card flex h-full flex-col p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                <p className="eyebrow">
                   FOR JOB SEEKERS
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-heading">PathAI</h3>
@@ -251,7 +252,7 @@ export default function AIServicesPage() {
             {/* Realty */}
             <Reveal delay={120}>
               <article className="premium-card flex h-full flex-col p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                <p className="eyebrow">
                   FOR REAL ESTATE AGENTS
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-heading">Realty</h3>

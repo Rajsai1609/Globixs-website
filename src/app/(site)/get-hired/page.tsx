@@ -165,7 +165,7 @@ export default function GetHiredPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+            <p className="eyebrow-on-dark">
               Free for Candidates · Employers Pay Us
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -380,7 +380,7 @@ export default function GetHiredPage() {
       <section id="talk-to-recruiter" className="section-pad bg-brandSoft">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="eyebrow">
               Ready to Start?
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl">

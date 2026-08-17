@@ -7,7 +7,7 @@ export function Hero() {
     <section className="hero-mesh py-20 text-white sm:py-28">
       <div className="container-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+          <p className="eyebrow-on-dark">
             Globixs Business Consulting
           </p>
           <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
