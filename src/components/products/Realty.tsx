@@ -9,7 +9,7 @@ const bullets = [
 
 export function Realty() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad bg-surface">
       <div className="container-shell">
         <Reveal>
           <div className="enterprise-panel p-8">
@@ -22,7 +22,7 @@ export function Realty() {
             <p className="mt-2 text-sm font-medium text-muted">
               Lead automation + AVM intelligence for brokerages and proptech.
             </p>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
+            <p className="mt-5 max-w-3xl text-base leading-7 text-foreground">
               Realty is a 6-module lead-generation and valuation intelligence platform for real
               estate teams. The flagship module — our automated valuation model (AVM) — is already
               deployed and generating predictions in production.
@@ -35,7 +35,7 @@ export function Realty() {
                     className="mt-0.5 shrink-0 text-accent"
                     aria-hidden="true"
                   />
-                  <span className="text-sm leading-6 text-slate-600">{b}</span>
+                  <span className="text-sm leading-6 text-foreground">{b}</span>
                 </li>
               ))}
             </ul>

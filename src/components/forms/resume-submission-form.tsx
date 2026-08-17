@@ -26,26 +26,26 @@ export function ResumeSubmissionForm() {
     <form onSubmit={onSubmit} className="space-y-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
       <input type="hidden" name="website" />
       <h3 className="text-xl font-semibold text-heading">Submit Your Resume</h3>
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-foreground">
         Even when there are no active roles, share your profile for future opportunities.
       </p>
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="block text-sm font-medium text-foreground">
         Full Name
         <input required name="fullName" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
       </label>
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="block text-sm font-medium text-foreground">
         Email
         <input required type="email" name="email" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
       </label>
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="block text-sm font-medium text-foreground">
         Phone
         <input name="phone" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
       </label>
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="block text-sm font-medium text-foreground">
         Resume
         <input required type="file" name="resume" accept=".pdf,.doc,.docx" className="mt-1 block w-full text-sm" />
       </label>
-      <label className="block text-sm font-medium text-slate-700">
+      <label className="block text-sm font-medium text-foreground">
         Note (Optional)
         <textarea name="message" rows={4} className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
       </label>

@@ -9,7 +9,7 @@ export function ClosingCta() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Want to build something like this for your business?
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
             If you operate in restaurants, real estate, healthcare, or sales — we already have
             vertical playbooks ready to deploy. If you&apos;re in another industry, we&apos;ll
             adapt the playbook to fit. Free 30-minute scoping call.

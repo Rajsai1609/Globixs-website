@@ -68,11 +68,11 @@ export function JobApplicationForm({ jobId }: Props) {
           </div>
           <div>
             <h3 className="text-2xl font-semibold text-slate-900">Application submitted</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
+            <p className="mt-2 text-sm leading-6 text-foreground">
               Thank you for applying. We have received your information and resume. If your profile is a strong match,
               a member of our team will contact you—typically within a few business days.
             </p>
-            <p className="mt-3 text-sm text-slate-600">
+            <p className="mt-3 text-sm text-foreground">
               Please check your email (including spam) for any follow-up or scheduling messages.
             </p>
           </div>
@@ -80,7 +80,7 @@ export function JobApplicationForm({ jobId }: Props) {
             <Link href="/careers" className="btn-secondary inline-flex justify-center text-center sm:justify-center">
               View all openings
             </Link>
-            <Link href="/contact" className="text-center text-sm font-semibold text-slate-600 hover:text-brand sm:text-left">
+            <Link href="/contact" className="text-center text-sm font-semibold text-foreground hover:text-brand sm:text-left">
               Need to correct something? Contact us
             </Link>
           </div>
@@ -88,7 +88,7 @@ export function JobApplicationForm({ jobId }: Props) {
       ) : !showForm ? (
         <div className="space-y-4">
           <h3 className="text-2xl font-semibold text-slate-900">Apply for this role</h3>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-foreground">
             Submit a streamlined application. Standard completion time is under 5 minutes.
           </p>
           <button
@@ -106,33 +106,33 @@ export function JobApplicationForm({ jobId }: Props) {
           <input type="hidden" name="website" />
           <div>
             <h3 className="text-2xl font-semibold text-slate-900">Application Form</h3>
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 text-sm text-foreground">
               Provide the required details below. Our recruiting team typically reviews applications within 2–3 business days.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">First Name</span>
               <input required minLength={2} name="firstName" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Last Name</span>
               <input required minLength={2} name="lastName" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Email</span>
               <input required type="email" name="email" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Phone</span>
               <input required name="phone" pattern="^[0-9+()\\-\\s]{7,20}$" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Current Location</span>
               <input required name="currentLocation" placeholder="City, State" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">LinkedIn URL</span>
               <input
                 required
@@ -143,7 +143,7 @@ export function JobApplicationForm({ jobId }: Props) {
                 className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
               />
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Work Authorization</span>
               <select required name="workAuthorization" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2">
                 <option value="">Select one</option>
@@ -153,19 +153,19 @@ export function JobApplicationForm({ jobId }: Props) {
                 <option value="Need Sponsorship">Need Sponsorship</option>
               </select>
             </label>
-            <label className="block text-sm font-medium text-slate-700">
+            <label className="block text-sm font-medium text-foreground">
               <span className="mb-1 inline-flex items-center gap-2">Availability</span>
               <input required name="availability" placeholder="e.g. Immediate / 2 weeks" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
             </label>
           </div>
 
-          <label className="block text-sm font-medium text-slate-700">
+          <label className="block text-sm font-medium text-foreground">
             <span className="mb-1 inline-flex items-center gap-2">Core Skills (Optional)</span>
             <input name="coreSkills" placeholder="React, Node.js, AWS, Terraform..." className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
           </label>
 
           <div className="space-y-2">
-            <p className="text-sm font-medium text-slate-700">Resume</p>
+            <p className="text-sm font-medium text-foreground">Resume</p>
             <input
               ref={fileInputRef}
               required
@@ -181,7 +181,7 @@ export function JobApplicationForm({ jobId }: Props) {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 hover:border-brand hover:bg-brandSoft/40"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm font-medium text-foreground hover:border-brand hover:bg-brandSoft/40"
             >
               <FiUploadCloud className="text-brand" aria-hidden />
               {resumeName ? "Change Resume" : "Upload Resume"}
@@ -191,7 +191,7 @@ export function JobApplicationForm({ jobId }: Props) {
             </p>
           </div>
 
-          <label className="block text-sm font-medium text-slate-700">
+          <label className="block text-sm font-medium text-foreground">
             <span className="mb-1 inline-flex items-center gap-2">Additional Notes (Optional)</span>
             <textarea name="message" rows={4} maxLength={2000} className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
           </label>

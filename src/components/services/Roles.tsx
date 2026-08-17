@@ -84,7 +84,7 @@ export function Roles() {
                   <role.Icon size={20} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-3 text-sm font-semibold text-heading">{role.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-600">{role.description}</p>
+                <p className="mt-2 text-xs leading-5 text-foreground">{role.description}</p>
               </article>
             </Reveal>
           ))}

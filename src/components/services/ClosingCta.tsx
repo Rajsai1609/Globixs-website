@@ -9,7 +9,7 @@ export function ClosingCta() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Ready to fill your next IT role in 7–10 days?
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
             Tell us what you&apos;re hiring for. We&apos;ll send 3–5 pre-vetted candidates within a
             week — with full technical write-ups and match scores. Free first engagement, no
             commitment.

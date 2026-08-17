@@ -43,7 +43,7 @@ export function WhyWeBuild() {
                   <card.Icon size={22} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-heading">{card.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
+                <p className="mt-2 text-sm leading-6 text-foreground">{card.description}</p>
               </article>
             </Reveal>
           ))}

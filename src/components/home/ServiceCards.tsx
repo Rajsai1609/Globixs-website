@@ -80,11 +80,11 @@ export function ServiceCards() {
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {cards.map((card, idx) => (
             <Reveal key={card.title} delay={idx * 80}>
-              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg lg:p-10">
-                <p className="font-mono text-sm tracking-[0.1em] text-red-600">{card.num}</p>
+              <article className="flex h-full flex-col rounded-2xl border border-border bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg lg:p-10">
+                <p className="font-mono text-sm tracking-[0.1em] text-brand">{card.num}</p>
                 <h3 className="mt-3 text-2xl font-bold text-heading lg:text-3xl">{card.title}</h3>
-                <p className="mt-1 text-lg text-gray-600">{card.tagline}</p>
-                <p className="mt-4 text-base leading-relaxed text-gray-700">{card.desc}</p>
+                <p className="mt-1 text-lg text-muted">{card.tagline}</p>
+                <p className="mt-4 text-base leading-relaxed text-foreground">{card.desc}</p>
 
                 <ul className="mt-5 space-y-1.5 text-sm text-foreground">
                   {card.subLinks.map((sub) =>
@@ -137,7 +137,7 @@ export function ServiceCards() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                 FULL-TIME JOB MARKETING
               </p>
-              <p className="mt-3 text-base leading-relaxed text-gray-700">
+              <p className="mt-3 text-base leading-relaxed text-foreground">
                 New: Unsaturated Roles track — Networks, Datacenters, IT Support, Embedded,
                 Robotics. Faster interviews, less competition.
               </p>

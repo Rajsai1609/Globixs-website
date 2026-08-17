@@ -9,7 +9,7 @@ export function CTABanner() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Hiring or building? Let&apos;s talk.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
             30-minute call. We&apos;ll review your hiring or AI bottlenecks and tell you honestly
             whether we can help. No pitch deck, no commitment.
           </p>

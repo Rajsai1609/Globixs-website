@@ -59,7 +59,7 @@ export function Process() {
                 <h3 className="mt-4 text-sm font-bold uppercase tracking-wide text-heading">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{step.description}</p>
+                <p className="mt-2 text-sm leading-6 text-foreground">{step.description}</p>
               </article>
             </Reveal>
           ))}

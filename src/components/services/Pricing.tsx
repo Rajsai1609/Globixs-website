@@ -27,7 +27,7 @@ const items: Item[] = [
 
 export function Pricing() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad bg-surface">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -44,7 +44,7 @@ export function Pricing() {
                   <item.Icon size={22} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-heading">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+                <p className="mt-2 text-sm leading-6 text-foreground">{item.description}</p>
               </article>
             </Reveal>
           ))}

@@ -119,17 +119,17 @@ export default function AIServicesPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
               (03) For Businesses
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               AI Services for Businesses
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
               AI receptionists, lead generation, automation, websites, and more — we build it and
               run it.
             </p>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-400">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-white/60">
               We build and run the systems that answer your calls, fill your pipeline, and win you
               customers — so you can focus on the work.
             </p>
@@ -165,7 +165,7 @@ export default function AIServicesPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-heading">{service.title}</h3>
-                    <p className="mt-2 text-base leading-7 text-slate-600">{service.desc}</p>
+                    <p className="mt-2 text-base leading-7 text-foreground">{service.desc}</p>
                   </div>
                 </article>
               </Reveal>
@@ -175,7 +175,7 @@ export default function AIServicesPage() {
       </section>
 
       {/* ══════════ HOW IT WORKS ══════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad bg-surface">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -187,9 +187,9 @@ export default function AIServicesPage() {
             {howItWorks.map((item, idx) => (
               <Reveal key={item.step} delay={idx * 80}>
                 <article className="enterprise-panel flex h-full flex-col p-8">
-                  <p className="font-mono text-sm tracking-[0.1em] text-red-600">({item.step})</p>
+                  <p className="font-mono text-sm tracking-[0.1em] text-brand">({item.step})</p>
                   <h3 className="mt-3 text-lg font-bold text-heading">{item.title}</h3>
-                  <p className="mt-2 text-base leading-7 text-slate-600">{item.desc}</p>
+                  <p className="mt-2 text-base leading-7 text-foreground">{item.desc}</p>
                 </article>
               </Reveal>
             ))}
@@ -213,11 +213,11 @@ export default function AIServicesPage() {
             {/* Resto */}
             <Reveal delay={0}>
               <article className="premium-card flex h-full flex-col p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                   FOR RESTAURANTS
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-heading">Resto</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                <p className="mt-2 flex-1 text-sm leading-6 text-foreground">
                   Catering inquiries, customer messages, and online orders handled by AI agents.
                   Live at 4 independent restaurants — the system behind our AI receptionist service.
                 </p>
@@ -227,11 +227,11 @@ export default function AIServicesPage() {
             {/* PathAI */}
             <Reveal delay={60}>
               <article className="premium-card flex h-full flex-col p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                   FOR JOB SEEKERS
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-heading">PathAI</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                <p className="mt-2 flex-1 text-sm leading-6 text-foreground">
                   AI job matching for international students — personalized matches across ten
                   dimensions with daily pipeline updates.
                 </p>
@@ -251,11 +251,11 @@ export default function AIServicesPage() {
             {/* Realty */}
             <Reveal delay={120}>
               <article className="premium-card flex h-full flex-col p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                   FOR REAL ESTATE AGENTS
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-heading">Realty</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                <p className="mt-2 flex-1 text-sm leading-6 text-foreground">
                   Six AI agents working the pipeline — lead capture, qualification, follow-up,
                   booking, CRM, and reporting, plus a property valuation model.
                 </p>
@@ -269,7 +269,7 @@ export default function AIServicesPage() {
                   IN DEVELOPMENT
                 </span>
                 <h3 className="mt-3 text-xl font-bold text-heading">SignalFeed</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                <p className="mt-2 flex-1 text-sm leading-6 text-foreground">
                   Sales intelligence that scores companies on hiring distress signals, enriches
                   them with decision-maker contacts, and drafts outreach — the engine behind our
                   lead generation service.
@@ -296,7 +296,7 @@ export default function AIServicesPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Tell us where your business is leaking.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
               Missed calls, cold leads, manual follow-ups, a website nobody finds. Bring us the
               bottleneck and we&apos;ll tell you honestly whether we can fix it — and what it would
               take.

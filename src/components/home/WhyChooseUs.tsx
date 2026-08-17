@@ -40,7 +40,7 @@ export function WhyChooseUs() {
   const active = tabs.find((t) => t.id === activeId)!;
 
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad bg-surface">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -92,14 +92,14 @@ export function WhyChooseUs() {
                       className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent"
                       aria-hidden="true"
                     />
-                    <span className="text-base leading-7 text-slate-600">
+                    <span className="text-base leading-7 text-foreground">
                       {item}
                     </span>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-base leading-7 text-slate-600 sm:text-lg">
+              <p className="text-base leading-7 text-foreground sm:text-lg">
                 {active.text}
               </p>
             )}

@@ -36,12 +36,12 @@ export default async function CareerDetailPage({ params }: Props) {
 
           <div className="mt-8 border-t border-border pt-8">
             <h2 className="text-xl font-semibold text-slate-900">Job description</h2>
-            <p className="mt-3 leading-7 text-slate-700">{job.description}</p>
+            <p className="mt-3 leading-7 text-foreground">{job.description}</p>
           </div>
 
           <div className="mt-8 border-t border-border pt-8">
             <h2 className="text-xl font-semibold text-slate-900">Minimum qualifications</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
               {requirementItems.map((req) => (
                 <li key={req}>{req}</li>
               ))}
@@ -50,7 +50,7 @@ export default async function CareerDetailPage({ params }: Props) {
 
           <div className="mt-8 border-t border-border pt-8">
             <h2 className="text-xl font-semibold text-slate-900">Preferred qualifications</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
               <li>Client-facing delivery and cross-functional collaboration experience.</li>
               <li>Strong communication and stakeholder management skills.</li>
               <li>Experience owning end-to-end delivery outcomes.</li>

@@ -119,7 +119,7 @@ function RegisterButtons({ onDark = false }: { onDark?: boolean }) {
         href="/join"
         className={
           onDark
-            ? "rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            ? "rounded-lg bg-white px-8 py-4 text-sm font-semibold text-heading shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             : "btn-primary"
         }
       >
@@ -129,7 +129,7 @@ function RegisterButtons({ onDark = false }: { onDark?: boolean }) {
         href="/register"
         className={
           onDark
-            ? "rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
+            ? "rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-heading"
             : "btn-secondary"
         }
       >
@@ -148,13 +148,13 @@ export default function ForEmployeesPage() {
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
               (02) For Candidates · FULL-TIME JOB MARKETING — HOW IT WORKS
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               From sign-up to placement. One managed pipeline.
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
               All tech domains, all experience levels — AI/ML, Data, Cybersecurity, Cloud and
               Software roles, across every industry hiring for them. For new grads, experienced
               professionals, visa holders and career switchers.
@@ -180,12 +180,12 @@ export default function ForEmployeesPage() {
             {pipelineSteps.map((step, idx) => (
               <Reveal key={step.num} delay={idx * 70}>
                 <article className="premium-card flex h-full gap-5 p-8">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 text-base font-bold text-white">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
                     {step.num}
                   </span>
                   <div>
                     <h3 className="text-lg font-bold text-heading">{step.title}</h3>
-                    <p className="mt-2 text-base leading-7 text-slate-600">{step.desc}</p>
+                    <p className="mt-2 text-base leading-7 text-foreground">{step.desc}</p>
                   </div>
                 </article>
               </Reveal>
@@ -193,8 +193,8 @@ export default function ForEmployeesPage() {
 
             {/* Step 5 — light red-tinted panel */}
             <Reveal delay={280}>
-              <article className="flex h-full gap-5 rounded-2xl border border-red-100 bg-red-50 p-8">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 text-base font-bold text-white">
+              <article className="flex h-full gap-5 rounded-2xl border border-brand/15 bg-surface p-8">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
                   5
                 </span>
                 <div className="min-w-0">
@@ -203,11 +203,11 @@ export default function ForEmployeesPage() {
                     {sourcingItems.map((item) => (
                       <li key={item.label}>
                         <p className="text-sm font-semibold text-heading">{item.label}</p>
-                        <p className="mt-0.5 text-sm leading-6 text-slate-600">{item.detail}</p>
+                        <p className="mt-0.5 text-sm leading-6 text-foreground">{item.detail}</p>
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-4 inline-block rounded-lg border border-dashed border-red-300 px-4 py-2 text-sm text-slate-700">
+                  <p className="mt-4 inline-block rounded-lg border border-dashed border-brand/30 px-4 py-2 text-sm text-foreground">
                     <span className="font-semibold text-heading">Qualified daily pool</span> — Every
                     role mapped to your tracks
                   </p>
@@ -217,20 +217,20 @@ export default function ForEmployeesPage() {
 
             {/* Step 6 — dark slate panel */}
             <Reveal delay={350}>
-              <article className="flex h-full gap-5 rounded-2xl bg-slate-800 p-8 text-white">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 text-base font-bold text-white">
+              <article className="flex h-full gap-5 rounded-2xl bg-dark p-8 text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-base font-bold text-white">
                   6
                 </span>
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
                     HUMAN IN THE LOOP — NOT AUTOMATION
                   </p>
                   <h3 className="mt-2 text-lg font-bold text-white">Your Recruiter Applies</h3>
-                  <p className="mt-4 text-4xl font-bold text-red-500 sm:text-5xl">25–35</p>
-                  <p className="mt-1 text-sm font-semibold text-slate-200">
+                  <p className="mt-4 text-4xl font-bold text-brand sm:text-5xl">25–35</p>
+                  <p className="mt-1 text-sm font-semibold text-white/80">
                     tailored applications for you, every business day
                   </p>
-                  <p className="mt-4 text-base leading-7 text-slate-300">
+                  <p className="mt-4 text-base leading-7 text-white/70">
                     Hand-picked, resume-matched roles. A resume tailored for every job description.
                     You focus on interviews — we handle everything before that.
                   </p>
@@ -255,7 +255,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 3 · TWO TRACKS ══════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad bg-surface">
         <div className="container-shell">
           <Reveal>
             <SectionTitle eyebrow="CHOOSE YOUR TRACK" title="Two ways in. Same managed pipeline." />
@@ -265,7 +265,7 @@ export default function ForEmployeesPage() {
             <Reveal>
               <article className="premium-card flex h-full flex-col p-8">
                 <h3 className="text-xl font-bold text-heading">Core Tech Tracks</h3>
-                <p className="mt-3 flex-1 text-base leading-7 text-slate-600">
+                <p className="mt-3 flex-1 text-base leading-7 text-foreground">
                   AI/ML · Data · Cloud/DevOps · Cybersecurity · Software · Product. Compete in the
                   biggest markets with a full team behind you.
                 </p>
@@ -281,11 +281,11 @@ export default function ForEmployeesPage() {
               <article className="premium-card flex h-full flex-col p-8">
                 <div className="flex items-center gap-3">
                   <h3 className="text-xl font-bold text-heading">Unsaturated Roles Track</h3>
-                  <span className="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-white">
+                  <span className="rounded-full bg-brand px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-white">
                     New
                   </span>
                 </div>
-                <p className="mt-3 flex-1 text-base leading-7 text-slate-600">
+                <p className="mt-3 flex-1 text-base leading-7 text-foreground">
                   Networks · Datacenters · IT Support · Embedded · Robotics. High-demand,
                   low-competition roles with faster interviews and faster offers.
                 </p>
@@ -305,16 +305,16 @@ export default function ForEmployeesPage() {
         <div className="container-shell">
           <div className="grid gap-6 lg:grid-cols-2">
             <Reveal>
-              <div className="h-full rounded-2xl border border-red-100 bg-red-50 p-8">
+              <div className="h-full rounded-2xl border border-brand/15 bg-surface p-8">
                 <h3 className="text-xl font-bold text-heading">What we do</h3>
                 <ul className="mt-5 space-y-3">
                   {weDo.map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <span
-                        className="mt-1.5 h-2 w-2 shrink-0 bg-red-600"
+                        className="mt-1.5 h-2 w-2 shrink-0 bg-brand"
                         aria-hidden="true"
                       />
-                      <span className="text-base leading-7 text-slate-700">{item}</span>
+                      <span className="text-base leading-7 text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -328,10 +328,10 @@ export default function ForEmployeesPage() {
                   {youDo.map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <span
-                        className="mt-1.5 h-2 w-2 shrink-0 bg-red-600"
+                        className="mt-1.5 h-2 w-2 shrink-0 bg-brand"
                         aria-hidden="true"
                       />
-                      <span className="text-base leading-7 text-slate-700">{item}</span>
+                      <span className="text-base leading-7 text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -342,7 +342,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 5 · OUR COMMITMENT ══════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad bg-surface">
         <div className="container-shell">
           <Reveal>
             <SectionTitle eyebrow="OUR COMMITMENT TO YOU" title="What you get, every week." />
@@ -351,7 +351,7 @@ export default function ForEmployeesPage() {
             {commitments.map((stat, idx) => (
               <Reveal key={stat.label} delay={idx * 60}>
                 <div className="enterprise-panel h-full p-6 text-center">
-                  <p className="text-3xl font-bold text-red-600">{stat.value}</p>
+                  <p className="text-3xl font-bold text-brand">{stat.value}</p>
                   <p className="mt-2 text-sm leading-6 text-muted">{stat.label}</p>
                 </div>
               </Reveal>
@@ -382,11 +382,11 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 7 · TRANSPARENCY BAND ══════════════════════ */}
-      <section className="bg-slate-800 py-16 text-white md:py-20">
+      <section className="bg-dark py-16 text-white md:py-20">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-2xl font-bold sm:text-3xl">Full transparency, every week.</p>
-            <p className="mt-5 text-base leading-8 text-slate-300">
+            <p className="mt-5 text-base leading-8 text-white/70">
               You receive a weekly report showing every role we applied to, the tailored resume
               used, and the current status of each application. You can verify our work — that is
               the point.
@@ -400,13 +400,13 @@ export default function ForEmployeesPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-3xl">
             <div className="rounded-2xl border-2 border-red-600 bg-white p-8 text-center lg:p-10">
-              <p className="text-4xl font-bold text-red-600 sm:text-5xl">
+              <p className="text-4xl font-bold text-brand sm:text-5xl">
                 $349 <span className="text-xl font-semibold">/ per month</span>
               </p>
               <p className="mt-4 text-base font-bold text-heading">
                 Month-to-month. Cancel anytime with 5 business days&apos; notice.
               </p>
-              <p className="mt-4 text-base leading-7 text-slate-600">
+              <p className="mt-4 text-base leading-7 text-foreground">
                 A placement fee of 10–12% of first-year base salary applies only if you accept an
                 offer we sourced — payable in up to four monthly installments after you start.
                 Everything is set out in a written service agreement before you pay anything.
@@ -417,7 +417,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 9 · FAQ ══════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      <section className="section-pad bg-surface">
         <div className="container-shell">
           <Reveal>
             <SectionTitle eyebrow="FAQ" title="Common questions" />
@@ -427,7 +427,7 @@ export default function ForEmployeesPage() {
               <Reveal key={faq.q} delay={idx * 60}>
                 <article className="premium-card h-full bg-white p-6">
                   <h3 className="text-base font-bold text-heading">{faq.q}</h3>
-                  <p className="mt-2 text-base leading-7 text-slate-600">{faq.a}</p>
+                  <p className="mt-2 text-base leading-7 text-foreground">{faq.a}</p>
                 </article>
               </Reveal>
             ))}
@@ -442,11 +442,11 @@ export default function ForEmployeesPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Ready to start? Register your interest.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
               Our team will contact you within 24 hours to book your free 20-minute consultation.
             </p>
             <RegisterButtons onDark />
-            <p className="mt-8 text-sm text-slate-300">
+            <p className="mt-8 text-sm text-white/70">
               Connect@globixs.com · +1 (206) 552-8424 · Book directly:{" "}
               <a
                 href="https://tinyurl.com/2sfxn9w3"
@@ -464,7 +464,7 @@ export default function ForEmployeesPage() {
       {/* ══════════════════════ 11 · LEGAL ══════════════════════ */}
       <section className="pb-12">
         <div className="container-shell">
-          <p className="mx-auto max-w-4xl text-xs leading-6 text-gray-500">
+          <p className="mx-auto max-w-4xl text-xs leading-6 text-muted">
             Globixs Technology Solutions provides job application and marketing services. We do not
             guarantee employment, interviews, offers or any particular salary; hiring decisions are
             made solely by employers. All candidates attend their own interviews and assessments.

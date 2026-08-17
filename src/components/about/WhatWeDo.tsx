@@ -50,9 +50,9 @@ export function WhatWeDo() {
           {services.map((service, idx) => (
             <Reveal key={service.title} delay={idx * 80}>
               <article className="premium-card flex h-full flex-col p-8">
-                <p className="font-mono text-sm tracking-[0.1em] text-red-600">{service.num}</p>
+                <p className="font-mono text-sm tracking-[0.1em] text-brand">{service.num}</p>
                 <h3 className="mt-3 text-xl font-bold text-heading">{service.title}</h3>
-                <p className="mt-4 flex-1 text-base leading-7 text-slate-600">
+                <p className="mt-4 flex-1 text-base leading-7 text-foreground">
                   {service.description}
                 </p>
                 <div className="mt-6">

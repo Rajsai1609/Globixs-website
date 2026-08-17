@@ -64,7 +64,7 @@ export function EngagementModels() {
                 <h3 className="mt-4 text-base font-semibold text-heading">{model.title}</h3>
                 <ul className="mt-4 space-y-2">
                   {model.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm text-slate-600">
+                    <li key={b} className="flex items-start gap-2 text-sm text-foreground">
                       <span
                         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
                         aria-hidden="true"

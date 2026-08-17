@@ -55,7 +55,7 @@ export function ValuesSection() {
                   <item.Icon size={22} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-heading">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+                <p className="mt-2 text-sm leading-6 text-foreground">{item.description}</p>
               </article>
             </Reveal>
           ))}

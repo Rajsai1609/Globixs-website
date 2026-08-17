@@ -32,7 +32,7 @@ export default function StaffingPage() {
             <Reveal key={model.title} delay={index * 80}>
               <article className="premium-card p-6">
                 <h3 className="text-xl font-semibold">{model.title}</h3>
-                <p className="mt-3 text-slate-600">{model.desc}</p>
+                <p className="mt-3 text-foreground">{model.desc}</p>
               </article>
             </Reveal>
           ))}
@@ -40,7 +40,7 @@ export default function StaffingPage() {
 
         <Reveal className="premium-card p-8">
           <h3 className="text-2xl font-semibold text-heading">Need to hire quickly?</h3>
-          <p className="mt-3 text-sm text-slate-600">
+          <p className="mt-3 text-sm text-foreground">
             Share your role requirements and we will align candidates using 10-dimension AI scoring before recruiter review.
           </p>
           <Link href="/contact" className="btn-primary mt-6">Talk to Our Team</Link>

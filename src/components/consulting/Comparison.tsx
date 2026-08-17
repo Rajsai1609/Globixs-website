@@ -38,7 +38,7 @@ function CellValue({ value }: { value: string }) {
   const good = value.startsWith("✓");
   const bad  = value.startsWith("✗");
   return (
-    <span className={good ? "text-emerald-600" : bad ? "text-slate-400" : "text-slate-600"}>
+    <span className={good ? "text-emerald-600" : bad ? "text-white/60" : "text-foreground"}>
       {value}
     </span>
   );
@@ -46,7 +46,7 @@ function CellValue({ value }: { value: string }) {
 
 export function Comparison() {
   return (
-    <section className="section-pad bg-black/[0.03]">
+    <section className="section-pad bg-surface">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -82,10 +82,10 @@ export function Comparison() {
                     <td className="px-5 py-4 text-xs font-semibold uppercase tracking-wide text-muted">
                       {row.category}
                     </td>
-                    <td className="px-5 py-4 text-slate-600">
+                    <td className="px-5 py-4 text-foreground">
                       <CellValue value={row.legacy} />
                     </td>
-                    <td className="border-l-2 border-accent bg-accent/5 px-5 py-4 font-medium text-slate-700">
+                    <td className="border-l-2 border-accent bg-accent/5 px-5 py-4 font-medium text-foreground">
                       <CellValue value={row.globixs} />
                     </td>
                   </tr>

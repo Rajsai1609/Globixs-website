@@ -55,7 +55,7 @@ const steps: Step[] = [
 
 export function Process() {
   return (
-    <section id="process" className="section-pad bg-black/[0.03]">
+    <section id="process" className="section-pad bg-surface">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
@@ -76,7 +76,7 @@ export function Process() {
                 </div>
                 <step.Icon size={18} className="mt-3 text-accent" aria-hidden="true" />
                 <h3 className="mt-2 text-sm font-bold text-heading">{step.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-600">{step.description}</p>
+                <p className="mt-2 text-xs leading-5 text-foreground">{step.description}</p>
               </article>
             </Reveal>
           ))}

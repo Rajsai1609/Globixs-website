@@ -10,7 +10,7 @@ export function Hero() {
 
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
               STAFFING. JOB MARKETING. AI SERVICES.
             </p>
             <h1
@@ -25,13 +25,13 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/services"
-                className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                className="rounded-lg bg-white px-8 py-4 text-sm font-semibold text-heading shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 Hire Engineers →
               </Link>
               <Link
                 href="/ai-products"
-                className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
+                className="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-heading"
               >
                 Explore AI Services →
               </Link>

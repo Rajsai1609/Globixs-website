@@ -22,7 +22,7 @@ export function Footer() {
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
-              <p className="text-xs text-gray-500">Seattle, WA</p>
+              <p className="text-xs text-muted">Seattle, WA</p>
             </div>
             <div className="mt-5 flex items-center gap-3">
               <a
@@ -63,7 +63,7 @@ export function Footer() {
 
           {/* Column 2 — Services */}
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-gray-500">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Column 3 — Company */}
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-gray-500">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
               Company
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -89,7 +89,7 @@ export function Footer() {
 
           {/* Column 4 — Resources */}
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-gray-500">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
               Resources
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -114,7 +114,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-gray-800">
-        <div className="container-shell flex flex-col items-center justify-between gap-3 py-6 text-xs text-gray-500 sm:flex-row">
+        <div className="container-shell flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted sm:flex-row">
           <p>© 2026 Globixs Technology Solutions. All rights reserved.</p>
           <p>Seattle, WA · Built with care</p>
         </div>

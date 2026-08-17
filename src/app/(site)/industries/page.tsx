@@ -92,12 +92,12 @@ export default async function IndustriesPage() {
                     <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-brandSoft text-xs font-bold tracking-wide text-heading">
                       {industryMeta[industry.slug]?.shortLabel ?? "IN"}
                     </div>
-                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                    <span className="text-xs font-medium uppercase tracking-wider text-white/60">
                       Industry Focus
                     </span>
                   </div>
                   <h3 className="mt-4 text-xl font-semibold text-heading">{industry.name}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                  <p className="mt-3 text-sm leading-6 text-foreground">
                     {industryMeta[industry.slug]?.outcome ?? industry.summary}
                   </p>
                   <Link
@@ -122,7 +122,7 @@ export default async function IndustriesPage() {
                 {[...techLogos, ...techLogos].map((logo, idx) => (
                   <span
                     key={`${logo.label}-${idx}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-slate-700"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground"
                   >
                     <Image src={logo.src} alt="" width={16} height={16} className="h-4 w-4 opacity-80" />
                     {logo.label}

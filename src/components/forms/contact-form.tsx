@@ -60,7 +60,7 @@ export function ContactForm() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="block text-sm font-medium text-foreground">
-          Full Name <span className="text-red-500" aria-hidden="true">*</span>
+          Full Name <span className="text-brand" aria-hidden="true">*</span>
           <input
             required
             name="fullName"
@@ -69,7 +69,7 @@ export function ContactForm() {
           />
         </label>
         <label className="block text-sm font-medium text-foreground">
-          Email Address <span className="text-red-500" aria-hidden="true">*</span>
+          Email Address <span className="text-brand" aria-hidden="true">*</span>
           <input
             required
             type="email"
@@ -89,7 +89,7 @@ export function ContactForm() {
       </div>
 
       <label className="block text-sm font-medium text-foreground">
-        What can we help with? <span className="text-red-500" aria-hidden="true">*</span>
+        What can we help with? <span className="text-brand" aria-hidden="true">*</span>
         <select required name="serviceInterest" defaultValue="" className={field}>
           <option value="" disabled>Select an option</option>
           <option>Hire IT talent (recruiting / staffing)</option>
@@ -101,7 +101,7 @@ export function ContactForm() {
       </label>
 
       <label className="block text-sm font-medium text-foreground">
-        Tell us a bit more about your needs <span className="text-red-500" aria-hidden="true">*</span>
+        Tell us a bit more about your needs <span className="text-brand" aria-hidden="true">*</span>
         <textarea
           required
           name="message"
