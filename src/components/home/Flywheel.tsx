@@ -1,4 +1,4 @@
-import { GraduationCap, Users, Package, Repeat } from "lucide-react";
+import { Briefcase, Users, Bot, Repeat } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 
@@ -10,24 +10,24 @@ type FlywheelCard = {
 
 const cards: FlywheelCard[] = [
   {
-    Icon: GraduationCap,
-    title: "Train builds the bench",
-    desc: "Every grad we train through Globixs Academy becomes a candidate for our placement pipeline and our internal AI projects. We don't bid on candidates from job boards — we develop them ourselves.",
+    Icon: Briefcase,
+    title: "Job marketing builds the bench",
+    desc: "Every candidate we market gets screened, coached, and placed by our own recruiters. That gives us a bench of engineers we know first-hand — not résumés we bought from a job board.",
   },
   {
     Icon: Users,
-    title: "Place builds the expertise",
-    desc: "Engineers we place into client teams gain real-world AI engineering experience that no bootcamp can simulate. They ship production code at scale, then bring those patterns back.",
+    title: "Staffing builds the expertise",
+    desc: "The engineers we place into client teams ship production code at enterprise scale. They come back with patterns, tooling, and hard-won judgment that no training program can simulate.",
   },
   {
-    Icon: Package,
-    title: "Build proves the work",
-    desc: "PathAI, Resto, Aigent, and SignalFeed are products our engineers built and shipped to paying customers. They're our most credible reference — a working demo of what our talent can do for you.",
+    Icon: Bot,
+    title: "AI services prove the work",
+    desc: "The AI receptionists, automations, and websites we run for businesses are built by those same engineers. Live systems with real customers are our most credible reference.",
   },
   {
     Icon: Repeat,
     title: "The compounding effect",
-    desc: "Each placement sharpens our products. Each product becomes proof for the next placement. Each grad we train tightens the loop. Three pillars, one operating system, getting better every quarter.",
+    desc: "Every candidate we market deepens the bench. Every placement sharpens what we can build. Every system we ship proves what our people deliver. Three service lines, one operating system, getting better every quarter.",
   },
 ];
 
@@ -38,8 +38,8 @@ export function Flywheel() {
         <Reveal>
           <SectionTitle
             eyebrow="THE FLYWHEEL"
-            title="Three pillars. Each one makes the next one stronger."
-            description="Most staffing firms only staff. Most AI consultancies only consult. We do both — and we built our own products with the same engineers — so each side compounds the others."
+            title="Three service lines. Each one makes the next one stronger."
+            description="Most staffing firms only staff. Most AI agencies only build. We do both — with the same people — so each side compounds the others."
           />
         </Reveal>
 

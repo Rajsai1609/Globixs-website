@@ -18,7 +18,7 @@ export function Footer() {
               className="h-8 w-auto"
             />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              Train. Place. Build. Globixs trains US graduates in AI engineering, places them with enterprise and mid-market teams, and ships the B2B AI products built by the same engineers.
+              Staffing, job marketing, and AI services — one technology partner. We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
@@ -67,10 +67,11 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/academy"      className="transition hover:text-white">Train (Globixs Academy)</Link></li>
-              <li><Link href="/services"     className="transition hover:text-white">Place (AI Staffing)</Link></li>
-              <li><Link href="/ai-products"  className="transition hover:text-white">Build (AI Products)</Link></li>
-              <li><Link href="/contact"      className="transition hover:text-white">Talk to Us</Link></li>
+              <li><Link href="/services"       className="transition hover:text-white">IT Staffing for Businesses</Link></li>
+              <li><Link href="/for-employees"  className="transition hover:text-white">Job Marketing for Candidates</Link></li>
+              <li><Link href="/ai-products"    className="transition hover:text-white">AI Services for Businesses</Link></li>
+              <li><Link href="/academy"        className="transition hover:text-white">Globixs Academy</Link></li>
+              <li><Link href="/contact"        className="transition hover:text-white">Talk to Us</Link></li>
             </ul>
           </div>
 

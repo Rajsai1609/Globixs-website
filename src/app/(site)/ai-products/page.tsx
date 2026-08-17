@@ -1,47 +1,118 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  PhoneCall,
+  MessageSquare,
+  Target,
+  Workflow,
+  Star,
+  Globe,
+  BarChart3,
+  Palette,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 
 export const metadata: Metadata = {
-  title: "AI Products | Globixs Technology Solutions",
+  // Root layout applies the `%s | Globixs Technology Solutions` template — no suffix here.
+  title: "AI Services for Businesses",
   description:
-    "Vertical AI products built by Globixs and deployed for real customers. Restaurant ops, real estate, career intelligence, and more — each one ships with monitoring, KPIs, and human-in-the-loop oversight.",
+    "Done-for-you AI services for businesses: AI receptionists and missed call text back, AI chatbots, lead generation, workflow automation, review management, business website design with local SEO, data dashboards, and design services. Seattle-based, built and run for you.",
+  keywords: [
+    "AI receptionist",
+    "missed call text back",
+    "lead generation service",
+    "workflow automation",
+    "review management",
+    "business website design Seattle",
+    "AI chatbot for business",
+    "local SEO Seattle",
+  ],
   openGraph: {
-    title: "AI Products | Globixs Technology Solutions",
+    title: "AI Services for Businesses | Globixs Technology Solutions",
     description:
-      "Vertical AI products built by Globixs and deployed for real customers. Restaurant ops, real estate, career intelligence, and more.",
+      "AI receptionists, chatbots, lead generation, workflow automation, review management, websites with local SEO, dashboards, and design — built and run for your business.",
+    type: "website",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Globixs AI Products",
+        alt: "Globixs AI Services for Businesses",
       },
     ],
   },
 };
 
-const deliverySteps = [
+type Service = {
+  Icon: LucideIcon;
+  title: string;
+  desc: string;
+};
+
+const services: Service[] = [
   {
-    title: "1 - SENSE",
-    desc: "We analyze staffing and operations workflows to identify the highest-impact AI opportunities.",
+    Icon: PhoneCall,
+    title: "AI Receptionists & Missed-Call Recovery",
+    desc: "Never lose a customer to a missed call again. An AI agent that answers 24/7, books appointments, texts back missed callers, and follows up — for restaurants, clinics, salons, and home services.",
   },
   {
-    title: "2 - REASON",
-    desc: "Our AI agents learn your hiring criteria, business rules, and delivery goals.",
+    Icon: MessageSquare,
+    title: "AI Chatbots for Support & Sales",
+    desc: "24/7 assistants trained on your business — answering customers, qualifying leads, and taking bookings on your website and WhatsApp.",
   },
   {
-    title: "3 - ORCHESTRATE",
-    desc: "AI + human teams execute sourcing, scoring, outreach, and reporting together.",
+    Icon: Target,
+    title: "Lead Generation Systems",
+    desc: "AI-driven prospect discovery, personalized outreach, and automated follow-up that delivers qualified leads to your pipeline every month.",
   },
   {
-    title: "4 - OPTIMIZE",
-    desc: "We monitor outcomes and continuously improve your staffing and automation performance.",
+    Icon: Workflow,
+    title: "Workflow Automation",
+    desc: "Quote follow-ups, invoice chasing, appointment reminders, review requests, CRM updates — the busywork runs itself while your team does the real work.",
+  },
+  {
+    Icon: Star,
+    title: "Review & Reputation Management",
+    desc: "Automated review requests after every job, AI-drafted responses, and monitoring across Google and Yelp — so your rating sells for you.",
+  },
+  {
+    Icon: Globe,
+    title: "Website Design & Development + Local SEO",
+    desc: "Modern, fast business websites built to convert — plus Google Business Profile optimization so local customers actually find you.",
+  },
+  {
+    Icon: BarChart3,
+    title: "Data Analysis & Dashboards",
+    desc: "Turn your business data into decisions — reporting, dashboards, and insights on autopilot.",
+  },
+  {
+    Icon: Palette,
+    title: "Design Services",
+    desc: "Branding, marketing assets, flyers, and landing pages that look like you hired an agency.",
   },
 ];
 
-export default function AIProductsPage() {
+const howItWorks = [
+  {
+    step: "01",
+    title: "Free consult — we find your biggest leak",
+    desc: "A 30-minute call to work out where you're losing customers, time, or leads today. No pitch deck, no commitment.",
+  },
+  {
+    step: "02",
+    title: "We build and launch in 1–2 weeks",
+    desc: "We configure, train, and deploy the system on your stack — then test it against real customer traffic before it goes live.",
+  },
+  {
+    step: "03",
+    title: "Flat monthly rate, cancel anytime",
+    desc: "We run it, monitor it, and keep improving it. No long-term lock-in — stay because it works, not because of a contract.",
+  },
+];
+
+export default function AIServicesPage() {
   return (
     <div>
       {/* ══════════ HERO ══════════ */}
@@ -49,68 +120,118 @@ export default function AIProductsPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-              AI-POWERED PRODUCTS
+              AI SERVICES FOR BUSINESSES
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Software your team will actually use
+              AI services that grow your business.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              AI tools built for the day-to-day of small and medium businesses. Setup in days.
-              Pricing that fits your budget. Real customers using them right now.
+              We build and run the systems that answer your calls, fill your pipeline, and win you
+              customers — so you can focus on the work.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/contact" className="btn-primary">
-                Request a Demo
+                Book a Free Consult
               </Link>
-              <Link href="/contact" className="btn-secondary">
-                Talk to Our Team
+              <Link href="/services" className="btn-secondary">
+                Looking to Hire Engineers?
               </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ══════════ SHIPPED & LIVE ══════════ */}
+      {/* ══════════ SERVICES ══════════ */}
+      <section className="section-pad">
+        <div className="container-shell">
+          <Reveal>
+            <SectionTitle
+              eyebrow="WHAT WE BUILD & RUN"
+              title="Eight services, one partner."
+              description="Start with the one costing you the most today, or let us run the whole stack. Every service is built for your business, deployed on your tools, and managed by our team."
+            />
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, idx) => (
+              <Reveal key={service.title} delay={idx * 60}>
+                <article className="premium-card flex h-full flex-col gap-4 p-8">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
+                    <service.Icon size={22} className="text-accent" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-heading">{service.title}</h3>
+                    <p className="mt-2 text-base leading-7 text-slate-600">{service.desc}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ HOW IT WORKS ══════════ */}
       <section className="section-pad bg-black/[0.03]">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
-              eyebrow="SHIPPED & LIVE"
-              title="Products running in production today"
-              description="Built by Globixs, deployed for real customers."
+              eyebrow="HOW IT WORKS"
+              title="From first call to live system in two weeks."
             />
           </Reveal>
-          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {howItWorks.map((item, idx) => (
+              <Reveal key={item.step} delay={idx * 80}>
+                <article className="enterprise-panel flex h-full flex-col p-8">
+                  <p className="font-mono text-sm tracking-[0.1em] text-red-600">({item.step})</p>
+                  <h3 className="mt-3 text-lg font-bold text-heading">{item.title}</h3>
+                  <p className="mt-2 text-base leading-7 text-slate-600">{item.desc}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════ PROOF — PRODUCTS WE'VE BUILT ══════════ */}
+      <section className="section-pad">
+        <div className="container-shell">
+          <Reveal>
+            <SectionTitle
+              eyebrow="PRODUCTS WE'VE BUILT"
+              title="We run these systems on our own business first."
+              description="Before we sell you an AI system, we ship one ourselves. These are products our engineers built and run for real customers — the same stack behind the services above."
+            />
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+            {/* Resto */}
+            <Reveal delay={0}>
+              <article className="premium-card flex h-full flex-col p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+                  FOR RESTAURANTS
+                </p>
+                <h3 className="mt-2 text-xl font-bold text-heading">Resto</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                  Catering inquiries, customer messages, and online orders handled by AI agents.
+                  Live at 4 independent restaurants — the system behind our AI receptionist service.
+                </p>
+              </article>
+            </Reveal>
 
             {/* PathAI */}
-            <Reveal delay={0}>
-              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Reveal delay={60}>
+              <article className="premium-card flex h-full flex-col p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
                   FOR JOB SEEKERS
                 </p>
-                <h3 className="mt-2 text-3xl font-bold text-blue-900">PathAI</h3>
-                <p className="mt-2 text-lg text-gray-600">
-                  AI job matching for international students
+                <h3 className="mt-2 text-xl font-bold text-heading">PathAI</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                  AI job matching for international students — personalized matches across ten
+                  dimensions with daily pipeline updates.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-gray-700">
-                  Helps F-1, OPT, and STEM-OPT students find jobs that sponsor visas. Personalized
-                  matches, daily updates, real placements.
-                </p>
-                <div className="mt-6 flex gap-6">
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">49+</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Active Users</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">10</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Match Dimensions</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">Daily</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Pipeline Updates</p>
-                  </div>
-                </div>
-                <div className="mt-auto pt-6">
+                <div className="mt-4">
                   <a
                     href="https://mctpathai.com"
                     target="_blank"
@@ -123,168 +244,43 @@ export default function AIProductsPage() {
               </article>
             </Reveal>
 
-            {/* Resto */}
-            <Reveal delay={80}>
-              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
-                  FOR RESTAURANTS
-                </p>
-                <h3 className="mt-2 text-3xl font-bold text-blue-900">Resto</h3>
-                <p className="mt-2 text-lg text-gray-600">
-                  Run your restaurant on autopilot
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-gray-700">
-                  Catering inquiries, customer messages, online orders — handled. Your team focuses
-                  on the food and the guests. Live at 4 independent restaurants.
-                </p>
-                <div className="mt-6 flex gap-6">
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">4</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Live Clients</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">3</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">AI Agents</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">100%</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Operational Uptime</p>
-                  </div>
-                </div>
-                <div className="mt-auto pt-6">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
-                  >
-                    View case studies →
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
-
             {/* Realty */}
-            <Reveal delay={160}>
-              <article className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Reveal delay={120}>
+              <article className="premium-card flex h-full flex-col p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
                   FOR REAL ESTATE AGENTS
                 </p>
-                <h3 className="mt-2 text-3xl font-bold text-blue-900">Realty</h3>
-                <p className="mt-2 text-lg text-gray-600">
-                  Six AI agents working your pipeline
+                <h3 className="mt-2 text-xl font-bold text-heading">Realty</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                  Six AI agents working the pipeline — lead capture, qualification, follow-up,
+                  booking, CRM, and reporting, plus a property valuation model.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-gray-700">
-                  Lead capture, qualification, follow-up, booking, CRM, reporting — all running
-                  24/7. Includes a property valuation model with 95% accuracy.
+              </article>
+            </Reveal>
+
+            {/* SignalFeed */}
+            <Reveal delay={180}>
+              <article className="premium-card flex h-full flex-col p-6">
+                <span className="w-fit rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+                  IN DEVELOPMENT
+                </span>
+                <h3 className="mt-3 text-xl font-bold text-heading">SignalFeed</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                  Sales intelligence that scores companies on hiring distress signals, enriches
+                  them with decision-maker contacts, and drafts outreach — the engine behind our
+                  lead generation service.
                 </p>
-                <div className="mt-6 flex gap-6">
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">6</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Integrated Modules</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">0.95</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">AVM R² Score</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-blue-900">$750</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-gray-500">Setup + $1,200/mo</p>
-                  </div>
-                </div>
-                <div className="mt-auto pt-6">
+                <div className="mt-4">
                   <Link
-                    href="/contact"
+                    href="/contact?product=signalfeed"
                     className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
                   >
-                    See how it works →
+                    Join the early access list →
                   </Link>
                 </div>
               </article>
             </Reveal>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ IN DEVELOPMENT ══════════ */}
-      <section className="section-pad">
-        <div className="container-shell">
-          <Reveal>
-            <SectionTitle
-              eyebrow="IN DEVELOPMENT"
-              title="Coming soon"
-              description="Products we're actively building. Beta partners welcome."
-            />
-          </Reveal>
-
-          {/* ─── SignalFeed card ─── */}
-          <Reveal delay={80}>
-            <article className="relative mt-10 flex flex-col rounded-2xl border border-gray-200 bg-gray-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-              <span className="absolute right-6 top-6 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
-                IN DEVELOPMENT
-              </span>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
-                SALES INTELLIGENCE
-              </p>
-              <h3 className="mt-2 text-3xl font-bold text-blue-900">SignalFeed</h3>
-              <p className="mt-2 text-lg text-gray-600">
-                AI sales intelligence agent for staffing firms
-              </p>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-700">
-                SignalFeed scrapes job postings across the web, scores companies on six proprietary
-                hiring distress signals, enriches them with verified decision-maker contacts, and
-                drafts personalized outreach. Currently being battle-tested inside Globixs&apos;s
-                own BD pipeline before external launch.
-              </p>
-              <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  Who it&apos;s for
-                </p>
-                <ul className="mt-2 space-y-1.5">
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" aria-hidden="true" />
-                    IT Staffing Agencies
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" aria-hidden="true" />
-                    Recruiting Teams &amp; RPOs
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" aria-hidden="true" />
-                    BD Leaders at Consulting Firms
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-auto pt-6">
-                <Link
-                  href="/contact?product=signalfeed"
-                  className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
-                >
-                  Join the early access list →
-                </Link>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ══════════ HOW WE BUILD ══════════ */}
-      <section className="section-pad bg-black/[0.03]">
-        <div className="container-shell">
-          <Reveal>
-            <SectionTitle
-              eyebrow="Delivery Model"
-              title="Sense → Reason → Orchestrate → Optimize"
-            />
-          </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {deliverySteps.map((step, idx) => (
-              <Reveal key={step.title} delay={idx * 60}>
-                <article className="enterprise-panel p-5">
-                  <h3 className="text-base font-semibold text-heading">{step.title}</h3>
-                  <p className="mt-3 text-sm text-slate-600">{step.desc}</p>
-                </article>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
@@ -294,19 +290,16 @@ export default function AIProductsPage() {
         <div className="container-shell">
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Have a workflow that&apos;s bleeding time?
+              Tell us where your business is leaking.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Half our products start as one-off builds for clients. If you have a hiring, sales,
-              or operations workflow that&apos;s leaking hours, talk to us — we&apos;ll tell you
-              whether it fits our agent stack or needs a custom build.
+              Missed calls, cold leads, manual follow-ups, a website nobody finds. Bring us the
+              bottleneck and we&apos;ll tell you honestly whether we can fix it — and what it would
+              take.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8">
               <Link href="/contact" className="btn-primary">
-                Book a Strategy Call
-              </Link>
-              <Link href="/consulting" className="btn-secondary">
-                See How We Build
+                Book a Free Consult
               </Link>
             </div>
           </Reveal>

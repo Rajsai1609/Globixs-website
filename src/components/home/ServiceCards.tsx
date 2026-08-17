@@ -17,46 +17,46 @@ type ServiceCard = {
 const cards: ServiceCard[] = [
   {
     num: "(01)",
-    title: "Train",
-    tagline: "Globixs Academy — turn graduates into AI engineers.",
-    desc: "We train US-based graduates in production AI engineering: agents, LLM integration, deployment, and the discipline to ship. Consultation-first admissions — we talk to every applicant before tuition, so we only train people we're confident we can place.",
+    title: "IT Staffing for Businesses",
+    tagline: "Contract and full-time technical hires, pre-vetted and delivered in days.",
+    desc: "Pre-vetted engineers across cloud, data, AI/ML, cybersecurity, and software — placed with enterprise and mid-market teams on contract, contract-to-hire, or full-time terms. Sourcing, screening, and matching run on our own AI stack, so first submissions land in 7–10 days, not 4 weeks.",
     subLinks: [
-      { label: "Production AI engineering curriculum", href: "/academy" },
-      { label: "1:1 admissions consultation",          href: "/academy" },
-      { label: "Mentored project portfolio",           href: "/academy" },
-      { label: "Placement-track program",              href: "/academy" },
+      { label: "Cloud & DevOps engineers",     href: "/services" },
+      { label: "Data & AI/ML engineers",       href: "/services" },
+      { label: "Cybersecurity specialists",    href: "/services" },
+      { label: "Software & full-stack talent", href: "/services" },
     ],
-    ctaLabel: "Talk to admissions →",
-    ctaHref: "/academy",
-  },
-  {
-    num: "(02)",
-    title: "Place",
-    tagline: "AI-Powered IT Staffing. Talent matched by intelligence, not inboxes.",
-    desc: "Pre-vetted AI and full-stack engineers placed with enterprise and mid-market teams that need AI systems but can't justify hiring a full in-house bench. Sourcing, screening, and matching is run by AI agents — first submissions in 7–10 days, not 4 weeks.",
-    subLinks: [
-      { label: "AI-driven candidate sourcing",   href: "/services" },
-      { label: "Resume-to-JD semantic matching", href: "/services" },
-      { label: "Automated screening agents",     href: "/services" },
-      { label: "H1B / visa intelligence",        href: "/services" },
-      { label: "Predictive fit scoring",         href: "/services" },
-      { label: "VMS submission automation",      href: "/services" },
-    ],
-    ctaLabel: "How AI-powered staffing works →",
+    ctaLabel: "See how staffing works →",
     ctaHref: "/services",
   },
   {
-    num: "(03)",
-    title: "Build",
-    tagline: "B2B AI products built by the engineers we train and place.",
-    desc: "PathAI, Resto, Aigent, and SignalFeed are vertical AI products we ship to real customers — built and battle-tested by Globixs engineers between client engagements. The flywheel: every placement sharpens our products, every product proves what our talent can do.",
+    num: "(02)",
+    title: "Job Marketing for Candidates",
+    tagline: "A dedicated recruiter delivering 25–35 tailored applications a day.",
+    desc: "For job seekers ready to move. You get a dedicated recruiter, a resume rewritten for every target role, and 25–35 tailored applications submitted daily on your behalf — across our core technology tracks and an unsaturated roles track with faster interviews and less competition.",
     subLinks: [
-      { label: "PathAI (Career Intelligence)",    href: "https://mctpathai.com", external: true },
-      { label: "Resto (Restaurant Ops)",          href: "/ai-products" },
-      { label: "Aigent (Real Estate)",            href: "/ai-products" },
-      { label: "SignalFeed (Sales Intelligence)", href: "/ai-products" },
+      { label: "Dedicated recruiter",              href: "/for-employees" },
+      { label: "Tailored resumes per application", href: "/for-employees" },
+      { label: "25–35 applications per day",       href: "/for-employees" },
+      { label: "Core + unsaturated role tracks",   href: "/for-employees" },
     ],
-    ctaLabel: "See the products →",
+    ctaLabel: "See how job marketing works →",
+    ctaHref: "/for-employees",
+  },
+  {
+    num: "(03)",
+    title: "AI Services for Businesses",
+    tagline: "AI receptionists, lead generation, automation, websites, and more — we build it and run it.",
+    desc: "Done-for-you AI and digital growth systems for businesses that need results, not a research project. We answer the calls you're missing, fill your pipeline, automate the busywork, protect your reputation, and build the website that converts — then we keep it running.",
+    subLinks: [
+      { label: "AI receptionists & missed-call recovery", href: "/ai-products" },
+      { label: "AI chatbots for support & sales",         href: "/ai-products" },
+      { label: "Lead generation systems",                 href: "/ai-products" },
+      { label: "Workflow automation",                     href: "/ai-products" },
+      { label: "Websites + local SEO",                    href: "/ai-products" },
+      { label: "Dashboards, reviews & design",            href: "/ai-products" },
+    ],
+    ctaLabel: "Explore AI services →",
     ctaHref: "/ai-products",
   },
 ];
@@ -67,9 +67,9 @@ export function ServiceCards() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="THREE PILLARS. ONE FLYWHEEL."
-            title="How Globixs delivers."
-            description="Train graduates into production-ready AI engineers. Place them where they're needed. Build the AI products that prove the work. Each pillar makes the next one stronger."
+            eyebrow="WHAT WE DO"
+            title="Three service lines. One technology partner."
+            description="Businesses come to us to hire engineers or to build AI-powered solutions. Job seekers come to us to get marketed into their next role. Each line stands on its own — and reinforces the others."
           />
         </Reveal>
 
@@ -134,6 +134,19 @@ export function ServiceCards() {
               Register Your Interest
             </a>
           </div>
+        </Reveal>
+
+        {/* Academy is a secondary offering — kept as a one-line mention so it
+            doesn't compete with the three service lines above. */}
+        <Reveal delay={280}>
+          <p className="mt-6 text-sm leading-relaxed text-muted">
+            Also from Globixs:{" "}
+            <Link href="/academy" className="font-semibold text-accent hover:underline">
+              Globixs Academy
+            </Link>{" "}
+            — production AI engineering training for US graduates, with consultation-first
+            admissions.
+          </p>
         </Reveal>
       </div>
     </section>

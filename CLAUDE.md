@@ -1,11 +1,20 @@
 @AGENTS.md
 
-## URL/Label mismatch — TODO
+## Site messaging — three service lines
 
-The nav uses pillar labels that don't yet match dedicated routes:
+The site leads with three service lines (the Train/Place/Build pillar framing was
+retired). Nav labels and their routes:
 
-- `Place` → `/services` (existing staffing page, label is "Place" not "Services")
-- `Build` → `/ai-products` (existing AI products page, label is "Build" not "AI Products")
+- `Staffing` → `/services` — IT staffing for businesses (contract + full-time hires)
+- `Job Marketing` → `/for-employees` — full-time job marketing for candidates
+- `AI Services` → `/ai-products` — AI services for businesses (receptionists,
+  chatbots, lead gen, automation, reviews, websites + local SEO, dashboards, design)
+- `Train` → `/academy` — Globixs Academy, kept as a secondary offering
 
-In a future cleanup PR:
-- Consider renaming `/services` → `/place` and `/ai-products` → `/build` for URL/label parity (or keep current URLs for SEO continuity)
+### URL/Label mismatch — TODO
+
+Labels no longer match their routes. In a future cleanup PR, consider renaming
+`/ai-products` → `/ai-services` and `/for-employees` → `/job-marketing` for
+URL/label parity — or keep the current URLs for SEO continuity and add redirects.
+Note `/products`, `/industries`, and `/get-hired` already 301 elsewhere via
+`next.config.ts`.

@@ -21,10 +21,12 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
+  // The three service lines, in order: staffing (businesses), job marketing
+  // (candidates), AI services (businesses). Academy follows as a secondary offering.
+  { href: "/services", label: "Staffing" },
+  { href: "/for-employees", label: "Job Marketing" },
+  { href: "/ai-products", label: "AI Services" },
   { href: "/academy", label: "Train" },
-  { href: "/services", label: "Place" },
-  { href: "/ai-products", label: "Build" },
-  { href: "/for-employees", label: "Employees" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

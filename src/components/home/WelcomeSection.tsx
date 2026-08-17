@@ -1,25 +1,25 @@
 import Image from "next/image";
-import { GraduationCap, Zap, Rocket } from "lucide-react";
+import { Users, Briefcase, Bot } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 
-const pillars = [
+const serviceLines = [
   {
-    Icon: GraduationCap,
-    title: "Train",
+    Icon: Users,
+    title: "IT Staffing",
     description:
-      "Production AI engineering curriculum for US grads. Consultation-first admissions, mentored projects, placement-track.",
+      "Contract and full-time technical hires across cloud, data, AI/ML, cybersecurity, and software — pre-vetted and submitted in days.",
   },
   {
-    Icon: Zap,
-    title: "Place",
+    Icon: Briefcase,
+    title: "Job Marketing",
     description:
-      "Pre-vetted AI engineers in 7–10 days. AI-driven sourcing, semantic matching, predictive fit scoring.",
+      "A dedicated recruiter, resumes tailored per role, and 25–35 applications sent daily on your behalf across core and unsaturated tracks.",
   },
   {
-    Icon: Rocket,
-    title: "Build",
+    Icon: Bot,
+    title: "AI Services",
     description:
-      "B2B AI products shipped to real customers — proof of what our trained-and-placed engineers deliver.",
+      "AI receptionists, chatbots, lead generation, automation, reviews, websites, and dashboards — built for your business and run for you.",
   },
 ];
 
@@ -36,19 +36,19 @@ export function WelcomeSection() {
               Welcome to Globixs
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
-              We&apos;re a Seattle-based firm with three coordinated pillars: Globixs Academy trains US graduates in production AI engineering, our staffing arm places them with enterprise and mid-market teams that need AI systems without the cost of a full in-house bench, and our products group ships B2B AI software built by the same engineers between client engagements. Senior consultants and mentors run the work; AI agents handle the scale.
+              We&apos;re a Seattle-based technology firm running three service lines. Businesses hire us to staff their technical teams with pre-vetted contract and full-time engineers, or to build and run the AI systems that answer their calls, fill their pipeline, and automate the busywork. Job seekers hire us to market them into their next role. Senior consultants and recruiters run the work; AI agents handle the scale.
             </p>
             <p className="mt-7 text-base font-semibold text-heading">
-              The three pillars we run:
+              The three service lines we run:
             </p>
             <div className="mt-4 grid gap-5 sm:grid-cols-3">
-              {pillars.map((pillar) => (
-                <article key={pillar.title} className="premium-card p-5">
+              {serviceLines.map((line) => (
+                <article key={line.title} className="premium-card p-5">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
-                    <pillar.Icon size={20} className="text-accent" aria-hidden="true" />
+                    <line.Icon size={20} className="text-accent" aria-hidden="true" />
                   </div>
-                  <h3 className="mt-3 text-base font-semibold text-heading">{pillar.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{pillar.description}</p>
+                  <h3 className="mt-3 text-base font-semibold text-heading">{line.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{line.description}</p>
                 </article>
               ))}
             </div>
