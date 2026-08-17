@@ -176,7 +176,7 @@ export default function AIServicesPage() {
       </section>
 
       {/* ══════════ HOW IT WORKS ══════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle

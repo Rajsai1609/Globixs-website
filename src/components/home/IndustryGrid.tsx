@@ -51,7 +51,7 @@ const industries: Industry[] = [
 
 export function IndustryGrid() {
   return (
-    <section className="section-pad bg-surface">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle

@@ -55,7 +55,7 @@ const steps: Step[] = [
 
 export function Process() {
   return (
-    <section id="process" className="section-pad bg-surface">
+    <section id="process" className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle

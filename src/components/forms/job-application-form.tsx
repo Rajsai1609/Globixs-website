@@ -181,7 +181,7 @@ export function JobApplicationForm({ jobId }: Props) {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm font-medium text-foreground hover:border-brand hover:bg-brandSoft/40"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-border bg-neutral px-4 py-3 text-sm font-medium text-foreground hover:border-brand hover:bg-brandSoft/40"
             >
               <FiUploadCloud className="text-brand" aria-hidden />
               {resumeName ? "Change Resume" : "Upload Resume"}

@@ -120,7 +120,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ══════════ AVAILABLE NOW ══════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -249,7 +249,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ══════════ HOW WE BUILD ══════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle

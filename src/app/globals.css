@@ -15,7 +15,8 @@
   --heading:    #2e3438;   /* dark slate headings */
   --muted:      #6b7280;   /* small slate captions */
 
-  --surface:    #fdf3f3;   /* light red-tinted panel */
+  --surface:    #fdf3f3;   /* light red tint — highlight CARDS/PANELS only */
+  --neutral:    #fafafa;   /* section alternation — keeps pages from reading flat */
   --border:     #e7e2e2;   /* thin light card border */
 
   --brand:      #c8262c;   /* primary red — CTAs, figures, badges */
@@ -32,6 +33,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
+  --color-neutral: var(--neutral);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-heading: var(--heading);
@@ -87,6 +89,12 @@ h6 {
 
 .section-pad {
   @apply py-20 sm:py-24;
+}
+
+/* Alternating section background. Neutral, NOT the red tint — the brochure
+   reserves #FDF3F3 for highlight cards and panels (.tint-panel). */
+.section-alt {
+  @apply bg-neutral;
 }
 
 /* ── Surfaces ────────────────────────────────────────────────────────────

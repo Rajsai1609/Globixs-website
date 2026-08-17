@@ -255,7 +255,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 3 · TWO TRACKS ══════════════════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle eyebrow="CHOOSE YOUR TRACK" title="Two ways in. Same managed pipeline." />
@@ -342,7 +342,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 5 · OUR COMMITMENT ══════════════════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle eyebrow="OUR COMMITMENT TO YOU" title="What you get, every week." />
@@ -417,7 +417,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 9 · FAQ ══════════════════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle eyebrow="FAQ" title="Common questions" />

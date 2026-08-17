@@ -27,7 +27,7 @@ const principles: Principle[] = [
 
 export function Principles() {
   return (
-    <section className="section-pad bg-surface">
+    <section className="section-pad section-alt">
       <div className="container-shell">
         <Reveal>
           <SectionTitle eyebrow="WHY GLOBIXS" title="How we're different" />

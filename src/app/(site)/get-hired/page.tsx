@@ -231,7 +231,7 @@ export default function GetHiredPage() {
       </section>
 
       {/* ══════════════════════════ HOW IT WORKS ══════════════════════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -329,7 +329,7 @@ export default function GetHiredPage() {
       </section>
 
       {/* ══════════════════════════ WHAT WE'VE PLACED ══════════════════════════ */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad section-alt">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
@@ -377,7 +377,7 @@ export default function GetHiredPage() {
       </section>
 
       {/* ══════════════════════════ CONTACT FORM ══════════════════════════ */}
-      <section id="talk-to-recruiter" className="section-pad bg-brandSoft">
+      <section id="talk-to-recruiter" className="section-pad section-alt">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">
