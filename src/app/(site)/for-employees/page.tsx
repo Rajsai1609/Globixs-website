@@ -1,466 +1,481 @@
 import type { Metadata } from "next";
-import {
-  DollarSign,
-  Users,
-  Globe,
-  Sparkles,
-  TrendingUp,
-  Award,
-  FileText,
-  MessageCircle,
-  Wand2,
-  Target,
-  CheckCircle,
-  Layers,
-  type LucideIcon,
-} from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
-import { GetHiredFAQ } from "@/components/get-hired/faq-accordion";
-import { GetHiredForm } from "@/components/forms/get-hired-form";
+import { StickyRegister } from "@/components/for-employees/sticky-register";
 
 export const metadata: Metadata = {
-  title: "Job Marketing for Candidates",
+  // `absolute` so the root layout's "%s | Globixs Technology Solutions"
+  // template doesn't append a second brand suffix.
+  title: { absolute: "Full-Time Job Marketing for Candidates | Globixs" },
   description:
-    "A dedicated recruiter delivering 25–35 tailored applications a day. Resume rewritten per application, core technology tracks plus an unsaturated roles track. Free recruiter-led placement for engineers, data scientists, and IT professionals across the US — F-1, OPT, STEM OPT, H1B, green card, and US citizens.",
+    "25–35 tailored applications every business day by a dedicated recruiter. From sign-up to placement — one managed pipeline. Core tech tracks + unsaturated roles.",
 };
 
-type Card = { Icon: LucideIcon; title: string; description: string };
+/* ── Data ──────────────────────────────────────────────────────────────── */
 
-/* The service, in the order it's sold: who runs it, what they send,
-   how much, and across which tracks. Mirrors the homepage card. */
-const whatYouGet: Card[] = [
+type Step = { num: string; title: string; desc: string };
+
+const pipelineSteps: Step[] = [
   {
-    Icon: Users,
-    title: "A dedicated recruiter",
-    description:
-      "One named recruiter owns your search end to end — not a rotating queue. They learn your background, target roles, and visa situation, then work your pipeline daily and stay reachable throughout.",
+    num: "1",
+    title: "You Join Globixs",
+    desc: "Onboarding call, signed service agreement, dedicated account setup.",
   },
   {
-    Icon: Wand2,
-    title: "A resume tailored per application",
-    description:
-      "Every submission gets its own version of your resume, rewritten against that specific job description for ATS keywords and relevance. No single generic PDF sprayed at hundreds of postings.",
+    num: "2",
+    title: "Deep Resume Analysis",
+    desc: "AI engine plus a human strategist. A full written report — not just a score.",
   },
   {
-    Icon: Target,
-    title: "25–35 applications a day",
-    description:
-      "We submit at a volume no individual job seeker can match by hand, every working day — so your profile is in front of hiring teams while roles are still open, not three weeks after they post.",
+    num: "3",
+    title: "Master Resume Rebuild",
+    desc: "ATS-optimized and keyword-aligned — the base every application is tailored from.",
   },
   {
-    Icon: Layers,
-    title: "Core tracks + unsaturated roles",
-    description:
-      "Core technology tracks cover software, data, cloud, and AI/ML. The unsaturated roles track targets Networks, Datacenters, IT Support, Embedded, and Robotics — faster interviews, less competition.",
+    num: "4",
+    title: "Recommended Role Tracks",
+    desc: "3–4 locked target tracks agreed with you. No spray-and-pray.",
   },
 ];
 
-const whoWeHelp: Card[] = [
+const sourcingItems = [
   {
-    Icon: Sparkles,
-    title: "Entry-level & New Graduates",
-    description:
-      "F-1 students on OPT, STEM OPT extensions, and recent grads looking for their first US tech role. We focus on companies with strong sponsorship histories and new-grad-friendly programs.",
+    label: "Automated scraper",
+    detail: "ATS boards · LinkedIn · Indeed · Glassdoor · company career pages",
   },
   {
-    Icon: TrendingUp,
-    title: "Mid-level Professionals (3–7 years)",
-    description:
-      "Engineers, data scientists, and analysts ready for the next step. We match you to roles where your specific stack and domain experience are exactly what the team is hiring for.",
-  },
-  {
-    Icon: Award,
-    title: "Senior & Staff-level (8+ years)",
-    description:
-      "Senior ICs, tech leads, and architects looking for high-impact roles at companies that respect senior judgment. We handle confidential searches and direct-hire negotiations.",
+    label: "Vendor & client network",
+    detail: "Roles that never reach public job boards",
   },
 ];
 
-type TimelineStep = { Icon: LucideIcon; title: string; description: string };
+const weDo = [
+  "Deep resume analysis",
+  "Master resume rebuild",
+  "Role track strategy",
+  "Daily sourcing — scraper + vendor network",
+  "Role shortlisting",
+  "Per-job resume tailoring",
+  "Application submission",
+  "Follow-up tracking",
+  "Weekly reporting",
+  "Interview & offer support",
+];
 
-const howItWorks: TimelineStep[] = [
+const youDo = [
+  "Show up to your interviews",
+  "Stay reachable on email",
+  "Give us feedback on roles",
+];
+
+const commitments = [
+  { value: "25–35", label: "tailored applications every business day" },
+  { value: "1", label: "dedicated recruiter assigned to you" },
+  { value: "Weekly", label: "written report on every application" },
+  { value: "Daily", label: "fresh listings — applied while still new" },
+  { value: "Monthly", label: "no lock-in, cancel anytime" },
+];
+
+const audience = [
+  "New grads & recent MS",
+  "Experienced professionals",
+  "Visa holders (F-1 / OPT / STEM OPT / H-1B / GC)",
+  "Career switchers into tech",
+];
+
+const faqs = [
   {
-    Icon: FileText,
-    title: "Submit your resume (5 minutes)",
-    description:
-      "Send us your resume and a quick note about what you're looking for — role type, target salary, location, visa status. We respond within 48 hours with an honest assessment of where you fit.",
+    q: "Isn't this just an AI auto-apply bot?",
+    a: "No. A named human recruiter is assigned to you and reviews and submits every application personally.",
   },
   {
-    Icon: MessageCircle,
-    title: "Intake call with a recruiter (30 minutes)",
-    description:
-      "If we think we can place you, we schedule a call. We'll go deep on your skills, target companies, and walk you through which open roles you'd be competitive for right now.",
+    q: "Will my resume be spammed everywhere?",
+    a: "No. Only roles matching your locked tracks, with a resume tailored to each job description.",
   },
   {
-    Icon: Wand2,
-    title: "Resume optimization & profile prep",
-    description:
-      "Our team rewrites your resume for ATS keywords and clarity, and coaches you on LinkedIn positioning, GitHub presence, and answers for the questions you'll get in screens.",
+    q: "What if I'm on a visa?",
+    a: "We work with F-1 / OPT / STEM OPT, H-1B transfer and GC candidates across all tech domains.",
   },
   {
-    Icon: Target,
-    title: "Submission to matched roles",
-    description:
-      "We submit your profile directly to hiring managers at companies actively interviewing — not job-board black holes. You see every submission, and you approve every one before it goes out.",
+    q: "Do you attend interviews for me?",
+    a: "Never. You attend every interview yourself. We prepare you thoroughly — that is where our role ends.",
   },
   {
-    Icon: Users,
-    title: "Interview prep at every stage",
-    description:
-      "Recruiter screen prep, technical interview prep, system-design walkthroughs, and behavioral coaching. We work the process with you all the way to the offer.",
+    q: "How fast do applications start?",
+    a: "Sourcing begins within 3 business days of your master resume rebuild.",
   },
   {
-    Icon: CheckCircle,
-    title: "Offer negotiation & placement",
-    description:
-      "When the offer comes, we help you negotiate base, equity, sign-on, and start date. Our recruiters know what each company actually pays — not what they post on the JD.",
+    q: "Do you guarantee a job?",
+    a: "No, and no honest service can. Employers make hiring decisions. We guarantee the work, and we show you all of it.",
   },
 ];
 
-type Cell = { good: boolean; text: string };
-type CompRow = { category: string; jobBoards: Cell; paidServices: Cell; globixs: Cell };
-
-const comparisonRows: CompRow[] = [
-  {
-    category: "Cost to candidate",
-    jobBoards:    { good: true,  text: "Free" },
-    paidServices: { good: false, text: "$2,000–$10,000+ upfront" },
-    globixs:      { good: true,  text: "Free, always" },
-  },
-  {
-    category: "Resume help",
-    jobBoards:    { good: false, text: "None" },
-    paidServices: { good: false, text: "Templated, generic" },
-    globixs:      { good: true,  text: "Personalized rewrite by recruiters" },
-  },
-  {
-    category: "Interview prep",
-    jobBoards:    { good: false, text: "None" },
-    paidServices: { good: false, text: "Group sessions, generic" },
-    globixs:      { good: true,  text: "1-on-1 with recruiters who know the company" },
-  },
-  {
-    category: "Submission method",
-    jobBoards:    { good: false, text: "Apply yourself, hope someone reads it" },
-    paidServices: { good: false, text: "Same job-board approach" },
-    globixs:      { good: true,  text: "Direct to hiring manager via our network" },
-  },
-  {
-    category: "Salary negotiation",
-    jobBoards:    { good: false, text: "You're on your own" },
-    paidServices: { good: false, text: "Sometimes, with extra fee" },
-    globixs:      { good: true,  text: "Always included, free" },
-  },
-  {
-    category: "Refund / risk",
-    jobBoards:    { good: false, text: "N/A" },
-    paidServices: { good: false, text: "Often non-refundable" },
-    globixs:      { good: true,  text: "No money at risk — ever" },
-  },
-];
-
-const placementStats = [
-  { value: "50+",        label: "Total placements to date" },
-  { value: "All levels", label: "Entry-level to staff engineer" },
-  { value: "All visas",  label: "F-1, OPT, STEM OPT, H1B, GC, US" },
-  { value: "$0",         label: "Cost to every candidate placed" },
-];
-
-function TableCell({ good, text }: Cell) {
+/* Shared CTA pair. Both targets are static pages in public/ (join.html,
+   register.html) — plain anchors, not next/link. */
+function RegisterButtons({ onDark = false }: { onDark?: boolean }) {
   return (
-    <span className="flex items-start gap-1.5">
-      <span
-        className={`mt-px shrink-0 font-bold ${good ? "text-emerald-500" : "text-slate-300"}`}
-        aria-hidden="true"
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="/join"
+        className={
+          onDark
+            ? "rounded-lg bg-white px-8 py-4 text-sm font-semibold text-blue-900 shadow transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            : "btn-primary"
+        }
       >
-        {good ? "✓" : "✗"}
-      </span>
-      <span>{text}</span>
-    </span>
+        Register — Core Tech Tracks
+      </a>
+      <a
+        href="/register"
+        className={
+          onDark
+            ? "rounded-lg border-2 border-white bg-transparent px-8 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-blue-900"
+            : "btn-secondary"
+        }
+      >
+        Register — Unsaturated Roles
+      </a>
+    </div>
   );
 }
+
+/* ── Page ──────────────────────────────────────────────────────────────── */
 
 export default function ForEmployeesPage() {
   return (
     <div>
-      {/* ══════════════════════════ HERO ══════════════════════════ */}
+      {/* ══════════════════════ 1 · HERO ══════════════════════ */}
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">
-              (02) For Candidates
+              (02) For Candidates · FULL-TIME JOB MARKETING — HOW IT WORKS
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Job Marketing for Candidates
+              From sign-up to placement. One managed pipeline.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              A dedicated recruiter delivering 25–35 tailored applications a day.
+              All tech domains, all experience levels — AI/ML, Data, Cybersecurity, Cloud and
+              Software roles, across every industry hiring for them. For new grads, experienced
+              professionals, visa holders and career switchers.
             </p>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-400">
-              Globixs has placed 50+ engineers, analysts, and data scientists into full-time and
-              contract roles across the US — F-1 students, OPT/STEM OPT, H1B holders, green card
-              holders, and US citizens. Our recruiters are paid by the companies hiring you, so you
-              pay nothing, ever. No upfront fees, no hidden charges, no bootcamp scams.
-            </p>
-            {/* Static pages in public/ (join.html, register.html) — plain
-                anchors, not next/link. */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a href="/join" className="btn-primary">
-                Register — Core Tech Tracks
-              </a>
-              <a href="/register" className="btn-secondary">
-                Register — Unsaturated Roles
-              </a>
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-slate-300">
-              <span className="flex items-center gap-2">
-                <DollarSign size={15} className="text-sky-300" aria-hidden="true" />
-                $0 candidate fees, ever
-              </span>
-              <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden="true" />
-              <span className="flex items-center gap-2">
-                <Users size={15} className="text-sky-300" aria-hidden="true" />
-                50+ placements across the US
-              </span>
-              <span className="hidden h-4 w-px bg-white/20 sm:block" aria-hidden="true" />
-              <span className="flex items-center gap-2">
-                <Globe size={15} className="text-sky-300" aria-hidden="true" />
-                All visa statuses welcome
-              </span>
-            </div>
+            <RegisterButtons onDark />
           </Reveal>
         </div>
       </section>
 
-      {/* ══════════════════════════ WHAT YOU GET ══════════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
+      {/* ══════════════════════ 2 · SIX-STEP PIPELINE ══════════════════════ */}
+      <section id="pipeline" className="section-pad">
         <div className="container-shell">
           <Reveal>
             <SectionTitle
-              eyebrow="What The Service Is"
-              title="A recruiter marketing you into your next role."
-              description="Job marketing is not a job board and not a course. We run your search for you — here's exactly what that means."
+              eyebrow="THE PIPELINE"
+              title="Six steps, start to finish."
+              description="Every candidate runs the same managed process — built around a dedicated recruiter, not a job board."
             />
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {whatYouGet.map((card, idx) => (
-              <Reveal key={card.title} delay={idx * 70}>
-                <article className="premium-card flex h-full flex-col p-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
-                    <card.Icon size={22} className="text-accent" aria-hidden="true" />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {/* Steps 1–4 */}
+            {pipelineSteps.map((step, idx) => (
+              <Reveal key={step.num} delay={idx * 70}>
+                <article className="premium-card flex h-full gap-5 p-8">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 text-base font-bold text-white">
+                    {step.num}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-bold text-heading">{step.title}</h3>
+                    <p className="mt-2 text-base leading-7 text-slate-600">{step.desc}</p>
                   </div>
-                  <h3 className="mt-4 text-base font-semibold text-heading">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
                 </article>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ══════════════════════════ WHO WE HELP ══════════════════════════ */}
-      <section className="section-pad">
-        <div className="container-shell">
-          <Reveal>
-            <SectionTitle
-              eyebrow="Who We Place"
-              title="We help technical talent at every level."
-              description="Whether you're three months from graduation or have a decade of senior experience, we work with candidates across the spectrum."
-            />
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {whoWeHelp.map((card, idx) => (
-              <Reveal key={card.title} delay={idx * 80}>
-                <article className="premium-card p-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
-                    <card.Icon size={22} className="text-accent" aria-hidden="true" />
-                  </div>
-                  <h3 className="mt-4 text-base font-semibold text-heading">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════ HOW IT WORKS ══════════════════════════ */}
-      <section className="section-pad bg-black/[0.03]">
-        <div className="container-shell">
-          <Reveal>
-            <SectionTitle
-              eyebrow="Our Process"
-              title="From resume to offer in 4–8 weeks."
-              description="A real process, not vague promises. Here's exactly what happens after you submit your resume."
-            />
-          </Reveal>
-          <div className="mx-auto mt-12 max-w-3xl">
-            {howItWorks.map((step, idx) => (
-              <Reveal key={step.title} delay={idx * 60}>
-                <div className="flex gap-6 pb-10 last:pb-0">
-                  <div className="flex flex-col items-center">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
-                      {idx + 1}
-                    </div>
-                    {idx < howItWorks.length - 1 && (
-                      <div className="mt-2 w-px flex-1 bg-border" style={{ minHeight: "1.5rem" }} />
-                    )}
-                  </div>
-                  <div className="pb-2 pt-1.5">
-                    <div className="flex items-center gap-2.5">
-                      <step.Icon size={18} className="shrink-0 text-accent" aria-hidden="true" />
-                      <h3 className="text-base font-semibold text-heading">{step.title}</h3>
-                    </div>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{step.description}</p>
-                  </div>
+            {/* Step 5 — light red-tinted panel */}
+            <Reveal delay={280}>
+              <article className="flex h-full gap-5 rounded-2xl border border-red-100 bg-red-50 p-8">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 text-base font-bold text-white">
+                  5
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-bold text-heading">Daily Role Sourcing</h3>
+                  <ul className="mt-4 space-y-3">
+                    {sourcingItems.map((item) => (
+                      <li key={item.label}>
+                        <p className="text-sm font-semibold text-heading">{item.label}</p>
+                        <p className="mt-0.5 text-sm leading-6 text-slate-600">{item.detail}</p>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 inline-block rounded-lg border border-dashed border-red-300 px-4 py-2 text-sm text-slate-700">
+                    <span className="font-semibold text-heading">Qualified daily pool</span> — Every
+                    role mapped to your tracks
+                  </p>
                 </div>
-              </Reveal>
-            ))}
+              </article>
+            </Reveal>
+
+            {/* Step 6 — dark slate panel */}
+            <Reveal delay={350}>
+              <article className="flex h-full gap-5 rounded-2xl bg-slate-800 p-8 text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-600 text-base font-bold text-white">
+                  6
+                </span>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    HUMAN IN THE LOOP — NOT AUTOMATION
+                  </p>
+                  <h3 className="mt-2 text-lg font-bold text-white">Your Recruiter Applies</h3>
+                  <p className="mt-4 text-4xl font-bold text-red-500 sm:text-5xl">25–35</p>
+                  <p className="mt-1 text-sm font-semibold text-slate-200">
+                    tailored applications for you, every business day
+                  </p>
+                  <p className="mt-4 text-base leading-7 text-slate-300">
+                    Hand-picked, resume-matched roles. A resume tailored for every job description.
+                    You focus on interviews — we handle everything before that.
+                  </p>
+                </div>
+              </article>
+            </Reveal>
+          </div>
+
+          {/* Slim outcome strip */}
+          <Reveal delay={420}>
+            <div className="mt-8 rounded-2xl border border-border bg-surface px-8 py-6 text-center">
+              <p className="text-lg font-bold text-heading">
+                Interviews → Offers → Placement
+              </p>
+              <p className="mt-2 text-sm text-muted">
+                Dedicated recruiter per candidate · Tailored resume per application · Full-time
+                roles only · All tech domains
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════════════════ 3 · TWO TRACKS ══════════════════════ */}
+      <section className="section-pad bg-black/[0.03]">
+        <div className="container-shell">
+          <Reveal>
+            <SectionTitle eyebrow="CHOOSE YOUR TRACK" title="Two ways in. Same managed pipeline." />
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <Reveal>
+              <article className="premium-card flex h-full flex-col p-8">
+                <h3 className="text-xl font-bold text-heading">Core Tech Tracks</h3>
+                <p className="mt-3 flex-1 text-base leading-7 text-slate-600">
+                  AI/ML · Data · Cloud/DevOps · Cybersecurity · Software · Product. Compete in the
+                  biggest markets with a full team behind you.
+                </p>
+                <div className="mt-6">
+                  <a href="/join" className="btn-primary">
+                    Register — Core Tech Tracks
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <article className="premium-card flex h-full flex-col p-8">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-heading">Unsaturated Roles Track</h3>
+                  <span className="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-white">
+                    New
+                  </span>
+                </div>
+                <p className="mt-3 flex-1 text-base leading-7 text-slate-600">
+                  Networks · Datacenters · IT Support · Embedded · Robotics. High-demand,
+                  low-competition roles with faster interviews and faster offers.
+                </p>
+                <div className="mt-6">
+                  <a href="/register" className="btn-primary">
+                    Register — Unsaturated Roles
+                  </a>
+                </div>
+              </article>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════ COMPARISON TABLE ══════════════════════════ */}
+      {/* ══════════════════════ 4 · WHAT WE DO / WHAT YOU DO ══════════════════════ */}
       <section className="section-pad">
         <div className="container-shell">
-          <Reveal>
-            <SectionTitle
-              eyebrow="Why We're Different"
-              title="Job boards, bootcamps, and us."
-              description="Most job-search options either give you nothing for free or take thousands of dollars upfront. Here's how Globixs compares."
-            />
-          </Reveal>
-          <Reveal delay={80}>
-            <div className="mt-10 overflow-x-auto rounded-2xl border border-border">
-              <table className="w-full min-w-[640px] border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-border bg-surface">
-                    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-muted">
-                      Category
-                    </th>
-                    <th className="px-5 py-4 text-left font-semibold text-heading">
-                      Job Boards
-                      <span className="ml-1.5 text-xs font-normal text-muted">(LinkedIn, Indeed)</span>
-                    </th>
-                    <th className="px-5 py-4 text-left font-semibold text-heading">
-                      Paid Career Services
-                      <span className="block text-xs font-normal text-muted">Bootcamps &amp; coaches</span>
-                    </th>
-                    <th className="border-l-2 border-accent bg-accent/5 px-5 py-4 text-left font-semibold text-accent">
-                      Globixs
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonRows.map((row, idx) => (
-                    <tr
-                      key={row.category}
-                      className={`border-b border-border last:border-0 ${
-                        idx % 2 === 1 ? "bg-black/[0.025]" : "bg-white"
-                      }`}
-                    >
-                      <td className="px-5 py-4 text-xs font-semibold uppercase tracking-wide text-muted">
-                        {row.category}
-                      </td>
-                      <td className="px-5 py-4 text-slate-600">
-                        <TableCell {...row.jobBoards} />
-                      </td>
-                      <td className="px-5 py-4 text-slate-600">
-                        <TableCell {...row.paidServices} />
-                      </td>
-                      <td className="border-l-2 border-accent bg-accent/5 px-5 py-4 font-medium text-slate-700">
-                        <TableCell {...row.globixs} />
-                      </td>
-                    </tr>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-2xl border border-red-100 bg-red-50 p-8">
+                <h3 className="text-xl font-bold text-heading">What we do</h3>
+                <ul className="mt-5 space-y-3">
+                  {weDo.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        className="mt-1.5 h-2 w-2 shrink-0 bg-red-600"
+                        aria-hidden="true"
+                      />
+                      <span className="text-base leading-7 text-slate-700">{item}</span>
+                    </li>
                   ))}
-                </tbody>
-              </table>
-            </div>
-          </Reveal>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <div className="premium-card h-full bg-white p-8">
+                <h3 className="text-xl font-bold text-heading">What you do</h3>
+                <ul className="mt-5 space-y-3">
+                  {youDo.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        className="mt-1.5 h-2 w-2 shrink-0 bg-red-600"
+                        aria-hidden="true"
+                      />
+                      <span className="text-base leading-7 text-slate-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* ══════════════════════════ WHAT WE'VE PLACED ══════════════════════════ */}
+      {/* ══════════════════════ 5 · OUR COMMITMENT ══════════════════════ */}
       <section className="section-pad bg-black/[0.03]">
         <div className="container-shell">
           <Reveal>
-            <SectionTitle
-              eyebrow="Real Outcomes"
-              title="50+ placements across the US tech market."
-              description="Real candidates, real offers. Here's what our placement mix looks like."
-            />
+            <SectionTitle eyebrow="OUR COMMITMENT TO YOU" title="What you get, every week." />
           </Reveal>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {placementStats.map((stat, idx) => (
-              <Reveal key={stat.label} delay={idx * 70}>
-                <div className="enterprise-panel p-6 text-center">
-                  <p className="text-3xl font-bold text-heading">{stat.value}</p>
-                  <p className="mt-1 text-sm text-muted">{stat.label}</p>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {commitments.map((stat, idx) => (
+              <Reveal key={stat.label} delay={idx * 60}>
+                <div className="enterprise-panel h-full p-6 text-center">
+                  <p className="text-3xl font-bold text-red-600">{stat.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">{stat.label}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-          <Reveal delay={100}>
-            <p className="mt-8 max-w-3xl text-base leading-7 text-slate-600">
-              Our placements span cloud engineering, data engineering, AI/ML, full-stack development,
-              DevOps, and cybersecurity roles — at startups, mid-market companies, and Fortune 500
-              enterprises across the US. We don&apos;t share specific candidate or company names
-              without permission, but we&apos;re happy to walk you through anonymized case studies on
-              a call.
+        </div>
+      </section>
+
+      {/* ══════════════════════ 6 · WHO THIS IS FOR ══════════════════════ */}
+      <section className="section-pad">
+        <div className="container-shell">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              WHO THIS IS FOR
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {audience.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-heading"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════════════════ 7 · TRANSPARENCY BAND ══════════════════════ */}
+      <section className="bg-slate-800 py-16 text-white md:py-20">
+        <div className="container-shell">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-2xl font-bold sm:text-3xl">Full transparency, every week.</p>
+            <p className="mt-5 text-base leading-8 text-slate-300">
+              You receive a weekly report showing every role we applied to, the tailored resume
+              used, and the current status of each application. You can verify our work — that is
+              the point.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ══════════════════════════ FAQ ══════════════════════════ */}
+      {/* ══════════════════════ 8 · PRICING ══════════════════════ */}
       <section className="section-pad">
         <div className="container-shell">
-          <Reveal>
-            <SectionTitle
-              eyebrow="Questions People Ask"
-              title="What's the catch?"
-              description="Honest answers to the questions every job seeker is thinking but doesn't always ask."
-            />
+          <Reveal className="mx-auto max-w-3xl">
+            <div className="rounded-2xl border-2 border-red-600 bg-white p-8 text-center lg:p-10">
+              <p className="text-4xl font-bold text-red-600 sm:text-5xl">
+                $349 <span className="text-xl font-semibold">/ per month</span>
+              </p>
+              <p className="mt-4 text-base font-bold text-heading">
+                Month-to-month. Cancel anytime with 5 business days&apos; notice.
+              </p>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                A placement fee of 10–12% of first-year base salary applies only if you accept an
+                offer we sourced — payable in up to four monthly installments after you start.
+                Everything is set out in a written service agreement before you pay anything.
+              </p>
+            </div>
           </Reveal>
-          <div className="mt-10 max-w-3xl">
-            <GetHiredFAQ />
+        </div>
+      </section>
+
+      {/* ══════════════════════ 9 · FAQ ══════════════════════ */}
+      <section className="section-pad bg-black/[0.03]">
+        <div className="container-shell">
+          <Reveal>
+            <SectionTitle eyebrow="FAQ" title="Common questions" />
+          </Reveal>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {faqs.map((faq, idx) => (
+              <Reveal key={faq.q} delay={idx * 60}>
+                <article className="premium-card h-full bg-white p-6">
+                  <h3 className="text-base font-bold text-heading">{faq.q}</h3>
+                  <p className="mt-2 text-base leading-7 text-slate-600">{faq.a}</p>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════ CONTACT FORM ══════════════════════════ */}
-      <section id="talk-to-recruiter" className="section-pad bg-brandSoft">
+      {/* ══════════════════════ 10 · FINAL CTA ══════════════════════ */}
+      <section id="register-cta" className="hero-mesh py-16 text-white md:py-24">
         <div className="container-shell">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-              Ready to Start?
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl">
-              Talk to a Globixs recruiter.
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Ready to start? Register your interest.
             </h2>
-            <p className="mt-5 text-base leading-7 text-muted">
-              Send us your resume and a quick note about what you&apos;re looking for. We respond
-              within 48 hours with an honest assessment — even if it&apos;s &ldquo;we&apos;re not the
-              right fit right now.&rdquo;
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              Our team will contact you within 24 hours to book your free 20-minute consultation.
             </p>
-            {/* Static pages in public/ (join.html, register.html) — plain
-                anchors, not next/link. */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a href="/join" className="btn-primary">
-                Register — Core Tech Tracks
+            <RegisterButtons onDark />
+            <p className="mt-8 text-sm text-slate-300">
+              Connect@globixs.com · +1 (206) 552-8424 · Book directly:{" "}
+              <a
+                href="https://tinyurl.com/2sfxn9w3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline hover:text-white"
+              >
+                tinyurl.com/2sfxn9w3
               </a>
-              <a href="/register" className="btn-secondary">
-                Register — Unsaturated Roles
-              </a>
-            </div>
-          </Reveal>
-          <Reveal delay={80} className="mx-auto mt-10 max-w-2xl">
-            <GetHiredForm />
+            </p>
           </Reveal>
         </div>
       </section>
+
+      {/* ══════════════════════ 11 · LEGAL ══════════════════════ */}
+      <section className="pb-12">
+        <div className="container-shell">
+          <p className="mx-auto max-w-4xl text-xs leading-6 text-gray-500">
+            Globixs Technology Solutions provides job application and marketing services. We do not
+            guarantee employment, interviews, offers or any particular salary; hiring decisions are
+            made solely by employers. All candidates attend their own interviews and assessments.
+            All resume content is based solely on information provided by the candidate. Full terms
+            are set out in the written service agreement provided before any payment is made.
+          </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════ 12 · STICKY REGISTER ══════════════════════ */}
+      <StickyRegister />
     </div>
   );
 }
