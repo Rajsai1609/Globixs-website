@@ -6,16 +6,20 @@ import { ChevronDown, ExternalLink } from "lucide-react";
 import { navLinks } from "@/lib/site-config";
 
 export function Navbar() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  // Tracks which dropdown is open by its href; null = all closed.
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRefs = useRef<Map<string, HTMLDivElement | null>>(new Map());
 
-  const closeDropdown = useCallback(() => setDropdownOpen(false), []);
+  const closeDropdown = useCallback(() => setOpenDropdown(null), []);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        closeDropdown();
-      }
+      const target = e.target as Node;
+      let inside = false;
+      dropdownRefs.current.forEach((el) => {
+        if (el?.contains(target)) inside = true;
+      });
+      if (!inside) closeDropdown();
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -46,23 +50,26 @@ export function Navbar() {
         <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex">
           {navLinks.map((item) => {
             if (item.dropdown) {
+              const isOpen = openDropdown === item.href;
               return (
                 <div
                   key={item.href}
-                  ref={dropdownRef}
+                  ref={(el) => {
+                    if (el) dropdownRefs.current.set(item.href, el);
+                    else dropdownRefs.current.delete(item.href);
+                  }}
                   className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
                 >
                   <button
+                    type="button"
                     aria-haspopup="true"
-                    aria-expanded={dropdownOpen}
-                    onClick={() => setDropdownOpen((v) => !v)}
+                    aria-expanded={isOpen}
+                    onClick={() => setOpenDropdown(isOpen ? null : item.href)}
                     onKeyDown={(e) => {
                       if (e.key === "Escape") closeDropdown();
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
-                        setDropdownOpen((v) => !v);
+                        setOpenDropdown(isOpen ? null : item.href);
                       }
                     }}
                     className="flex items-center gap-1 text-sm font-medium text-foreground transition hover:text-accent"
@@ -71,43 +78,41 @@ export function Navbar() {
                     <ChevronDown
                       size={14}
                       aria-hidden="true"
-                      className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                      className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                     />
                   </button>
 
-                  {dropdownOpen && (
-                    <div
-                      role="menu"
-                      className="absolute left-0 top-full mt-2 w-52 overflow-hidden rounded-xl border border-border bg-white shadow-lg"
-                    >
-                      {item.children?.map((child) =>
-                        child.external ? (
-                          <a
-                            key={child.href}
-                            href={child.href}
-                            role="menuitem"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={closeDropdown}
-                            className="flex items-center gap-1.5 px-4 py-3 text-sm text-foreground transition hover:bg-surface hover:text-accent"
-                          >
-                            {child.label}
-                            <ExternalLink size={12} aria-hidden="true" className="ml-auto text-muted" />
-                          </a>
-                        ) : (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            role="menuitem"
-                            onClick={closeDropdown}
-                            className="block px-4 py-3 text-sm text-foreground transition hover:bg-surface hover:text-accent"
-                          >
-                            {child.label}
-                          </Link>
-                        )
-                      )}
-                    </div>
-                  )}
+                  <div
+                    role="menu"
+                    className={`absolute left-0 top-full mt-2 w-52 overflow-hidden rounded-xl border border-border bg-white shadow-lg ${isOpen ? "" : "pointer-events-none hidden"}`}
+                  >
+                    {item.children?.map((child) =>
+                      child.external ? (
+                        <a
+                          key={child.href}
+                          href={child.href}
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={closeDropdown}
+                          className="flex items-center gap-1.5 px-4 py-3 text-sm text-foreground transition hover:bg-surface hover:text-accent"
+                        >
+                          {child.label}
+                          <ExternalLink size={12} aria-hidden="true" className="ml-auto text-muted" />
+                        </a>
+                      ) : (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          role="menuitem"
+                          onClick={closeDropdown}
+                          className="block px-4 py-3 text-sm text-foreground transition hover:bg-surface hover:text-accent"
+                        >
+                          {child.label}
+                        </Link>
+                      )
+                    )}
+                  </div>
                 </div>
               );
             }
