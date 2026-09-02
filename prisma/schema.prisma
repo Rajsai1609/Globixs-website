@@ -8,21 +8,21 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
 model Service {
-  id          Int      @id @default(autoincrement())
-  slug        String   @unique
-  title       String
-  shortDesc   String
-  longDesc    String
-  category    String
-  icon        String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  title     String
+  shortDesc String
+  longDesc  String
+  category  String
+  icon      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Industry {
@@ -50,48 +50,48 @@ enum ApplicationStatus {
 }
 
 model Job {
-  id          Int        @id @default(autoincrement())
-  slug        String     @unique
-  title       String
-  location    String
+  id             Int       @id @default(autoincrement())
+  slug           String    @unique
+  title          String
+  location       String
   employmentType String
-  summary     String
-  description String
-  requirements String
-  status      JobStatus  @default(DRAFT)
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  summary        String
+  description    String
+  requirements   String
+  status         JobStatus @default(DRAFT)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
   applications JobApplication[]
 }
 
 model JobApplication {
-  id           Int               @id @default(autoincrement())
-  jobId        Int?
-  job          Job?              @relation(fields: [jobId], references: [id], onDelete: SetNull)
-  fullName     String
-  email        String
-  phone        String?
-  resumeUrl    String
-  message      String?
-  status       ApplicationStatus @default(NEW)
-  reviewNotes  String?
-  reviewedAt   DateTime?
-  createdAt    DateTime          @default(now())
+  id          Int               @id @default(autoincrement())
+  jobId       Int?
+  job         Job?              @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  fullName    String
+  email       String
+  phone       String?
+  resumeUrl   String
+  message     String?
+  status      ApplicationStatus @default(NEW)
+  reviewNotes String?
+  reviewedAt  DateTime?
+  createdAt   DateTime          @default(now())
 }
 
 model ResumeSubmission {
-  id         Int      @id @default(autoincrement())
-  fullName   String
-  email      String
-  phone      String?
-  resumeUrl  String
-  message    String?
-  createdAt  DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  fullName  String
+  email     String
+  phone     String?
+  resumeUrl String
+  message   String?
+  createdAt DateTime @default(now())
 }
 
 model GetHiredSubmission {
-  id                Int      @id @default(autoincrement())
+  id                Int       @id @default(autoincrement())
   fullName          String
   email             String
   phone             String?
@@ -101,49 +101,61 @@ model GetHiredSubmission {
   targetRoles       String
   resumeUrl         String
   message           String?
-  createdAt         DateTime @default(now())
+  createdAt         DateTime  @default(now())
+  // Triage state for /admin/contacts — team-only, never surfaced publicly.
+  handled           Boolean   @default(false)
+  handledAt         DateTime?
+  notes             String?
+
+  @@index([handled, createdAt])
 }
 
 model ContactSubmission {
-  id           Int      @id @default(autoincrement())
-  fullName     String
-  company      String?
-  email        String
-  phone        String?
+  id              Int       @id @default(autoincrement())
+  fullName        String
+  company         String?
+  email           String
+  phone           String?
   serviceInterest String?
-  message      String
-  createdAt    DateTime @default(now())
+  message         String
+  createdAt       DateTime  @default(now())
+  // Triage state for /admin/contacts — team-only, never surfaced publicly.
+  handled         Boolean   @default(false)
+  handledAt       DateTime?
+  notes           String?
+
+  @@index([handled, createdAt])
 }
 
 // ── Live customer results feed (/results, /for-employees) ──────────────────
 
 model CustomerResult {
-  id         String   @id @default(cuid())
-  slug       String   @unique                 // "workday-consultant-aug-2026"
-  headline   String                           // "30 days, 3 employer calls"
-  profile    String                           // "Workday/HCM consultant, 6+ yrs"
-  track      ResultTrack @default(CORE_TECH)
-  joinedAt   DateTime                         // day 0 — drives "day N with Globixs"
-  story      String   @db.Text                // markdown, 2–3 paragraphs
-  consentAt  DateTime?                        // null = never publishable
-  published  Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  responses  EmployerResponse[]
+  id        String             @id @default(cuid())
+  slug      String             @unique // "workday-consultant-aug-2026"
+  headline  String // "30 days, 3 employer calls"
+  profile   String // "Workday/HCM consultant, 6+ yrs"
+  track     ResultTrack        @default(CORE_TECH)
+  joinedAt  DateTime // day 0 — drives "day N with Globixs"
+  story     String             @db.Text // markdown, 2–3 paragraphs
+  consentAt DateTime? // null = never publishable
+  published Boolean            @default(false)
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  responses EmployerResponse[]
 
   @@index([published, createdAt])
 }
 
 model EmployerResponse {
-  id         String   @id @default(cuid())
+  id         String         @id @default(cuid())
   resultId   String
   result     CustomerResult @relation(fields: [resultId], references: [id], onDelete: Cascade)
-  company    String                           // "Southwest Airlines"
+  company    String // "Southwest Airlines"
   type       ResponseType
-  role       String?                          // "T&OS Analytics Consultant"
-  imagePath  String                           // path in Supabase bucket "results" — REDACTED file only
+  role       String? // "T&OS Analytics Consultant"
+  imagePath  String // path in Supabase bucket "results" — REDACTED file only
   receivedOn DateTime
-  createdAt  DateTime @default(now())
+  createdAt  DateTime       @default(now())
 
   @@index([receivedOn])
 }
