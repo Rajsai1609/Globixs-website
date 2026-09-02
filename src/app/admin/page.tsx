@@ -7,14 +7,20 @@ export default async function AdminHomePage() {
   let jobCount = 0;
   let openJobCount = 0;
   let applicationCount = 0;
+  let openEnquiryCount = 0;
   let dbUnavailable = false;
 
   try {
-    [jobCount, openJobCount, applicationCount] = await Promise.all([
+    let contactOpen = 0;
+    let getHiredOpen = 0;
+    [jobCount, openJobCount, applicationCount, contactOpen, getHiredOpen] = await Promise.all([
       prisma.job.count(),
       prisma.job.count({ where: { status: "OPEN" } }),
       prisma.jobApplication.count(),
+      prisma.contactSubmission.count({ where: { handled: false } }),
+      prisma.getHiredSubmission.count({ where: { handled: false } }),
     ]);
+    openEnquiryCount = contactOpen + getHiredOpen;
   } catch (error) {
     dbUnavailable = true;
     console.error("Admin dashboard DB fetch failed:", error);
@@ -32,7 +38,7 @@ export default async function AdminHomePage() {
         </p>
       ) : null}
 
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Total roles</p>
           <p className="mt-2 text-3xl font-bold text-slate-900">{jobCount}</p>
@@ -45,6 +51,13 @@ export default async function AdminHomePage() {
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Applications</p>
           <p className="mt-2 text-3xl font-bold text-slate-900">{applicationCount}</p>
+        </div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Unhandled enquiries</p>
+          <p className={`mt-2 text-3xl font-bold ${openEnquiryCount > 0 ? "text-brand" : "text-slate-900"}`}>
+            {openEnquiryCount}
+          </p>
+          <p className="mt-1 text-xs text-slate-500">Contact + Get Hired</p>
         </div>
       </div>
 
@@ -64,6 +77,16 @@ export default async function AdminHomePage() {
           <h3 className="text-lg font-semibold text-slate-900">Applications</h3>
           <p className="mt-2 text-sm text-slate-600">
             Compact list: pipeline stage and optional notes—role matches what they applied for.
+          </p>
+          <span className="mt-4 inline-block text-sm font-semibold text-brand">Open →</span>
+        </Link>
+        <Link
+          href="/admin/contacts"
+          className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand/30 hover:shadow-md"
+        >
+          <h3 className="text-lg font-semibold text-slate-900">Contacts</h3>
+          <p className="mt-2 text-sm text-slate-600">
+            Contact-form and Get Hired enquiries, with a handled toggle and internal notes.
           </p>
           <span className="mt-4 inline-block text-sm font-semibold text-brand">Open →</span>
         </Link>

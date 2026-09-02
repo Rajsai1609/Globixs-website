@@ -195,3 +195,41 @@ export async function updateApplication(formData: FormData) {
     redirect("/admin/applications?error=update_failed");
   }
 }
+
+/* ── Contact / Get Hired triage ─────────────────────────────────────────────
+   Two submission tables with the same triage shape, driven from
+   /admin/contacts. `_mode` picks between flipping the handled flag and
+   saving internal notes, mirroring updateApplication above.            */
+
+type TriageTable = "contact" | "gethired";
+
+function parseTriageTable(value: string): TriageTable | null {
+  return value === "contact" || value === "gethired" ? value : null;
+}
+
+export async function updateSubmission(formData: FormData) {
+  const table = parseTriageTable(String(formData.get("table") || ""));
+  const submissionId = Number(formData.get("submissionId"));
+  const mode = String(formData.get("_mode") || "handled");
+  const returnTo = String(formData.get("_returnTo") || "/admin/contacts");
+
+  if (!table || !Number.isFinite(submissionId)) return;
+
+  const data =
+    mode === "notes"
+      ? { notes: String(formData.get("notes") || "").trim() || null }
+      : { handled: formData.get("handled") === "true", handledAt: new Date() };
+
+  try {
+    if (table === "contact") {
+      await prisma.contactSubmission.update({ where: { id: submissionId }, data });
+    } else {
+      await prisma.getHiredSubmission.update({ where: { id: submissionId }, data });
+    }
+    revalidatePath("/admin/contacts");
+    revalidatePath("/admin");
+  } catch (error) {
+    console.error("updateSubmission failed:", error);
+    redirect(`${returnTo}${returnTo.includes("?") ? "&" : "?"}error=update_failed`);
+  }
+}
