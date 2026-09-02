@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getResultBySlug, getAllResults, RESPONSE_LABEL, daysBetween, imageUrl } from "@/lib/results";
 
@@ -9,6 +10,34 @@ export async function generateStaticParams() {
 }
 
 type Props = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const r = await getResultBySlug(slug);
+  if (!r) return { title: "Customer result" };
+
+  const companies = r.responses.map((x) => x.company);
+  const companyList = new Intl.ListFormat("en", { style: "long", type: "conjunction" }).format(companies);
+  const count = r.responses.length;
+  const title = `${r.headline} | Globixs Job Marketing`;
+  const description =
+    `${r.profile} — ${count} employer ${count === 1 ? "response" : "responses"}` +
+    `${companyList ? ` from ${companyList}` : ""}. Real emails, redacted and published with written permission.`;
+
+  // Absolute Supabase URL, so it does not depend on metadataBase. This is what
+  // LinkedIn and WhatsApp show when someone shares /30days.
+  const firstImage = r.responses[0] ? imageUrl(r.responses[0].imagePath) : undefined;
+  const images = firstImage
+    ? [{ url: firstImage, alt: `${companies[0]} — ${RESPONSE_LABEL[r.responses[0].type]}, redacted` }]
+    : undefined;
+
+  return {
+    title: { absolute: title },
+    description,
+    openGraph: { type: "article", title, description, images },
+    twitter: { card: "summary_large_image", title, description, images: firstImage ? [firstImage] : undefined },
+  };
+}
 
 export default async function ResultPage({ params }: Props) {
   const { slug } = await params;

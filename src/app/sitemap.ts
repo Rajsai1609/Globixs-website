@@ -1,11 +1,12 @@
 import { MetadataRoute } from "next";
 import { getServices, getOpenJobs } from "@/lib/data";
+import { getAllResults } from "@/lib/results";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://globixstech.com";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [services, jobs] = await Promise.all([getServices(), getOpenJobs()]);
+  const [services, jobs, results] = await Promise.all([getServices(), getOpenJobs(), getAllResults()]);
 
   const staticRoutes = [
     "",
@@ -13,6 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/services",
     "/ai-products",
     "/for-employees",
+    "/results",
     "/consulting",
     "/staffing",
     "/careers",
@@ -36,5 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: job.updatedAt,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...jobRoutes];
+  // getAllResults() already filters to published + consented, so unpublished
+  // or unconsented cases can never leak into the sitemap.
+  const resultRoutes = results.map((result) => ({
+    url: `${baseUrl}/results/${result.slug}`,
+    lastModified: result.updatedAt,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...jobRoutes, ...resultRoutes];
 }

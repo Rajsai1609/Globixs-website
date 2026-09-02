@@ -11,8 +11,33 @@ export const RESPONSE_LABEL: Record<ResponseType, string> = {
   OFFER: "Offer",
 };
 
+/**
+ * Whole UTC calendar days between two instants.
+ *
+ * receivedOn / joinedAt are stored as UTC midnight, so comparing the UTC
+ * date parts keeps "day N" stable no matter where the viewer is, and stays
+ * correct if a row is ever entered with a time component or across a DST
+ * boundary.
+ */
 export function daysBetween(a: Date, b: Date) {
-  return Math.max(0, Math.round((b.getTime() - a.getTime()) / 86_400_000));
+  const utcDay = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+  return Math.max(0, Math.round((utcDay(b) - utcDay(a)) / 86_400_000));
+}
+
+/**
+ * Format a stored date in UTC.
+ *
+ * Dates are stored at UTC midnight. Formatting them in the viewer's local
+ * zone shows the previous day for anyone west of UTC — which put every
+ * response a day earlier than it happened, and one day out of step with the
+ * "day N" figure beside it. Always format these dates through here.
+ */
+export function formatUtcDate(
+  date: Date | string,
+  options: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" },
+) {
+  const d = typeof date === "string" ? new Date(date) : date;
+  return d.toLocaleDateString("en-US", { ...options, timeZone: "UTC" });
 }
 
 export function imageUrl(path: string) {

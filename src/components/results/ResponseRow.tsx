@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { formatUtcDate } from "@/lib/results";
 import Lightbox from "./Lightbox";
 
 export type FeedRow = {
@@ -16,7 +17,7 @@ export type FeedRow = {
 
 export default function ResponseRow({ row }: { row: FeedRow }) {
   const [open, setOpen] = useState(false);
-  const date = new Date(row.receivedOn).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  const date = formatUtcDate(row.receivedOn);
 
   return (
     <li className="border-b border-[#DDE1E4] last:border-b-0">

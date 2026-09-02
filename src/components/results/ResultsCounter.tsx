@@ -1,6 +1,6 @@
 // Server component. Drop directly under the hero <h1> on /for-employees.
 // Renders nothing until there is at least one published + consented response.
-import { getResultsSummary } from "@/lib/results";
+import { formatUtcDate, getResultsSummary } from "@/lib/results";
 
 // The /for-employees hero sits on the dark mesh band, so the counter needs a
 // light-on-dark variant — same `onDark` convention the page's CTA pair uses.
@@ -8,7 +8,7 @@ export default async function ResultsCounter({ onDark = false }: { onDark?: bool
   const { responses, customers, since } = await getResultsSummary();
   if (responses === 0) return null; // shows nothing until there is something to show
 
-  const sinceLabel = since?.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const sinceLabel = since ? formatUtcDate(since, { month: "long", year: "numeric" }) : undefined;
 
   return (
     <p className={`mt-4 text-[17px] ${onDark ? "text-white/70" : "text-[#383E42]"}`}>
