@@ -5,7 +5,11 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { navLinks } from "@/lib/site-config";
 
-export function Navbar() {
+// `showResults` comes from the (site) layout, which reads the published
+// results count. The Results item stays hidden until there is something to
+// show; the footer link is unconditional because it is far less prominent.
+export function Navbar({ showResults = false }: { showResults?: boolean }) {
+  const links = showResults ? navLinks : navLinks.filter((l) => l.href !== "/results");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +48,7 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex">
-          {navLinks.map((item) => {
+          {links.map((item) => {
             if (item.dropdown) {
               return (
                 <div
@@ -136,7 +140,7 @@ export function Navbar() {
         aria-label="Mobile navigation"
         className="container-shell flex gap-4 overflow-x-auto pb-3 text-sm font-medium text-foreground md:hidden"
       >
-        {navLinks.map((item) =>
+        {links.map((item) =>
           item.dropdown ? (
             <div key={item.href} className="flex shrink-0 items-center gap-4">
               <Link href={item.href} className="whitespace-nowrap hover:text-accent">

@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
       { source: "/get-hired",      destination: "/for-employees",  permanent: true },
       // Train/Academy pillar retired — keep old indexed links out of a 404.
       { source: "/academy",        destination: "/",               permanent: true },
+      // Short links used in posts/DMs for the live results feed.
+      { source: "/proof",          destination: "/results",        permanent: true },
+      { source: "/30days",         destination: "/results",        permanent: true },
     ];
   },
 

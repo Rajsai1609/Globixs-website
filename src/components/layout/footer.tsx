@@ -81,7 +81,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/about"    className="text-white/70 transition hover:text-brand">About</Link></li>
-              <li><Link href="/contact"  className="text-white/70 transition hover:text-brand">Case Studies</Link></li>
+              <li><Link href="/results"  className="text-white/70 transition hover:text-brand">Case Studies</Link></li>
               <li><Link href="/contact"  className="text-white/70 transition hover:text-brand">Contact</Link></li>
               <li><Link href="/careers"  className="text-white/70 transition hover:text-brand">Careers</Link></li>
             </ul>
