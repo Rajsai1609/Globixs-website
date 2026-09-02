@@ -25,6 +25,7 @@ export const navLinks: NavLink[] = [
   // (candidates), AI services (businesses).
   { href: "/services", label: "Staffing" },
   { href: "/for-employees", label: "Job Marketing" },
+  { href: "/results", label: "Results" },
   { href: "/ai-products", label: "AI Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

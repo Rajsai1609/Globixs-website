@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 import { StickyRegister } from "@/components/for-employees/sticky-register";
+import ResultsCounter from "@/components/results/ResultsCounter";
+import ResultsFeed from "@/components/results/ResultsFeed";
 
 export const metadata: Metadata = {
   // `absolute` so the root layout's "%s | Globixs Technology Solutions"
@@ -10,6 +12,12 @@ export const metadata: Metadata = {
   description:
     "25–35 tailored applications every business day by a dedicated recruiter. From sign-up to placement — one managed pipeline. Core tech tracks + unsaturated roles.",
 };
+
+// This page renders <ResultsCounter /> and <ResultsFeed />, which read the
+// database. Without this it would be prerendered once at build time and the
+// results sections would never appear when a customer result is published.
+// 300s matches the revalidate on /results.
+export const revalidate = 300;
 
 /* ── Data ──────────────────────────────────────────────────────────────── */
 
@@ -154,6 +162,7 @@ export default function ForEmployeesPage() {
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               From sign-up to placement. One managed pipeline.
             </h1>
+            <ResultsCounter onDark />
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
               All tech domains, all experience levels — AI/ML, Data, Cybersecurity, Cloud and
               Software roles, across every industry hiring for them. For new grads, experienced
@@ -381,19 +390,13 @@ export default function ForEmployeesPage() {
         </div>
       </section>
 
-      {/* ══════════════════════ 7 · TRANSPARENCY BAND ══════════════════════ */}
-      <section className="bg-dark py-16 text-white md:py-20">
-        <div className="container-shell">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-2xl font-bold sm:text-3xl">Full transparency, every week.</p>
-            <p className="mt-5 text-base leading-8 text-white/70">
-              You receive a weekly report showing every role we applied to, the tailored resume
-              used, and the current status of each application. You can verify our work — that is
-              the point.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      {/* ══════════════════════ 7 · LIVE RESULTS FEED ══════════════════════
+          Replaces the old "Full transparency, every week." band. Renders
+          nothing until there is a published + consented customer result, so
+          the page simply loses this section until the first one goes live.
+          `reportImage` is omitted until we have a real redacted weekly report
+          with the Status column filled in. */}
+      <ResultsFeed />
 
       {/* ══════════════════════ 8 · PRICING ══════════════════════ */}
       <section className="section-pad">

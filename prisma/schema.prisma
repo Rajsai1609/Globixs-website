@@ -114,3 +114,48 @@ model ContactSubmission {
   message      String
   createdAt    DateTime @default(now())
 }
+
+// ── Live customer results feed (/results, /for-employees) ──────────────────
+
+model CustomerResult {
+  id         String   @id @default(cuid())
+  slug       String   @unique                 // "workday-consultant-aug-2026"
+  headline   String                           // "30 days, 3 employer calls"
+  profile    String                           // "Workday/HCM consultant, 6+ yrs"
+  track      ResultTrack @default(CORE_TECH)
+  joinedAt   DateTime                         // day 0 — drives "day N with Globixs"
+  story      String   @db.Text                // markdown, 2–3 paragraphs
+  consentAt  DateTime?                        // null = never publishable
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  responses  EmployerResponse[]
+
+  @@index([published, createdAt])
+}
+
+model EmployerResponse {
+  id         String   @id @default(cuid())
+  resultId   String
+  result     CustomerResult @relation(fields: [resultId], references: [id], onDelete: Cascade)
+  company    String                           // "Southwest Airlines"
+  type       ResponseType
+  role       String?                          // "T&OS Analytics Consultant"
+  imagePath  String                           // path in Supabase bucket "results" — REDACTED file only
+  receivedOn DateTime
+  createdAt  DateTime @default(now())
+
+  @@index([receivedOn])
+}
+
+enum ResultTrack {
+  CORE_TECH
+  UNSATURATED
+}
+
+enum ResponseType {
+  INTERVIEW_INVITE
+  RECRUITER_SCREEN
+  SCREENING_QUESTION
+  OFFER
+}
