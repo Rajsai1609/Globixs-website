@@ -20,7 +20,16 @@ export default async function ResultsIndex() {
         <>
           <p className="mt-4 max-w-[60ch] text-lg text-[#383E42]">
             We publish employer responses here as customers give written permission. The first is on
-            its way — check back soon or book a free 20-minute call.
+            its way — check back soon or{" "}
+            <a
+              href="https://tinyurl.com/2sfxn9w3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#C8262C] underline hover:text-[#A81F24]"
+            >
+              book a free 20-minute call
+            </a>
+            .
           </p>
           {/* /join is a rewrite to a static file in public/ — plain anchor, not next/link. */}
           <a href="/join" className="btn-primary mt-6">
