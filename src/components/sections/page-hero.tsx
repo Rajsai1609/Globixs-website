@@ -31,11 +31,7 @@ type Props = {
   subhead: string;
   primaryCta?: HeroCta;
   secondaryCta?: HeroCta;
-  /**
-   * Optional media column (the homepage photo). Below lg it renders full
-   * width under the CTAs; from lg up it fills everything to the right of
-   * the headline and bleeds to the viewport edge.
-   */
+  /** Optional right-hand column (e.g. the homepage photo). Hidden below lg. */
   aside?: ReactNode;
 };
 
@@ -108,29 +104,21 @@ export function PageHero({ eyebrow, lines, subhead, primaryCta, secondaryCta, as
     </Reveal>
   );
 
-  if (!aside) {
-    return (
-      <section className="hero-mesh hero-grid py-20 text-white lg:py-28">
-        <div className="container-shell">{text}</div>
-      </section>
-    );
-  }
-
-  /* With media: the text column is sized to its nowrap headline (`auto`), so
-     the three lines never wrap from lg up; the media column takes the rest.
-     The wrapper keeps the page's left content edge (same offset as a centred
-     max-w-7xl container) but drops the right cap, so the photo runs out
-     toward the viewport edge and gains width on wide screens. `width: auto`
-     on a block with a left margin shrinks to fit, so this cannot overflow. */
   return (
     <section className="hero-mesh hero-grid py-20 text-white lg:py-28">
-      {/* Not .container-shell: that class is un-layered CSS and would beat
-          the lg: overrides. Below lg this mirrors it exactly. */}
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:ml-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:mr-0 lg:w-auto lg:max-w-none lg:pl-0 lg:pr-8">
-        <div className="grid gap-10 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center">
-          {text}
-          <Reveal delay={120}>{aside}</Reveal>
-        </div>
+      <div className="container-shell">
+        {aside ? (
+          /* 2:1 split so a three-line headline fits at the 68px cap beside
+             the aside (needs ~735px; the text column gets ~780px at 1280+). */
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+            {text}
+            <Reveal delay={120} className="hidden lg:block">
+              {aside}
+            </Reveal>
+          </div>
+        ) : (
+          text
+        )}
       </div>
     </section>
   );

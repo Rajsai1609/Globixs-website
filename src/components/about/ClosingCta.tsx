@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 
 const actions = [
-  { label: "Explore AI Automation", href: "/ai-services", primary: true },
+  { label: "Explore AI Services", href: "/ai-services", primary: true },
   { label: "Start your job search", href: "/technology-consulting#job-marketing", primary: false },
   { label: "Contact us", href: "/contact", primary: false },
 ];
