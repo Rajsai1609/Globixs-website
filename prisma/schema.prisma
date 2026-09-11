@@ -130,6 +130,23 @@ model CustomerResult {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   responses  EmployerResponse[]
+  testimonials CustomerTestimonial[]      // back-relation only — no column added
+
+  @@index([published, createdAt])
+}
+
+// Short customer quotes shown under the results feed. Only rows that are
+// BOTH published and consented are ever rendered (see src/lib/testimonials.ts).
+// Managed from the CLI: `npm run testimonial -- --help`.
+model CustomerTestimonial {
+  id               String          @id @default(cuid())
+  customerResultId String?
+  customerResult   CustomerResult? @relation(fields: [customerResultId], references: [id], onDelete: SetNull)
+  quote            String          @db.Text
+  attribution      String                          // "ML engineer, OPT, Seattle"
+  consentAt        DateTime?                       // null = never publishable
+  published        Boolean         @default(false)
+  createdAt        DateTime        @default(now())
 
   @@index([published, createdAt])
 }

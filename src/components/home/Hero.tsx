@@ -12,17 +12,16 @@ export function Hero() {
 
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
-            <Eyebrow onDark>AI AUTOMATION. DIGITAL MARKETING. TECHNOLOGY CONSULTING.</Eyebrow>
+            <Eyebrow onDark>SEATTLE-BASED · WORKING NATIONWIDE</Eyebrow>
             <h1
-              className="mt-4 font-extrabold leading-[1.05] text-white"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+              className="mt-4 font-extrabold leading-[1.1] text-white"
+              style={{ fontSize: "clamp(2.25rem, 4.5vw, 4rem)" }}
             >
-              AI automation, digital marketing and technology consulting for growing businesses.
+              AI Automation · Digital Marketing · Technology Consulting
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              We build and run the systems that answer your calls, automate the busywork, connect
-              your tools, and bring in customers — then we stay to keep them working. Senior
-              engineers do the work; you see the results in your numbers.
+              Voice AI, workflow automation, BI dashboards and growth marketing for businesses
+              that want to run leaner.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
@@ -33,8 +32,8 @@ export function Hero() {
               >
                 Book a consultation →
               </a>
-              <Link href="/services" className="btn-on-dark">
-                See our services →
+              <Link href="/ai-services" className="btn-on-dark">
+                Explore AI Services →
               </Link>
             </div>
           </Reveal>

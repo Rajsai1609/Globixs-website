@@ -1,10 +1,19 @@
-// Server component. Drop directly under the hero <h1> on /for-employees.
+// Server component. Sits under the job-marketing heading on
+// /technology-consulting and, with an explicit `href`, on the homepage.
 // Renders nothing until there is at least one published + consented response.
 import { getResultsSummary } from "@/lib/results";
 
-// The /for-employees hero sits on the dark mesh band, so the counter needs a
-// light-on-dark variant — same `onDark` convention the page's CTA pair uses.
-export default async function ResultsCounter({ onDark = false }: { onDark?: boolean }) {
+// The job-marketing hero sits on the dark mesh band, so the counter needs a
+// light-on-dark variant — same `onDark` convention the section's CTA pair uses.
+// `href` defaults to the in-page feed anchor; the homepage points it at the
+// job-marketing section instead.
+export default async function ResultsCounter({
+  onDark = false,
+  href = "#results",
+}: {
+  onDark?: boolean;
+  href?: string;
+}) {
   const { responses, customers, since } = await getResultsSummary();
   if (responses === 0) return null; // shows nothing until there is something to show
 
@@ -18,7 +27,7 @@ export default async function ResultsCounter({ onDark = false }: { onDark?: bool
       </span>
       {sinceLabel && ` since ${sinceLabel}`} —{" "}
       <a
-        href="#results"
+        href={href}
         className={`underline decoration-[#C8262C] decoration-2 underline-offset-4 ${
           onDark ? "hover:text-white" : "hover:text-[#C8262C]"
         }`}

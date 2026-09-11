@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { company } from "@/lib/site-config";
+import { company, navLinks, legalLinks } from "@/lib/site-config";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
 
           {/* Column 1 — Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="sm:col-span-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/globixs-logo.svg"
@@ -17,12 +17,18 @@ export function Footer() {
               height={498}
               className="h-auto w-40 md:w-[180px]"
             />
-            <p className="mt-4 text-sm leading-relaxed text-white/60">
-              AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers. We also staff engineering teams and market job seekers into their next role.
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">
+              AI automation, digital marketing and technology consulting. Seattle-based, working
+              nationwide.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
-              <p className="text-xs text-white/60">Seattle, WA</p>
+              <p>
+                <a href={`mailto:${company.email}`} className="transition hover:text-brand">
+                  {company.email}
+                </a>
+              </p>
+              <p className="text-xs text-white/60">{company.address}</p>
             </div>
             <div className="mt-5 flex items-center gap-3">
               <a
@@ -61,54 +67,33 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2 — Services */}
-          <div>
-            <h4 className="eyebrow-on-dark mb-4">
-              Services
-            </h4>
+          {/* Column 2 — Navigate (mirrors the header) */}
+          <nav aria-label="Footer navigation">
+            <h4 className="eyebrow-on-dark mb-4">Navigate</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services"                        className="text-white/70 transition hover:text-brand">AI &amp; Automation Services</Link></li>
-              <li><Link href="/services#digital-marketing"      className="text-white/70 transition hover:text-brand">Digital Marketing</Link></li>
-              <li><Link href="/services#technology-consulting"  className="text-white/70 transition hover:text-brand">Technology Consulting</Link></li>
-              <li><Link href="/staffing"                        className="text-white/70 transition hover:text-brand">IT Staffing for Companies</Link></li>
-              <li><Link href="/for-employees"                   className="text-white/70 transition hover:text-brand">Job Marketing for Candidates</Link></li>
+              {navLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-white/70 transition hover:text-brand">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Column 3 — Company */}
-          <div>
-            <h4 className="eyebrow-on-dark mb-4">
-              Company
-            </h4>
+          {/* Column 3 — Legal */}
+          <nav aria-label="Legal">
+            <h4 className="eyebrow-on-dark mb-4">Legal</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/about"    className="text-white/70 transition hover:text-brand">About</Link></li>
-              <li><Link href="/results"  className="text-white/70 transition hover:text-brand">Case Studies</Link></li>
-              <li><Link href="/contact"  className="text-white/70 transition hover:text-brand">Contact</Link></li>
-              <li><Link href="/careers"  className="text-white/70 transition hover:text-brand">Careers</Link></li>
+              {legalLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-white/70 transition hover:text-brand">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
-
-          {/* Column 4 — Resources */}
-          <div>
-            <h4 className="eyebrow-on-dark mb-4">
-              Resources
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/blog" className="text-white/70 transition hover:text-brand">Blog</Link></li>
-              <li>
-                <a
-                  href="https://mctpathai.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/70 transition hover:text-brand"
-                >
-                  PathAI ↗
-                </a>
-              </li>
-              <li><Link href="/privacy-policy"        className="text-white/70 transition hover:text-brand">Privacy Policy</Link></li>
-              <li><Link href="/terms-and-conditions"  className="text-white/70 transition hover:text-brand">Terms of Service</Link></li>
-            </ul>
-          </div>
+          </nav>
 
         </div>
       </div>
@@ -117,7 +102,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-shell flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/60 sm:flex-row">
           <p>© 2026 Globixs Technology Solutions. All rights reserved.</p>
-          <p>Seattle, WA · Built with care</p>
+          <p>Seattle, WA · Working nationwide</p>
         </div>
       </div>
     </footer>

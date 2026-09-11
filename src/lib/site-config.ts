@@ -4,7 +4,7 @@ export const company = {
   email: "connect@globixs.com",
   address: "Seattle, WA",
   locationTagline:
-    "Seattle, WA · AI automation, digital marketing and technology consulting for growing businesses",
+    "Seattle-based, working nationwide · AI automation, digital marketing and technology consulting",
 };
 
 export type NavChild = {
@@ -20,15 +20,17 @@ export type NavLink = {
   children?: NavChild[];
 };
 
-// Order is the founder's: Services first (AI automation, digital marketing,
-// technology consulting), then Results, then the two secondary lines.
-// "Results" is hidden by the navbar until a customer result is published.
+// Exactly six items, in the founder's order. The footer mirrors this list.
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/results", label: "Results" },
-  { href: "/for-employees", label: "Job Marketing" },
-  { href: "/staffing", label: "Staffing" },
+  { href: "/ai-services", label: "AI Services" },
+  { href: "/digital-marketing", label: "Digital Marketing" },
+  { href: "/technology-consulting", label: "Technology Consulting" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+];
+
+export const legalLinks: NavChild[] = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms-and-conditions", label: "Terms of Service" },
 ];

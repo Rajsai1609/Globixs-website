@@ -5,11 +5,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { navLinks } from "@/lib/site-config";
 
-// `showResults` comes from the (site) layout, which reads the published
-// results count. The Results item stays hidden until there is something to
-// show; the footer link is unconditional because it is far less prominent.
-export function Navbar({ showResults = false }: { showResults?: boolean }) {
-  const links = showResults ? navLinks : navLinks.filter((l) => l.href !== "/results");
+export function Navbar() {
+  const links = navLinks;
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

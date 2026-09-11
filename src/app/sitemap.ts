@@ -1,28 +1,28 @@
 import { MetadataRoute } from "next";
-import { getServices, getOpenJobs } from "@/lib/data";
+import { getOpenJobs } from "@/lib/data";
 import { getPublishedPosts } from "@/lib/blog";
+import { getAllResults } from "@/lib/results";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://globixstech.com";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [services, jobs, posts] = await Promise.all([
-    getServices(),
+  const [jobs, posts, results] = await Promise.all([
     getOpenJobs(),
     getPublishedPosts(),
+    getAllResults(),
   ]);
 
   const staticRoutes = [
     "",
+    "/ai-services",
+    "/digital-marketing",
+    "/technology-consulting",
     "/about",
-    "/services",
-    "/staffing",
-    "/for-employees",
+    "/contact",
     "/results",
     "/blog",
-    "/consulting",
     "/careers",
-    "/contact",
     "/register",
     "/join",
     "/privacy-policy",
@@ -30,11 +30,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
-  }));
-
-  const serviceRoutes = services.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified: service.updatedAt,
   }));
 
   const jobRoutes = jobs.map((job) => ({
@@ -47,5 +42,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: post.date,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...jobRoutes, ...postRoutes];
+  const resultRoutes = results.map((r) => ({
+    url: `${baseUrl}/results/${r.slug}`,
+    lastModified: r.updatedAt,
+  }));
+
+  return [...staticRoutes, ...jobRoutes, ...postRoutes, ...resultRoutes];
 }

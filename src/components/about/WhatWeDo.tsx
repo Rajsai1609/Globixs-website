@@ -10,32 +10,31 @@ type Service = {
   ctaHref: string;
 };
 
-/* Mirrors the homepage: the AI / marketing / consulting line leads, with
-   staffing and job marketing as the secondary offerings. */
+/* Mirrors the homepage pillars and the three top-level service pages. */
 const services: Service[] = [
   {
     num: "(01)",
-    title: "AI Automation, Digital Marketing & Technology Consulting",
+    title: "AI Services",
     description:
-      "Done-for-you systems for growing businesses: AI receptionists that catch every missed call, process automation, POS and systems integration, dashboards, custom AI, websites and local SEO, lead generation, and senior technology advice. We build it, launch it, and keep it running.",
-    ctaLabel: "Explore our services →",
-    ctaHref: "/services",
+      "AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, workflow and systems integration, and custom AI solutions. Built on the tools you already use and run by our team after launch.",
+    ctaLabel: "Explore AI Services →",
+    ctaHref: "/ai-services",
   },
   {
     num: "(02)",
-    title: "IT Staffing for Companies",
+    title: "Digital Marketing",
     description:
-      "We fill contract and full-time technical roles across cloud, data, AI/ML, cybersecurity, and software. Sourcing, screening, and matching run on our own AI stack with senior recruiters validating every candidate — so first submissions land in days, not weeks.",
-    ctaLabel: "Explore staffing →",
-    ctaHref: "/staffing",
+      "Search and local SEO, Google and Meta ads, social content and LinkedIn management, email and WhatsApp campaigns, and landing pages built to convert. Tracking is set up first so every report ties back to calls, forms and bookings.",
+    ctaLabel: "Explore Digital Marketing →",
+    ctaHref: "/digital-marketing",
   },
   {
     num: "(03)",
-    title: "Job Marketing for Candidates",
+    title: "Technology Consulting",
     description:
-      "A managed job search for people ready to move: a dedicated recruiter, a resume tailored for every application, and 25–35 quality applications submitted daily — across core technology tracks and an unsaturated roles track with less competition and faster interviews.",
-    ctaLabel: "See how it works →",
-    ctaHref: "/for-employees",
+      "Systems and cloud consulting for businesses making technology decisions, talent solutions for teams that need engineers, and job marketing for technology professionals: a dedicated recruiter, a resume tailored for every application, and 25–35 applications submitted every business day.",
+    ctaLabel: "Explore Technology Consulting →",
+    ctaHref: "/technology-consulting",
   },
 ];
 
