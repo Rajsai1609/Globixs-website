@@ -2,8 +2,11 @@ import { MetadataRoute } from "next";
 import { getOpenJobs } from "@/lib/data";
 import { getPublishedPosts } from "@/lib/blog";
 import { getAllResults } from "@/lib/results";
+import { SITE_URL } from "@/lib/site-config";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://globixstech.com";
+// Canonical origin is fixed to www.globixs.com — the sitemap must advertise
+// production URLs even from a preview deployment.
+const baseUrl = SITE_URL;
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -1,3 +1,6 @@
+/** Canonical origin for metadata, sitemap and robots. No trailing slash. */
+export const SITE_URL = "https://www.globixs.com";
+
 export const company = {
   name: "Globixs Technology Solutions",
   phone: "+1 (425) 666-8998",

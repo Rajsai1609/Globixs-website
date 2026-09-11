@@ -41,7 +41,7 @@ export function Hero() {
           {/* Right column — 2/5 width, hidden on mobile */}
           <Reveal delay={120} className="hidden lg:col-span-2 lg:block">
             <Image
-              src="/services/it-consulting.jpg"
+              src="/images/hero-consulting.jpg"
               alt="Globixs engineers planning an AI automation rollout with a client"
               width={700}
               height={525}

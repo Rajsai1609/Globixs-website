@@ -1,127 +1,120 @@
+/**
+ * Generates public/og-image.png (1200×630) for Open Graph / Twitter cards.
+ *
+ *   npm run og:generate
+ *
+ * Dark slate background matching the site's hero band (--hero / --hero-2 in
+ * globals.css), the brand red accent, the three pillars, and the logo SVG
+ * with its gray wordmark recolored to white for contrast on slate.
+ */
 import sharp from "sharp";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 const WIDTH = 1200;
 const HEIGHT = 630;
-const PADDING = 60;
+const PAD = 72;
 
-const logoPath = path.resolve("public/logo.png");
+// Site tokens (globals.css)
+const SLATE = "#2e3438";      // --hero
+const SLATE_2 = "#383e42";    // --hero-2
+const RED = "#c8262c";        // --brand
+
+const LOGO_GRAY = "#6E6F72";  // wordmark fill in globixs-logo.svg
+const LOGO_WHITE = "#FFFFFF";
+
+const logoPath = path.resolve("public/globixs-logo.svg");
 const outPath = path.resolve("public/og-image.png");
 
-const hasLogo = fs.existsSync(logoPath);
+const PILLARS = ["AI Automation", "Digital Marketing", "Technology Consulting"] as const;
+
+function pillarRow(): string {
+  // Three pills across the width, each with a red square bullet.
+  const y = 372;
+  const gap = 24;
+  const widths = [236, 262, 330];
+  const totalW = widths.reduce((a, b) => a + b, 0) + gap * (widths.length - 1);
+  const startX = PAD;
+  const scale = Math.min(1, (WIDTH - PAD * 2) / totalW);
+  let x = startX;
+  return PILLARS.map((label, i) => {
+    const w = Math.round(widths[i] * scale);
+    const pill = `
+      <rect x="${x}" y="${y}" width="${w}" height="56" rx="28" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.18"/>
+      <rect x="${x + 22}" y="${y + 23}" width="10" height="10" fill="${RED}"/>
+      <text x="${x + 44}" y="${y + 36}" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="white">${label}</text>`;
+    x += w + gap;
+    return pill;
+  }).join("");
+}
 
 const svg = `
 <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0A1F44"/>
-      <stop offset="100%" stop-color="#1E3A8A"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${SLATE}"/>
+      <stop offset="100%" stop-color="${SLATE_2}"/>
     </linearGradient>
+    <radialGradient id="wash" cx="0.9" cy="0" r="0.7">
+      <stop offset="0%" stop-color="${RED}" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="${RED}" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <rect width="2" height="2" fill="white" fill-opacity="0.07"/>
+    </pattern>
   </defs>
 
-  <!-- Background -->
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#bg)"/>
+  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#wash)"/>
+  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#grid)"/>
 
-  <!-- Accent bar on the right -->
-  <rect x="${WIDTH - 8}" y="0" width="8" height="${HEIGHT}" fill="#E53935"/>
+  <!-- Eyebrow -->
+  <text x="${PAD}" y="${PAD + 72}" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="white" fill-opacity="0.6" letter-spacing="4">SEATTLE-BASED · WORKING NATIONWIDE</text>
 
-  <!-- Decorative right-side geometric shape -->
-  <polygon points="${WIDTH - 200},0 ${WIDTH - 8},0 ${WIDTH - 8},${HEIGHT} ${WIDTH - 380},${HEIGHT}"
-           fill="white" fill-opacity="0.04"/>
+  <!-- Headline -->
+  <text x="${PAD}" y="${PAD + 160}" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" fill="white">Run leaner with AI,</text>
+  <text x="${PAD}" y="${PAD + 240}" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" fill="white">marketing and consulting.</text>
 
-  <!-- Location tag -->
-  <text
-    x="${PADDING}"
-    y="${PADDING + 40}"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="18"
-    font-weight="400"
-    fill="white"
-    fill-opacity="0.55"
-    letter-spacing="4"
-  >SEATTLE, WA</text>
+  <!-- Accent divider -->
+  <rect x="${PAD}" y="${PAD + 272}" width="96" height="5" fill="${RED}"/>
 
-  <!-- Main title -->
-  <text
-    x="${PADDING}"
-    y="${PADDING + 120}"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="62"
-    font-weight="700"
-    fill="white"
-  >Globixs Technology</text>
-  <text
-    x="${PADDING}"
-    y="${PADDING + 195}"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="62"
-    font-weight="700"
-    fill="white"
-  >Solutions</text>
-
-  <!-- Tagline -->
-  <text
-    x="${PADDING}"
-    y="${PADDING + 280}"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="28"
-    font-weight="300"
-    fill="white"
-    fill-opacity="0.80"
-  >AI-Powered IT Staffing &amp; Consultancy</text>
-
-  <!-- Accent divider line -->
-  <rect x="${PADDING}" y="${PADDING + 310}" width="80" height="4" fill="#E53935" rx="2"/>
+  ${pillarRow()}
 
   <!-- Domain -->
-  <text
-    x="${PADDING}"
-    y="${HEIGHT - PADDING - 10}"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="20"
-    font-weight="400"
-    fill="white"
-    fill-opacity="0.45"
-    letter-spacing="1"
-  >globixstech.com</text>
+  <text x="${PAD}" y="${HEIGHT - PAD + 6}" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="white" fill-opacity="0.5" letter-spacing="1">www.globixs.com</text>
 </svg>
 `.trim();
 
-async function generate() {
-  const base = await sharp(Buffer.from(svg)).png();
-
-  if (hasLogo) {
-    const logoResized = await sharp(logoPath)
-      .resize({ height: 80, fit: "inside" })
-      .toBuffer();
-
-    const logoMeta = await sharp(logoResized).metadata();
-    const logoW = logoMeta.width ?? 80;
-    const logoH = logoMeta.height ?? 80;
-
-    await base
-      .composite([
-        {
-          input: logoResized,
-          left: WIDTH - PADDING - logoW,
-          top: HEIGHT - PADDING - logoH,
-        },
-      ])
-      .toFile(outPath);
-
-    console.log(`Logo composited (${logoW}×${logoH}px)`);
-  } else {
-    await base.toFile(outPath);
-    console.log("No logo found — skipped");
+async function renderLogo(): Promise<{ buffer: Buffer; width: number; height: number }> {
+  const raw = fs.readFileSync(logoPath, "utf8");
+  if (!raw.includes(LOGO_GRAY)) {
+    throw new Error(`Expected wordmark fill ${LOGO_GRAY} in ${logoPath}; the logo file changed.`);
   }
-
-  const { size } = fs.statSync(outPath);
-  console.log(`Generated: ${outPath}`);
-  console.log(`File size: ${(size / 1024).toFixed(1)} KB`);
+  const recolored = raw.split(LOGO_GRAY).join(LOGO_WHITE);
+  const buffer = await sharp(Buffer.from(recolored)).resize({ width: 300 }).png().toBuffer();
+  const meta = await sharp(buffer).metadata();
+  if (!meta.width || !meta.height) throw new Error("Could not read rendered logo dimensions.");
+  return { buffer, width: meta.width, height: meta.height };
 }
 
-generate().catch((err) => {
-  console.error(err);
+async function generate(): Promise<void> {
+  const logo = await renderLogo();
+  await sharp(Buffer.from(svg))
+    .png()
+    .composite([
+      {
+        input: logo.buffer,
+        left: WIDTH - PAD - logo.width,
+        top: HEIGHT - PAD - logo.height + 12,
+      },
+    ])
+    .toFile(outPath);
+
+  const { size } = fs.statSync(outPath);
+  console.log(`Generated ${outPath} (${(size / 1024).toFixed(1)} KB), logo ${logo.width}×${logo.height}`);
+}
+
+generate().catch((err: unknown) => {
+  console.error(err instanceof Error ? err.message : err);
   process.exit(1);
 });
