@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero }         from "@/components/home/Hero";
 import { PillarCards }  from "@/components/home/PillarCards";
 import { ServiceCards } from "@/components/home/ServiceCards";
-import { ResultsLine }  from "@/components/home/ResultsLine";
 import { CTABanner }    from "@/components/home/CTABanner";
 
 const TITLE =
@@ -36,18 +35,14 @@ export const metadata: Metadata = {
   },
 };
 
-// <ResultsLine /> reads the live results count; without a revalidate the
-// homepage would be baked at build time and never pick up a newly published
-// result. 300s matches /results and /technology-consulting.
-export const revalidate = 300;
-
+// Fully static: nothing on the homepage reads the database. The live results
+// counter lives on /technology-consulting#job-marketing.
 export default function Home() {
   return (
     <div>
       <Hero />
       <PillarCards />
       <ServiceCards />
-      <ResultsLine />
       <CTABanner />
     </div>
   );
