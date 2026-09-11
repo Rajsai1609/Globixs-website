@@ -15,7 +15,11 @@ const nextConfig: NextConfig = {
       // ── Sept 2026 restructure (301 permanent) ──────────────────────────
       // AI services: every previous path lands on /ai-services.
       { source: "/services",       destination: "/ai-services", permanent: true },
-      { source: "/services/:path*", destination: "/ai-services", permanent: true },
+      // Only page-like paths. Redirects run BEFORE public/ is served, so a
+      // bare `:path*` also swallowed static files under /services/ (this
+      // broke the homepage hero image). Anything with a file extension is
+      // excluded; site images now live under /public/images anyway.
+      { source: "/services/:path((?!.*\\.).*)", destination: "/ai-services", permanent: true },
       { source: "/ai-products",    destination: "/ai-services", permanent: true },
       { source: "/products",       destination: "/ai-services", permanent: true },
       { source: "/industries",     destination: "/ai-services", permanent: true },

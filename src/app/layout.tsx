@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site-config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,7 +15,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://globixstech.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       "Globixs Technology Solutions | AI Automation · Digital Marketing · Technology Consulting",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://globixstech.com",
+    url: SITE_URL,
     siteName: "Globixs Technology Solutions",
     title:
       "Globixs Technology Solutions | AI Automation · Digital Marketing · Technology Consulting",
