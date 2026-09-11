@@ -48,7 +48,7 @@ Production-ready Next.js app for Globixs marketing pages, careers pipeline, and 
 
 - Service-aligned image sets for home/services sections
 - Academy-specific image set for step cards and audience block
-- Tab icon wired to `public/logo.png`
+- Favicons, app icons, web manifest and OG image generated from the Globixs mark (`design/globixs-mark.png`) via `npm run favicons:generate` and `npm run og:generate`
 
 ## Project Structure
 
