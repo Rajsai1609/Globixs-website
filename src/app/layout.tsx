@@ -16,20 +16,22 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://globixstech.com"),
   title: {
-    default: "Globixs Technology Solutions | IT Staffing, Job Marketing & AI Services",
+    default:
+      "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting",
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based technology partner running three service lines: IT staffing for companies (contract and full-time engineers across cloud, data, AI/ML, cybersecurity, and software), full-time job marketing for candidates, and AI services for businesses — AI receptionists, chatbots, lead generation, automation, review management, websites, and dashboards.",
+    "Seattle-based technology partner for growing businesses. AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, systems integration, custom AI, digital marketing, and technology consulting — plus IT staffing for companies and job marketing for candidates.",
   keywords: [
-    "IT staffing Seattle",
-    "technology staffing Seattle",
-    "contract to hire engineers",
-    "job marketing service",
-    "H1B OPT job placement Seattle",
+    "AI automation services",
     "AI receptionist",
-    "AI services for business",
-    "business website design Seattle",
+    "business process automation",
+    "digital marketing Seattle",
+    "technology consulting Seattle",
+    "POS integration",
+    "business intelligence dashboards",
+    "IT staffing Seattle",
+    "job marketing service",
   ],
   authors: [{ name: "Globixs Technology Solutions" }],
   creator: "Globixs Technology Solutions",
@@ -39,23 +41,25 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://globixstech.com",
     siteName: "Globixs Technology Solutions",
-    title: "Globixs Technology Solutions | IT Staffing, Job Marketing & AI Services",
+    title:
+      "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting",
     description:
-      "Staffing, job marketing, and AI services — one technology partner. We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.",
+      "AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Globixs Technology Solutions — IT Staffing, Job Marketing & AI Services",
+        alt: "Globixs Technology Solutions — AI Automation, Digital Marketing & Technology Consulting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Globixs Technology Solutions | IT Staffing, Job Marketing & AI Services",
+    title:
+      "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting",
     description:
-      "Staffing, job marketing, and AI services — one technology partner. We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.",
+      "AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers.",
     images: ["/og-image.png"],
   },
   icons: {

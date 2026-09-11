@@ -1,29 +1,61 @@
 import type { Metadata } from "next";
-import { Hero }             from "@/components/services/Hero";
-import { Roles }            from "@/components/services/Roles";
-import { Process }          from "@/components/services/Process";
-import { EngagementModels } from "@/components/services/EngagementModels";
-import { Clients }          from "@/components/services/Clients";
-import { WhyGlobixs }       from "@/components/services/WhyGlobixs";
-import { Pricing }          from "@/components/services/Pricing";
-import { ClosingCta }       from "@/components/services/ClosingCta";
+import { Hero }            from "@/components/services/Hero";
+import { ServiceSections } from "@/components/services/ServiceSections";
+import { HowItWorks }      from "@/components/services/HowItWorks";
+import { ProofProducts }   from "@/components/services/ProofProducts";
+import { ClosingCta }      from "@/components/services/ClosingCta";
+
+const TITLE = "AI Automation, Digital Marketing & Technology Consulting";
+const DESCRIPTION =
+  "Eight services for growing businesses: AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, workflow and systems integration, custom AI solutions, digital marketing, and technology consulting. Built on your tools and run by our Seattle team.";
 
 export const metadata: Metadata = {
-  title: "AI-Powered IT Staffing | Globixs",
-  description:
-    "Staffing at AI speed. Pre-vetted engineers in 7–10 days. AI-driven sourcing, semantic matching, automated screening, predictive fit scoring, and VMS submission automation.",
+  // Root layout applies the `%s | Globixs Technology Solutions` template — no suffix here.
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    "AI automation services",
+    "business process automation",
+    "AI receptionist",
+    "missed call text back",
+    "POS integration",
+    "business intelligence dashboards",
+    "systems integration",
+    "custom AI solutions",
+    "digital marketing Seattle",
+    "technology consulting Seattle",
+    "fractional CTO",
+  ],
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: `${TITLE} | Globixs Technology Solutions`,
+    description: DESCRIPTION,
+    type: "website",
+    url: "/services",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Globixs services: AI automation, digital marketing and technology consulting",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${TITLE} | Globixs Technology Solutions`,
+    description: DESCRIPTION,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function ServicesPage() {
   return (
     <div>
       <Hero />
-      <Roles />
-      <Process />
-      <EngagementModels />
-      <Clients />
-      <WhyGlobixs />
-      <Pricing />
+      <ServiceSections />
+      <HowItWorks />
+      <ProofProducts />
       <ClosingCta />
     </div>
   );

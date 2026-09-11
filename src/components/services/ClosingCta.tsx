@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
+import { BOOKING_URL } from "@/lib/booking";
 
 export function ClosingCta() {
   return (
@@ -7,16 +8,24 @@ export function ClosingCta() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Your next IT role, filled in 7–10 days.
+            Not sure which one you need? Start with a call.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
-            Tell us what you&apos;re hiring for. Within a week you&apos;ll have 3–5 pre-vetted
-            candidates with full technical write-ups, match scores, and visa status — first
-            engagement free, no commitment.
+            Bring us the bottleneck — missed calls, cold leads, manual follow-ups, a POS that
+            never got set up, a website nobody finds. We&apos;ll tell you honestly whether we can
+            fix it and what it would take.
           </p>
-          <div className="mt-8">
-            <Link href="/contact" className="btn-primary">
-              Talk to Our Team
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Book a consultation
+            </a>
+            <Link href="/contact" className="btn-on-dark">
+              Send us a message
             </Link>
           </div>
         </Reveal>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
+import { BOOKING_URL } from "@/lib/booking";
 
 export function CTABanner() {
   return (
@@ -7,15 +8,24 @@ export function CTABanner() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Hiring or building? Let&apos;s talk.
+            Tell us where your business is leaking.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
-            30-minute call. We&apos;ll review your hiring or AI bottlenecks and tell you honestly
-            whether we can help. No pitch deck, no commitment.
+            Missed calls, manual admin, tools that don&apos;t talk to each other, a website nobody
+            finds. A 30-minute call and we&apos;ll tell you honestly whether we can fix it and what
+            it would take. No pitch deck, no commitment.
           </p>
-          <div className="mt-8">
-            <Link href="/contact" className="btn-primary">
-              Book a Free Consultation
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Book a consultation
+            </a>
+            <Link href="/services" className="btn-on-dark">
+              See our services
             </Link>
           </div>
         </Reveal>

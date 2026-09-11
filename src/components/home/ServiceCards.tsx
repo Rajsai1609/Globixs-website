@@ -1,134 +1,102 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
+import {
+  AUTOMATION_SERVICES,
+  GROWTH_SERVICES,
+  serviceHref,
+  type ServiceEntry,
+} from "@/lib/services-catalog";
 
-type SubLink = { label: string; href: string; external?: boolean };
-
-type ServiceCard = {
-  num: string;
-  title: string;
-  tagline: string;
-  desc: string;
-  subLinks: SubLink[];
-  ctaLabel: string;
-  ctaHref: string;
-  /* Set for targets outside the App Router (e.g. /register rewrites to the
-     static public/register.html) — renders a plain anchor instead of next/link. */
-  ctaStatic?: boolean;
+type CardProps = {
+  service: ServiceEntry;
+  /** Two-digit ordinal shown in the corner, e.g. "01". */
+  index: number;
+  /** Second-row cards are wider, so they carry a slightly larger heading. */
+  emphasis?: boolean;
 };
 
-const cards: ServiceCard[] = [
-  {
-    num: "(01)",
-    title: "IT Staffing for Companies",
-    tagline: "Contract and full-time technical hires, pre-vetted and delivered in days.",
-    desc: "Pre-vetted engineers across cloud, data, AI/ML, cybersecurity, and software — placed with enterprise and mid-market teams on contract, contract-to-hire, or full-time terms. Sourcing, screening, and matching run on our own AI stack, so first submissions land in 7–10 days, not 4 weeks.",
-    subLinks: [
-      { label: "Cloud & DevOps engineers",     href: "/services" },
-      { label: "Data & AI/ML engineers",       href: "/services" },
-      { label: "Cybersecurity specialists",    href: "/services" },
-      { label: "Software & full-stack talent", href: "/services" },
-    ],
-    ctaLabel: "See how staffing works →",
-    ctaHref: "/services",
-  },
-  {
-    num: "(02)",
-    title: "Job Marketing for Candidates",
-    tagline: "A dedicated recruiter delivering 25–35 tailored applications a day.",
-    desc: "For job seekers ready to move. You get a dedicated recruiter, a resume rewritten for every target role, and 25–35 tailored applications submitted daily on your behalf — across our core technology tracks and an unsaturated roles track with faster interviews and less competition.",
-    subLinks: [
-      { label: "Dedicated recruiter",              href: "/for-employees" },
-      { label: "Tailored resumes per application", href: "/for-employees" },
-      { label: "25–35 applications per day",       href: "/for-employees" },
-      { label: "Core + unsaturated role tracks",   href: "/for-employees" },
-    ],
-    ctaLabel: "See how job marketing works →",
-    ctaHref: "/for-employees",
-  },
-  {
-    num: "(03)",
-    title: "AI Services for Businesses",
-    tagline: "AI receptionists, lead generation, automation, websites, and more — we build it and run it.",
-    desc: "Done-for-you AI and digital growth systems for businesses that need results, not a research project. We answer the calls you're missing, fill your pipeline, automate the busywork, protect your reputation, and build the website that converts — then we keep it running.",
-    subLinks: [
-      { label: "AI receptionists & missed-call recovery", href: "/ai-products" },
-      { label: "AI chatbots for support & sales",         href: "/ai-products" },
-      { label: "Lead generation systems",                 href: "/ai-products" },
-      { label: "Workflow automation",                     href: "/ai-products" },
-      { label: "Websites + local SEO",                    href: "/ai-products" },
-      { label: "Dashboards, reviews & design",            href: "/ai-products" },
-    ],
-    ctaLabel: "Explore AI services →",
-    ctaHref: "/ai-products",
-  },
-];
+function ServiceCard({ service, index, emphasis = false }: CardProps) {
+  const href = serviceHref(service.id);
+  return (
+    <article className="brochure-card flex h-full flex-col p-7 lg:p-8">
+      <div className="flex items-center justify-between">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
+          <service.Icon size={22} className="text-accent" aria-hidden="true" />
+        </div>
+        <p className="font-mono text-sm tracking-[0.1em] text-brand">
+          ({String(index).padStart(2, "0")})
+        </p>
+      </div>
+      <h3
+        className={`mt-5 font-bold text-heading ${emphasis ? "text-2xl lg:text-3xl" : "text-xl"}`}
+      >
+        {service.title}
+      </h3>
+      <p className="mt-3 flex-1 text-base leading-7 text-foreground">{service.blurb}</p>
+      <div className="mt-6">
+        <Link
+          href={href}
+          className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
+        >
+          Learn more →
+        </Link>
+      </div>
+    </article>
+  );
+}
 
 export function ServiceCards() {
   return (
-    <section className="section-pad">
+    <section id="services" className="section-pad">
       <div className="container-shell">
         <Reveal>
           <SectionTitle
             eyebrow="WHAT WE DO"
-            title="Three service lines. One technology partner."
-            description="Businesses come to us to hire engineers or to build AI-powered solutions. Job seekers come to us to get marketed into their next role. Each line stands on its own — and reinforces the others."
+            title="AI and automation services, built for your business and run for you."
+            description="Start with the system costing you the most today — missed calls, manual admin, disconnected tools, numbers you can't see — or let us run the whole stack. Every engagement ships on your tools and comes with someone accountable for keeping it working."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          {cards.map((card, idx) => (
-            <Reveal key={card.title} delay={idx * 80}>
-              <article className="brochure-card flex h-full flex-col p-8 lg:p-10">
-                <p className="font-mono text-sm tracking-[0.1em] text-brand">{card.num}</p>
-                <h3 className="mt-3 text-2xl font-bold text-heading lg:text-3xl">{card.title}</h3>
-                <p className="mt-1 text-lg text-muted">{card.tagline}</p>
-                <p className="mt-4 text-base leading-relaxed text-foreground">{card.desc}</p>
-
-                <ul className="mt-5 space-y-1.5 text-sm text-foreground">
-                  {card.subLinks.map((sub) =>
-                    sub.external ? (
-                      <li key={sub.label}>
-                        <a
-                          href={sub.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline"
-                        >
-                          → {sub.label}
-                        </a>
-                      </li>
-                    ) : (
-                      <li key={sub.label}>
-                        <Link href={sub.href} className="hover:underline">
-                          → {sub.label}
-                        </Link>
-                      </li>
-                    )
-                  )}
-                </ul>
-
-                <div className="mt-auto pt-6">
-                  {card.ctaStatic ? (
-                    <a
-                      href={card.ctaHref}
-                      className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
-                    >
-                      {card.ctaLabel}
-                    </a>
-                  ) : (
-                    <Link
-                      href={card.ctaHref}
-                      className="inline-flex items-center text-sm font-semibold text-heading transition-transform duration-200 hover:translate-x-1"
-                    >
-                      {card.ctaLabel}
-                    </Link>
-                  )}
-                </div>
-              </article>
+        {/* Row 1 — six AI & automation services */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {AUTOMATION_SERVICES.map((service, idx) => (
+            <Reveal key={service.id} delay={idx * 70}>
+              <ServiceCard service={service} index={idx + 1} />
             </Reveal>
           ))}
         </div>
+
+        {/* Row 2 — Digital Marketing and Technology Consulting */}
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          {GROWTH_SERVICES.map((service, idx) => (
+            <Reveal key={service.id} delay={(AUTOMATION_SERVICES.length + idx) * 70}>
+              <ServiceCard
+                service={service}
+                index={AUTOMATION_SERVICES.length + idx + 1}
+                emphasis
+              />
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Secondary offerings — kept visible but clearly subordinate. */}
+        <Reveal delay={600}>
+          <div className="mt-10 flex flex-col gap-3 rounded-xl border border-border bg-surface p-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm leading-6 text-foreground">
+              <span className="font-semibold text-heading">Also from Globixs:</span> IT staffing
+              for companies that need engineers, and job marketing for candidates ready to move.
+            </p>
+            <div className="flex flex-wrap gap-4 text-sm font-semibold">
+              <Link href="/staffing" className="text-heading hover:text-brand">
+                IT Staffing →
+              </Link>
+              <Link href="/for-employees" className="text-heading hover:text-brand">
+                Job Marketing →
+              </Link>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
