@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PageHero } from "@/components/sections/page-hero";
 import { BOOKING_URL } from "@/lib/booking";
+import { AI_PILLAR_LABEL } from "@/lib/site-config";
 
 export function Hero() {
   return (
@@ -9,7 +10,7 @@ export function Hero() {
       lines={["AI Automation.", "Digital Marketing.", "Technology Consulting."]}
       subhead="Voice AI, workflow automation, BI dashboards and growth marketing for businesses that want to run leaner."
       primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
-      secondaryCta={{ label: "Explore AI Services", href: "/ai-services" }}
+      secondaryCta={{ label: `Explore ${AI_PILLAR_LABEL}`, href: "/ai-services" }}
       aside={
         <Image
           src="/images/hero-consulting.jpg"

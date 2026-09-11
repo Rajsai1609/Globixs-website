@@ -4,9 +4,10 @@ import { Reveal } from "@/components/animations/reveal";
 import { PageHero } from "@/components/sections/page-hero";
 import { ServiceSection } from "@/components/sections/service-section";
 import { BOOKING_URL } from "@/lib/booking";
+import { AI_PILLAR_LABEL } from "@/lib/site-config";
 import { AI_SERVICES } from "@/lib/services-catalog";
 
-const TITLE = "AI Services";
+const TITLE = AI_PILLAR_LABEL;
 const DESCRIPTION =
   "AI automation for businesses that want to run leaner: AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, workflow and systems integration, and custom AI solutions. Seattle-based, working nationwide.";
 
