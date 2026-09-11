@@ -1,21 +1,38 @@
 @AGENTS.md
 
-## Site messaging — three service lines
+## Site messaging — AI automation leads, staffing and job marketing secondary
 
-The site leads with three service lines (the Train/Place/Build pillar framing was
-retired). Nav labels and their routes:
+The site leads with AI Automation, Digital Marketing, and Technology Consulting
+(founder's direction, Sept 2026). Staffing and Job Marketing remain as secondary
+offerings. Nav order and routes:
 
-- `Staffing` → `/services` — IT staffing for companies (contract + full-time hires)
+- `Home` → `/`
+- `Services` → `/services` — eight sections, one per card on the homepage grid,
+  driven by `src/lib/services-catalog.ts` (ids double as section anchors):
+  AI & Business Process Automation · Voice AI & Customer Engagement (absorbed
+  the old AI Services page: receptionist, missed-call recovery, chatbots, review
+  management) · POS Integration & Optimization · Business Intelligence & Analytics
+  · Workflow & Systems Integration · Custom AI Solutions · Digital Marketing ·
+  Technology Consulting
+- `Results` → `/results` — hidden until a customer result is published
 - `Job Marketing` → `/for-employees` — full-time job marketing for candidates
-- `AI Services` → `/ai-products` — AI services for businesses (receptionists,
-  chatbots, lead gen, automation, reviews, websites + local SEO, dashboards, design)
+- `Staffing` → `/staffing` — IT staffing for companies (components in
+  `src/components/staffing/`)
+- `About` → `/about`, `Contact` → `/contact`
 
-The Train/Academy pillar was removed entirely; `/academy` 301s to `/`.
+Every consultation CTA uses `BOOKING_URL` from `src/lib/booking.ts`.
 
-### URL/Label mismatch — TODO
+Redirects (301, `next.config.ts`): `/ai-products`, `/products`, `/industries` →
+`/services`; `/get-hired`, `/for-candidates` → `/for-employees`; `/academy` → `/`.
 
-Labels no longer match their routes. In a future cleanup PR, consider renaming
-`/ai-products` → `/ai-services` and `/for-employees` → `/job-marketing` for
-URL/label parity — or keep the current URLs for SEO continuity and add redirects.
-Note `/products`, `/industries`, and `/get-hired` already 301 elsewhere via
-`next.config.ts`.
+### Blog
+
+`/blog` lists posts from `content/blog/*.mdx` (frontmatter validated in
+`src/lib/blog.ts`). Posts default to `published: false`; drafts never get a URL.
+To publish: set `published: true` and a `date` that is not in the future.
+
+### Note on `/for-employees`
+
+The route name predates the "Job Marketing" label. Renaming to `/job-marketing`
+with a redirect is a possible future cleanup; keep the current URL for SEO
+continuity unless there is a reason to change it.

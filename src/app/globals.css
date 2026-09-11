@@ -169,6 +169,51 @@ h6 {
   @apply mt-1.5 h-2 w-2 shrink-0 bg-brand;
 }
 
+/* ── Blog post body ──────────────────────────────────────────────────────
+   Compiled MDX lands here as plain elements, so the type rhythm is set on
+   the wrapper rather than per-component.                                  */
+
+.post-body {
+  @apply text-base leading-8 text-foreground sm:text-lg;
+}
+.post-body > * + * {
+  @apply mt-5;
+}
+.post-body h2 {
+  @apply mt-12 text-2xl font-bold tracking-tight text-heading sm:text-3xl;
+}
+.post-body h3 {
+  @apply mt-9 text-xl font-bold text-heading sm:text-2xl;
+}
+.post-body a {
+  @apply font-semibold text-brand underline underline-offset-4 hover:text-brandDark;
+}
+.post-body ul,
+.post-body ol {
+  @apply space-y-2 pl-6;
+}
+.post-body ul {
+  @apply list-disc;
+}
+.post-body ol {
+  @apply list-decimal;
+}
+.post-body blockquote {
+  @apply border-l-4 border-brand/40 pl-5 italic text-muted;
+}
+.post-body pre {
+  @apply overflow-x-auto rounded-xl bg-dark p-5 text-sm leading-6 text-white;
+}
+.post-body :not(pre) > code {
+  @apply rounded bg-neutral px-1.5 py-0.5 font-mono text-[0.9em] text-heading;
+}
+.post-body img {
+  @apply rounded-xl;
+}
+.post-body hr {
+  @apply my-10 border-border;
+}
+
 /* ── Legacy helpers kept for existing markup ─────────────────────────── */
 
 .alert-success {

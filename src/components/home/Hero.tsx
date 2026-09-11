@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/animations/reveal";
 import { Eyebrow } from "@/components/brochure";
+import { BOOKING_URL } from "@/lib/booking";
 
 export function Hero() {
   return (
@@ -11,22 +12,29 @@ export function Hero() {
 
           {/* Left column — 3/5 width on desktop */}
           <Reveal className="lg:col-span-3">
-            <Eyebrow onDark>STAFFING. JOB MARKETING. AI SERVICES.</Eyebrow>
+            <Eyebrow onDark>AI AUTOMATION. DIGITAL MARKETING. TECHNOLOGY CONSULTING.</Eyebrow>
             <h1
               className="mt-4 font-extrabold leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              Staffing, job marketing, and AI services — one technology partner.
+              AI automation, digital marketing and technology consulting for growing businesses.
             </h1>
             <p className="mt-6 max-w-[38rem] text-lg leading-[1.6] text-white/90">
-              We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.
+              We build and run the systems that answer your calls, automate the busywork, connect
+              your tools, and bring in customers — then we stay to keep them working. Senior
+              engineers do the work; you see the results in your numbers.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/services" className="btn-primary">
-                Hire Engineers →
-              </Link>
-              <Link href="/ai-products" className="btn-on-dark">
-                Explore AI Services →
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Book a consultation →
+              </a>
+              <Link href="/services" className="btn-on-dark">
+                See our services →
               </Link>
             </div>
           </Reveal>
@@ -34,8 +42,8 @@ export function Hero() {
           {/* Right column — 2/5 width, hidden on mobile */}
           <Reveal delay={120} className="hidden lg:col-span-2 lg:block">
             <Image
-              src="/services/staff-augmentation.jpg"
-              alt="Enterprise team collaborating on AI technology projects"
+              src="/services/it-consulting.jpg"
+              alt="Globixs engineers planning an AI automation rollout with a client"
               width={700}
               height={525}
               priority

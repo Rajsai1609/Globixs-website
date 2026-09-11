@@ -10,32 +10,32 @@ type Service = {
   ctaHref: string;
 };
 
-/* Mirrors the homepage service cards so the three lines read the same
-   everywhere on the site. */
+/* Mirrors the homepage: the AI / marketing / consulting line leads, with
+   staffing and job marketing as the secondary offerings. */
 const services: Service[] = [
   {
     num: "(01)",
-    title: "IT Staffing for Companies",
+    title: "AI Automation, Digital Marketing & Technology Consulting",
     description:
-      "We fill contract and full-time technical roles across cloud, data, AI/ML, cybersecurity, and software. Sourcing, screening, and matching run on our own AI stack with senior recruiters validating every candidate — so first submissions land in days, not weeks.",
-    ctaLabel: "Explore staffing →",
+      "Done-for-you systems for growing businesses: AI receptionists that catch every missed call, process automation, POS and systems integration, dashboards, custom AI, websites and local SEO, lead generation, and senior technology advice. We build it, launch it, and keep it running.",
+    ctaLabel: "Explore our services →",
     ctaHref: "/services",
   },
   {
     num: "(02)",
+    title: "IT Staffing for Companies",
+    description:
+      "We fill contract and full-time technical roles across cloud, data, AI/ML, cybersecurity, and software. Sourcing, screening, and matching run on our own AI stack with senior recruiters validating every candidate — so first submissions land in days, not weeks.",
+    ctaLabel: "Explore staffing →",
+    ctaHref: "/staffing",
+  },
+  {
+    num: "(03)",
     title: "Job Marketing for Candidates",
     description:
       "A managed job search for people ready to move: a dedicated recruiter, a resume tailored for every application, and 25–35 quality applications submitted daily — across core technology tracks and an unsaturated roles track with less competition and faster interviews.",
     ctaLabel: "See how it works →",
     ctaHref: "/for-employees",
-  },
-  {
-    num: "(03)",
-    title: "AI Services for Businesses",
-    description:
-      "Done-for-you AI and digital growth systems: AI receptionists that catch every missed call, chatbots, lead generation, workflow automation, review management, and websites built to convert. We build it, launch it, and keep it running.",
-    ctaLabel: "Explore AI services →",
-    ctaHref: "/ai-products",
   },
 ];
 

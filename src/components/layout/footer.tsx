@@ -18,7 +18,7 @@ export function Footer() {
               className="h-auto w-40 md:w-[180px]"
             />
             <p className="mt-4 text-sm leading-relaxed text-white/60">
-              Staffing, job marketing, and AI services — one technology partner. We place pre-vetted engineers in contract and full-time roles, market job seekers into their next position, and build AI-powered growth systems for businesses.
+              AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers. We also staff engineering teams and market job seekers into their next role.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <p>{company.phone}</p>
@@ -67,10 +67,11 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services"       className="text-white/70 transition hover:text-brand">IT Staffing for Companies</Link></li>
-              <li><Link href="/for-employees"  className="text-white/70 transition hover:text-brand">Job Marketing for Candidates</Link></li>
-              <li><Link href="/ai-products"    className="text-white/70 transition hover:text-brand">AI Services for Businesses</Link></li>
-              <li><Link href="/contact"        className="text-white/70 transition hover:text-brand">Talk to Us</Link></li>
+              <li><Link href="/services"                        className="text-white/70 transition hover:text-brand">AI &amp; Automation Services</Link></li>
+              <li><Link href="/services#digital-marketing"      className="text-white/70 transition hover:text-brand">Digital Marketing</Link></li>
+              <li><Link href="/services#technology-consulting"  className="text-white/70 transition hover:text-brand">Technology Consulting</Link></li>
+              <li><Link href="/staffing"                        className="text-white/70 transition hover:text-brand">IT Staffing for Companies</Link></li>
+              <li><Link href="/for-employees"                   className="text-white/70 transition hover:text-brand">Job Marketing for Candidates</Link></li>
             </ul>
           </div>
 
@@ -93,7 +94,7 @@ export function Footer() {
               Resources
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/contact" className="text-white/70 transition hover:text-brand">Blog</Link></li>
+              <li><Link href="/blog" className="text-white/70 transition hover:text-brand">Blog</Link></li>
               <li>
                 <a
                   href="https://mctpathai.com"
