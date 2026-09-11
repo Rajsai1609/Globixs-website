@@ -8,6 +8,10 @@ export const company = {
   address: "Seattle, WA",
   locationTagline:
     "Seattle-based, working nationwide · AI automation, digital marketing and technology consulting",
+  /** Company page on LinkedIn — the only social profile the company runs. */
+  linkedinUrl: "https://www.linkedin.com/company/globixs/",
+  /** Short display form of linkedinUrl for inline links. */
+  linkedinHandle: "linkedin.com/company/globixs",
 };
 
 export type NavChild = {

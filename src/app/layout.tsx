@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { SITE_URL } from "@/lib/site-config";
+import { SITE_URL, company } from "@/lib/site-config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -83,6 +83,27 @@ export const viewport: Viewport = {
   themeColor: "#C8262C",
 };
 
+/**
+ * Organization structured data. Rendered once in the root layout so every
+ * page carries it; sameAs links the LinkedIn company page to the site.
+ */
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: company.name,
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon-512.png`,
+  email: company.email,
+  telephone: company.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Seattle",
+    addressRegion: "WA",
+    addressCountry: "US",
+  },
+  sameAs: [company.linkedinUrl],
+} as const;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -94,6 +115,11 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          // JSON-LD is a static, server-rendered object — no user input.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {children}
       </body>
     </html>
