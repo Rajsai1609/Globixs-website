@@ -14,10 +14,10 @@ type Service = {
 const services: Service[] = [
   {
     num: "(01)",
-    title: "AI Services",
+    title: "AI Automation",
     description:
       "AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, workflow and systems integration, and custom AI solutions. Built on the tools you already use and run by our team after launch.",
-    ctaLabel: "Explore AI Services →",
+    ctaLabel: "Explore AI Automation →",
     ctaHref: "/ai-services",
   },
   {

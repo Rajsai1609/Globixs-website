@@ -9,7 +9,7 @@ export function ServiceCards() {
       <div className="container-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="AI SERVICES"
+            eyebrow="AI AUTOMATION"
             title="Six systems, built for your business and run for you."
             description="Start with the one costing you the most today — missed calls, manual admin, disconnected tools, numbers you can't see — or let us run the whole stack."
           />

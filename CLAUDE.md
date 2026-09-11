@@ -3,7 +3,7 @@
 ## Site structure — three pillars (founder's direction, Sept 2026)
 
 Nav and footer are exactly six items, from `navLinks` in `src/lib/site-config.ts`:
-Home · AI Services · Digital Marketing · Technology Consulting · About · Contact.
+Home · AI Automation (label; URL stays /ai-services, from `AI_AUTOMATION_LABEL`) · Digital Marketing · Technology Consulting · About · Contact.
 Staffing, Results and Job Marketing are no longer top-level.
 
 - `/ai-services` — six sections from `AI_SERVICES` in `src/lib/services-catalog.ts`

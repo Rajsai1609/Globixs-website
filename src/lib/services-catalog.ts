@@ -23,6 +23,7 @@ import {
   Compass,
   type LucideIcon,
 } from "lucide-react";
+import { AI_AUTOMATION_LABEL } from "@/lib/site-config";
 
 export type ServiceEntry = {
   /** URL-safe id — used as the section anchor on the owning page. */
@@ -214,11 +215,11 @@ export const MARKETING_SERVICES: readonly ServiceEntry[] = [
 export const PILLARS: readonly Pillar[] = [
   {
     href: "/ai-services",
-    title: "AI Services",
+    title: AI_AUTOMATION_LABEL,
     Icon: Bot,
     blurb:
       "Voice AI, business process automation, POS and systems integration, BI dashboards and custom AI, built on your tools and run by our team.",
-    ctaLabel: "Explore AI Services →",
+    ctaLabel: `Explore ${AI_AUTOMATION_LABEL} →`,
   },
   {
     href: "/digital-marketing",
