@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                 Book a consultation
               </a>
               <Link href="/ai-services" className="btn-secondary">
-                Explore AI Automation
+                Explore AI Services
               </Link>
             </div>
           </aside>

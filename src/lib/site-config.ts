@@ -23,13 +23,13 @@ export type NavLink = {
   children?: NavChild[];
 };
 
-/** Single source for the AI pillar's label. The URL stays /ai-services. */
-export const AI_AUTOMATION_LABEL = "AI Automation";
+/** Single source for the AI pillar's label (nav, footer, pillar card, CTAs, page title). */
+export const AI_PILLAR_LABEL = "AI Services";
 
 // Exactly six items, in the founder's order. The footer mirrors this list.
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/ai-services", label: AI_AUTOMATION_LABEL },
+  { href: "/ai-services", label: AI_PILLAR_LABEL },
   { href: "/digital-marketing", label: "Digital Marketing" },
   { href: "/technology-consulting", label: "Technology Consulting" },
   { href: "/about", label: "About" },
