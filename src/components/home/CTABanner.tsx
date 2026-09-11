@@ -19,9 +19,6 @@ export function CTABanner() {
             <Link href={BOOKING_URL} className="btn-primary">
               Book a consultation
             </Link>
-            <Link href="/contact" className="btn-on-dark">
-              Contact us
-            </Link>
           </div>
         </Reveal>
       </div>

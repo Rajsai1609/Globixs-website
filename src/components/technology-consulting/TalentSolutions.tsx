@@ -132,9 +132,6 @@ export function TalentSolutions() {
                 <Link href={BOOKING_URL} className="btn-primary">
                   Book a consultation
                 </Link>
-                <Link href="/contact" className="btn-secondary">
-                  Send a job description
-                </Link>
               </div>
             </aside>
           </Reveal>
