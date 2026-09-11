@@ -49,21 +49,15 @@ export const metadata: Metadata = {
 // 300s matches /results.
 export const revalidate = 300;
 
-const JUMP_LINKS = [
-  { href: "#systems-cloud", label: "Systems & Cloud Consulting" },
-  { href: "#talent", label: "Talent Solutions" },
-  { href: "#job-marketing", label: "Job Marketing for Professionals" },
-] as const;
-
 export default function TechnologyConsultingPage() {
   return (
     <div>
       <PageHero
         eyebrow="Technology Consulting"
-        title="Senior technical judgment, on your side of the table."
-        description="Three practices under one roof: systems and cloud consulting for businesses making technology decisions, talent solutions for teams that need engineers, and job marketing for technology professionals ready for their next role."
-        secondary={{ href: "#job-marketing", label: "Looking for a job?" }}
-        jumpLinks={JUMP_LINKS}
+        lines={["Vetted engineers.", "On your team.", "In days, not months."]}
+        subhead="Contract, contract-to-hire and direct-hire consultants across cloud, data/AI and enterprise applications, plus job marketing for professionals."
+        primaryCta={{ label: "Request consultants", href: "/contact" }}
+        secondaryCta={{ label: "Job marketing for professionals", href: "#job-marketing" }}
       />
       <SystemsCloud />
       <TalentSolutions />
