@@ -1,6 +1,13 @@
 /** Canonical origin for metadata, sitemap and robots. No trailing slash. */
 export const SITE_URL = "https://www.globixs.com";
 
+/**
+ * Where every "Book a consultation" / "free 20-minute call" CTA sends people.
+ * Internal path today (the contact form captures the referring page as the
+ * lead source); swap to a calendar URL here if booking moves off-site again.
+ */
+export const BOOKING_URL = "/contact";
+
 export const company = {
   name: "Globixs Technology Solutions",
   phone: "+1 (425) 666-8998",

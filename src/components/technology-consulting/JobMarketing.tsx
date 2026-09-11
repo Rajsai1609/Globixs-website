@@ -8,7 +8,8 @@ import ResultsCounter from "@/components/results/ResultsCounter";
 import ResultsFeed from "@/components/results/ResultsFeed";
 import Testimonials from "@/components/results/Testimonials";
 import { getResultsSummary } from "@/lib/results";
-import { BOOKING_URL } from "@/lib/booking";
+import Link from "next/link";
+import { BOOKING_URL } from "@/lib/site-config";
 import { StickyRegister } from "./sticky-register";
 
 /* ── Data ──────────────────────────────────────────────────────────────── */
@@ -426,14 +427,9 @@ export async function JobMarketing() {
             <RegisterButtons onDark />
             <p className="mt-8 text-sm text-white/70">
               Connect@globixs.com · +1 (206) 552-8424 · Book directly:{" "}
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold underline hover:text-white"
-              >
-                tinyurl.com/2sfxn9w3
-              </a>
+              <Link href={BOOKING_URL} className="font-semibold underline hover:text-white">
+                globixs.com/contact
+              </Link>
             </p>
           </Reveal>
         </div>

@@ -90,7 +90,10 @@ function fromContact(r: ContactRow): Row {
     notes: r.notes,
     message: r.message,
     subtitle: r.company,
-    extra: r.serviceInterest ? [{ label: "Interested in", value: r.serviceInterest }] : [],
+    extra: [
+      ...(r.serviceInterest ? [{ label: "Interested in", value: r.serviceInterest }] : []),
+      ...(r.source ? [{ label: "Came from", value: r.source }] : []),
+    ],
     resumeUrl: null,
   };
 }

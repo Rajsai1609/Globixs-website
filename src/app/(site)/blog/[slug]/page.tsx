@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { Reveal } from "@/components/animations/reveal";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 import { getPublishedPost, getPublishedPosts, formatPostDate } from "@/lib/blog";
 
 type Params = { slug: string };
@@ -82,14 +82,9 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
               A 30-minute call is enough to tell you whether it fits and what it would take.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
+              <Link href={BOOKING_URL} className="btn-primary">
                 Book a consultation
-              </a>
+              </Link>
               <Link href="/ai-services" className="btn-secondary">
                 Explore AI Services
               </Link>

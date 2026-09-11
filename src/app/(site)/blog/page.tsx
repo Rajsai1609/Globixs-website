@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
 import { Pill } from "@/components/brochure";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 import { getPublishedPosts, formatPostDate } from "@/lib/blog";
 
 const TITLE = "Blog";
@@ -51,14 +51,9 @@ export default async function BlogIndexPage() {
                 description="We're writing up what we've learned running AI automation, marketing, and technology projects for real businesses. Check back soon, or book a call if you'd rather not wait."
               />
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
+                <Link href={BOOKING_URL} className="btn-primary">
                   Book a consultation
-                </a>
+                </Link>
                 <Link href="/ai-services" className="btn-secondary">
                   Explore AI Services
                 </Link>

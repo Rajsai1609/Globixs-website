@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { BulletItem, StepBadge } from "@/components/brochure";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 
 /* (b) Talent Solutions — the former /staffing page folded into one section:
    roles, engagement models, process and terms. */
@@ -129,14 +129,9 @@ export function TalentSolutions() {
               </ul>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
+                <Link href={BOOKING_URL} className="btn-primary">
                   Book a consultation
-                </a>
+                </Link>
                 <Link href="/contact" className="btn-secondary">
                   Send a job description
                 </Link>

@@ -1,6 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  LEAD_SOURCE_STORAGE_KEY,
+  leadSourceFromReferrer,
+  normalizeLeadSource,
+} from "@/lib/lead-source";
+
+/**
+ * Which page the visitor came from: the tracker's per-tab record for
+ * client-side navigations, else document.referrer for hard loads.
+ */
+function readLeadSource(): string {
+  try {
+    const stored = normalizeLeadSource(window.sessionStorage.getItem(LEAD_SOURCE_STORAGE_KEY));
+    if (stored) return stored;
+  } catch {
+    // Storage unavailable — fall through to the referrer.
+  }
+  return leadSourceFromReferrer(document.referrer, window.location.origin);
+}
 
 const field =
   "mt-1 w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none transition focus:border-brand/50 focus:ring-2 focus:ring-brand/15";
@@ -9,6 +28,13 @@ export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [pending, setPending] = useState(false);
   const [startedAt] = useState(() => Date.now());
+  const sourceRef = useRef<HTMLInputElement>(null);
+
+  // Filled after mount: the value depends on sessionStorage / document.referrer,
+  // neither of which exists during server rendering.
+  useEffect(() => {
+    if (sourceRef.current) sourceRef.current.value = readLeadSource();
+  }, []);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -23,6 +49,7 @@ export function ContactForm() {
       phone:          String(fd.get("phone") ?? ""),
       serviceInterest: String(fd.get("serviceInterest") ?? ""),
       message: `${String(fd.get("message") ?? "")}\n\nCompany size: ${companySize || "-"}`,
+      source:         String(fd.get("source") ?? ""),
       website:        String(fd.get("website") ?? ""),
       startedAt,
     };
@@ -50,6 +77,8 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="enterprise-panel space-y-5 p-6 sm:p-8">
       {/* Honeypot */}
       <input type="hidden" name="website" />
+      {/* Referring page, shown as "Came from" in /admin/contacts */}
+      <input ref={sourceRef} type="hidden" name="source" defaultValue="" />
 
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">

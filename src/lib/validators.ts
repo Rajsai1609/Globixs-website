@@ -7,6 +7,8 @@ export const contactSchema = z.object({
   phone: z.string().optional(),
   serviceInterest: z.string().optional(),
   message: z.string().min(10),
+  /** Referring site page; normalised again server-side in the API route. */
+  source: z.string().max(200).optional(),
   website: z.string().optional(),
   startedAt: z.coerce.number().optional(),
 });

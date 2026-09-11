@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/animations/reveal";
 import { BulletItem } from "@/components/brochure";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 
 type Props = {
   /** Section anchor — matches the catalog id. */

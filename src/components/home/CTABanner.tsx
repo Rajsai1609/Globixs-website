@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 
 export function CTABanner() {
   return (
@@ -16,14 +16,9 @@ export function CTABanner() {
             it would take.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
+            <Link href={BOOKING_URL} className="btn-primary">
               Book a consultation
-            </a>
+            </Link>
             <Link href="/contact" className="btn-on-dark">
               Contact us
             </Link>
