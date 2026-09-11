@@ -4,6 +4,7 @@ import { Reveal } from "@/components/animations/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/sections/page-hero";
 import { company } from "@/lib/site-config";
+import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 
 export const metadata: Metadata = {
   title: "Contact | Globixs Technology Solutions",
@@ -31,7 +32,18 @@ export default function ContactPage() {
             <p className="mt-3 whitespace-pre-line text-sm text-foreground">{company.address}</p>
             <p className="mt-2 text-sm text-foreground">{company.phone}</p>
             <p className="mt-2 text-sm text-foreground">{company.email}</p>
-            <p className="mt-3 text-xs text-white/60">{company.locationTagline}</p>
+            <p className="mt-2 text-sm text-foreground">
+              <a
+                href={company.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition hover:text-brand"
+              >
+                <LinkedInIcon width={16} height={16} />
+                {company.linkedinHandle}
+              </a>
+            </p>
+            <p className="mt-3 text-xs text-muted">{company.locationTagline}</p>
           </div>
         </Reveal>
 
