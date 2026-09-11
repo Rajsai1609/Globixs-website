@@ -60,7 +60,7 @@ export default async function BlogIndexPage() {
                   Book a consultation
                 </a>
                 <Link href="/ai-services" className="btn-secondary">
-                  Explore AI Services
+                  Explore AI Automation
                 </Link>
               </div>
             </Reveal>

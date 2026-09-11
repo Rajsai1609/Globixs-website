@@ -6,7 +6,7 @@ import { ServiceSection } from "@/components/sections/service-section";
 import { BOOKING_URL } from "@/lib/booking";
 import { AI_SERVICES } from "@/lib/services-catalog";
 
-const TITLE = "AI Services";
+const TITLE = "AI Automation";
 const DESCRIPTION =
   "AI automation for businesses that want to run leaner: AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, workflow and systems integration, and custom AI solutions. Seattle-based, working nationwide.";
 
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Globixs AI Services — AI automation for businesses that want to run leaner",
+        alt: "Globixs AI Automation — AI automation for businesses that want to run leaner",
       },
     ],
   },
@@ -51,7 +51,7 @@ export default function AIServicesPage() {
   return (
     <div>
       <PageHero
-        eyebrow="AI Services"
+        eyebrow="AI Services & Automation"
         lines={["Answer every call.", "Automate the admin.", "See the numbers."]}
         subhead="Six AI systems built on the tools you already run, delivered and operated by our team."
         primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
@@ -63,7 +63,7 @@ export default function AIServicesPage() {
           <ServiceSection
             key={service.id}
             id={service.id}
-            eyebrow={`(${String(idx + 1).padStart(2, "0")}) AI Services`}
+            eyebrow={`(${String(idx + 1).padStart(2, "0")}) AI Automation`}
             title={service.title}
             Icon={service.Icon}
             description={service.description}
