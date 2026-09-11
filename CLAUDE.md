@@ -22,7 +22,10 @@ Staffing, Results and Job Marketing are no longer top-level.
   above the $349 pricing block).
 
 Every section on the three pages uses `ServiceSection` / `PageHero` from
-`src/components/sections/` and the `BOOKING_URL` in `src/lib/booking.ts`.
+`src/components/sections/` and `BOOKING_URL` from `src/lib/site-config.ts` (currently
+`/contact`; the Google Form booking link was retired in Sept 2026). The contact
+form records the referring page in `ContactSubmission.source`, shown as
+"Came from" in `/admin/contacts`.
 
 Redirects (301, `next.config.ts`): `/services`, `/services/*`, `/ai-products`,
 `/products`, `/industries` → `/ai-services`; `/staffing` →

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/site-config";
 import { getAllResults, getResultsSummary, RESPONSE_LABEL, daysBetween } from "@/lib/results";
 
 export const metadata: Metadata = {
@@ -21,14 +22,12 @@ export default async function ResultsIndex() {
           <p className="mt-4 max-w-[60ch] text-lg text-[#383E42]">
             We publish employer responses here as customers give written permission. The first is on
             its way — check back soon or{" "}
-            <a
-              href="https://tinyurl.com/2sfxn9w3"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={BOOKING_URL}
               className="font-semibold text-[#C8262C] underline hover:text-[#A81F24]"
             >
               book a free 20-minute call
-            </a>
+            </Link>
             .
           </p>
           {/* /join is a rewrite to a static file in public/ — plain anchor, not next/link. */}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero }    from "@/components/sections/page-hero";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 import { WhatWeDo }    from "@/components/about/WhatWeDo";
 import { Principles }  from "@/components/about/Principles";
 import { WhoWeServe }  from "@/components/about/WhoWeServe";

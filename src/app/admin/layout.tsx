@@ -10,6 +10,7 @@ const nav = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/jobs", label: "Roles" },
   { href: "/admin/applications", label: "Applications" },
+  { href: "/admin/contacts", label: "Contacts" },
 ];
 
 export default function AdminLayout({

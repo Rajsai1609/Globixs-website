@@ -4,7 +4,7 @@ import { Reveal } from "@/components/animations/reveal";
 import { PageHero } from "@/components/sections/page-hero";
 import { MarketingPanel } from "@/components/hero-illustrations/MarketingPanel";
 import { ServiceSection } from "@/components/sections/service-section";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 import { MARKETING_SERVICES } from "@/lib/services-catalog";
 
 const TITLE = "Digital Marketing";
@@ -85,16 +85,8 @@ export default function DigitalMarketingPage() {
               channels are worth your budget and which are not.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
+              <Link href={BOOKING_URL} className="btn-primary">
                 Book a consultation
-              </a>
-              <Link href="/contact" className="btn-on-dark">
-                Send us a message
               </Link>
             </div>
           </Reveal>

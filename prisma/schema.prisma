@@ -102,6 +102,11 @@ model GetHiredSubmission {
   resumeUrl         String
   message           String?
   createdAt         DateTime @default(now())
+  handled           Boolean  @default(false)
+  handledAt         DateTime?
+  notes             String?
+
+  @@index([handled, createdAt])
 }
 
 model ContactSubmission {
@@ -112,7 +117,14 @@ model ContactSubmission {
   phone        String?
   serviceInterest String?
   message      String
+  /** Site path the visitor came from before landing on /contact (e.g. "/ai-services"). */
+  source       String?
   createdAt    DateTime @default(now())
+  handled      Boolean  @default(false)
+  handledAt    DateTime?
+  notes        String?
+
+  @@index([handled, createdAt])
 }
 
 // ── Live customer results feed (/results, /for-employees) ──────────────────

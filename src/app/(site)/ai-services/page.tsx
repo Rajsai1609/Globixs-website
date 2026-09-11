@@ -4,7 +4,7 @@ import { Reveal } from "@/components/animations/reveal";
 import { PageHero } from "@/components/sections/page-hero";
 import { VoiceCallCard } from "@/components/hero-illustrations/VoiceCallCard";
 import { ServiceSection } from "@/components/sections/service-section";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 import { AI_PILLAR_LABEL } from "@/lib/site-config";
 import { AI_SERVICES } from "@/lib/services-catalog";
 
@@ -87,16 +87,8 @@ export default function AIServicesPage() {
               it and what it would take.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
+              <Link href={BOOKING_URL} className="btn-primary">
                 Book a consultation
-              </a>
-              <Link href="/contact" className="btn-on-dark">
-                Send us a message
               </Link>
             </div>
           </Reveal>

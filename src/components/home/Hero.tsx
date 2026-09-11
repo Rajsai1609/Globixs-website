@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PageHero } from "@/components/sections/page-hero";
-import { BOOKING_URL } from "@/lib/booking";
+import { BOOKING_URL } from "@/lib/site-config";
 import { AI_PILLAR_LABEL } from "@/lib/site-config";
 
 export function Hero() {
