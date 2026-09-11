@@ -130,6 +130,24 @@ h6 {
     linear-gradient(120deg, var(--hero), var(--hero-2));
 }
 
+/* Faint 32px pixel grid laid over a .hero-mesh band (homepage hero). Drawn
+   on a pseudo-element so it stacks above the gradient and below content. */
+.hero-grid {
+  position: relative;
+  isolation: isolate;
+}
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 /* ── Brochure primitives ─────────────────────────────────────────────── */
 
 /* Red letterspaced uppercase eyebrow above a section heading. */
