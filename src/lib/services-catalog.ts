@@ -1,8 +1,10 @@
 /**
- * Service catalog — the one list behind the homepage grid, the /services
- * sections, the footer, and the sitemap anchors. Order matters: the first six
- * are the AI & automation cards; the last two (Digital Marketing, Technology
- * Consulting) render as a second row on the homepage.
+ * Service catalog — the single list behind the homepage cards, the section
+ * pages (/ai-services, /digital-marketing), the footer, and sitemap anchors.
+ *
+ * Each entry's `id` doubles as the section anchor on its page. Every section
+ * renders the same pattern: title, 2–3 sentence description, three outcome
+ * bullets, and a "Book a consultation" CTA (see ServiceSection).
  */
 import {
   Workflow,
@@ -11,43 +13,54 @@ import {
   BarChart3,
   Plug,
   Sparkles,
+  Search,
   Megaphone,
+  Share2,
+  Mail,
+  MousePointerClick,
+  Bot,
+  TrendingUp,
   Compass,
   type LucideIcon,
 } from "lucide-react";
 
-export type ServiceRow = "automation" | "growth";
-
 export type ServiceEntry = {
-  /** URL-safe id — used as the section anchor on /services. */
+  /** URL-safe id — used as the section anchor on the owning page. */
   id: string;
   title: string;
   Icon: LucideIcon;
-  /** Homepage card copy — kept to two short lines. */
+  /** Homepage card copy — two short lines. */
   blurb: string;
-  /** /services section: what we actually do. */
-  whatWeDo: readonly string[];
-  /** /services section: who it is for. */
-  whoItsFor: string;
-  row: ServiceRow;
+  /** Section body — 2–3 sentences. */
+  description: string;
+  /** Exactly three outcomes the customer can expect. */
+  outcomes: readonly [string, string, string];
 };
 
-export const SERVICES: readonly ServiceEntry[] = [
+export type Pillar = {
+  href: string;
+  title: string;
+  Icon: LucideIcon;
+  blurb: string;
+  ctaLabel: string;
+};
+
+/* ── AI Services (/ai-services) ─────────────────────────────────────────── */
+
+export const AI_SERVICES: readonly ServiceEntry[] = [
   {
     id: "ai-business-process-automation",
     title: "AI & Business Process Automation",
     Icon: Workflow,
     blurb:
       "Quote follow-ups, invoicing, reminders, CRM updates and reporting run on AI agents. Your team gets the hours back.",
-    whatWeDo: [
-      "Map the repeatable work in your business and rank it by hours lost and revenue at risk.",
-      "Build AI agents and automations for follow-ups, invoicing, scheduling, document intake and CRM hygiene.",
-      "Deploy on the tools you already use: Google Workspace, Microsoft 365, HubSpot, QuickBooks, Make, n8n.",
-      "Monitor every run, fix what breaks, and report the time and money saved each month.",
+    description:
+      "We map the repeatable work in your business, rank it by hours lost and revenue at risk, and replace it with AI agents and automations. Everything runs on the tools you already use, and we monitor every run after launch.",
+    outcomes: [
+      "Follow-ups, reminders and invoices go out on time without anyone remembering to send them.",
+      "Staff hours move from copy-paste admin to work that needs a person.",
+      "A monthly report shows exactly what ran, what it saved, and what to automate next.",
     ],
-    whoItsFor:
-      "Owner-led and mid-market businesses where staff spend hours a week on copy-paste admin: home services, clinics, agencies, professional services, and multi-location operators.",
-    row: "automation",
   },
   {
     id: "voice-ai-customer-engagement",
@@ -55,15 +68,13 @@ export const SERVICES: readonly ServiceEntry[] = [
     Icon: PhoneCall,
     blurb:
       "AI receptionists that answer 24/7, text back missed calls, book appointments, and keep your reviews working for you.",
-    whatWeDo: [
-      "AI receptionist that answers every call, books appointments, and routes urgent callers to a human.",
-      "Missed-call text-back that reaches the caller within seconds and recovers the booking.",
-      "AI chatbots for support and sales on your website, SMS and WhatsApp, trained on your business.",
-      "Review and reputation management: automated review requests after every job, AI-drafted responses, and monitoring across Google and Yelp.",
+    description:
+      "An AI receptionist answers every call, books appointments, and routes urgent callers to a human. Missed-call text-back reaches the caller within seconds, chatbots handle support and sales on your website, SMS and WhatsApp, and review management requests and answers reviews across Google and Yelp.",
+    outcomes: [
+      "Calls that used to go to voicemail get answered, and missed callers get a text before they dial the next business.",
+      "Appointments and quote requests get booked outside business hours.",
+      "Every completed job produces a review request, and every review gets a drafted response.",
     ],
-    whoItsFor:
-      "Restaurants, clinics, salons, dental and medical practices, home services, and any business that loses customers to voicemail.",
-    row: "automation",
   },
   {
     id: "pos-integration-optimization",
@@ -71,15 +82,13 @@ export const SERVICES: readonly ServiceEntry[] = [
     Icon: CreditCard,
     blurb:
       "Connect your point of sale to ordering, loyalty, inventory and accounting, then tune the flow for speed and margin.",
-    whatWeDo: [
-      "Integrate Square, Toast, Clover, Shopify POS and similar systems with online ordering, loyalty, and delivery platforms.",
-      "Sync sales, tips and inventory to accounting so month-end reconciliation stops being a project.",
-      "Audit menu, modifier and checkout configuration to cut ticket time and errors.",
-      "Surface item-level margin and peak-hour data so pricing and staffing decisions rest on numbers.",
+    description:
+      "We integrate Square, Toast, Clover, Shopify POS and similar systems with online ordering, loyalty, delivery platforms and accounting. Then we audit the menu, modifier and checkout configuration so tickets move faster and reconciliation stops being a monthly project.",
+    outcomes: [
+      "Sales, tips and inventory flow to accounting without re-keying.",
+      "Online, delivery and in-store orders land in one system with one source of truth.",
+      "Item-level margin and peak-hour data are available for pricing and staffing decisions.",
     ],
-    whoItsFor:
-      "Restaurants, cafes, retail stores, and multi-location operators running on a POS that never got fully set up.",
-    row: "automation",
   },
   {
     id: "business-intelligence-analytics",
@@ -87,15 +96,13 @@ export const SERVICES: readonly ServiceEntry[] = [
     Icon: BarChart3,
     blurb:
       "Dashboards and reports that pull from every system you run, so decisions rest on live numbers instead of gut feel.",
-    whatWeDo: [
-      "Connect POS, CRM, ads, bookings and accounting data into one reporting layer.",
-      "Build dashboards for revenue, margin, marketing ROI, staffing and customer retention.",
-      "Automate weekly reports and alerts so the right person sees a problem before it becomes a bad month.",
-      "Add AI summaries and forecasts on top of the data where they earn their keep.",
+    description:
+      "We connect POS, CRM, ads, bookings and accounting data into one reporting layer and build the dashboards an owner actually checks: revenue, margin, marketing return, staffing and retention. Weekly reports and alerts go out automatically.",
+    outcomes: [
+      "One dashboard replaces the spreadsheet someone rebuilds every Monday.",
+      "Problems surface as alerts before they turn into a bad month.",
+      "Marketing, staffing and pricing decisions are backed by the same numbers everyone sees.",
     ],
-    whoItsFor:
-      "Owners and operators who run several tools and still assemble the numbers by hand in spreadsheets.",
-    row: "automation",
   },
   {
     id: "workflow-systems-integration",
@@ -103,15 +110,13 @@ export const SERVICES: readonly ServiceEntry[] = [
     Icon: Plug,
     blurb:
       "Make your CRM, scheduling, billing and support tools talk to each other, with no more double entry.",
-    whatWeDo: [
-      "Audit how data moves between your systems today and where it gets re-typed or lost.",
-      "Build integrations with APIs, webhooks, Make and n8n, plus custom code where off-the-shelf connectors fall short.",
-      "Design the handoffs between sales, operations and finance so records stay consistent end to end.",
-      "Document and monitor every integration so it survives staff and vendor changes.",
+    description:
+      "We audit how data moves between your systems today, then build the integrations with APIs, webhooks, Make and n8n, plus custom code where off-the-shelf connectors fall short. Every integration is documented and monitored so it survives staff and vendor changes.",
+    outcomes: [
+      "A record entered once in one tool shows up correctly everywhere else.",
+      "Handoffs between sales, operations and finance stop dropping details.",
+      "Integrations keep running when a vendor changes an API or a team member leaves.",
     ],
-    whoItsFor:
-      "Growing businesses with a stack of five to fifteen SaaS tools that were bought one at a time and never connected.",
-    row: "automation",
   },
   {
     id: "custom-ai-solutions",
@@ -119,58 +124,124 @@ export const SERVICES: readonly ServiceEntry[] = [
     Icon: Sparkles,
     blurb:
       "When the off-the-shelf tool does not fit, we design, build and run a custom AI application on your data.",
-    whatWeDo: [
-      "Scope the problem, the data, and the measurable result before any build starts.",
-      "Build custom AI agents, document and knowledge assistants, lead scoring, and internal copilots on Claude and OpenAI models.",
-      "Ship in two-to-eight-week sprints with evaluation sets so quality is measured, not assumed.",
-      "Run it in production: monitoring, cost control, model updates and ongoing improvement.",
+    description:
+      "For the high-value workflow generic tools cannot handle, we scope the problem, the data and the measurable result before any build starts. Custom agents, document and knowledge assistants, lead scoring and internal copilots ship in short sprints with evaluation sets, then we run them in production.",
+    outcomes: [
+      "A working system scoped to one measurable result, not a research project.",
+      "Quality is measured against an evaluation set before and after every change.",
+      "Monitoring, cost control and model updates are handled after launch.",
     ],
-    whoItsFor:
-      "Businesses with a specific, high-value workflow that generic AI tools cannot handle and a budget for a proper build.",
-    row: "automation",
-  },
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    Icon: Megaphone,
-    blurb:
-      "Websites that convert, local SEO that gets you found, and lead generation that fills the pipeline every month.",
-    whatWeDo: [
-      "Fast, modern business websites and landing pages built to turn visitors into calls and bookings.",
-      "Local SEO and Google Business Profile optimization so nearby customers find you first.",
-      "AI-driven lead generation: prospect discovery, personalized outreach and automated follow-up.",
-      "Branding, marketing assets and campaign creative, with reporting tied to leads rather than impressions.",
-    ],
-    whoItsFor:
-      "Local and regional businesses that need a steady flow of qualified leads and a web presence that matches the quality of their work.",
-    row: "growth",
-  },
-  {
-    id: "technology-consulting",
-    title: "Technology Consulting",
-    Icon: Compass,
-    blurb:
-      "A senior technical partner to assess your stack, plan the roadmap, and make the build-versus-buy calls.",
-    whatWeDo: [
-      "Technology and AI readiness assessments with a prioritized, costed roadmap.",
-      "Vendor and platform selection, architecture reviews, and build-versus-buy decisions.",
-      "Fractional CTO and technical leadership for teams without a senior engineer in the room.",
-      "Delivery oversight for projects run by other vendors, so you have someone on your side of the table.",
-    ],
-    whoItsFor:
-      "Founders and operators making technology decisions with real money attached and no in-house technical leadership.",
-    row: "growth",
   },
 ];
 
-export const AUTOMATION_SERVICES: readonly ServiceEntry[] = SERVICES.filter(
-  (s) => s.row === "automation"
-);
+/* ── Digital Marketing (/digital-marketing) ─────────────────────────────── */
 
-export const GROWTH_SERVICES: readonly ServiceEntry[] = SERVICES.filter(
-  (s) => s.row === "growth"
-);
+export const MARKETING_SERVICES: readonly ServiceEntry[] = [
+  {
+    id: "search-local-seo",
+    title: "Search & Local SEO",
+    Icon: Search,
+    blurb:
+      "Show up when nearby customers search for what you do, on Google Maps and in organic results.",
+    description:
+      "We optimize your Google Business Profile, fix the technical and on-page issues holding your site back, and build the location and service pages that local searches reward. Reviews, citations and tracking are set up so progress is measurable.",
+    outcomes: [
+      "Your business appears for the searches customers in your area actually make.",
+      "Website and profile issues that suppress rankings are found and fixed.",
+      "Monthly reporting shows impressions, calls and direction requests, not vanity metrics.",
+    ],
+  },
+  {
+    id: "paid-ads",
+    title: "Paid Ads (Google/Meta)",
+    Icon: Megaphone,
+    blurb:
+      "Google and Meta campaigns built around cost per lead, with conversion tracking set up before the first dollar is spent.",
+    description:
+      "We set up conversion tracking first, then build search, Performance Max and Meta campaigns around the actions that matter to you: calls, forms and bookings. Budgets, keywords, audiences and creative are reviewed on a fixed cadence.",
+    outcomes: [
+      "Every campaign reports cost per lead, not just clicks and impressions.",
+      "Wasted spend on irrelevant searches and audiences is cut on a regular review cycle.",
+      "Landing pages, tracking and campaigns are aligned so leads are attributable.",
+    ],
+  },
+  {
+    id: "social-content-linkedin",
+    title: "Social Content & LinkedIn Management",
+    Icon: Share2,
+    blurb:
+      "A steady publishing cadence for your business and founder profiles, planned monthly and written for your audience.",
+    description:
+      "We plan a monthly content calendar, write and design the posts, and manage publishing across LinkedIn, Instagram and Facebook. Founder and company profiles are kept current so the people who look you up see an active business.",
+    outcomes: [
+      "A consistent posting schedule without anyone on your team writing at midnight.",
+      "Company and founder profiles that reflect what you do today.",
+      "A monthly summary of reach, engagement and inbound conversations.",
+    ],
+  },
+  {
+    id: "email-whatsapp-campaigns",
+    title: "Email & WhatsApp Campaigns",
+    Icon: Mail,
+    blurb:
+      "Automated sequences and campaigns that follow up with leads and bring past customers back.",
+    description:
+      "We set up the lists, templates and automations for email and WhatsApp: welcome and follow-up sequences, promotions, reminders and win-back campaigns. Consent and opt-out handling are built in from the start.",
+    outcomes: [
+      "New leads receive a follow-up sequence automatically instead of waiting on a reply.",
+      "Past customers hear from you on a schedule with offers and reminders.",
+      "Open, reply and booking rates are tracked per campaign.",
+    ],
+  },
+  {
+    id: "landing-pages-conversion",
+    title: "Landing Pages & Conversion",
+    Icon: MousePointerClick,
+    blurb:
+      "Fast, focused pages with one clear next step, built to turn ad clicks and search visits into calls and bookings.",
+    description:
+      "We build landing pages and website sections around a single action, connect them to your booking, form and call tracking, and test headlines, offers and layouts against real traffic. Speed and mobile usability are checked before launch.",
+    outcomes: [
+      "Each campaign sends traffic to a page built for that offer, not the homepage.",
+      "Forms, calls and bookings from every page are tracked to their source.",
+      "Changes are tested against actual visitors rather than guessed.",
+    ],
+  },
+];
 
-export function serviceHref(id: string): string {
-  return `/services#${id}`;
+/* ── Pillars (homepage + about) ─────────────────────────────────────────── */
+
+export const PILLARS: readonly Pillar[] = [
+  {
+    href: "/ai-services",
+    title: "AI Services",
+    Icon: Bot,
+    blurb:
+      "Voice AI, business process automation, POS and systems integration, BI dashboards and custom AI, built on your tools and run by our team.",
+    ctaLabel: "Explore AI Services →",
+  },
+  {
+    href: "/digital-marketing",
+    title: "Digital Marketing",
+    Icon: TrendingUp,
+    blurb:
+      "Search and local SEO, paid ads, social and LinkedIn management, email and WhatsApp campaigns, and landing pages built to convert.",
+    ctaLabel: "Explore Digital Marketing →",
+  },
+  {
+    href: "/technology-consulting",
+    title: "Technology Consulting",
+    Icon: Compass,
+    blurb:
+      "Systems and cloud consulting, talent solutions for engineering teams, and job marketing for technology professionals.",
+    ctaLabel: "Explore Technology Consulting →",
+  },
+];
+
+export function aiServiceHref(id: string): string {
+  return `/ai-services#${id}`;
+}
+
+export function marketingServiceHref(id: string): string {
+  return `/digital-marketing#${id}`;
 }

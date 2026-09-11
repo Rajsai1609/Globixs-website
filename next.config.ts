@@ -12,18 +12,27 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // Legacy route renames (301 permanent)
-      { source: "/industries",     destination: "/services",       permanent: true },
-      { source: "/products",       destination: "/services",       permanent: true },
-      { source: "/for-candidates", destination: "/for-employees",  permanent: true },
-      { source: "/get-hired",      destination: "/for-employees",  permanent: true },
-      // AI Services page folded into /services (Voice AI & Customer Engagement).
-      { source: "/ai-products",    destination: "/services",       permanent: true },
+      // ── Sept 2026 restructure (301 permanent) ──────────────────────────
+      // AI services: every previous path lands on /ai-services.
+      { source: "/services",       destination: "/ai-services", permanent: true },
+      { source: "/services/:path*", destination: "/ai-services", permanent: true },
+      { source: "/ai-products",    destination: "/ai-services", permanent: true },
+      { source: "/products",       destination: "/ai-services", permanent: true },
+      { source: "/industries",     destination: "/ai-services", permanent: true },
+      // Consulting: staffing and the legacy consulting page fold into
+      // /technology-consulting.
+      { source: "/staffing",       destination: "/technology-consulting#talent",         permanent: true },
+      { source: "/consulting",     destination: "/technology-consulting",                permanent: true },
+      // Job marketing: the whole /for-employees page now lives at #job-marketing.
+      { source: "/for-employees",  destination: "/technology-consulting#job-marketing",  permanent: true },
+      { source: "/for-candidates", destination: "/technology-consulting#job-marketing",  permanent: true },
+      { source: "/get-hired",      destination: "/technology-consulting#job-marketing",  permanent: true },
+      // ── Older redirects, unchanged ─────────────────────────────────────
       // Train/Academy pillar retired — keep old indexed links out of a 404.
-      { source: "/academy",        destination: "/",               permanent: true },
+      { source: "/academy",        destination: "/",           permanent: true },
       // Short links used in posts/DMs for the live results feed.
-      { source: "/proof",          destination: "/results",        permanent: true },
-      { source: "/30days",         destination: "/results",        permanent: true },
+      { source: "/proof",          destination: "/results",    permanent: true },
+      { source: "/30days",         destination: "/results",    permanent: true },
     ];
   },
 

@@ -1,38 +1,45 @@
 @AGENTS.md
 
-## Site messaging — AI automation leads, staffing and job marketing secondary
+## Site structure — three pillars (founder's direction, Sept 2026)
 
-The site leads with AI Automation, Digital Marketing, and Technology Consulting
-(founder's direction, Sept 2026). Staffing and Job Marketing remain as secondary
-offerings. Nav order and routes:
+Nav and footer are exactly six items, from `navLinks` in `src/lib/site-config.ts`:
+Home · AI Services · Digital Marketing · Technology Consulting · About · Contact.
+Staffing, Results and Job Marketing are no longer top-level.
 
-- `Home` → `/`
-- `Services` → `/services` — eight sections, one per card on the homepage grid,
-  driven by `src/lib/services-catalog.ts` (ids double as section anchors):
-  AI & Business Process Automation · Voice AI & Customer Engagement (absorbed
-  the old AI Services page: receptionist, missed-call recovery, chatbots, review
-  management) · POS Integration & Optimization · Business Intelligence & Analytics
-  · Workflow & Systems Integration · Custom AI Solutions · Digital Marketing ·
-  Technology Consulting
-- `Results` → `/results` — hidden until a customer result is published
-- `Job Marketing` → `/for-employees` — full-time job marketing for candidates
-- `Staffing` → `/staffing` — IT staffing for companies (components in
-  `src/components/staffing/`)
-- `About` → `/about`, `Contact` → `/contact`
+- `/ai-services` — six sections from `AI_SERVICES` in `src/lib/services-catalog.ts`
+  (ids double as anchors): AI & Business Process Automation · Voice AI & Customer
+  Engagement (absorbed the old AI Services page: receptionist, missed-call
+  recovery, chatbots, review management) · POS Integration & Optimization ·
+  Business Intelligence & Analytics · Workflow & Systems Integration · Custom AI
+  Solutions. Homepage cards link to these anchors.
+- `/digital-marketing` — five sections from `MARKETING_SERVICES`: Search & Local
+  SEO · Paid Ads · Social Content & LinkedIn · Email & WhatsApp · Landing Pages.
+  Factual copy only; no client names or numbers we don't have.
+- `/technology-consulting` — three sections: `#systems-cloud`, `#talent` (the
+  old staffing page folded into one section), `#job-marketing` (the entire old
+  `/for-employees` page, in `src/components/technology-consulting/JobMarketing.tsx`,
+  with `<ResultsCounter />`, `<ResultsFeed />` and `<Testimonials />` directly
+  above the $349 pricing block).
 
-Every consultation CTA uses `BOOKING_URL` from `src/lib/booking.ts`.
+Every section on the three pages uses `ServiceSection` / `PageHero` from
+`src/components/sections/` and the `BOOKING_URL` in `src/lib/booking.ts`.
 
-Redirects (301, `next.config.ts`): `/ai-products`, `/products`, `/industries` →
-`/services`; `/get-hired`, `/for-candidates` → `/for-employees`; `/academy` → `/`.
+Redirects (301, `next.config.ts`): `/services`, `/services/*`, `/ai-products`,
+`/products`, `/industries` → `/ai-services`; `/staffing` →
+`/technology-consulting#talent`; `/consulting` → `/technology-consulting`;
+`/for-employees`, `/for-candidates`, `/get-hired` →
+`/technology-consulting#job-marketing`; `/academy` → `/`. `/results`,
+`/results/[slug]`, `/30days`, `/proof`, `/join`, `/register` are unchanged.
+
+### Testimonials
+
+`CustomerTestimonial` (Prisma) renders only rows with `published = true` AND
+`consentAt` set. Manage from the CLI: `npm run testimonial -- list | add | publish
+<id> | unpublish <id>` (`scripts/publish-testimonial.ts`). `--publish` requires
+`--consent`.
 
 ### Blog
 
 `/blog` lists posts from `content/blog/*.mdx` (frontmatter validated in
 `src/lib/blog.ts`). Posts default to `published: false`; drafts never get a URL.
 To publish: set `published: true` and a `date` that is not in the future.
-
-### Note on `/for-employees`
-
-The route name predates the "Job Marketing" label. Renaming to `/job-marketing`
-with a redirect is a possible future cleanup; keep the current URL for SEO
-continuity unless there is a reason to change it.

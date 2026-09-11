@@ -1,23 +1,15 @@
-import type { Metadata } from "next";
+// Server component. (c) Job Marketing for Professionals — the entire former
+// /for-employees page, moved here in full under the #job-marketing anchor:
+// hero pitch, pipeline, tracks, what we do / what you do, commitment, who it's
+// for, live results + testimonials, the $349 pricing block, FAQ, register CTA.
 import { Reveal } from "@/components/animations/reveal";
 import { SectionTitle } from "@/components/sections/section-title";
-import { StickyRegister } from "@/components/for-employees/sticky-register";
 import ResultsCounter from "@/components/results/ResultsCounter";
 import ResultsFeed from "@/components/results/ResultsFeed";
-
-export const metadata: Metadata = {
-  // `absolute` so the root layout's "%s | Globixs Technology Solutions"
-  // template doesn't append a second brand suffix.
-  title: { absolute: "Full-Time Job Marketing for Candidates | Globixs" },
-  description:
-    "25–35 tailored applications every business day by a dedicated recruiter. From sign-up to placement — one managed pipeline. Core tech tracks + unsaturated roles.",
-};
-
-// This page renders <ResultsCounter /> and <ResultsFeed />, which read the
-// database. Without this it would be prerendered once at build time and the
-// results sections would never appear when a customer result is published.
-// 300s matches the revalidate on /results.
-export const revalidate = 300;
+import Testimonials from "@/components/results/Testimonials";
+import { getResultsSummary } from "@/lib/results";
+import { BOOKING_URL } from "@/lib/booking";
+import { StickyRegister } from "./sticky-register";
 
 /* ── Data ──────────────────────────────────────────────────────────────── */
 
@@ -123,45 +115,36 @@ const faqs = [
 function RegisterButtons({ onDark = false }: { onDark?: boolean }) {
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-      <a
-        href="/join"
-        className={
-          onDark
-            ? "btn-primary"
-            : "btn-primary"
-        }
-      >
+      <a href="/join" className="btn-primary">
         Register — Core Tech Tracks
       </a>
-      <a
-        href="/register"
-        className={
-          onDark
-            ? "btn-on-dark"
-            : "btn-secondary"
-        }
-      >
+      <a href="/register" className={onDark ? "btn-on-dark" : "btn-secondary"}>
         Register — Unsaturated Roles
       </a>
     </div>
   );
 }
 
-/* ── Page ──────────────────────────────────────────────────────────────── */
+/* ── Section ───────────────────────────────────────────────────────────── */
 
-export default function ForEmployeesPage() {
+export async function JobMarketing() {
+  // The "inboxes" heading only makes sense when the feed underneath it
+  // renders; both read the same publishable count.
+  const { responses } = await getResultsSummary();
+  const hasResults = responses > 0;
+
   return (
-    <div>
-      {/* ══════════════════════ 1 · HERO ══════════════════════ */}
+    <div id="job-marketing" className="scroll-mt-24">
+      {/* ══════════════════════ 1 · HERO PITCH ══════════════════════ */}
       <section className="hero-mesh py-20 text-white sm:py-28">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="eyebrow-on-dark">
-              (02) For Candidates · FULL-TIME JOB MARKETING — HOW IT WORKS
+              (03) Technology Consulting · JOB MARKETING FOR PROFESSIONALS — HOW IT WORKS
             </p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               From sign-up to placement. One managed pipeline.
-            </h1>
+            </h2>
             <ResultsCounter onDark />
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/70">
               All tech domains, all experience levels — AI/ML, Data, Cybersecurity, Cloud and
@@ -189,9 +172,7 @@ export default function ForEmployeesPage() {
             {pipelineSteps.map((step, idx) => (
               <Reveal key={step.num} delay={idx * 70}>
                 <article className="premium-card flex h-full gap-5 p-8">
-                  <span className="step-badge">
-                    {step.num}
-                  </span>
+                  <span className="step-badge">{step.num}</span>
                   <div>
                     <h3 className="text-lg font-bold text-heading">{step.title}</h3>
                     <p className="mt-2 text-base leading-7 text-foreground">{step.desc}</p>
@@ -203,9 +184,7 @@ export default function ForEmployeesPage() {
             {/* Step 5 — light red-tinted panel */}
             <Reveal delay={280}>
               <article className="flex h-full gap-5 rounded-2xl border border-brand/15 bg-surface p-8">
-                <span className="step-badge">
-                  5
-                </span>
+                <span className="step-badge">5</span>
                 <div className="min-w-0">
                   <h3 className="text-lg font-bold text-heading">Daily Role Sourcing</h3>
                   <ul className="mt-4 space-y-3">
@@ -227,13 +206,9 @@ export default function ForEmployeesPage() {
             {/* Step 6 — dark slate panel */}
             <Reveal delay={350}>
               <article className="flex h-full gap-5 rounded-2xl bg-dark p-8 text-white">
-                <span className="step-badge">
-                  6
-                </span>
+                <span className="step-badge">6</span>
                 <div className="min-w-0">
-                  <p className="eyebrow-on-dark">
-                    HUMAN IN THE LOOP — NOT AUTOMATION
-                  </p>
+                  <p className="eyebrow-on-dark">HUMAN IN THE LOOP — NOT AUTOMATION</p>
                   <h3 className="mt-2 text-lg font-bold text-white">Your Recruiter Applies</h3>
                   <p className="mt-4 text-4xl font-bold text-brand sm:text-5xl">25–35</p>
                   <p className="mt-1 text-sm font-semibold text-white/80">
@@ -251,9 +226,7 @@ export default function ForEmployeesPage() {
           {/* Slim outcome strip */}
           <Reveal delay={420}>
             <div className="mt-8 rounded-2xl border border-border bg-surface px-8 py-6 text-center">
-              <p className="text-lg font-bold text-heading">
-                Interviews → Offers → Placement
-              </p>
+              <p className="text-lg font-bold text-heading">Interviews → Offers → Placement</p>
               <p className="mt-2 text-sm text-muted">
                 Dedicated recruiter per candidate · Tailored resume per application · Full-time
                 roles only · All tech domains
@@ -319,10 +292,7 @@ export default function ForEmployeesPage() {
                 <ul className="mt-5 space-y-3">
                   {weDo.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span
-                        className="mt-1.5 h-2 w-2 shrink-0 bg-brand"
-                        aria-hidden="true"
-                      />
+                      <span className="mt-1.5 h-2 w-2 shrink-0 bg-brand" aria-hidden="true" />
                       <span className="text-base leading-7 text-foreground">{item}</span>
                     </li>
                   ))}
@@ -336,10 +306,7 @@ export default function ForEmployeesPage() {
                 <ul className="mt-5 space-y-3">
                   {youDo.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span
-                        className="mt-1.5 h-2 w-2 shrink-0 bg-brand"
-                        aria-hidden="true"
-                      />
+                      <span className="mt-1.5 h-2 w-2 shrink-0 bg-brand" aria-hidden="true" />
                       <span className="text-base leading-7 text-foreground">{item}</span>
                     </li>
                   ))}
@@ -373,15 +340,10 @@ export default function ForEmployeesPage() {
       <section className="section-pad">
         <div className="container-shell">
           <Reveal>
-            <p className="eyebrow">
-              WHO THIS IS FOR
-            </p>
+            <p className="eyebrow">WHO THIS IS FOR</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {audience.map((item) => (
-                <span
-                  key={item}
-                  className="pill-tint"
-                >
+                <span key={item} className="pill-tint">
                   {item}
                 </span>
               ))}
@@ -390,16 +352,29 @@ export default function ForEmployeesPage() {
         </div>
       </section>
 
-      {/* ══════════════════════ 7 · LIVE RESULTS FEED ══════════════════════
-          Replaces the old "Full transparency, every week." band. Renders
-          nothing until there is a published + consented customer result, so
-          the page simply loses this section until the first one goes live.
-          `reportImage` is omitted until we have a real redacted weekly report
-          with the Status column filled in. */}
-      <ResultsFeed />
+      {/* ══════════════════════ 7 · LIVE RESULTS + TESTIMONIALS ══════════════════════
+          Directly above the pricing block. Everything in here renders nothing
+          until there is a published + consented customer result, so the
+          section simply disappears until the first one goes live.
+          `reportImage` is omitted until we have a real redacted weekly report. */}
+      {hasResults ? (
+        <section className="section-alt pt-16">
+          <div className="container-shell">
+            <Reveal>
+              <SectionTitle
+                eyebrow="PROOF"
+                title="What our customers' inboxes look like"
+              />
+              <ResultsCounter />
+            </Reveal>
+          </div>
+          <ResultsFeed />
+          <Testimonials />
+        </section>
+      ) : null}
 
       {/* ══════════════════════ 8 · PRICING ══════════════════════ */}
-      <section className="section-pad">
+      <section id="pricing" className="section-pad scroll-mt-24">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-3xl">
             <div className="rounded-2xl border-2 border-red-600 bg-white p-8 text-center lg:p-10">
@@ -438,7 +413,7 @@ export default function ForEmployeesPage() {
         </div>
       </section>
 
-      {/* ══════════════════════ 10 · FINAL CTA ══════════════════════ */}
+      {/* ══════════════════════ 10 · REGISTER CTA ══════════════════════ */}
       <section id="register-cta" className="hero-mesh py-16 text-white md:py-24">
         <div className="container-shell">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -452,7 +427,7 @@ export default function ForEmployeesPage() {
             <p className="mt-8 text-sm text-white/70">
               Connect@globixs.com · +1 (206) 552-8424 · Book directly:{" "}
               <a
-                href="https://tinyurl.com/2sfxn9w3"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold underline hover:text-white"
@@ -465,7 +440,7 @@ export default function ForEmployeesPage() {
       </section>
 
       {/* ══════════════════════ 11 · LEGAL ══════════════════════ */}
-      <section className="pb-12">
+      <section className="pb-12 pt-10">
         <div className="container-shell">
           <p className="mx-auto max-w-4xl text-xs leading-6 text-muted">
             Globixs Technology Solutions provides job application and marketing services. We do not

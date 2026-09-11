@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 
 const actions = [
-  { label: "Hire talent", href: "/contact", primary: true },
-  { label: "Start your job search", href: "/for-employees", primary: false },
-  { label: "Book an AI services consult", href: "/contact", primary: false },
+  { label: "Explore AI Services", href: "/ai-services", primary: true },
+  { label: "Start your job search", href: "/technology-consulting#job-marketing", primary: false },
+  { label: "Contact us", href: "/contact", primary: false },
 ];
 
 export function ClosingCta() {

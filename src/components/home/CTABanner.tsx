@@ -13,7 +13,7 @@ export function CTABanner() {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
             Missed calls, manual admin, tools that don&apos;t talk to each other, a website nobody
             finds. A 30-minute call and we&apos;ll tell you honestly whether we can fix it and what
-            it would take. No pitch deck, no commitment.
+            it would take.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -24,8 +24,8 @@ export function CTABanner() {
             >
               Book a consultation
             </a>
-            <Link href="/services" className="btn-on-dark">
-              See our services
+            <Link href="/contact" className="btn-on-dark">
+              Contact us
             </Link>
           </div>
         </Reveal>

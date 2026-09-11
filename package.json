@@ -17,6 +17,7 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "db:test": "tsx scripts/test-db-connection.ts",
+    "testimonial": "tsx scripts/publish-testimonial.ts",
     "og:generate": "tsx scripts/generate-og-image.ts",
     "favicons:generate": "tsx scripts/generate-favicons.ts"
   },

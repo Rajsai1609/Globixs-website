@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Hero }                  from "@/components/home/Hero";
-import { ServiceCards }           from "@/components/home/ServiceCards";
-import { IndustryGrid }           from "@/components/home/IndustryGrid";
-import { WelcomeSection }         from "@/components/home/WelcomeSection";
-import { Flywheel }               from "@/components/home/Flywheel";
-import { ValuesSection }          from "@/components/home/ValuesSection";
-import { CTABanner }              from "@/components/home/CTABanner";
+import { Hero }         from "@/components/home/Hero";
+import { PillarCards }  from "@/components/home/PillarCards";
+import { ServiceCards } from "@/components/home/ServiceCards";
+import { ResultsLine }  from "@/components/home/ResultsLine";
+import { CTABanner }    from "@/components/home/CTABanner";
 
 const TITLE =
-  "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting";
+  "Globixs Technology Solutions | AI Automation · Digital Marketing · Technology Consulting";
 const DESCRIPTION =
-  "AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers. Seattle-based.";
+  "Globixs Technology Solutions — AI automation, digital marketing and technology consulting. Seattle-based, working nationwide.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -26,7 +24,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Globixs Technology Solutions — AI Automation, Digital Marketing & Technology Consulting",
+        alt: "Globixs Technology Solutions — AI Automation, Digital Marketing, Technology Consulting",
       },
     ],
   },
@@ -38,16 +36,18 @@ export const metadata: Metadata = {
   },
 };
 
+// <ResultsLine /> reads the live results count; without a revalidate the
+// homepage would be baked at build time and never pick up a newly published
+// result. 300s matches /results and /technology-consulting.
+export const revalidate = 300;
+
 export default function Home() {
   return (
     <div>
       <Hero />
+      <PillarCards />
       <ServiceCards />
-      <IndustryGrid />
-      {/* Keep existing trust / values / CTA sections */}
-      <WelcomeSection />
-      <Flywheel />
-      <ValuesSection />
+      <ResultsLine />
       <CTABanner />
     </div>
   );

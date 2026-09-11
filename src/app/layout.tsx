@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://globixstech.com"),
   title: {
     default:
-      "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting",
+      "Globixs Technology Solutions | AI Automation · Digital Marketing · Technology Consulting",
     template: "%s | Globixs Technology Solutions",
   },
   description:
-    "Seattle-based technology partner for growing businesses. AI and business process automation, voice AI and customer engagement, POS integration, business intelligence, systems integration, custom AI, digital marketing, and technology consulting — plus IT staffing for companies and job marketing for candidates.",
+    "Globixs Technology Solutions — AI automation, digital marketing and technology consulting. Seattle-based, working nationwide.",
   keywords: [
     "AI automation services",
     "AI receptionist",
@@ -42,24 +42,24 @@ export const metadata: Metadata = {
     url: "https://globixstech.com",
     siteName: "Globixs Technology Solutions",
     title:
-      "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting",
+      "Globixs Technology Solutions | AI Automation · Digital Marketing · Technology Consulting",
     description:
-      "AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers.",
+      "Globixs Technology Solutions — AI automation, digital marketing and technology consulting. Seattle-based, working nationwide.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Globixs Technology Solutions — AI Automation, Digital Marketing & Technology Consulting",
+        alt: "Globixs Technology Solutions — AI Automation, Digital Marketing, Technology Consulting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Globixs Technology Solutions | AI Automation, Digital Marketing & Technology Consulting",
+      "Globixs Technology Solutions | AI Automation · Digital Marketing · Technology Consulting",
     description:
-      "AI automation, digital marketing and technology consulting for growing businesses. We build and run the systems that answer your calls, automate the busywork, connect your tools, and bring in customers.",
+      "Globixs Technology Solutions — AI automation, digital marketing and technology consulting. Seattle-based, working nationwide.",
     images: ["/og-image.png"],
   },
   icons: {

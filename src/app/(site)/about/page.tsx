@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   // template doesn't append a second brand suffix.
   title: { absolute: "About | Globixs Technology Solutions" },
   description:
-    "Seattle-based technology services company: IT staffing for companies, managed job marketing for candidates, and AI growth systems for small and mid-size companies.",
+    "Globixs Technology Solutions — AI automation, digital marketing and technology consulting. Seattle-based, working nationwide.",
 };
 
 export default function AboutPage() {
