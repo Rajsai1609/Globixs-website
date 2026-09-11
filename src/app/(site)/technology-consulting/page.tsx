@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
+import { ConsultantCards } from "@/components/hero-illustrations/ConsultantCards";
 import { SystemsCloud } from "@/components/technology-consulting/SystemsCloud";
 import { TalentSolutions } from "@/components/technology-consulting/TalentSolutions";
 import { JobMarketing } from "@/components/technology-consulting/JobMarketing";
@@ -58,6 +59,7 @@ export default function TechnologyConsultingPage() {
         subhead="Contract, contract-to-hire and direct-hire consultants across cloud, data/AI and enterprise applications, plus job marketing for professionals."
         primaryCta={{ label: "Request consultants", href: "/contact" }}
         secondaryCta={{ label: "Job marketing for professionals", href: "#job-marketing" }}
+        aside={<ConsultantCards />}
       />
       <SystemsCloud />
       <TalentSolutions />
