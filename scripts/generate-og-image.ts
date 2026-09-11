@@ -3,42 +3,38 @@
  *
  *   npm run og:generate
  *
- * Dark slate background matching the site's hero band (--hero / --hero-2 in
- * globals.css), the brand red accent, the three pillars, and the logo SVG
- * with its gray wordmark recolored to white for contrast on slate.
+ * Dark slate background (site --hero / --hero-2 tokens) with the faint pixel
+ * grid, the Globixs mark (from scripts/lib/mark.ts), the company name, and
+ * the three pillars. The mark is the same source used for all favicons, so
+ * link previews and browser tabs show the same logo.
  */
 import sharp from "sharp";
 import fs from "node:fs";
 import path from "node:path";
+import { renderMark, markSourceLabel } from "./lib/mark";
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 const PAD = 72;
 
 // Site tokens (globals.css)
-const SLATE = "#2e3438";      // --hero
-const SLATE_2 = "#383e42";    // --hero-2
-const RED = "#c8262c";        // --brand
+const SLATE = "#2e3438"; // --hero
+const SLATE_2 = "#383e42"; // --hero-2
+const RED = "#c8262c"; // --brand
+const EYEBROW = "#f2a5a8";
+const MUTED = "#a7b0b7";
 
-const LOGO_GRAY = "#6E6F72";  // wordmark fill in globixs-logo.svg
-const LOGO_WHITE = "#FFFFFF";
-
-const logoPath = path.resolve("public/globixs-logo.svg");
+const MARK_SIZE = 112;
 const outPath = path.resolve("public/og-image.png");
 
 const PILLARS = ["AI Automation", "Digital Marketing", "Technology Consulting"] as const;
 
-function pillarRow(): string {
-  // Three pills across the width, each with a red square bullet.
-  const y = 372;
-  const gap = 24;
+function pillarRow(y: number): string {
+  const gap = 20;
   const widths = [236, 262, 330];
-  const totalW = widths.reduce((a, b) => a + b, 0) + gap * (widths.length - 1);
-  const startX = PAD;
-  const scale = Math.min(1, (WIDTH - PAD * 2) / totalW);
-  let x = startX;
+  let x = PAD;
   return PILLARS.map((label, i) => {
-    const w = Math.round(widths[i] * scale);
+    const w = widths[i];
     const pill = `
       <rect x="${x}" y="${y}" width="${w}" height="56" rx="28" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.18"/>
       <rect x="${x + 22}" y="${y + 23}" width="10" height="10" fill="${RED}"/>
@@ -59,8 +55,8 @@ const svg = `
       <stop offset="0%" stop-color="${RED}" stop-opacity="0.32"/>
       <stop offset="100%" stop-color="${RED}" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-      <rect width="2" height="2" fill="white" fill-opacity="0.07"/>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="white" stroke-opacity="0.045" stroke-width="1"/>
     </pattern>
   </defs>
 
@@ -68,50 +64,31 @@ const svg = `
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#wash)"/>
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#grid)"/>
 
-  <!-- Eyebrow -->
-  <text x="${PAD}" y="${PAD + 72}" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="white" fill-opacity="0.6" letter-spacing="4">SEATTLE-BASED · WORKING NATIONWIDE</text>
+  <!-- Company name sits to the right of the mark (composited at PAD, PAD) -->
+  <text x="${PAD + MARK_SIZE + 28}" y="${PAD + 48}" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" fill="white">Globixs Technology Solutions</text>
+  <text x="${PAD + MARK_SIZE + 28}" y="${PAD + 86}" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="${EYEBROW}" letter-spacing="3">SEATTLE-BASED · WORKING NATIONWIDE</text>
 
   <!-- Headline -->
-  <text x="${PAD}" y="${PAD + 160}" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" fill="white">Run leaner with AI,</text>
-  <text x="${PAD}" y="${PAD + 240}" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" fill="white">marketing and consulting.</text>
+  <text x="${PAD}" y="${PAD + 250}" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="800" fill="white">Run leaner with AI,</text>
+  <text x="${PAD}" y="${PAD + 322}" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="800" fill="white">marketing and consulting.</text>
 
-  <!-- Accent divider -->
-  <rect x="${PAD}" y="${PAD + 272}" width="96" height="5" fill="${RED}"/>
-
-  ${pillarRow()}
+  ${pillarRow(PAD + 372)}
 
   <!-- Domain -->
-  <text x="${PAD}" y="${HEIGHT - PAD + 6}" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="white" fill-opacity="0.5" letter-spacing="1">www.globixs.com</text>
+  <text x="${PAD}" y="${HEIGHT - PAD + 18}" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="${MUTED}" letter-spacing="1">www.globixs.com</text>
 </svg>
 `.trim();
 
-async function renderLogo(): Promise<{ buffer: Buffer; width: number; height: number }> {
-  const raw = fs.readFileSync(logoPath, "utf8");
-  if (!raw.includes(LOGO_GRAY)) {
-    throw new Error(`Expected wordmark fill ${LOGO_GRAY} in ${logoPath}; the logo file changed.`);
-  }
-  const recolored = raw.split(LOGO_GRAY).join(LOGO_WHITE);
-  const buffer = await sharp(Buffer.from(recolored)).resize({ width: 300 }).png().toBuffer();
-  const meta = await sharp(buffer).metadata();
-  if (!meta.width || !meta.height) throw new Error("Could not read rendered logo dimensions.");
-  return { buffer, width: meta.width, height: meta.height };
-}
-
 async function generate(): Promise<void> {
-  const logo = await renderLogo();
+  console.log(`Generating OG image from ${markSourceLabel()}`);
+  const mark = await renderMark(MARK_SIZE);
   await sharp(Buffer.from(svg))
     .png()
-    .composite([
-      {
-        input: logo.buffer,
-        left: WIDTH - PAD - logo.width,
-        top: HEIGHT - PAD - logo.height + 12,
-      },
-    ])
+    .composite([{ input: mark, left: PAD, top: PAD }])
     .toFile(outPath);
 
   const { size } = fs.statSync(outPath);
-  console.log(`Generated ${outPath} (${(size / 1024).toFixed(1)} KB), logo ${logo.width}×${logo.height}`);
+  console.log(`Generated ${path.relative(process.cwd(), outPath)} (${(size / 1024).toFixed(1)} KB)`);
 }
 
 generate().catch((err: unknown) => {
