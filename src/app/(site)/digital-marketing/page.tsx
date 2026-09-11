@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { PageHero } from "@/components/sections/page-hero";
+import { MarketingPanel } from "@/components/hero-illustrations/MarketingPanel";
 import { ServiceSection } from "@/components/sections/service-section";
 import { BOOKING_URL } from "@/lib/booking";
 import { MARKETING_SERVICES } from "@/lib/services-catalog";
@@ -55,6 +56,7 @@ export default function DigitalMarketingPage() {
         subhead="Local SEO, paid ads, social and LinkedIn management, and landing pages built to convert."
         primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
         secondaryCta={{ label: "See what we run", href: "#services" }}
+        aside={<MarketingPanel />}
       />
 
       <div id="services" className="scroll-mt-28">

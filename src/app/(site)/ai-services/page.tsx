@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/animations/reveal";
 import { PageHero } from "@/components/sections/page-hero";
+import { VoiceCallCard } from "@/components/hero-illustrations/VoiceCallCard";
 import { ServiceSection } from "@/components/sections/service-section";
 import { BOOKING_URL } from "@/lib/booking";
 import { AI_PILLAR_LABEL } from "@/lib/site-config";
@@ -57,6 +58,7 @@ export default function AIServicesPage() {
         subhead="Six AI systems built on the tools you already run, delivered and operated by our team."
         primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
         secondaryCta={{ label: "See the six services", href: "#services" }}
+        aside={<VoiceCallCard />}
       />
 
       <div id="services" className="scroll-mt-28">
