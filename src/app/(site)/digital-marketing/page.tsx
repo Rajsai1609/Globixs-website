@@ -51,24 +51,26 @@ export default function DigitalMarketingPage() {
     <div>
       <PageHero
         eyebrow="Digital Marketing"
-        title="Marketing measured in leads, not impressions."
-        description="Five services that get you found, bring in qualified enquiries and follow up on every one of them. Tracking is set up before any budget is spent, so every report ties back to calls, forms and bookings."
-        secondary={{ href: "#search-local-seo", label: "See the services" }}
-        jumpLinks={MARKETING_SERVICES.map((s) => ({ href: `#${s.id}`, label: s.title }))}
+        lines={["Get found.", "Get chosen.", "Get customers."]}
+        subhead="Local SEO, paid ads, social and LinkedIn management, and landing pages built to convert."
+        primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
+        secondaryCta={{ label: "See what we run", href: "#services" }}
       />
 
-      {MARKETING_SERVICES.map((service, idx) => (
-        <ServiceSection
-          key={service.id}
-          id={service.id}
-          eyebrow={`(${String(idx + 1).padStart(2, "0")}) Digital Marketing`}
-          title={service.title}
-          Icon={service.Icon}
-          description={service.description}
-          outcomes={service.outcomes}
-          alt={idx % 2 === 1}
-        />
-      ))}
+      <div id="services" className="scroll-mt-28">
+        {MARKETING_SERVICES.map((service, idx) => (
+          <ServiceSection
+            key={service.id}
+            id={service.id}
+            eyebrow={`(${String(idx + 1).padStart(2, "0")}) Digital Marketing`}
+            title={service.title}
+            Icon={service.Icon}
+            description={service.description}
+            outcomes={service.outcomes}
+            alt={idx % 2 === 1}
+          />
+        ))}
+      </div>
 
       <section className="hero-mesh py-16 text-white md:py-24">
         <div className="container-shell">

@@ -52,24 +52,26 @@ export default function AIServicesPage() {
     <div>
       <PageHero
         eyebrow="AI Services"
-        title="AI automation for businesses that want to run leaner."
-        description="Six services that answer your calls, automate the busywork, connect your tools and put your numbers in front of you. Built on the systems you already use, launched in weeks, and run by our team afterwards."
-        secondary={{ href: "#ai-business-process-automation", label: "See the services" }}
-        jumpLinks={AI_SERVICES.map((s) => ({ href: `#${s.id}`, label: s.title }))}
+        lines={["Answer every call.", "Automate the admin.", "See the numbers."]}
+        subhead="Six AI systems built on the tools you already run, delivered and operated by our team."
+        primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
+        secondaryCta={{ label: "See the six services", href: "#services" }}
       />
 
-      {AI_SERVICES.map((service, idx) => (
-        <ServiceSection
-          key={service.id}
-          id={service.id}
-          eyebrow={`(${String(idx + 1).padStart(2, "0")}) AI Services`}
-          title={service.title}
-          Icon={service.Icon}
-          description={service.description}
-          outcomes={service.outcomes}
-          alt={idx % 2 === 1}
-        />
-      ))}
+      <div id="services" className="scroll-mt-28">
+        {AI_SERVICES.map((service, idx) => (
+          <ServiceSection
+            key={service.id}
+            id={service.id}
+            eyebrow={`(${String(idx + 1).padStart(2, "0")}) AI Services`}
+            title={service.title}
+            Icon={service.Icon}
+            description={service.description}
+            outcomes={service.outcomes}
+            alt={idx % 2 === 1}
+          />
+        ))}
+      </div>
 
       <section className="hero-mesh py-16 text-white md:py-24">
         <div className="container-shell">

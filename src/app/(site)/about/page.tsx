@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Hero }        from "@/components/about/Hero";
+import { PageHero }    from "@/components/sections/page-hero";
+import { BOOKING_URL } from "@/lib/booking";
 import { WhatWeDo }    from "@/components/about/WhatWeDo";
 import { Principles }  from "@/components/about/Principles";
 import { WhoWeServe }  from "@/components/about/WhoWeServe";
@@ -17,7 +18,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div>
-      <Hero />
+      <PageHero
+        eyebrow="About Globixs"
+        lines={["Built in Seattle.", "Working nationwide."]}
+        subhead="An engineering-led team helping businesses run leaner with AI, marketing that converts, and consultants who ship."
+        primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
+      />
       <WhatWeDo />
       <Principles />
       <WhoWeServe />
